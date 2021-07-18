@@ -4,17 +4,21 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%% file path for figures - add extra chapters as necessary %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{./Chapters/Chapter_1/Chapter_1_Fig/}     
-              {./Chapters/Chapter_2/Chapter_2_Fig/}
-              {./Chapters/Chapter_3/Chapter_3_Fig/}
+\graphicspath{{./Chapters/Chapter_1_Introduction/Figures}     
+              {./Chapters/Chapter_2_Background/Figures}
+              {./Chapters/Chapter_3_Numerical_Simulations/Figures}
+              {./Chapters/Chapter_4_Paramter_Space_Paper/Figures}
+              {./Chapters/Chapter_5_Real_Systems_Paper/Figures}
+              {./Chapters/Chapter_6_Final_Notes/Figures}
               {./ThesisFigs/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%% Constants - fill these in for use throughout the thesis %%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\theAuthor}{Your Full name}
-\newcommand{\authorEmail}{physpqr@leeds.ac.uk}
-\newcommand{\myTitle}{My Thesis Title}
+\newcommand{\theAuthor}{Joseph Eatson}
+\newcommand{\authorEmail}{py13je@leeds.ac.uk}
+\newcommand{\myTitle}{Numerical Simulations of Dusty Colliding Wind Binaries}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pdfinfo { /Title  (\myTitle)
            /Creator (TeX)
@@ -22,7 +26,7 @@
            /Author (\theAuthor \authorEmail)
            /ModDate (D:\pdfdate)
            /CreationDate (D:\pdfdate)  %format D:YYYYMMDDhhmmss
-           /Subject (Condensed Matter Physics)
+           /Subject (Astrophysics)
            /Keywords (PhD, Thesis)}    
 		\pdfcatalog { /PageMode (/UseOutlines)
                   /OpenAction (fitbh)  }
@@ -61,7 +65,24 @@
 %\usepackage{times} % The "Times" font
 %\usepackage{Utopia} % The "Utopia" font
 
+\usepackage{siunitx}
+
 \linespread{1.3} %1.5 line spacing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Uncommon units %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareSIUnit[]\solarmass
+{\text{\ensuremath{\textup{M}_{\odot}}}}
+\DeclareSIUnit[]\solarluminosity
+{\text{\ensuremath{\textup{L}_{\odot}}}}
+\DeclareSIUnit[]\year
+{\text{yr}}
+\DeclareSIUnit[]\au
+{\text{AU}}
+\DeclareSIUnit[]\erg
+{\text{erg}}
+
 
 \begin{document}
 %\baselineskip=18pt plus1pt
@@ -75,8 +96,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%% Include sections are required, or comment out to skip over %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\include{Dedication/dedication}
-\include{IPStatement/ipstatement}
+\include{Dedication/dedication}
+% \include{IPStatement/ipstatement}
 \include{Acknowledgement/acknowledgement}
 \include{Abstract/abstract}
 \newpage
@@ -87,25 +108,25 @@
 \listoftables
 \newpage
 \include{Abbreviations/Abbreviations}
-%\include{Common_Symbols/Common_Symbols}
+\include{Common_Symbols/Common_Symbols}
 
 \mainmatter
 
 \pagenumbering{arabic}
-\include{Chapters/Chapter_1/Chapter_1_File} %% file path for chapter tex files 
-%\include{Chapters/Chapter_2/Chapter_2_File}
-%\include{Chapters/Chapter_3/Chapter_3_File}
-%\include{Chapters/Chapter_4/Chapter_4_File}
-%\include{Chapters/Chapter_5/Chapter_5_File}
-%\include{Chapters/Chapter_6/Chapter_6_File}
+\include{Chapters/Chapter_1_Introduction/Introduction.tex} %% file path for chapter tex files 
+\include{Chapters/Chapter_2_Background/Background.tex}
+\include{Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex}
+\include{Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex}
+\include{Chapters/Chapter_5_Real_Systems_Paper/Real_Systems_Paper.tex}
+\include{Chapters/Chapter_6_Final_Notes/Final_Notes.tex}
 
 
 %\appendix
-\include{Appendix1/Appendix1}
+\include{Appendix/Appendix_1_Astrophysical_Shocks/Astrophysical_Shocks.tex}
 %\include{Appendix2/Appendix2}
 %. More appendicies here.
 \addcontentsline{toc}{chapter}{References} % Adds References to contents page
-\bibliographystyle{thesis} % bibliography style
+\bibliographystyle{apalike} % bibliography style
 \renewcommand{\bibname}{References} 
 \bibliography{References/library} % References file
 \end{document}
