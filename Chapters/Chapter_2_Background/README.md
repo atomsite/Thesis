@@ -1,4 +1,3 @@
-Chapter 2 Text
-==============
+# Chapter 2: Background
 
-This folder contains all the files for chapter 2
+This section discusses astrophysical background of the project, particularly early-type stars, stellar winds and interstellar dust. Before tying it all together to discuss Colliding Wind Binary systems.

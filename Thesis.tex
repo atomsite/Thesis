@@ -7,7 +7,7 @@
 \graphicspath{{./Chapters/Chapter_1_Introduction/Figures}     
               {./Chapters/Chapter_2_Background/Figures}
               {./Chapters/Chapter_3_Numerical_Simulations/Figures}
-              {./Chapters/Chapter_4_Paramter_Space_Paper/Figures}
+              {./Chapters/Chapter_4_Parameter_Space_Paper/Figures}
               {./Chapters/Chapter_5_Real_Systems_Paper/Figures}
               {./Chapters/Chapter_6_Final_Notes/Figures}
               {./ThesisFigs/}}
@@ -58,14 +58,24 @@
 %\usepackage{xspace}  %add a space after maths if not already there
 %\usepackage{booktabs} %better tables
 %\usepackage{rotating}  %rotating figures and tables
-% \usepackage{array} %enhanced tables
+%\usepackage{array} %enhanced tables
 %\usepackage{ctable} %include a figure command
 %\usepackage{footnote}
 %\usepackage{multirow} %for merging cells on tables
 %\usepackage{times} % The "Times" font
 %\usepackage{Utopia} % The "Utopia" font
 
-\usepackage{siunitx}
+\usepackage{siunitx} % Better units, especially SI
+\usepackage{mathtools}
+\usepackage[
+  style=numeric,
+  % citestyle=numeric,
+  backend=biber,
+  bibencoding=utf8,
+  url=false
+]{biblatex}
+
+\addbibresource{References/library-biblatex.bib}
 
 \linespread{1.3} %1.5 line spacing
 
@@ -78,8 +88,12 @@
 {\text{\ensuremath{\textup{L}_{\odot}}}}
 \DeclareSIUnit[]\year
 {\text{yr}}
+\DeclareSIUnit[]\megayear
+{\text{Myr}}
 \DeclareSIUnit[]\au
 {\text{AU}}
+\DeclareSIUnit[]\pc
+{\text{pc}}
 \DeclareSIUnit[]\erg
 {\text{erg}}
 
@@ -111,22 +125,30 @@
 \include{Common_Symbols/Common_Symbols}
 
 \mainmatter
-
 \pagenumbering{arabic}
-\include{Chapters/Chapter_1_Introduction/Introduction.tex} %% file path for chapter tex files 
+
+% Each chapter has its own individual folder, containing a tex file and figures folder
+\include{Chapters/Chapter_1_Introduction/Introduction.tex}
 \include{Chapters/Chapter_2_Background/Background.tex}
 \include{Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex}
 \include{Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex}
 \include{Chapters/Chapter_5_Real_Systems_Paper/Real_Systems_Paper.tex}
 \include{Chapters/Chapter_6_Final_Notes/Final_Notes.tex}
 
-
 %\appendix
+\appendix
+% Each appendix section has its own individual folder, containing a tex file and figures folder
 \include{Appendix/Appendix_1_Astrophysical_Shocks/Astrophysical_Shocks.tex}
-%\include{Appendix2/Appendix2}
-%. More appendicies here.
+
+% References separate from main matter or appendix
 \addcontentsline{toc}{chapter}{References} % Adds References to contents page
-\bibliographystyle{apalike} % bibliography style
-\renewcommand{\bibname}{References} 
-\bibliography{References/library} % References file
+% \bibliographystyle{apalike} % bibliography style
+% \renewcommand{\bibname}{References} 
+% \bibliography{References/library} % References file
+  
+\printbibheading
+\printbibliography[type=book,heading=subbibliography,title={Book Sources}]
+\printbibliography[type=article,heading=subbibliography,title={Journal Sources}]
+\printbibliography[nottype=book,nottype=article,heading=subbibliography,title={Other Sources}]
+
 \end{document}

@@ -66,7 +66,7 @@
 \usepackage{color}
 \usepackage{upgreek} %upright greek letters
 \usepackage{physics}
-\usepackage[square,comma,sort&compress]{natbib}
+% \usepackage[square,comma,sort&compress]{natbib}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{url}
 \renewcommand{\UrlFont}{\small\tt}

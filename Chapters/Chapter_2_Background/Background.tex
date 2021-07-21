@@ -1,1 +1,188 @@
 \chapter{Background}
+
+\section{Early-Type Stars}
+\label{sec:earlytype}
+
+The term Early-type stars is quite possibly the epitome of Astrophysical naming conventions, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
+The first generation of astrophysicists found themselves asking very important questions such as ``what even \textit{are} stars'' and ``what possible mechanism can allow a star to burn for so long?'' Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
+
+Of course, like all pressing questions of the 19\textsuperscript{th} century, it fell to Lord Kelvin to provide a convincing but incorrect answer. Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest. Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass! However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
+
+
+%//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
+
+Instead, we now know that stars produce their energy through fusion, from the substellar deuterium and lithium burning, to the low-mass pp-chain \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and more exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, leading to more difficult, but far more energetic fusion processes. This drastically increased energy output comes at the cost of a far shorter lifespan, as the rate of fuel consumption increases exponentially, while the available fuel has only increased a small amount \cite{carrollIntroductionModernAstrophysics2014}.
+
+\subsection{OB-type stars}
+\label{sec:obtype}
+
+And with that we shift our gaze to high-mass stars, with the most massive of all being the O and B type stars, these are extremely luminous ($10^4 - 10^6 \, \si{\solarluminosity}$), and relatively short lived ($<10^7 \, \si{\mega\year}$) stars. The age-old adage of a candle burning twice as bright lasting half as long applies to our studies of the cosmos, but it is more apt to compare a candle and a stick of dynamite when considering stars on each end of the Harvard classification system.
+
+% Formation of OB stars, note binary systems!
+
+The formation of massive stars is a significantly less understood phenomena than their low-mass counterparts. In the low-mass case, a giant cloud collapses, radiating energy, which lowers the radius of thermostatic equilibrium for the cloud, this collapse time is referred to as the Kelvin-Helmholtz timescale, $\tau_{KH}$. Another important timescale is the free-fall timescale, $\tau_{ff}$, which is the time taken for a cloud to collapse. 
+
+%//FIXME above para needs work!
+
+\begin{subequations}
+  \begin{align}
+      \tau_{KH} & \approx \frac{GM_*^2}{R_*L_*} \label{eq:khtime} ,\\
+      \tau_{ff} & = \sqrt{\frac{3\pi}{32G\bar{\rho}}} \label{eq:fftime} ,
+  \end{align}
+  \label{eq:khfreefalltimes}
+\end{subequations}
+
+where $M_*$ is the protostellar mass, $R_*$ is the protostellar radius, $L_*$ is the protostellar luminosity, and $\rho$ is the mean density of the collapsing cloud.
+
+Perhaps the most important distinction between massive star formation and its better understood counterpart is as a young protostar approaches the main sequence, the KH timescale is less than the free-fall timescale, meaning the material at the center of the collapsing cloud begins fusion while the bulk of core has collapsed onto the site of the future star. This burgeoning star begins to drive the weakly gravitationally coupled collapsing material away due to its sheer luminosity, driving this material outwards, causing it to accrete and shock material within the GMC. 
+
+Another important consideration is the role of angular momentum as the star collapses, the particularly massive cloud involved in massive star formation is more prone to fragmentation, meaning that massive stars typically form with an orbital partner, whilst approximately 2/3\textsuperscript{rds} of low-mass stars are part of a binary or multiple system, this value is near-total. As such, the environment within an OB association after star formation consists of numerous young stars in tightly-knit groups disrupting the entire region.\footnote{This is a bit like living in Headingley, Hyde Park, or any other area with lots of Undergraduates.}
+
+%//TODO cite "near total" statistic, it's in one of the more recent papers you've had a look at, maybe a williams one?
+
+Initially, the young massive star begins burning hydrogen, whilst lower mass stars utilise the p-p chain fusion reaction, the extremely high temperatures of a massive stellar core ($>10^7 \, \si{\kelvin}$) ensure that the more energetic CNO cycle is more dominant:
+
+\begin{subequations}
+  \begin{align}
+    \prescript{12}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{13}{7}{N} + \gamma \\ 
+    \prescript{13}{7}{N} & \rightarrow \prescript{13}{6}{C} + e^+ + \nu_e \\
+    \prescript{13}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{14}{7}{N} + \gamma \\
+    \prescript{14}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{15}{8}{O} + \gamma \\
+    \prescript{15}{8}{O} & \rightarrow \prescript{15}{7}{N} + e^+ + \nu_e \\
+    \prescript{15}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{12}{6}{C} + \prescript{4}{2}{He} 
+  \end{align}
+\end{subequations}
+
+%//FIXME sort out italics, use regular fonts
+
+% Touch on CNO cycle
+
+% Properties of O and B type stars, focus on O as these are the most important? Include a table of classifications
+
+% Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
+% Begin to introduce wolf-rayets, leading onto next section
+
+%//TODO need to read more of Ryan and Norton, flesh out this section some more
+% Notes: CNO cycle for main sequence of course, move onto 3A after core hydrogen burnt up
+
+
+\cite{ward-thompsonIntroductionStarFormation2011}
+
+
+% Influence of OB stars on surrounding environment, outsized influence etc.
+
+% Touch on stellar winds, expand in next section
+
+
+\subsection{Wolf-Rayet stars}
+\label{sec:wrtype}
+
+%//FIXME needs work!!!
+As this young massive star evolves along the main sequence, burnable hydrogen becomes increasingly scarce,  but as this star can sustain extremely high internal pressures and temperatures, it switches from hydrogen burning pp chain and CNO cycle to Helium burning with the triple-$\alpha$ process:
+
+
+
+\begin{subequations}
+  \begin{align}
+    \prescript{4}{2}{\text{He}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{8}{4}{\text{Be}} \\
+    \prescript{8}{4}{\text{Be}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{12}{6}{\text{C}} + 2\gamma
+  \end{align}
+\end{subequations}
+
+\cite{ryanStellarEvolutionNucleosynthesis2010a}
+%Notes: Evolution type 
+% Jumping off point, wiki wolf-rayet current models, research papers therein
+% For WC formation O->RSG->WNE->WC 20-45 msol
+% WO requires 45+msol
+% Research progression from WN-WC-WO, seems like WO is its own category, requires very very massive stars, extremely short lived
+
+% History and background of Wolf-Rayet stars
+
+% Evolution from O type to 
+
+%Subcategorising wolf-rayets into WN, WC and WO
+
+%Focus on WC, why they are so important 
+
+
+\section{Stellar Winds}
+\label{sec:winds}
+
+% Section covers wind driving mechanisms, while wind is touched on in the previous section, this covers the mechanisms more thoroughly
+
+\subsection{Stellar winds in low mass stars}
+\label{sec:lowmasswinds}
+
+\subsubsection{Thomson scattering wind driving}
+
+\subsubsection{Dust driven winds}
+
+\subsection{Stellar winds in high mass stars}
+\label{sec:radlinedriving}
+
+\begin{table}[h]
+  \centering
+  % \resizebox{\textwidth}{!}{%
+  \begin{tabular}{llll}
+  \multicolumn{1}{c}{Star} & \multicolumn{1}{c}{$\dot M$} & \multicolumn{1}{c}{$v_\infty$} & \multicolumn{1}{c}{Mechanism} \\
+  \multicolumn{1}{c}{}     & \multicolumn{1}{c}{$\si{\solarmass\per\year}$}         & \multicolumn{1}{c}{$\si{\kilo\metre\per\second}$}           & \multicolumn{1}{c}{}          \\ \hline
+  Sun            & $10^{-14}$        & 400  & Thomson scattering \\
+  Red Giant      & $10^{-7}-10^{-9}$ & 30   & Dust driven        \\
+  Red Supergiant & $10^{-4}-10^{-6}$ & 10   & Dust driven        \\
+  OB Star        & $10^{-7}-10^{-8}$ & 2500 & Line driving       \\
+  Wolf-Rayet     & $10^{-5}$         & 1500 & Line driving       \\ \hline
+  \end{tabular}%
+  % }
+  \caption{Comparison of winds from various types of star}
+  \label{tab:windcomp}
+\end{table}
+
+\subsection{The CAK formalism}
+\label{sec:cak}
+
+\section{Interstellar Dust}
+\label{sec:dust}
+
+\subsection{The importance of interstellar dust}
+\label{sec:dustimportance}
+
+\subsection{Interstellar dust in massive star systems}
+\label{sec:dustmassivestars}
+
+\section{Colliding Wind Binary Systems}
+\label{sec:cwb}
+
+\subsection{The Wind Collision Region}
+\label{sec:wcr}
+
+% What is this region
+
+% Brief notes on astrophysical shocks, link to appendix
+
+%Detailed breakdown of Wind collision region
+
+% Stagnation point
+
+\subsection{Cooling in the WCR}
+\label{sec:wcrcooling}
+
+% Needs to be spun off into a subsection
+
+% Radiative cooling, include graphs, mechanisms
+
+% What constitutes 
+
+% Dust cooling? Might need to move CWB dust formation up
+
+\subsection{Dust formation in CWB systems}
+\label{sec:cwbdust}
+
+%Intro to dust formation in said systems
+
+%Observational data Link to Williams papers in particular, dust formations only around WC
+
+%Theories as to why
+
+\subsection{Important WCd systems}
+\label{sec:knowndustysystems}
+

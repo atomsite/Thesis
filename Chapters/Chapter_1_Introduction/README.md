@@ -1,6 +1,3 @@
-Chapter 1 Text
-==============
+# Chapter 1: Introduction
 
-This folder contains all the files for chapter 1
-
-The folder Capter_1_Fig is where you should put your figure files. We reccomend using pdflatex and converting eps files to pdf automatically.
+This chapter will introduce the project and describe it in broad strokes, discuss the purpose of the project and the general structure of the thesis.
