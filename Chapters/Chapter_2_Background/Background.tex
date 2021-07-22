@@ -11,12 +11,12 @@ Of course, like all pressing questions of the 19\textsuperscript{th} century, it
 
 %//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
 
-Instead, we now know that stars produce their energy through fusion, from the substellar deuterium and lithium burning, to the low-mass pp-chain \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and more exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, leading to more difficult, but far more energetic fusion processes. This drastically increased energy output comes at the cost of a far shorter lifespan, as the rate of fuel consumption increases exponentially, while the available fuel has only increased a small amount \cite{carrollIntroductionModernAstrophysics2014}.
+Instead, we now know that stars produce their energy through fusion, from the substellar deuterium and lithium burning, to the low-mass pp-chain \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and more exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, leading to more difficult, but far more energetic fusion processes. This drastically increased energy output comes at the cost of a far shorter lifespan, as the rate of fuel consumption increases exponentially, while the available fuel has only increased a small amount \parencite{carrollIntroductionModernAstrophysics2014}.
 
 \subsection{OB-type stars}
 \label{sec:obtype}
 
-And with that we shift our gaze to high-mass stars, with the most massive of all being the O and B type stars, these are extremely luminous ($10^4 - 10^6 \, \si{\solarluminosity}$), and relatively short lived ($<10^7 \, \si{\mega\year}$) stars. The age-old adage of a candle burning twice as bright lasting half as long applies to our studies of the cosmos, but it is more apt to compare a candle and a stick of dynamite when considering stars on each end of the Harvard classification system.
+And with that we shift our gaze to high-mass stars, with the most massive of all being the O and B type stars, these are extremely luminous ($\sim 10^4 \,\si{\solarluminosity}$), and relatively short lived ($\sim 10 \, \si{\mega\year}$) stars. The age-old adage of a candle burning twice as bright lasting half as long applies to our studies of the cosmos, but it is more apt to compare a candle and a stick of dynamite when considering stars on opposing ends of the Harvard classification system.
 
 % Formation of OB stars, note binary systems!
 
@@ -36,79 +36,123 @@ where $M_*$ is the protostellar mass, $R_*$ is the protostellar radius, $L_*$ is
 
 Perhaps the most important distinction between massive star formation and its better understood counterpart is as a young protostar approaches the main sequence, the KH timescale is less than the free-fall timescale, meaning the material at the center of the collapsing cloud begins fusion while the bulk of core has collapsed onto the site of the future star. This burgeoning star begins to drive the weakly gravitationally coupled collapsing material away due to its sheer luminosity, driving this material outwards, causing it to accrete and shock material within the GMC. 
 
-Another important consideration is the role of angular momentum as the star collapses, the particularly massive cloud involved in massive star formation is more prone to fragmentation, meaning that massive stars typically form with an orbital partner, whilst approximately 2/3\textsuperscript{rds} of low-mass stars are part of a binary or multiple system, this value is near-total. As such, the environment within an OB association after star formation consists of numerous young stars in tightly-knit groups disrupting the entire region.\footnote{This is a bit like living in Headingley, Hyde Park, or any other area with lots of Undergraduates.}
+Another important consideration is the role of angular momentum as the star collapses.
+The particularly massive cloud involved in massive star formation is more prone to fragmentation, meaning that massive stars typically form with an orbital partner, whilst approximately 2/3\textsuperscript{rds} of low-mass stars are part of a binary or multiple system, this value is near-total.
+As such, the environment within an OB association after star formation consists of numerous young stars in tightly-knit groups disrupting the entire local area.\footnote{This is a bit like living in Headingley, Hyde Park, or any other area with lots of Undergraduates.}
 
 %//TODO cite "near total" statistic, it's in one of the more recent papers you've had a look at, maybe a williams one?
 
-Initially, the young massive star begins burning hydrogen, whilst lower mass stars utilise the p-p chain fusion reaction, the extremely high temperatures of a massive stellar core ($>10^7 \, \si{\kelvin}$) ensure that the more energetic CNO cycle is more dominant:
+Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle, instead of the more direct p-p fusion process. 
 
 \begin{subequations}
-  \begin{align}
+  \begin{align*}
     \prescript{12}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{13}{7}{N} + \gamma \\ 
     \prescript{13}{7}{N} & \rightarrow \prescript{13}{6}{C} + e^+ + \nu_e \\
     \prescript{13}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{14}{7}{N} + \gamma \\
     \prescript{14}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{15}{8}{O} + \gamma \\
     \prescript{15}{8}{O} & \rightarrow \prescript{15}{7}{N} + e^+ + \nu_e \\
     \prescript{15}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{12}{6}{C} + \prescript{4}{2}{He} 
-  \end{align}
+  \end{align*}
 \end{subequations}
-
 %//FIXME sort out italics, use regular fonts
 
-% Touch on CNO cycle
+This mechanism is much more energetic than p-p fusion, with a far higher reaction rate that increases sharply as core temperature increases, resulting in a convective core, surrounded by a radiative envelope \parencite{salarisEvolutionStarsStellar2005}. This is the driving force behind the incredible luminosities of an OB star as it hurtles along the main sequence.
 
-% Properties of O and B type stars, focus on O as these are the most important? Include a table of classifications
-
-% Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
-% Begin to introduce wolf-rayets, leading onto next section
-
-%//TODO need to read more of Ryan and Norton, flesh out this section some more
-% Notes: CNO cycle for main sequence of course, move onto 3A after core hydrogen burnt up
-
-
-\cite{ward-thompsonIntroductionStarFormation2011}
-
+%//TODO might be a good idea to include that one graph with fusion rates?
 
 % Influence of OB stars on surrounding environment, outsized influence etc.
 
 % Touch on stellar winds, expand in next section
 
+% Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
+
+Unfortunately for massive stars, pesky fundamental laws such as the conservation of energy come into play. With only an order of magnitude or two of additional mass more than our sun and shining $10^4$ times as brightly, this curtails the life of the brightest stars to lifespans not much more than $10^7$ years.
+If we define a galactic year as the time it takes for a star to orbit the Milky Way, these poor stars don't even make it to their first birthdays, which is quite sad really.\footnote{Continuing this analogy our sun can drink, might have voted if they felt like it, and may be racking up vast quantities of student debt.}
+
+
+As the available hydrogen begins to become depleted, the lowering reaction rates force the star to shrink, this raises the internal temperature until the core begins to burn helium through the triple-$\alpha$ process:
+
+\begin{subequations}
+  \begin{align*}
+    \prescript{4}{2}{\text{He}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{8}{4}{\text{Be}} \\
+    \prescript{8}{4}{\text{Be}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{12}{6}{\text{C}} + 2\gamma
+  \end{align*}
+\end{subequations}
+
+The sudden spike in energy radiating from the core shifts the calculus of hydrostatic equilibrium in the favour of outward forces, causing the star to rapidly expand in the form of a Red Supergiant or Luminous Blue Variable \parencite{ryanStellarEvolutionNucleosynthesis2010a}.
+During this phase the energy output of the star is even greater, with a timescale of $\sim 10^6$ years, this is only temporarily prolonging the life of the star, which will inevitably begin burning heavier and heavier elements, faster and faster.
+Once the star starts producing iron its fate is sealed, the star stops fusing, and collapses, annihilating itself in the form of a supernova and leaving behind a remnant of its core in the form of a neutron star or black hole 
+\parencite{ward-thompsonIntroductionStarFormation2011}.
+
+Whilst the stars end is as inevitable as it is violent, the intermediate stage as the star leaves the main sequence is in itself extremely interesting, and for the context of this thesis, no product of this stage is more interesting than the Wolf-Rayet.
+
+
 
 \subsection{Wolf-Rayet stars}
 \label{sec:wrtype}
 
-%//FIXME needs work!!!
-As this young massive star evolves along the main sequence, burnable hydrogen becomes increasingly scarce,  but as this star can sustain extremely high internal pressures and temperatures, it switches from hydrogen burning pp chain and CNO cycle to Helium burning with the triple-$\alpha$ process:
 
-
-
-\begin{subequations}
-  \begin{align}
-    \prescript{4}{2}{\text{He}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{8}{4}{\text{Be}} \\
-    \prescript{8}{4}{\text{Be}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{12}{6}{\text{C}} + 2\gamma
-  \end{align}
-\end{subequations}
-
-\cite{ryanStellarEvolutionNucleosynthesis2010a}
 %Notes: Evolution type 
 % Jumping off point, wiki wolf-rayet current models, research papers therein
 % For WC formation O->RSG->WNE->WC 20-45 msol
-% WO requires 45+msol
-% Research progression from WN-WC-WO, seems like WO is its own category, requires very very massive stars, extremely short lived
+% WR in general O->LBV->WR
 
 % History and background of Wolf-Rayet stars
 
-% Evolution from O type to 
+% Description of Wolf-Rayet star, introducing concept of strong stellar wind
+
+As we now know, Wolf-Rayets are evolved forms of O-type stars, and are a short lived lived component, typically existing for around \num{5e5} years. Despite this relatively transient length of this stage, the influence of a WR star on its local medium is extremely outsized. The primary  
+
+% Singlet and binary formation mechanisms
+% Singlet -> LBV or RSG phase, contraction helium burning
+% Binary  -> Common envelope evoluion 
+
+Two cases for evolution from an O-type star to a WR exist, if a single star evolves as a massive star, it undergoes a 
+\parencite{neugentWolfRayetContent2019}
+
+
+\parencite{cherepashchukEvolutionWolfRayetStars2003}
+
+\cite{crowther_physical_2007} details 
+
+\begin{subequations}
+  \begin{align*}
+    \text{O} \rightarrow \text{LBV/RSG} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1b} & ,~~ \text{if } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
+    \text{O} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{if } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
+    \text{O} \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{if } \text{M}_{\text{WR}} > 75 \si{\solarmass} 
+  \end{align*}
+\end{subequations}
+
+For lower mass stars this , however, in stars with extremely high masses, a WN type star can be initiated before 
+
+In the case of a binary system however, as the more massive star begins to expand and the stars are sufficiently close, a common envelope can form between the \parencite{ibenCommonEnvelopesBinary1993}
+
+
+
+\parencite{oswaltPlanetsStarsStellar2013}
+
 
 %Subcategorising wolf-rayets into WN, WC and WO
 
-%Focus on WC, why they are so important 
+Wolf-Rayet stars can be subcategorised through spectroscopic observation, which indicates enrichment in a particular element, the 3 major subtypes, WN, WC and WO are defined by their strong nitrogen, carbon and oxygen lines respectively.
+While this subdivision was initially spectrographic in nature, these subtypes form differently, and there does not appear to be a continuous 
+The important distinction between WN and WC/WO stars is that WN stars are enriched through hydrogen burning, whilst WC and WO are enriched through the by-products of helium burning \parencite{vinkVeryMassiveStars2015}.
+
+% subcategorisation through numerical system
+
+%Focus on WC, why they are so importanet 
+
+For this thesis, only WC subtype Wolf-Rayets will be considered, as these are the only systems known to form dust, 
 
 
 \section{Stellar Winds}
 \label{sec:winds}
 
 % Section covers wind driving mechanisms, while wind is touched on in the previous section, this covers the mechanisms more thoroughly
+
+Stellar winds have already been discussed to some extent in the previous section, however, due to the significance of winds within this body of work, further detailing of winds must be discussed to gain a better understanding of the dynamics of Colliding Wind Binary systems. This section will cover in brief the study of stellar winds, particularly driving mechanisms from low and high mass stars.
+
+% Background of stellar winds, particularly history of the subject
 
 \subsection{Stellar winds in low mass stars}
 \label{sec:lowmasswinds}

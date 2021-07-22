@@ -67,14 +67,15 @@
 
 \usepackage{siunitx} % Better units, especially SI
 \usepackage{mathtools}
+
+% Setup for BibLaTeX, used instead of BibTeX as it is more flexible and has proper APA citation
 \usepackage[
-  style=numeric,
-  % citestyle=numeric,
+  style=apa,
+  % citestyle=authoryear,
   backend=biber,
   bibencoding=utf8,
   url=false
 ]{biblatex}
-
 \addbibresource{References/library-biblatex.bib}
 
 \linespread{1.3} %1.5 line spacing
