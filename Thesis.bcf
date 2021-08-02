@@ -2812,15 +2812,23 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">carrollIntroductionModernAstrophysics2014</bcf:citekey>
-    <bcf:citekey order="2">salarisEvolutionStarsStellar2005</bcf:citekey>
-    <bcf:citekey order="3">ryanStellarEvolutionNucleosynthesis2010a</bcf:citekey>
-    <bcf:citekey order="4">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
-    <bcf:citekey order="5">neugentWolfRayetContent2019</bcf:citekey>
-    <bcf:citekey order="6">cherepashchukEvolutionWolfRayetStars2003</bcf:citekey>
-    <bcf:citekey order="7">crowther_physical_2007</bcf:citekey>
-    <bcf:citekey order="8">ibenCommonEnvelopesBinary1993</bcf:citekey>
-    <bcf:citekey order="9">oswaltPlanetsStarsStellar2013</bcf:citekey>
-    <bcf:citekey order="10">vinkVeryMassiveStars2015</bcf:citekey>
+    <bcf:citekey order="2">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="3">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="4">ryanStellarEvolutionNucleosynthesis2010a</bcf:citekey>
+    <bcf:citekey order="5">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="6">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="7">vinkVeryMassiveStars2015</bcf:citekey>
+    <bcf:citekey order="8">neugentWolfRayetContent2019</bcf:citekey>
+    <bcf:citekey order="8">oswaltPlanetsStarsStellar2013</bcf:citekey>
+    <bcf:citekey order="9">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="10">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="11">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
+    <bcf:citekey order="12">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="12">grimaldoProtonAccelerationColliding2019</bcf:citekey>
+    <bcf:citekey order="13">usov_stellar_1991</bcf:citekey>
+    <bcf:citekey order="14">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="15">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="16">hendrix_pinwheels_2016</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

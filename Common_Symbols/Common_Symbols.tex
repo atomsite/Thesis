@@ -1,46 +1,56 @@
 \begin{Common_Symbols}
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{l|l|l}
-    \hline
+\begin{longtable}[c]{l|l|l}
+  \hline
 
-    $\eta$ & Wind momentum ratio  & \\
-    $\chi$ & Cooling parameter  & \\
-    $\Lambda(T)$ & Cooling function & \\
-    $a$ & Grain radius & \\
-    $z$ & Dust-to-gas mass ratio  & \\
-    $M_*$ & Stellar mass & \\
-    $L_*$ & Stellar luminosity & \\
-    $\dot M$ & Mass loss rate & \\
-    $v_\infty$ & Wind terminal velocity & \\
-    $C$ & Courant-Friedrichs-Lewy condition & \\
+  % Include symbols requiring derivation here, try and sort them by alphabet/greek alphabet
+  % Perhaps could also be ordered by chapter/function?
 
-    $\tau_{KH}$ & Kelvin-Helmholtz timescale & Equation \ref{eq:khtime} \\
-    $\tau_{ff}$ & Free-fall timescale & Equation \ref{eq:fftime} \\
+  % Alphabetical symbols
 
-    \hline
-  \end{tabular}
-  \label{tbl:Common_Symbols}
-  \caption{List of common symbols, if symbol requires a derivation, the appropriate equation is referenced}
-\end{table}
+  $a$ & Grain radius & \\
+  $C$ & Courant-Friedrichs-Lewy condition & \\
+  $L_*$ & Stellar luminosity & \\
+  $M_*$ & Stellar mass & \\
+  $\dot M$ & Mass loss rate & \\
+  $v_\infty$ & Wind terminal velocity & \\
+  $z$ & Dust-to-gas mass ratio  & \\
 
-\begin{table}[h]
-  \centering
-  \begin{tabular}{l|l|l}
-    \hline
+  % greek symbols
 
-    \si{\solarmass} & Solar mass & \num{1.988e+33} \si{\gram} \\
-    \si{\solarmass\per\year} & Solar mass per year & \num{6.301e+25} \si{\gram\per\second} \\
-    \si{\solarluminosity} & Solar Luminosity & \num{3.828e+33} \si{\erg\per\second} \\
-    \si{\au} & Astronomical Unit & \num{1.496e+13} \si{\centi\metre} \\
-    \si{\pc} & Parsec & \num{3.086e+18} \si{\centi\metre} \\
+  $\eta$ & Wind momentum ratio  & \\
   
-    \hline
-  \end{tabular}
-  \label{tbl:Common_units}
-  \caption{List of common units, with value in CGS units}
-  \end{table}
+  $\Lambda(T)$ & Cooling function & \\
 
+  $\xi$ & Grain sticking efficiency & \\
+
+  $\theta_c$ & WCR conic approximation opening angle & Equation \ref{eq:conic} \\
+  
+  $\tau_\text{KH}$ & Kelvin-Helmholtz timescale & Equation \ref{eq:khtime} \\
+  $\tau_\text{ff}$ & Free-fall timescale & Equation \ref{eq:fftime} \\
+  $\tau_\text{cool}$ & Cooling timescale & Equation \ref{eq:taucool} \\
+  $\tau_\text{esc}$ & Escape timescale & Equation \ref{eq:tauesc} \\
+
+
+  $\chi$ & Cooling parameter  & Equation \ref{eq:coolingparameter} \\
+
+  
+  % Include units that do not require derivation here
+
+  \hline
+
+  % Include Units from here
+
+  \hline
+
+  \si{\solarmass} & Solar mass & \num{1.988e+33} \si{\gram} \\
+  \si{\solarmass\per\year} & Solar mass per year & \num{6.301e+25} \si{\gram\per\second} \\
+  \si{\solarluminosity} & Solar Luminosity & \num{3.828e+33} \si{\erg\per\second} \\
+  \si{\au} & Astronomical Unit & \num{1.496e+13} \si{\centi\metre} \\
+  \si{\pc} & Parsec & \num{3.086e+18} \si{\centi\metre} \\
+  \hline
+\end{longtable}
+
+List of common symbols, if symbol requires a derivation, the appropriate equation within this thesis will be referenced. If the symbol is a unit, the value in CGS units will be provided instead. 
 
 \end{Common_Symbols}

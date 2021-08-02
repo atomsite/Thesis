@@ -8,10 +8,10 @@ The first generation of astrophysicists found themselves asking very important q
 
 Of course, like all pressing questions of the 19\textsuperscript{th} century, it fell to Lord Kelvin to provide a convincing but incorrect answer. Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest. Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass! However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
 
-
 %//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
 
-Instead, we now know that stars produce their energy through fusion, from the substellar deuterium and lithium burning, to the low-mass pp-chain \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and more exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, leading to more difficult, but far more energetic fusion processes. This drastically increased energy output comes at the cost of a far shorter lifespan, as the rate of fuel consumption increases exponentially, while the available fuel has only increased a small amount \parencite{carrollIntroductionModernAstrophysics2014}.
+Instead, we now know that stars produce their energy through fusion. These reactions vary from substellar deuterium and lithium burning, to main sequence p-p \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and other exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, allowing for more exotic fusion processes.
+The bigger a star, the greater the core pressure and temperature, as all fusion reactions are highly dependent on temperature, stars with only a few dozen solar masses are thousands of times more luminous than our sun, but only live a fraction of the time \parencite{carrollIntroductionModernAstrophysics2014}.
 
 \subsection{OB-type stars}
 \label{sec:obtype}
@@ -20,9 +20,11 @@ And with that we shift our gaze to high-mass stars, with the most massive of all
 
 % Formation of OB stars, note binary systems!
 
-The formation of massive stars is a significantly less understood phenomena than their low-mass counterparts. In the low-mass case, a giant cloud collapses, radiating energy, which lowers the radius of thermostatic equilibrium for the cloud, this collapse time is referred to as the Kelvin-Helmholtz timescale, $\tau_{KH}$. Another important timescale is the free-fall timescale, $\tau_{ff}$, which is the time taken for a cloud to collapse. 
-
-%//FIXME above para needs work!
+The most common formation mechanism of stars is through the collapse of a giant molecular cloud\footnote{GMC}, an enormous cool cloud many parsecs across with a mass of around $10^4 \si{\solarmass}$.
+As this GMC collapses and radiates energy, lowering the radius of thermostatic equilibrium for the cloud, as collapsing progresses the cloud fragments into many smaller regions with a critical density, capable of collapsing further, forming a star.
+The collapse of a GMC can be described with a series of timescale.
+First, the Kelvin-Helmholtz timescale, $\tau_{KH}$, which describes the timescale required for the radiating cloud to collapse.
+The second important timescale is the free-fall timescale, $\tau_{ff}$, which is the time taken for a cloud to collapse. These timescales are described by the following equations:
 
 \begin{subequations}
   \begin{align}
@@ -32,7 +34,9 @@ The formation of massive stars is a significantly less understood phenomena than
   \label{eq:khfreefalltimes}
 \end{subequations}
 
-where $M_*$ is the protostellar mass, $R_*$ is the protostellar radius, $L_*$ is the protostellar luminosity, and $\rho$ is the mean density of the collapsing cloud.
+where $M_*$ is the protostellar mass, $R_*$ is the protostellar radius, $L_*$ is the protostellar luminosity, and $\rho$ is the mean density of the collapsing cloud \parencite{ward-thompsonIntroductionStarFormation2011}.
+
+%//TODO is the above section completely necessary? it might be better to just describe star formation.
 
 Perhaps the most important distinction between massive star formation and its better understood counterpart is as a young protostar approaches the main sequence, the KH timescale is less than the free-fall timescale, meaning the material at the center of the collapsing cloud begins fusion while the bulk of core has collapsed onto the site of the future star. This burgeoning star begins to drive the weakly gravitationally coupled collapsing material away due to its sheer luminosity, driving this material outwards, causing it to accrete and shock material within the GMC. 
 
@@ -55,8 +59,12 @@ Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within 
   \end{align*}
 \end{subequations}
 %//FIXME sort out italics, use regular fonts
+%//TODO add net energy gains losseslosses
+%//TODO Check to see if this is correct
 
-This mechanism is much more energetic than p-p fusion, with a far higher reaction rate that increases sharply as core temperature increases, resulting in a convective core, surrounded by a radiative envelope \parencite{salarisEvolutionStarsStellar2005}. This is the driving force behind the incredible luminosities of an OB star as it hurtles along the main sequence.
+
+%//FIXME mechanism less efficient, 0.6MeV per nucleon, but reaction rate just quite a lot faster, temperature sensitivity, series of power laws, t^40 for 1e8k and t^20 for 2e8k
+The reaction rate of CNO rises much faster, resulting in a convective core, surrounded by a radiative envelope \parencite{salarisEvolutionStarsStellar2005}. This is the driving force behind the incredible luminosities of an OB star as it hurtles along the main sequence.
 
 %//TODO might be a good idea to include that one graph with fusion rates?
 
@@ -101,48 +109,46 @@ Whilst the stars end is as inevitable as it is violent, the intermediate stage a
 
 % Description of Wolf-Rayet star, introducing concept of strong stellar wind
 
-As we now know, Wolf-Rayets are evolved forms of O-type stars, and are a short lived lived component, typically existing for around \num{5e5} years. Despite this relatively transient length of this stage, the influence of a WR star on its local medium is extremely outsized. The primary  
-
-% Singlet and binary formation mechanisms
-% Singlet -> LBV or RSG phase, contraction helium burning
-% Binary  -> Common envelope evoluion 
-
-Two cases for evolution from an O-type star to a WR exist, if a single star evolves as a massive star, it undergoes a 
-\parencite{neugentWolfRayetContent2019}
-
-
-\parencite{cherepashchukEvolutionWolfRayetStars2003}
-
-\cite{crowther_physical_2007} details 
-
-\begin{subequations}
-  \begin{align*}
-    \text{O} \rightarrow \text{LBV/RSG} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1b} & ,~~ \text{if } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
-    \text{O} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{if } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
-    \text{O} \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{if } \text{M}_{\text{WR}} > 75 \si{\solarmass} 
-  \end{align*}
-\end{subequations}
-
-For lower mass stars this , however, in stars with extremely high masses, a WN type star can be initiated before 
-
-In the case of a binary system however, as the more massive star begins to expand and the stars are sufficiently close, a common envelope can form between the \parencite{ibenCommonEnvelopesBinary1993}
-
-
-
-\parencite{oswaltPlanetsStarsStellar2013}
-
+As we now know, Wolf-Rayets\footnote{Abbreviated to WR.} are evolved forms of O-type stars, and are a short lived component of the life-cycle of massive stars, typically lasting for around \num{5e5} years \parencite{crowther_physical_2007}.
+Despite this relatively transient length of this stage, the influence of a WR star on its local medium is extremely outsized.
+WR stars in particular are known for having dense, fast winds, typically between 2 and 3 orders of magnitude than their main sequence O-type progenitors, with mass loss rates on the order of $10^{-5} \, \si{\solarmass\per\year}$ and wind velocities of $\num{1.5e3} \, \si{\kilo\metre\per\second}$.
+This extremely dense wind is driven by the highly energetic helium burning core, which is luminous enough as to drive away the outer layers of the stars envelope, exposing the core.
+The observed spectroscopic lines are due to heating of the envelope from the core, which is enriched with by-products of hydrogen and helium burning, the lack of hydrogen lines is due to the stars evolved nature, as all the hydrogen has been burned, there is simply nothing left to observe!
 
 %Subcategorising wolf-rayets into WN, WC and WO
 
-Wolf-Rayet stars can be subcategorised through spectroscopic observation, which indicates enrichment in a particular element, the 3 major subtypes, WN, WC and WO are defined by their strong nitrogen, carbon and oxygen lines respectively.
-While this subdivision was initially spectrographic in nature, these subtypes form differently, and there does not appear to be a continuous 
+Wolf-Rayet stars can be subcategorised through spectroscopic observation, which indicates enrichment in a particular element, the 3 major sub-types, WN, WC and WO are defined by their strong nitrogen, carbon and oxygen lines respectively.
 The important distinction between WN and WC/WO stars is that WN stars are enriched through hydrogen burning, whilst WC and WO are enriched through the by-products of helium burning \parencite{vinkVeryMassiveStars2015}.
+
+% WR star subcategorisation and evolution
+As a Wolf-Rayet continues to lose its envelope, additional products of fusion processes are dredged up from the centre of the star.
+In the case of the WN sub-type, the broad nitrogen lines correspond to the outer layer of the envelope, enriched through the CNO process; after this outer envelope is cast off, the remainder of the envelope exhibits carbon and oxygen lines, indicating enrichment from the triple-$\alpha$ process.
+Finally, the star evolves further and the innermost region of the envelope is revealed, observed as the strong oxygen lines of a WO sub-type \parencite{neugentWolfRayetContent2019,oswaltPlanetsStarsStellar2013}.
+
+%//TODO this needs rewriting
+
+As an O-type star transitions to a Wolf-Rayet, it typically undergoes an intermediary LBV or RSG stage as helium burning begins, this is mass dependent, with the various transitional states described by \cite{crowther_physical_2007}:
+
+\begin{subequations}
+  \begin{align*}
+    \text{O} \rightarrow \text{LBV/RSG} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1b} & ,~~ \text{for } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
+    \text{O} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{for } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
+    \text{O} \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{for } \text{M}_{\text{WR}} > 75 \si{\solarmass} 
+  \end{align*}  
+\end{subequations}
+
+%//TODO add binary formation mechanism paragraph
 
 % subcategorisation through numerical system
 
-%Focus on WC, why they are so importanet 
+%//TODO include table of approximate mass loss rates, numerical classification
 
-For this thesis, only WC subtype Wolf-Rayets will be considered, as these are the only systems known to form dust, 
+% Wolf-Rayets in a binary
+Wolf-Rayet stars are important in the context of this work due to their outsized influence within a WR+OB binary pair.
+The WR component of a WR+OB binary has an outsized contribution in returning material to the ISM, whilst also dominating the dynamics of the system, with their winds completely overpowering those of their O-type neighbours.
+In some cases, the dense, fast wind from the WR can collide with the much more tenuous wind from its partner, forming a strong shock, and a variety of fascinating effects.
+However, I wouldn't want to spoil too much too soon, but you can skip ahead to section \ref{sec:cwb}, where this phenomena is covered in more detail.
+%//HMM This may be a bit too jovial!
 
 
 \section{Stellar Winds}
@@ -158,8 +164,10 @@ Stellar winds have already been discussed to some extent in the previous section
 \label{sec:lowmasswinds}
 
 \subsubsection{Thomson scattering wind driving}
+\
 
 \subsubsection{Dust driven winds}
+\label{sec:dustdriven}
 
 \subsection{Stellar winds in high mass stars}
 \label{sec:radlinedriving}
@@ -196,27 +204,138 @@ Stellar winds have already been discussed to some extent in the previous section
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
 
+% Introduction 
+
+
+% //TODO Cannot get into the groove of this paragraph, please fix this future Joe
+Colliding Wind Binaries\footnote{Abbreviated to CWBs.}, in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
+Unfortunately, the simplicity of the systems ends here, CWB systems are extremely complex and poorly understood as they are difficult environments to observe or simulate.
+
+%History and classification, useful sources in Stevens & Pollock 1994 
+
+Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright persistent thermal x-ray sources, with x-ray 
+The first classification and analysis of Colliding Wind Binary systems were independently performed by \cite{prilutskii_x_1976} and \cite{cherepashchukDetectabilityWolfRayetBinaries1976}, these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures and the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
+
+% Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
+
+% Formation 
+
+
 \subsection{The Wind Collision Region}
 \label{sec:wcr}
 
 % What is this region
+The Wind Collision Region\footnote{WCR} is the most violent and turbulent region of a CWB system, a region where strong shocks lead to temperatures in excess of $10^8$ $\si{\kelvin}$.
+These strong shocks contain enormous amounts of mechanical energy, in the region of $10^3$ $\si{\solarluminosity}$, WCRs are engines capable of producing huge quantities radiation through multiple thermal and non-thermal mechanisms \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
+Despite these extreme conditions, these regions are capable of producing amorphous carbon dust grains at a rate on the order \num{1e-8} \si{\solarmass\per\year}.
+As these grains are extremely fragile, this is a conundrum that has plagued researchers in this field, as direct observation of the innermost regions of even nearby WCRs is difficult, bordering on impossible, much of the work in this area involves hydrodynamical simulation.
+
+% Properties of region
+
+%//TODO This needs a lot of work, writing equation sections is boring
+
+% Equations
+The properties of the WCR can be described by a small number of parameters.
+The first of such parameters is the wind momentum ratio, $\eta$, which describes the available \parencite{usov_stellar_1991}.
+
+
+\begin{equation}
+  \eta = \frac{\dot M_\text{OB} v_\infty^\text{OB}}{\dot M_\text{WR} v_\infty^\text{WR}},
+\end{equation}
+
+%Theres a particular paper on improved analytical observations 
+
+This momentum ratio can also be used to estimate the distance of the apex of the WCR to each star, using the following equations:
+
+\begin{equation}
+  r_\text{WR} = \frac{1}{1+\eta^{1/2}} , ~~~ r_\text{OB} = \frac{\eta^{1/2}}{1+\eta^{1/2}},
+\end{equation}
+
+where $r_{WR}$ is the distance from the WR star to the WCR apex, and $r_\text{OB}$ is the distance from the OB star to the WCR apex.
+Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio to approximate the shape of the wind collision region, further out from the apex of the WCR, the region forms an approximately conical shape with an opening angle, $\theta_c$ of:
+
+\begin{equation}
+  \theta_c \simeq 2.1 \left(1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3}, ~~ \text{for } 10^{-4} \leq \eta \leq 1, \label{eq:conic}
+\end{equation}
+
+
+% Considerations due to stagnation point flow \cite{stevens_stagnation-point_1994}
+
+
+
+
+
+
+
 
 % Brief notes on astrophysical shocks, link to appendix
 
 %Detailed breakdown of Wind collision region
 
-% Stagnation point
 
 \subsection{Cooling in the WCR}
 \label{sec:wcrcooling}
 
+
 % Needs to be spun off into a subsection
+
+% Cooling parameter
+
+\begin{subequations}
+  \begin{align}
+    \tau_\text{cool} & = \frac{k_B T_s}{4n_w \Lambda(T_s)} \label{eq:taucool} ,\\ 
+    \tau_\text{esc}  & = \frac{d_\text{sep}}{c_s} \label{eq:tauesc} ,
+  \end{align}
+\end{subequations}
+
+\begin{equation}
+  \chi = \frac{\tau_\text{cool}}{\tau_\text{esc}} \approx \frac{v^4_{\infty,8} d_\text{sep,12}}{\dot M_{-7}} \label{eq:coolingparameter} ,
+\end{equation}
 
 % Radiative cooling, include graphs, mechanisms
 
-% What constitutes 
 
 % Dust cooling? Might need to move CWB dust formation up
+The presence of dust can also accelerate cooling through additional avenues of radiation emission.
+%//TODO Lengthen paragraph, introduction to dust cooling
+
+As dust grains collide with ionised gas and electrons, this imparts kinetic energy into the grains, heating them and causing them to emit infrared radiation. Assuming that there is a net accretion of ions and electrons onto the dust grains and the gas is optically thin in the infrared regime, energy is effectively removed from the gas.
+At particularly high temperatures this effect can dominate over high-temperature radiation processes such as bremsstrahlung, 
+
+Work by \cite{dwek_infrared_1981} is used predominantly in this project to simulate cooling. 
+% Finish and link to below paragraph
+
+%Find citation for spitzer 1978
+
+The heating rate of a dust grain due to collisions 
+
+\begin{equation}
+  \begin{split} 
+      H_\text{coll} = & n \pi a^2 \langle Q(E,q,U) \rangle \\
+      & \times \langle v (E-qU) f(a,E-qU) f(a,E-qU) \rangle \, \si{\erg\per\second}
+  \end{split}
+\end{equation}
+
+%Explain constants
+This can be simplified and expressed in the equation:
+
+\begin{equation}
+  \begin{split}
+    H_\text{coll} & = \left(\frac{32}{\pi m}\right)^{1/2} n\pi a^2 (k_B T)^{3/2} h(a,T) \\
+    & = \num{1.26e-19} \frac{n}{A^{1/2}} a^2 (\si{\micro\metre}) T^{3/2} h(a,T) \, \si{\erg\per\second}
+  \end{split}
+\end{equation}
+
+% This part is very dry and is going to explain the equations more in depth
+% Main source will be dwek 1981 appendix 2
+
+
+
+% Instabilities due to cooling, might spin off into it's own appendix chapter?
+% Theres a particular paper that covers this 
+% Mainly need to discuss KH instabilities, and how they relate to cooling
+
+
 
 \subsection{Dust formation in CWB systems}
 \label{sec:cwbdust}
@@ -227,6 +346,11 @@ Stellar winds have already been discussed to some extent in the previous section
 
 %Theories as to why
 
+
 \subsection{Important WCd systems}
+
+% This might be a good section?
+\subsection{Contemporary research in extragalactic low-metallicity WCd systems}
+
 \label{sec:knowndustysystems}
 
