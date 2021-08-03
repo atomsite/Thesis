@@ -2829,6 +2829,31 @@
     <bcf:citekey order="14">eichler_particle_1993</bcf:citekey>
     <bcf:citekey order="15">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="16">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="17">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="18">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="19">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="20">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="21">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="22">spiteriNewClassOptimal2002</bcf:citekey>
+    <bcf:citekey order="23">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="24">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="25">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="26">spitzer_jr._physical_2008</bcf:citekey>
+    <bcf:citekey order="27">spitzer_jr._physical_2008</bcf:citekey>
+    <bcf:citekey order="28">draine_destruction_1979</bcf:citekey>
+    <bcf:citekey order="29">leteuffModelDustFormation2002</bcf:citekey>
+    <bcf:citekey order="30">williamsDustFormationCollidingwind2008</bcf:citekey>
+    <bcf:citekey order="31">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="32">williamsCollidingwindWC9OB2015</bcf:citekey>
+    <bcf:citekey order="33">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="34">spitzer_jr._physical_2008</bcf:citekey>
+    <bcf:citekey order="35">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="36">soulain_sphere_2018</bcf:citekey>
+    <bcf:citekey order="37">harries_three-dimensional_2004</bcf:citekey>
+    <bcf:citekey order="38">lamersIntroductionStellarWinds1999</bcf:citekey>
+    <bcf:citekey order="39">monnier_first_2011</bcf:citekey>
+    <bcf:citekey order="40">usov_stellar_1991</bcf:citekey>
+    <bcf:citekey order="41">thomasOrbitStellarMasses2021</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

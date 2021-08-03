@@ -502,6 +502,15 @@
   \end{center}}
 {\end{alwayssingle}}
 
+
+%Define an abstract
+\newenvironment{abstract}[1]{%
+\begin{center}\normalfont\textbf{Abstract}\end{center}
+\begin{quotation} #1 \end{quotation}
+}{%
+\vspace{1cm}
+}
+
 %ROMANPAGES
 %
 % The romanpages environment set the page numbering to lowercase roman one
