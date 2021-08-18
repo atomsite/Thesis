@@ -206,7 +206,7 @@
 \usepackage[
   a4paper,
   twoside,
-  bindingoffset=1.5cm,
+  bindingoffset=1.25cm,
   inner=2.5cm,
   outer=2.5cm,
   top=2.5cm,
