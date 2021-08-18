@@ -1,4 +1,5 @@
-\chapter{A Parameter Space Exploration of Dust Formation within WCd Systems Using an Advected Scalar Dust Model}
+\chapter[A Parameter Space Exploration of Dust Formation]{A Parameter Space Exploration of Dust Formation within WCd Systems Using an Advected Scalar Dust Model}
+
 
 \begin{abstract}
     
@@ -8,13 +9,13 @@
 
 % //TODO REWRITE THIS, NOT VERY GOOD!
 
-A Wolf-Rayet star is thought to be a hydrogen depleted OB-type star, as vigorous Triple-$\alpha$ fusion reactions within the core exert massive radiation pressures upon the stars envelope, driving it away in the form of a dense, fast ($\sim 1000 \, \si{km.s^{-1}}$) wind. Through this mechanism, enormous mass-loss rates on the order $10^{-5} \, \si{\solarmass\per\year}$ are produced \cite{crowther_physical_2007}.
+A Wolf-Rayet star is known to be a hydrogen depleted OB-type star, as vigorous Triple-$\alpha$ fusion reactions within the core exert massive radiation pressures upon the stars envelope, driving it away in the form of a dense, fast ($\sim 1000 \, \si{km.s^{-1}}$) wind. Through this mechanism, enormous mass-loss rates on the order $10^{-5} \, \si{\solarmass\per\year}$ are produced \parencite{crowther_physical_2007}.
 Wolf-Rayet stars have multiple subtypes, based on their elemental abundances, WC, which is Carbon abundant, WN, which is Nitrogen abundant, and WO, which is Oxygen abundant. These systems can also be divided into early and late type, depending on the level of Hydrogen depletion.
 
 % Explanation
 
 The WC subtype is of particular importance in this paper, due to its dust producing properties. Despite the extremely high UV flux and wind temperature of these stars ($L_* \gtrsim 10^5 \, \si{\solarluminosity}$, $T_* \gtrsim  40,000 \, \si{\kelvin}$), interstellar dust in significant quantities has been observed in a number of systems. The presence of a binary partner - either OB or WR type - facilitates dust formation through colliding winds, which produce extremely high local densities and a UV-opaque medium conducive to dust formation. % //FIXME use of the phrase UV-opaque isn't particularly good, need a better one.
-While a large proportion of WC stars are a part of a binary system \cite{rossloweSpatialDistributionGalactic2015} systems that exhibit colliding wind properties are considerably rarer. % //TODO cite this
+While a large proportion of WC stars are a part of a binary system  systems that exhibit colliding wind properties are considerably rarer \parencite{rossloweSpatialDistributionGalactic2015}. % //TODO cite this
 Despite this, the massive quantities of dust formed from these systems (between $10^{-10}$ and $10^{-6} \, \si{\solarmass\per\year}$) can substantially affect the local interstellar medium (ISM). 
 %//TODO cite this
 
@@ -36,7 +37,7 @@ where $d_\text{sep}$ is the orbital separation of the binary pair. In the case o
   \theta \simeq 2.1 \left( 1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3} ~~~ \text{for} ~ 10^{-4} \leq \eta \leq 1 ,
 \end{equation}
 
-to a high degree of accuracy \cite{eichler_particle_1993}.
+to a high degree of accuracy \parencite{eichler_particle_1993}.
 
 The cooling parameter, $\chi$, compares the cooling time to the escape time from the shock region for a parcel of gas in the immediate post-shock environment. An approximation can be made using the known parameters of a system using the equation:
 
@@ -44,7 +45,7 @@ The cooling parameter, $\chi$, compares the cooling time to the escape time from
     \chi = \frac{t_\text{cool}}{t_\text{esc}} \approx \frac{v_8^4 d_{12}}{\dot{\text M}_{-7}} , 
 \end{equation}
 
-where $v_8$ is the wind terminal velocity in units of $10^8$ \si{cm.s^{-1}}, $d_{12}$ is the distance to the WCR apex in units of $10^{12}$ \si{cm}, and $\dot{\text M}_{-7}$ is the mass loss rate in units of $10^{-7} \si{\solarmass\per\year}$ \cite{stevens_colliding_1992}. Small values of $\chi$ indicate that radiative cooling dominates the dynamics of the system, while larger values indicate an adiabatic system. Strong cooling occurs in comparatively slow, dense winds with a high metallicity, as such it can be predicted that the post-shock WR flow will rapidly cool from the immediate post-shock temperature of $10^8 \, \si{\kelvin}$ to temperatures in the dust formation range, $\lesssim 10^4 \, \si{\kelvin}$.
+where $v_8$ is the wind terminal velocity in units of $10^8$ \si{cm.s^{-1}}, $d_{12}$ is the distance to the WCR apex in units of $10^{12}$ \si{cm}, and $\dot{\text M}_{-7}$ is the mass loss rate in units of $10^{-7} \si{\solarmass\per\year}$ \parencite{stevens_colliding_1992}. Small values of $\chi$ indicate that radiative cooling dominates the dynamics of the system, while larger values indicate an adiabatic system. Strong cooling occurs in comparatively slow, dense winds with a high metallicity, as such it can be predicted that the post-shock WR flow will rapidly cool from the immediate post-shock temperature of $10^8 \, \si{\kelvin}$ to temperatures in the dust formation range, $\lesssim 10^4 \, \si{\kelvin}$.
 
 % Dust formation within CWB systems
 
@@ -68,7 +69,7 @@ This paper examines the changes to the dust formation rates of a system as the p
 
 % Background of Athena
 
-Our simulations were generated using the Athena++ hydrodynamical code \cite{stoneAthenaAdaptiveMesh2020}, simulations are generated in 3D and the Euler equations of hydrodynamics are solved in the form:
+Our simulations were generated using the Athena++ hydrodynamical code, created by \cite{stoneAthenaAdaptiveMesh2020}, simulations are generated in 3D and the Euler equations of hydrodynamics are solved in the form:
 
 
 % //FIXME For now I have included the standard Euler equations, need to discuss with Julian as to whether these are the right terms I should be using, might need some right hand terms for dynamic gas cooling
@@ -85,7 +86,7 @@ where $\varepsilon$ is the total specific energy, $\varepsilon = \boldsymbol{u}^
 
 % Technical details
 
-For these simulations Athena++ has been configured to run using a piecewise linear method with either a 3\ts{rd} order Runge-Kutta or 4\ts{th} order Strong Stability Preserving Runge-Kutta time-integration method \cite{spiteriNewClassOptimal2002}. The 3\ts{rd} order method is significantly faster and more memory efficient than the 4\ts{th} order method, so is used if the simulation permits. Athena++ was forked from the original repository and additional routines were written for a Colliding Wind Binary case. A function to produce a steady outflow from a small spherical region around a set of cartesian co-ordinates was incorporated to simulate the outflow of both stars, while a function to move these co-ordinates with each time-step was included to simulate orbital motion. Additionally, Athena++ was further modified to include an advected scalar dust model for simulating dust growth and destruction as well as a photon emission cooling model to approximate cooling for gas and dust particles within the fluid.
+For these simulations Athena++ has been configured to run using a piecewise linear method with either a 3\ts{rd} order Runge-Kutta or 4\ts{th} order Strong Stability Preserving Runge-Kutta time-integration method \parencite{spiteriNewClassOptimal2002}. The 3\ts{rd} order method is significantly faster and more memory efficient than the 4\ts{th} order method, so is used if the simulation permits. Athena++ was forked from the original repository and additional routines were written for a Colliding Wind Binary case. A function to produce a steady outflow from a small spherical region around a set of cartesian co-ordinates was incorporated to simulate the outflow of both stars, while a function to move these co-ordinates with each time-step was included to simulate orbital motion. Additionally, Athena++ was further modified to include an advected scalar dust model for simulating dust growth and destruction as well as a photon emission cooling model to approximate cooling for gas and dust particles within the fluid.
 
 \subsection{Mesh refinement}
 
@@ -168,12 +169,12 @@ The cooling regime of this code ranges from $10^4$ to $10^9 \si{\kelvin}$, cooli
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=3in]{assets/cooling_curves.pdf}
+  \includegraphics{assets/cooling-curve/cooling-curve.pdf}
   \caption[WR and OB $\Lambda(T)$ cooling curves]{Comparison of lookup tables for calculating energy loss due to gas cooling, pure elemental cooling curves from MEKAL have been provided for the more abundant elements.}
   \label{fig:cooling-curve}
 \end{figure}
 
-A model for cooling due to emission from dust grains is also included. The rate of cooling is calculated using the uncharged particle case of the Dwek \& Werner prescription \cite{dwek_infrared_1981}. The cooling code simulates grains that are heated due to collisions with ions and electrons, with energy being immediately lost from the simulation as radiation. This assumes that infrared emission due to collisional heating is shorter than the cooling timestep, and the region being simulated is optically thin to far infrared photons. Ions are calculated by element by estimating their number density, and added to the total cooling rate, such that:
+A model for cooling due to emission from dust grains is also included. The rate of cooling is calculated using the uncharged particle case of the prescription described by \cite{dwek_infrared_1981}. The cooling code simulates grains that are heated due to collisions with ions and electrons, with energy being immediately lost from the simulation as radiation. This assumes that infrared emission due to collisional heating is shorter than the cooling timestep, and the region being simulated is optically thin to far infrared photons. Ions are calculated by element by estimating their number density, and added to the total cooling rate, such that:
 
 \begin{subequations}
   \begin{align}
@@ -185,7 +186,7 @@ A model for cooling due to emission from dust grains is also included. The rate 
 
 where $H_\text{coll}$ is the heating rate due to atom and ion collisions, $H_\text{el}$ is the heating rate due to electron collisions, $h(a,T)$ is the particle transparency and $n_T$ is the total number density. $H_\text{coll}$ is summated for Hydrogen, Helium, Carbon, Nitrogen and Oxygen atom collisions. Other elements are not considered as they are present in trivial proportions in both winds.
 
-Electron-grain collisions are modelled similarly to ions, with some differences. In particular, the electron number density needs to be accurately calculated, this is performed with a second series of lookup tables that contain the electron-to-ion ratio of each wind across a temperature range of $10^4$ to $10^9\si{\kelvin}$ (figure \ref{fig:electron-curve}). Additionally, calculating electron transparency is a significantly more complex problem than ion transparency. Electron transparency is calculated via an approximation rather than an integration step, this is used to improve performance, as a time-consuming integration would have to be performed at each cooling substep. The approximation itself is derived from Dwek \& Werner \cite{dwek_infrared_1981}. The approximation for $h(a,T)$ is:
+Electron-grain collisions are modelled similarly to ions, with some differences. In particular, the electron number density needs to be accurately calculated, this is performed with a second series of lookup tables that contain the electron-to-ion ratio of each wind across a temperature range of $10^4$ to $10^9\si{\kelvin}$ (figure \ref{fig:electron-curve}). Additionally, calculating electron transparency is a significantly more complex problem than ion transparency. Electron transparency is calculated via an approximation rather than an integration step, this is used to improve performance, as a time-consuming integration would have to be performed at each cooling substep. The approximation itself is derived from \cite{dwek_infrared_1981}. The approximation for $h(a,T)$ is:
 
 \begin{subequations}
   \begin{align}
@@ -197,16 +198,16 @@ Electron-grain collisions are modelled similarly to ions, with some differences.
 
 where $x^* = 2.71\times 10^8 a^{2/3} (\si{\micro\metre})/T$, this approximation makes the entire dust cooling calculation about 3000\% faster than using a 400 bin integration\footnote{The fastest still reasonably accurate integration.}. Figures \ref{fig:hecomparison} and \ref{fig:lambdacomparison} compare each method, but at high temperatures maximum deviation of the approximation is on the order of $10\%$.
 
-\begin{figure}[t]
+\begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{assets/xe/temp.pdf}
+  \includegraphics{assets/xe/temp.pdf}
   \caption[Comparison of $h_e$ integration and approximation for increasing gas temperature]{Comparison of $h_e$ integration and approximation for increasing gas temperature, it is clear that the divergence between integration and approximation is at its largest at very high temperatures.}
   \label{fig:hecomparison}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{assets/dustcooling/lambda-comp.pdf}
+  \includegraphics{assets/dustcooling/lambda-comp.pdf}
   \caption[Comparison of dust cooling parameter $\Lambda$(T)]{Comparison of dust cooling parameter $\Lambda(T)$. Error due to approximation does not propagate significantly to the calculation of $\Lambda$ even at high temperatures.}
   \label{fig:lambdacomparison}
 \end{figure}
@@ -215,7 +216,7 @@ where $x^* = 2.71\times 10^8 a^{2/3} (\si{\micro\metre})/T$, this approximation 
 % //TODO Improve caption
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{assets/electron_curves.pdf}
+  \includegraphics{assets/ionisation-fraction/ionisation-fraction.pdf}
   \caption[OB and WR electron-ion ratios]{A comparison of the electron-ion ratio of both winds as temperature changes, included are the pure wind flows that the lookup tables are built from.}
   \label{fig:electron-curve}
 \end{figure}
@@ -228,7 +229,7 @@ Grain-grain collision is not modelled, as this would be difficult to calculate d
 
 \subsection{Numerical modelling of dust through advected scalars}
 
-For this paper a simple dust growth and destruction model was utilised in order to simulate the production of dust within the WCR. Typically a multi-fluid model would be used with a coupling force between the gas fluid and the dust fluid; in this case, however dust is simulated in the form of a set of scalars, which advect according to the fluid dynamics laws governing the simulation. This method emulates the concept of a co-moving fluid, which previous papers have noted is an accurate dynamical model for dust within the WCR \cite{hendrix_pinwheels_2016}. In these simulations, dust is stored in the form of two constants, the average grain radius, $a$, and the dust-to-gas mass ratio, $z$. From these constants the dust production rate, number density, and total dust mass can be derived.
+For this paper a simple dust growth and destruction model was utilised in order to simulate the production of dust within the WCR. Typically a multi-fluid model would be used with a coupling force between the gas fluid and the dust fluid; in this case, however dust is simulated in the form of a set of scalars, which advect according to the fluid dynamics laws governing the simulation. This method emulates the concept of a co-moving fluid, which previous papers have noted is an accurate dynamical model for dust within the WCR \parencite{hendrix_pinwheels_2016}. In these simulations, dust is stored in the form of two constants, the average grain radius, $a$, and the dust-to-gas mass ratio, $z$. From these constants the dust production rate, number density, and total dust mass can be derived.
 
 Additionally, a co-moving model allows for a simplified model of dust formation. In such a model, the mean particle velocity between two particles of different size can be given as:
 
@@ -242,7 +243,7 @@ where $m_r$ is the familiar reduced mass between a test particle of mass $m_t$ a
   m_r = \frac{m_f m_t}{m_f + m_t} .
 \end{equation}
 
-As the dust grain is significantly more massive, the reduced mass is approximately equal to the grain mass, simplifying the dynamics of the simulation in a co-moving case \cite{spitzer_jr._physical_2008}.
+As the dust grain is significantly more massive, the reduced mass is approximately equal to the grain mass, simplifying the dynamics of the simulation in a co-moving case \parencite{spitzer_jr._physical_2008}.
 
 Dust growth is modelled through the method described by \cite{spitzer_jr._physical_2008}, grains co-moving with a gas perform low-velocity\footnote{Relative to the overall wind velocity} collisions with the surrounding gas, accreting this gas onto the surface of the dust grain. Assuming a single average grain size and grains  the change in average grain radius and total dust mass density
 
@@ -265,7 +266,9 @@ Dust destruction is calculated via gas-grain sputtering using the Draine \& Salp
   \end{align}
 \end{subequations}
 
-where $n_g$ is the gas number density \cite{draine_destruction_1979}. More in-depth derivations for these equations can be found in the appendix, section \ref{app:accretiondestruction}.
+where $n_g$ is the gas number density \parencite{draine_destruction_1979}. More in-depth derivations for these equations can be found in the appendix, section \ref{app:accretiondestruction}.
+
+%//FIXME URGENT add this to appendix, appendix section 2 can be on certain derivations
 
 % //TODO cleanup sentence structures
 
@@ -320,10 +323,10 @@ Two sets of simulations were run which varied the wind momentum ratio, the first
   \multicolumn{5}{c}{\textit{Baseline}} \\ \hline
   \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\ \\
   \multicolumn{5}{c}{\textit{$\dot M$ adjusted}} \\ \hline
-  \num{1e-5} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.544 \\
-  \num{2.5e-8} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.04 & 1.995 \\
-  \num{5e-6} & \num{1e-7} & \num{1e8} & \num{2e8} & 0.04 & 0.997 \\
-  \num{5e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.088 \\ \\
+  \num{1.0e-5} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.544 \\
+  \num{2.5e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.04 & 1.995 \\
+  \num{5.0e-6} & \num{1.0e-7} & \num{1e8} & \num{2e8} & 0.04 & 0.997 \\
+  \num{5.0e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.088 \\ \\
   \multicolumn{5}{c}{\textit{$v^\infty$ adjusted}} \\ \hline
   \num{5e-6} & \num{5e-8} & \num{2e8} & \num{2e8} & 0.01 & 17.41 \\
   \num{5e-6} & \num{5e-8} & \num{5e7} & \num{2e8} & 0.04 & 0.062 \\
@@ -383,15 +386,14 @@ This matches observations of episodic dust forming systems, where infrared emiss
 
 \subsection{Periodicity within a circular orbit}
 
-Closer orbits were also observed to cause subtle periodic changes, whilst this effect is less pronounced than in a highly eccentric 
-
+Closer orbits were also observed to cause subtle periodic changes, whilst this effect is less pronounced than in a highly eccentric system, the 
 
 
 \subsection{Wind mixing within the WCR}
 
 %This may need additional work
 
-While interaction between Hydrogen and dust grains is not simulated by the dust model, \cite{leteuffModelDustFormation2002} notes that Hydrogen could be a potential catalyst
+While interaction between Hydrogen and dust grains is not simulated by the dust model, \cite{leteuffModelDustFormation2002} notes that Hydrogen could be a potential catalyst for amorphous carbon grain formation.
 
 
 % \appendix

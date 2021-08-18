@@ -1,4 +1,4 @@
-\chapter{Hydrodynamical Simulations of WCd Systems with an Advected Scalar Dust Model}
+\chapter[Hydrodynamical Simulations of WCd Systems]{Hydrodynamical Simulations of WCd Systems with an Advected Scalar Dust Model}
 
 
 \begin{abstract}
@@ -13,13 +13,11 @@ As a majority of massive stars form in binary pairs, this can result in the fast
 Observations of some of these systems have detected infrared excesses within the Wind Collision Region (WCR) which correspond with the emission from amorphous carbon dust grains.
 This is interesting as dust would be readily destroyed by evaporation via UV photons in the general medium, as well as the high gas temperature in the region.
 Instead it is believed that dust grows within the post-shock region, which rapidly cools due to the extremely high post-shock gas density. This high density region can also shield the nascent dust grains from the bulk of the photon flux from the binary stars, resulting in an ideal region for dust formation.
-Furthermore, this is only observed in systems where the primary star in the binary pair is a highly evolved WC9 star \cite{williamsDustFormationCollidingwind2008}, this adds further complexity to the dust production problem as hydrogen depletion renders many formulation mechanisms dependent on hydrogen seeding impossible, reducing the potential yield of dust \cite{crowther_dust_2003}. %//TODO might need to check this 
+Furthermore, this is only observed in systems where the primary star in the binary pair is a highly evolved WC9 star, this adds further complexity to the dust production problem as hydrogen depletion renders many formulation mechanisms dependent on hydrogen seeding impossible, reducing the potential yield of dust \parencite{williamsDustFormationCollidingwind2008,crowther_dust_2003}. %//TODO might need to check this 
 
-Dust forming CWB systems\footnote{Referred to as WCd systems} can produce upwards of $10^{-8} \, \si{\solarmass\per\year}$ of amorphous carbon dust, primarily in small grains $\sim 100 \, \text{\AA}$ in radius. This can have a significant impact on the local interstellar environment in the same manner that a dust producing Asymptotic Giant Branch star can impact its surroundings. CWBd systems can be further subdivided into two types of system based on their dust emission based on their dust emission rates over time, persistently forming systems and episodically forming systems\footnote{WCd}. Based on the observations of various WCd and WCde systems there is a strong correlation between orbital eccentricity and dust production periodicity - dust forms readily at or after periastron pass, with dust production being reduced by multiple orders of magnitude at apastron \cite{williamsCollidingwindWC9OB2015}. 
+Dust forming CWB systems\footnote{Referred to as WCd systems} can produce upwards of $10^{-8} \, \si{\solarmass\per\year}$ of amorphous carbon dust, primarily in small grains $\sim 100 \, \text{\AA}$ in radius. This can have a significant impact on the local interstellar environment in the same manner that a dust producing Asymptotic Giant Branch star can impact its surroundings. CWBd systems can be further subdivided into two types of system based on their dust emission based on their dust emission rates over time, persistently forming systems and episodically forming systems\footnote{WCd}. Based on the observations of various WCd and WCde systems there is a strong correlation between orbital eccentricity and dust production periodicity - dust forms readily at or after periastron pass, with dust production being reduced by multiple orders of magnitude at apastron \parencite{williamsCollidingwindWC9OB2015}. 
 
-Whilst observational data of CWBd systems does exist, and dust formation can be readily observed, the distances from Earth to these systems, combined with the high levels of extinction due to the surrounding stellar wind result in it difficult to observe the dynamics of dust formation within the WCR. Instead numerical simulation of dust growth can be https://rubjo.github.io/victor-mono/performed in order to discern how dust evolves in the system, this can then be compared to observations using radiative transfer modelling of the resultant numerical grids.
-
-
+Whilst observational data of CWBd systems does exist, and dust formation can be readily observed, the distances from Earth to these systems, combined with the high levels of extinction due to the surrounding stellar wind result in it difficult to observe the dynamics of dust formation within the WCR. Instead numerical simulation of dust growth can be performed in order to discern how dust evolves in the system, this can then be compared to observations using radiative transfer modelling of the resultant numerical grids.
 
 \section{Methodology}
 
@@ -37,7 +35,7 @@ A number of assumptions are made in this dust model, for instance, the dust grai
 Additional mechanisms for dust formation and destruction could also be implemented such as grain-grain agglomeration and photoevaporation.
 Furthermore, a multi-fluid model with drag force coupling could also be implemented, however this is beyond the scope of this paper.
 
-Dust is grown through grain accretion using formulae described by \cite{spitzer_jr._physical_2008}. Dust grains grow via collisions with the surrounding gas, as gas accretes onto these grains the associated density is subtracted from the gas density, and added to the 
+Dust is grown through grain accretion using formulae described by \parencite{spitzer_jr._physical_2008}. Dust grains grow via collisions with the surrounding gas, as gas accretes onto these grains the associated density is subtracted from the gas density, and added to the 
 
 %//TODO I have copy-pasted some paragraphs from paper 1, this needs to be fixed up a bit or streamlined. 
 
@@ -100,12 +98,12 @@ The systems being simulated in this paper are the persistent dust forming system
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{assets/orbits-crop.pdf}
-  \caption{Comparative orbital paths of each system about a common barycenter at (0,0), solid lines represent the WR star in the binary system, whilst dashed lines represent the OB star. WR 140 is notable for having a highly eccentric orbit, and thus a significantly longer orbital period.}
+  \caption[System orbital paths]{Comparative orbital paths of each system about a common barycenter at (0,0), solid lines represent the WR star in the binary system, whilst dashed lines represent the OB star. WR 140 is notable for having a highly eccentric orbit, and thus a significantly longer orbital period.}
   \label{fig:orbits-diag}
 \end{figure}
 
 % Discussion of WR 98a
-WR 98a is a typical dusty CWB system that was primarily chosen for simulation as it is one of the only CWB systems whose dust dynamics have been simulated in an academic paper \cite{hendrix_pinwheels_2016}. The model utilised in Hendrix et al. was a dual-fluid model with an Epstein drag function in order to detail how dust flows through the system itself. As such, this model does not simulate dust accretion or cooling, and only deposits dust grains with a single set grain radius and a fixed dust production rate of $\phi = 0.0763$. However, this still provides a useful point of comparison to evaluate this papers dust model against an established model with concrete data. Furthermore, a simplified version of WR 98a was used to test the dust model and was used as a basis to explore the parameter space of dusty CWB systems by varying wind parameters and orbital separation. The parameters detailed in table \ref{tab:systems-wind-properties} are adopted from Hendrix et al., similarly to this paper a perfectly circular orbit is assumed.
+WR 98a is a typical dusty CWB system that was primarily chosen for simulation as it is one of the only CWB systems whose dust dynamics have been simulated in an academic paper \parencite{hendrix_pinwheels_2016}. The model utilised in Hendrix et al. was a dual-fluid model with an Epstein drag function in order to detail how dust flows through the system itself. As such, this model does not simulate dust accretion or cooling, and only deposits dust grains with a single set grain radius and a fixed dust production rate of $\phi = 0.0763$. However, this still provides a useful point of comparison to evaluate this papers dust model against an established model with concrete data. Furthermore, a simplified version of WR 98a was used to test the dust model and was used as a basis to explore the parameter space of dusty CWB systems by varying wind parameters and orbital separation. The parameters detailed in table \ref{tab:systems-wind-properties} are adopted from Hendrix et al., similarly to this paper a perfectly circular orbit is assumed.
 
 % Discussion of WR 104
 
@@ -120,13 +118,13 @@ The orbital and wind parameters of this system were derived from \cite{soulain_s
 
 % Discussion of WR140
 
-WR 140 was simulated for this experiment as it represents an archetypical episodic CWB system, whose infrared dust emission peaks around periastron passage. WR 140 deviates from WR 98a and WR 104 by being extremely eccentric, which significantly effects the cooling parameter as the orbit progresses (figure \ref{fig:chiphase}). Additionally, the minimum value for $\chi$ is significantly larger than the other systems, and hence cooling would be less dominant on the dynamics of the WCR, even at periapsis. Though these simulations do not calculate wind acceleration due to radiative line driving, both stellar winds are expected to be accelerated close to their terminal wind velocities \cite{lamersIntroductionStellarWinds1999}. However, this discrepancy should be noted when considering the results of this paper. %//TODO touch up 
-The orbital and wind parameters of this system were derived from \cite{monnier_first_2011}, \cite{usov_stellar_1991} and \cite{thomasOrbitStellarMasses2021}. 
+WR 140 was simulated for this experiment as it represents an archetypical episodic CWB system, whose infrared dust emission peaks around periastron passage. WR 140 deviates from WR 98a and WR 104 by being extremely eccentric, which significantly effects the cooling parameter as the orbit progresses (figure \ref{fig:chiphase}). Additionally, the minimum value for $\chi$ is significantly larger than the other systems, and hence cooling would be less dominant on the dynamics of the WCR, even at periapsis. Though these simulations do not calculate wind acceleration due to radiative line driving, both stellar winds are expected to be accelerated close to their terminal wind velocities \parencite{lamersIntroductionStellarWinds1999}. However, this discrepancy should be noted when considering the results of this paper. %//TODO touch up 
+The orbital and wind parameters of this system were derived from work by \cite{monnier_first_2011}, \cite{usov_stellar_1991}, as well as \cite{thomasOrbitStellarMasses2021}.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{assets/chi-vs-phase.pdf}
-  \caption{Change in WR cooling parameter $\chi_{WR}$ as system orbits, the dynamics of the WCR for WR 98a and WR 104 is dominated by cooling throughout their entire orbits, while WR 140 is adiabatic for most of its orbit.}
+  \caption[$\chi_{WR}$ change over system orbit]{Change in WR cooling parameter $\chi_{WR}$ as system orbits, the dynamics of the WCR for WR 98a and WR 104 is dominated by cooling throughout their entire orbits, while WR 140 is adiabatic for most of its orbit.}
   \label{fig:chiphase}
 \end{figure}
 

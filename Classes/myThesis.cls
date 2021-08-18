@@ -24,9 +24,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
 \ifx\pdfoutput\undefined
-   \LoadClass[dvips, a4paper]{book}
+   \LoadClass[dvips, a4paper,twoside]{book}
 \else
-   \LoadClass[pdftex, a4paper]{book}
+   \LoadClass[pdftex, a4paper,twoside]{book}
 \fi
 
 %\usepackage[pagebackref=true]{hyperref} %define hyperref package last
@@ -197,13 +197,28 @@
 
 
 
-\setlength{\evensidemargin}{1.96cm}
+% \setlength{\evensidemargin}{1.96cm}
 %\setlength{\oddsidemargin}{-0.54cm}
+
+% \setlength{\evensidemargin}{0cm}
+% \setlength{\oddsidemargin}{0cm}
+
+\usepackage[
+  a4paper,
+  twoside,
+  bindingoffset=1.5cm,
+  inner=2.5cm,
+  outer=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm,
+  headsep=1.2cm
+]{geometry}
+
 \setlength{\topmargin}{1mm}
 \setlength{\headheight}{1.36cm}
 \setlength{\headsep}{1.00cm}
 \setlength{\textheight}{20.84cm}
-\setlength{\textwidth}{14.5cm}
+% \setlength{\textwidth}{14.5cm}
 \setlength{\marginparsep}{1mm}
 \setlength{\marginparwidth}{3cm}
 \setlength{\footskip}{2.36cm}
