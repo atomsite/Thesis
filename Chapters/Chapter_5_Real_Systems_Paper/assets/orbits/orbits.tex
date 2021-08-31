@@ -46,7 +46,7 @@
 \fi
 \makeatother
 % Set papersize
-\usepackage[papersize={360.00bp,216.00bp},text={360.00bp,216.00bp}]{geometry}
+\usepackage[papersize={432.00bp,216.00bp},text={432.00bp,216.00bp}]{geometry}
 % No page numbers and no paragraph indentation
 \pagestyle{empty}
 \setlength{\parindent}{0bp}%
@@ -79,7 +79,7 @@
   \providecommand\rotatebox[2]{#2}%
   \@ifundefined{ifGPcolor}{%
     \newif\ifGPcolor
-    \GPcolorfalse
+    \GPcolortrue
   }{}%
   \@ifundefined{ifGPblacktext}{%
     \newif\ifGPblacktext
@@ -138,53 +138,50 @@
     \fi%
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
-\begin{picture}(7200.00,4320.00)%
+    \definecolor{tbcol}{rgb}{1,1,1}%
+\begin{picture}(8640.00,4320.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(504,408){\makebox(0,0)[r]{\strut{}$1$}}%
+      \put(518,1314){\makebox(0,0)[r]{\strut{}$-4$}}%
       \csname LTb\endcsname%%
-      \put(504,869){\makebox(0,0)[r]{\strut{}$1.5$}}%
+      \put(518,1828){\makebox(0,0)[r]{\strut{}$-2$}}%
       \csname LTb\endcsname%%
-      \put(504,1330){\makebox(0,0)[r]{\strut{}$2$}}%
+      \put(518,2342){\makebox(0,0)[r]{\strut{}$0$}}%
       \csname LTb\endcsname%%
-      \put(504,1791){\makebox(0,0)[r]{\strut{}$2.5$}}%
+      \put(518,2856){\makebox(0,0)[r]{\strut{}$2$}}%
       \csname LTb\endcsname%%
-      \put(504,2252){\makebox(0,0)[r]{\strut{}$3$}}%
+      \put(518,3370){\makebox(0,0)[r]{\strut{}$4$}}%
       \csname LTb\endcsname%%
-      \put(504,2712){\makebox(0,0)[r]{\strut{}$3.5$}}%
+      \put(616,882){\makebox(0,0){\strut{}$-10$}}%
       \csname LTb\endcsname%%
-      \put(504,3173){\makebox(0,0)[r]{\strut{}$4$}}%
+      \put(1901,882){\makebox(0,0){\strut{}$-5$}}%
       \csname LTb\endcsname%%
-      \put(504,3634){\makebox(0,0)[r]{\strut{}$4.5$}}%
+      \put(3186,882){\makebox(0,0){\strut{}$0$}}%
       \csname LTb\endcsname%%
-      \put(504,4095){\makebox(0,0)[r]{\strut{}$5$}}%
+      \put(4471,882){\makebox(0,0){\strut{}$5$}}%
       \csname LTb\endcsname%%
-      \put(616,204){\makebox(0,0){\strut{}$0$}}%
+      \put(5755,882){\makebox(0,0){\strut{}$10$}}%
       \csname LTb\endcsname%%
-      \put(1409,204){\makebox(0,0){\strut{}$0.2$}}%
+      \put(7040,882){\makebox(0,0){\strut{}$15$}}%
       \csname LTb\endcsname%%
-      \put(2202,204){\makebox(0,0){\strut{}$0.4$}}%
-      \csname LTb\endcsname%%
-      \put(2995,204){\makebox(0,0){\strut{}$0.6$}}%
-      \csname LTb\endcsname%%
-      \put(3787,204){\makebox(0,0){\strut{}$0.8$}}%
-      \csname LTb\endcsname%%
-      \put(4580,204){\makebox(0,0){\strut{}$1$}}%
-      \csname LTb\endcsname%%
-      \put(5373,204){\makebox(0,0){\strut{}$1.2$}}%
-      \csname LTb\endcsname%%
-      \put(6166,204){\makebox(0,0){\strut{}$1.4$}}%
+      \put(8325,882){\makebox(0,0){\strut{}$20$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(5978,3912){\makebox(0,0)[r]{\strut{}$f(1.0,x)$}}%
+      \put(161,2342){\rotatebox{-270}{\makebox(0,0){\strut{}Y (AU)}}}%
       \csname LTb\endcsname%%
-      \put(5978,3708){\makebox(0,0)[r]{\strut{}$[0:pi/2] f(2.0,x)$}}%
+      \put(4470,620){\makebox(0,0){\strut{}X (AU)}}%
       \csname LTb\endcsname%%
-      \put(5978,3504){\makebox(0,0)[r]{\strut{}$[0:pi/2] f(3.0,x)$}}%
+      \put(1694,3469){\makebox(0,0)[r]{\strut{}Barycenter}}%
+      \csname LTb\endcsname%%
+      \put(1694,3294){\makebox(0,0)[r]{\strut{}WR 98a}}%
+      \csname LTb\endcsname%%
+      \put(1694,3119){\makebox(0,0)[r]{\strut{}WR 104}}%
+      \csname LTb\endcsname%%
+      \put(1694,2944){\makebox(0,0)[r]{\strut{}WR 140}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics[width={360.00bp},height={216.00bp}]{momentum-ratio-inc}}%
+    \put(0,0){\includegraphics[width={432.00bp},height={216.00bp}]{orbits-inc}}%
     \gplfronttext
   \end{picture}%
 \endgroup

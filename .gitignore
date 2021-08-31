@@ -29,3 +29,5 @@ prv_.log
 *.*~
 *.bak
 .DS_Store
+
+./.vscode

@@ -188,13 +188,13 @@ where $H_\text{coll}$ is the heating rate due to atom and ion collisions, $H_\te
 
 Electron-grain collisions are modelled similarly to ions, with some differences. In particular, the electron number density needs to be accurately calculated, this is performed with a second series of lookup tables that contain the electron-to-ion ratio of each wind across a temperature range of $10^4$ to $10^9\si{\kelvin}$ (figure \ref{fig:electron-curve}). Additionally, calculating electron transparency is a significantly more complex problem than ion transparency. Electron transparency is calculated via an approximation rather than an integration step, this is used to improve performance, as a time-consuming integration would have to be performed at each cooling substep. The approximation itself is derived from \cite{dwek_infrared_1981}. The approximation for $h(a,T)$ is:
 
-\begin{subequations}
-  \begin{align}
-    h(a,T) & = 1,              & x* > 4.5 , \\
-           & = 0.37x^{*0.62} , & x^* > 1.5 , \\
-           & = 0.27x^{*1.50} , & \text{otherwise} ,
-  \end{align}
-\end{subequations}
+\begin{equation}
+  \begin{alignedat}{3}
+    h(x^*) & = 1 ,                && ~~ x^* > 4.5, \\
+           & = 0.37{x^*}^{0.62} , && ~~ x^* > 1.5 , \\
+           & = 0.27{x^*}^{1.50} , && ~~ \text{otherwise,}
+  \end{alignedat}
+\end{equation}
 
 where $x^* = 2.71\times 10^8 a^{2/3} (\si{\micro\metre})/T$, this approximation makes the entire dust cooling calculation about 3000\% faster than using a 400 bin integration\footnote{The fastest still reasonably accurate integration.}. Figures \ref{fig:hecomparison} and \ref{fig:lambdacomparison} compare each method, but at high temperatures maximum deviation of the approximation is on the order of $10\%$.
 
@@ -307,12 +307,14 @@ For this project, a series of simulations were run in order to determine how dus
   \label{tab:baseline-orbits}
 \end{table}
 
+\subsection{Cooling}
+
+For this experiment, 3 different simulations were run against each other in order to determine the influence of cooling changes the evolution of the system.
+All systems in this section have the same parameters, that of the baseline system described in tables \ref{tab:baseline-windproperties} \& \ref{tab:baseline-orbits}, the parameter being varied was that of the presence of cooling, one simulation models cooling due to plasma and dust emission, another models cooling due to plasma emission only, whilst the final model does not simulate cooling at all, behaving completely adiabatically.
 
 \subsection{Wind momentum ratio}
 
 Two sets of simulations were run which varied the wind momentum ratio, the first set of simulations varied $\eta$ by modifying the mass loss rate of each star, while the second set of simulations adjusted the wind terminal velocity of each star. Each set of simulations had each parameter adjusted for both the Wolf-Rayet and OB star, this led to a total of 9 simulations, which are described in table \ref{tab:momrat-param}.
-
-%// Two figures 
 
 \begin{table}[h]
   \centering

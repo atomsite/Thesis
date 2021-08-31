@@ -203,10 +203,13 @@
 % \setlength{\evensidemargin}{0cm}
 % \setlength{\oddsidemargin}{0cm}
 
+
+% Package handling offsets and margins, set binding offset to 1.25cm for printing, for now, equal margins of 2.5cm on each side
 \usepackage[
   a4paper,
   twoside,
-  bindingoffset=1.25cm,
+  bindingoffset=0cm,    %Uncomment me for digital
+  % bindingoffset=1.25cm, %Uncomment me for print
   inner=2.5cm,
   outer=2.5cm,
   top=2.5cm,

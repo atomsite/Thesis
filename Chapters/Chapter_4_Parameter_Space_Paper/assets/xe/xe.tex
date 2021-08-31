@@ -46,7 +46,7 @@
 \fi
 \makeatother
 % Set papersize
-\usepackage[papersize={359.00bp,215.00bp},text={359.00bp,215.00bp}]{geometry}
+\usepackage[papersize={360.00bp,216.00bp},text={360.00bp,216.00bp}]{geometry}
 % No page numbers and no paragraph indentation
 \pagestyle{empty}
 \setlength{\parindent}{0bp}%
@@ -79,7 +79,7 @@
   \providecommand\rotatebox[2]{#2}%
   \@ifundefined{ifGPcolor}{%
     \newif\ifGPcolor
-    \GPcolorfalse
+    \GPcolortrue
   }{}%
   \@ifundefined{ifGPblacktext}{%
     \newif\ifGPblacktext
@@ -138,49 +138,50 @@
     \fi%
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
-\begin{picture}(7180.00,4300.00)%
+    \definecolor{tbcol}{rgb}{1,1,1}%
+\begin{picture}(7200.00,4320.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(708,652){\makebox(0,0)[r]{\strut{}$0$}}%
+      \put(616,560){\makebox(0,0)[r]{\strut{}$0$}}%
       \csname LTb\endcsname%%
-      \put(708,1278){\makebox(0,0)[r]{\strut{}$0.2$}}%
+      \put(616,1208){\makebox(0,0)[r]{\strut{}$0.2$}}%
       \csname LTb\endcsname%%
-      \put(708,1904){\makebox(0,0)[r]{\strut{}$0.4$}}%
+      \put(616,1856){\makebox(0,0)[r]{\strut{}$0.4$}}%
       \csname LTb\endcsname%%
-      \put(708,2530){\makebox(0,0)[r]{\strut{}$0.6$}}%
+      \put(616,2504){\makebox(0,0)[r]{\strut{}$0.6$}}%
       \csname LTb\endcsname%%
-      \put(708,3156){\makebox(0,0)[r]{\strut{}$0.8$}}%
+      \put(616,3152){\makebox(0,0)[r]{\strut{}$0.8$}}%
       \csname LTb\endcsname%%
-      \put(708,3782){\makebox(0,0)[r]{\strut{}$1$}}%
+      \put(616,3800){\makebox(0,0)[r]{\strut{}$1$}}%
       \csname LTb\endcsname%%
-      \put(820,448){\makebox(0,0){\strut{}$0$}}%
+      \put(714,385){\makebox(0,0){\strut{}$0$}}%
       \csname LTb\endcsname%%
-      \put(1623,448){\makebox(0,0){\strut{}$2$}}%
+      \put(1537,385){\makebox(0,0){\strut{}$2$}}%
       \csname LTb\endcsname%%
-      \put(2426,448){\makebox(0,0){\strut{}$4$}}%
+      \put(2360,385){\makebox(0,0){\strut{}$4$}}%
       \csname LTb\endcsname%%
-      \put(3229,448){\makebox(0,0){\strut{}$6$}}%
+      \put(3182,385){\makebox(0,0){\strut{}$6$}}%
       \csname LTb\endcsname%%
-      \put(4032,448){\makebox(0,0){\strut{}$8$}}%
+      \put(4005,385){\makebox(0,0){\strut{}$8$}}%
       \csname LTb\endcsname%%
-      \put(4835,448){\makebox(0,0){\strut{}$10$}}%
+      \put(4828,385){\makebox(0,0){\strut{}$10$}}%
       \csname LTb\endcsname%%
-      \put(5638,448){\makebox(0,0){\strut{}$12$}}%
+      \put(5651,385){\makebox(0,0){\strut{}$12$}}%
       \csname LTb\endcsname%%
-      \put(6441,448){\makebox(0,0){\strut{}$14$}}%
+      \put(6474,385){\makebox(0,0){\strut{}$14$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(186,2373){\rotatebox{-270}{\makebox(0,0){\strut{}$h(a,T)$}}}%
+      \put(161,2342){\rotatebox{-270}{\makebox(0,0){\strut{}$h(a,T)$}}}%
       \csname LTb\endcsname%%
-      \put(3831,142){\makebox(0,0){\strut{}$x^*$}}%
+      \put(3799,123){\makebox(0,0){\strut{}$x^*$}}%
       \csname LTb\endcsname%%
-      \put(5978,1039){\makebox(0,0)[r]{\strut{}Integration}}%
+      \put(6129,892){\makebox(0,0)[r]{\strut{}Integration}}%
       \csname LTb\endcsname%%
-      \put(5978,835){\makebox(0,0)[r]{\strut{}Approximation}}%
+      \put(6129,717){\makebox(0,0)[r]{\strut{}Approximation}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics{xe-inc}}%
+    \put(0,0){\includegraphics[width={360.00bp},height={216.00bp}]{xe-inc}}%
     \gplfronttext
   \end{picture}%
 \endgroup

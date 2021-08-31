@@ -79,7 +79,7 @@
   \providecommand\rotatebox[2]{#2}%
   \@ifundefined{ifGPcolor}{%
     \newif\ifGPcolor
-    \GPcolorfalse
+    \GPcolortrue
   }{}%
   \@ifundefined{ifGPblacktext}{%
     \newif\ifGPblacktext
@@ -138,72 +138,73 @@
     \fi%
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
+    \definecolor{tbcol}{rgb}{1,1,1}%
 \begin{picture}(7200.00,5760.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(965,3042){\makebox(0,0)[r]{\strut{}$10^{-2}$}}%
+      \put(979,3042){\makebox(0,0)[r]{\strut{}$10^{-2}$}}%
       \csname LTb\endcsname%%
-      \put(965,3444){\makebox(0,0)[r]{\strut{}$10^{-1}$}}%
+      \put(979,3444){\makebox(0,0)[r]{\strut{}$10^{-1}$}}%
       \csname LTb\endcsname%%
-      \put(965,3845){\makebox(0,0)[r]{\strut{}$10^{0}$}}%
+      \put(979,3845){\makebox(0,0)[r]{\strut{}$10^{0}$}}%
       \csname LTb\endcsname%%
-      \put(965,4247){\makebox(0,0)[r]{\strut{}$10^{1}$}}%
+      \put(979,4247){\makebox(0,0)[r]{\strut{}$10^{1}$}}%
       \csname LTb\endcsname%%
-      \put(965,4649){\makebox(0,0)[r]{\strut{}$10^{2}$}}%
+      \put(979,4649){\makebox(0,0)[r]{\strut{}$10^{2}$}}%
       \csname LTb\endcsname%%
-      \put(965,5050){\makebox(0,0)[r]{\strut{}$10^{3}$}}%
+      \put(979,5050){\makebox(0,0)[r]{\strut{}$10^{3}$}}%
       \csname LTb\endcsname%%
-      \put(965,5452){\makebox(0,0)[r]{\strut{}$10^{4}$}}%
+      \put(979,5452){\makebox(0,0)[r]{\strut{}$10^{4}$}}%
       \csname LTb\endcsname%%
-      \put(1077,2838){\makebox(0,0){\strut{}}}%
+      \put(1077,2867){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(2549,2838){\makebox(0,0){\strut{}}}%
+      \put(2549,2867){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(4020,2838){\makebox(0,0){\strut{}}}%
+      \put(4020,2867){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(5492,2838){\makebox(0,0){\strut{}}}%
+      \put(5492,2867){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(6963,2838){\makebox(0,0){\strut{}}}%
+      \put(6963,2867){\makebox(0,0){\strut{}}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(331,4247){\rotatebox{-270}{\makebox(0,0){\strut{}Execution time (s)}}}%
+      \put(426,4247){\rotatebox{-270}{\makebox(0,0){\strut{}Execution time (s)}}}%
       \csname LTb\endcsname%%
-      \put(4020,2776){\makebox(0,0){\strut{}}}%
+      \put(4020,2815){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(2421,5269){\makebox(0,0)[r]{\strut{}Calculation}}%
+      \put(2547,5294){\makebox(0,0)[r]{\strut{}   Calculation}}%
       \csname LTb\endcsname%%
-      \put(2421,5065){\makebox(0,0)[r]{\strut{}Search+TL}}%
+      \put(2547,5119){\makebox(0,0)[r]{\strut{}   Search+TL}}%
       \csname LTb\endcsname%%
-      \put(2421,4861){\makebox(0,0)[r]{\strut{}Index+BL+L}}%
+      \put(2547,4944){\makebox(0,0)[r]{\strut{}   Index+BL+L}}%
     }%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(965,631){\makebox(0,0)[r]{\strut{}  0}}%
+      \put(979,631){\makebox(0,0)[r]{\strut{}  0}}%
       \csname LTb\endcsname%%
-      \put(965,1179){\makebox(0,0)[r]{\strut{}  5}}%
+      \put(979,1179){\makebox(0,0)[r]{\strut{}  5}}%
       \csname LTb\endcsname%%
-      \put(965,1726){\makebox(0,0)[r]{\strut{}  10}}%
+      \put(979,1726){\makebox(0,0)[r]{\strut{}  10}}%
       \csname LTb\endcsname%%
-      \put(965,2274){\makebox(0,0)[r]{\strut{}  15}}%
+      \put(979,2274){\makebox(0,0)[r]{\strut{}  15}}%
       \csname LTb\endcsname%%
-      \put(965,2822){\makebox(0,0)[r]{\strut{}  20}}%
+      \put(979,2822){\makebox(0,0)[r]{\strut{}  20}}%
       \csname LTb\endcsname%%
-      \put(1077,427){\makebox(0,0){\strut{}$10^{0}$}}%
+      \put(1077,456){\makebox(0,0){\strut{}$10^{0}$}}%
       \csname LTb\endcsname%%
-      \put(2549,427){\makebox(0,0){\strut{}$10^{1}$}}%
+      \put(2549,456){\makebox(0,0){\strut{}$10^{1}$}}%
       \csname LTb\endcsname%%
-      \put(4020,427){\makebox(0,0){\strut{}$10^{2}$}}%
+      \put(4020,456){\makebox(0,0){\strut{}$10^{2}$}}%
       \csname LTb\endcsname%%
-      \put(5492,427){\makebox(0,0){\strut{}$10^{3}$}}%
+      \put(5492,456){\makebox(0,0){\strut{}$10^{3}$}}%
       \csname LTb\endcsname%%
-      \put(6963,427){\makebox(0,0){\strut{}$10^{4}$}}%
+      \put(6963,456){\makebox(0,0){\strut{}$10^{4}$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(331,1836){\rotatebox{-270}{\makebox(0,0){\strut{}Speedup}}}%
+      \put(426,1836){\rotatebox{-270}{\makebox(0,0){\strut{}Speedup}}}%
       \csname LTb\endcsname%%
-      \put(4020,121){\makebox(0,0){\strut{}Number of Cooling Steps}}%
+      \put(4020,194){\makebox(0,0){\strut{}Number of Cooling Steps}}%
     }%
     \gplbacktext
     \put(0,0){\includegraphics[width={360.00bp},height={288.00bp}]{lambda-dust-speedup-inc}}%

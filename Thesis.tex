@@ -71,7 +71,8 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 %Captions for subfigures
-\usepackage{caption}
+\usepackage[justification=centering,
+            labelfont=bf]{caption}
 
 
 
@@ -159,7 +160,6 @@
   
 \printbibheading
 \printbibliography[type=book,heading=subbibliography,title={Book Sources}]
-\printbibliography[type=article,heading=subbibliography,title={Journal Sources}]
-\printbibliography[nottype=book,nottype=article,heading=subbibliography,title={Other Sources}]
+\printbibliography[nottype=book,heading=subbibliography,title={Journal Sources}]
 
 \end{document}

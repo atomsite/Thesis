@@ -67,8 +67,7 @@ The systems being simulated in this paper are the persistent dust forming system
 
 \begin{table}[h]
   \centering
-  \resizebox{\textwidth}{!}{%
-  \begin{tabular}{llllllll}
+  \begin{tabular}{cccccccc}
   \hline
   System & Periodic & $\dot M_{WR}$ & $\dot M_{OB}$ & $v_{WR}^\infty$ & $v_{OB}^\infty$ & $\eta$ & $\chi_\text{min}$ \\
    &  & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & (AU) & \\ \hline
@@ -76,14 +75,13 @@ The systems being simulated in this paper are the persistent dust forming system
   WR 104 & No  & \num{3.0e-5} & \num{6.0e-8} & 1220 & 2000 & 0.0033 & 0.2430 \\
   WR 140 & Yes & \num{5.7e-5} & \num{1.6e-6} & 2860 & 3200 & 0.0314 & 2.6866 \\ \hline
   \end{tabular}
-  }
   \caption{Wind properties of systems simulated in this paper.}
   \label{tab:systems-wind-properties}
 \end{table}
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{lllllll}
+  \begin{tabular}{ccccccc}
   \hline
   System & Period & Eccentricity & $M_{WR}$ & $M_{OB}$ & Periastron & Apastron \\
    & (d) & ($e$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
@@ -97,8 +95,8 @@ The systems being simulated in this paper are the persistent dust forming system
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{assets/orbits-crop.pdf}
-  \caption[System orbital paths]{Comparative orbital paths of each system about a common barycenter at (0,0), solid lines represent the WR star in the binary system, whilst dashed lines represent the OB star. WR 140 is notable for having a highly eccentric orbit, and thus a significantly longer orbital period.}
+  \includegraphics{assets/orbits/orbits-transform.pdf}
+  \caption[Orbital path comparison]{Orbital paths for each system, a co-ordinate transform is applied such that the orbitally dominant OB partner is always at co-ordinate (0,0). WR 140 has a significantly more eccentric orbit, as well as a much longer orbital period.}
   \label{fig:orbits-diag}
 \end{figure}
 
@@ -123,11 +121,10 @@ The orbital and wind parameters of this system were derived from work by \cite{m
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{assets/chi-vs-phase.pdf}
-  \caption[$\chi_{WR}$ change over system orbit]{Change in WR cooling parameter $\chi_{WR}$ as system orbits, the dynamics of the WCR for WR 98a and WR 104 is dominated by cooling throughout their entire orbits, while WR 140 is adiabatic for most of its orbit.}
+  \includegraphics{assets/orbits/chi-vs-phase.pdf}
+  \caption[$\chi$ change over system orbit]{Change in WR cooling parameter $\chi$ over a single orbit, solid lines represent the primary WC star, while dashed lines represent their OB partners. The dynamics of the WCR for WR 98a and WR 104 is dominated by cooling throughout their entire orbits, while WR 140 is adiabatic for most of its orbit. Additionally OB stars have significantly higher cooling parameters, and thus their flows behave adiabatically.}
   \label{fig:chiphase}
 \end{figure}
-
 
 % Challenges involved in simulating WR140
 %//TODO Check if this is right

@@ -1,4 +1,5 @@
-set terminal cairolatex standalone mono size 5in,4in
+load "../turbo.pal"
+set terminal cairolatex standalone size 5in,4in
 set output "lambda-dust-speedup.tex"
 set datafile separator ','
 
@@ -20,9 +21,9 @@ set ylabel "Execution time (s)"
 set logscale y
 set format y '$10^{%L}$'
 
-plot "comparison.csv" using 1:3 t "Calculation" w l , \
-   "" using 1:4 t "Search+TL" w l , \
-   "" using 1:5 t "Index+BL+L" w l
+plot "comparison.csv" using 1:3 t "   Calculation" w l ls 1, \
+   "" using 1:4 t "   Search+TL" w l ls 2, \
+   "" using 1:5 t "   Index+BL+L" w l ls 3
    
 # Plot second plot, which shows the speedup, ts/t
 
@@ -40,7 +41,7 @@ set ytics 5
 set format y '  %.0f'
 set ylabel 'Speedup'
    
-plot "comparison.csv" using 1:(($3/$3)) w l ,\
-   "" using 1:(($3/$4)) w l , \
-   "" using 1:($3/$5) w l
+plot "comparison.csv" using 1:(($3/$3)) w l ls 1,\
+   "" using 1:(($3/$4)) w l ls 2, \
+   "" using 1:($3/$5) w l ls 3
 

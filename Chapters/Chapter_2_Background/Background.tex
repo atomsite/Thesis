@@ -3,7 +3,8 @@
 \section{Early-Type Stars}
 \label{sec:earlytype}
 
-The term Early-type stars is quite possibly the epitome of Astrophysical naming conventions, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
+%//TODO I quite like this joke but it needs a bit of work
+The term Early-type stars is quite possibly the epitome of bad naming conventions in astrophysics, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
 The first generation of astrophysicists found themselves asking very important questions such as ``what even \textit{are} stars'' and ``what possible mechanism can allow a star to burn for so long?'' Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
 
 Of course, like all pressing questions of the 19\textsuperscript{th} century, it fell to Lord Kelvin to provide a convincing but incorrect answer. Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest. Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass! However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
@@ -280,15 +281,48 @@ Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio 
 %//TODO remove grid from plot
 \begin{figure}[ht]
   \centering
-  \includegraphics{assets/cooling-curve/cooling-curve-no-elements.pdf}
-  \caption[WC \& solar abundance plasma cooling curves]{Normalised plasma cooling rates as a function of temperature for solar and WC hydrogen depleted flows.}
+  \includegraphics{assets/cooling-curve/cooling-curve-solar-withev.pdf}
+  \caption[WC \& solar abundance plasma cooling curves]{Normalised plasma cooling rates as a function of temperature and thermal energy for solar abundance and WC abundance winds. The regions where forbidden line, resonance line and bremsstrahlung emission are dominant are highlighted, with H ionisation and recombination occuring between the forbidden and resonance line sections at $10^5$ \si{\kelvin}.}
   \label{fig:wcsolcooling}
 \end{figure}
 
+\begin{table}[h]
+  \centering
+  \begin{tabular}{lll}
+  \\ \hline 
+  \textbf{Temperature range} & \textbf{Dominant process} & \textbf{Spectral region} \\ \hline
+  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Forbidden lines & IR, Optical \\
+  $T \approx \SI{1e5}{\kelvin}$ & H excitation/ionisation & Optical, UV \\
+  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Resonance lines & Far UV, soft X-ray \\
+  $T \gtrsim \SI{1e8}{\kelvin} $ & Bremsstrahlung & Radio \\ \hline
+  \end{tabular}
+  \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \cite{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in figure \ref{fig:wcsolcooling}.}
+  \label{tab:coolprocess}
+  \end{table}
 
-The presence of dust within the immediate post-shock environment significantly increases the cooling rate.
-Figure \ref{fig:dustplasmacomparison} compares rate of cooling due to dust emission of various types of grains to plasma cooling at solar abundances, 
-As $\Lambda_g$ and $\Lambda_D$ are both proportional to $\rho_g^2$, dust cooling will dominate at high temperatures so long as there is sufficient amounts of dust.
+% Radiative cooling, include graphs, mechanisms
+
+Cooling due to radiation emission in a hot plasma can be broken down into a variety of processes that occur over series of temperature ranges.
+Ions inside a plasma can be collisionally or photonically excited, resulting in emission through a variety of mechanisms.
+
+Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung, the influence of each mechanism waxes and wanes as temperature increases, with each mechanism clearly dominant over \parencite{dysonPhysicsInterstellarMedium2021}.
+
+% Section on forbidden line emission
+
+% Section on ionisation/recombination
+
+% Section on resonance line emission
+
+% Section on braking radiation
+
+As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bremsstrahlung\footnote{Or braking radiation when you can't remember how to spell it.} becomes dominant (figure \ref{fig:wcsolcooling}). High velocity electrons are deflected by ions, emitting radiation in the process due to conservation of energy. 
+
+% \parencite{1993ApJS...88..253S}
+\parencite{schureNewRadiativeCooling2009}
+\parencite{rybickiRadiativeProcessesAstrophysics2004}
+
+
+
 
 %//TODO clean up this caption
 \begin{figure}
@@ -313,17 +347,32 @@ As $\Lambda_g$ and $\Lambda_D$ are both proportional to $\rho_g^2$, dust cooling
   \chi = \frac{\tau_\text{cool}}{\tau_\text{esc}} \approx \frac{v^4_{\infty,8} d_\text{sep,12}}{\dot M_{-7}} \label{eq:coolingparameter} ,
 \end{equation}
 
-% Radiative cooling, include graphs, mechanisms
 
 
 % Dust cooling? Might need to move CWB dust formation up
-The presence of dust can also accelerate cooling through additional avenues of radiation emission.
+The presence of dust within the immediate post-shock environment significantly increases the cooling rate.
+Figure \ref{fig:dustplasmacomparison} compares rate of cooling due to dust emission of various types of grains to plasma cooling at solar abundances, 
+As $\Lambda_g$ and $\Lambda_D$ are both proportional to $\rho_g^2$, dust cooling will dominate at high temperatures so long as there is sufficient amounts of dust.
 %//TODO Lengthen paragraph, introduction to dust cooling
 
-As dust grains collide with ionised gas and electrons, this imparts kinetic energy into the grains, heating them and causing them to emit infrared radiation. Assuming that there is a net accretion of ions and electrons onto the dust grains and the gas is optically thin in the infrared regime, energy is effectively removed from the gas.
-At particularly high temperatures this effect can dominate over high-temperature radiation processes such as bremsstrahlung, 
+As dust grains collide with ionised gas and electrons, this imparts kinetic energy into the grains, heating them and causing them to emit infrared radiation. Assuming that there is a net accretion of ions and electrons onto the dust grains and the gas is optically thin in the infrared regime, energy is efficiently removed from the gas.
+At particularly high temperatures this effect can dominate over high-temperature plasma cooling processes such as bremsstrahlung, as seen in figure \ref{fig:dustplasmacomparison}.
+Figure \ref{fig:collisionalheatingcomparison} compares dust grain heating rates due to electron and ion collisional excitation in a solar abundance and WC abundance flow.
+At lower temperatures the dust grain cooling rate is dominated by electron excitation, especially in the WC case as the ratio of free electrons to ions is significantly higher, as the WC flow is enriched by heavier elements.
+However, as the grain temperature increases, collisional heating due to ions becomes more prevalent as the electrons are sufficiently energetic to pass through the grain without signfiicant energy transfer;
+this is referred to as the electron transparency, $h_e$ \parencite{dwek_infrared_1981}.
 
-Work by \cite{dwek_infrared_1981} is used predominantly in this project to simulate cooling. 
+%%/TODO Include a graph of contribution due electron heating and ion heating for a dust grain with WC and solar abundances, can modify dust code to produce this graph, use integral method with more bins
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{assets/dust-electron-contribution/coll-el-comp.pdf}
+  \caption[$H_{el}$ and $H_{coll}$ comparison]{Comparison of grain heating rate due to ion collisional excitation, $H_{coll}$, and electron excitation, $H_{el}$. The dust grain has a grain radius of \SI{5e-3}{\micro\metre} and is travelling through a gas with a density of $10^{-20}$ \si{\gram\per\centi\metre\cubed} with solar and WC abundances.}
+  \label{fig:collisionalheatingcomparison}
+\end{figure}
+
+
+Work by \cite{dwek_infrared_1981} is used predominantly in this project to simulate cooling due to dust, a fast method for calculating the cooling rate due to dust was integrated into the numerical code for this project, which is elaborated on in section \ref{sec:dustcoolingmodel}.
 % Finish and link to below paragraph
 
 %Find citation for spitzer 1978
