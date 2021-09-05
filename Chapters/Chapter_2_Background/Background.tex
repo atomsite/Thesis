@@ -161,34 +161,129 @@ Stellar winds have already been discussed to some extent in the previous section
 
 % Background of stellar winds, particularly history of the subject
 
+% Define the mass loss rate, mdot
+% Single wind estimates and densities
+
+%Define the terminal velocity, discuss why this may not be completely accurate
+
+The study of stellar winds is of course, rather hard from our vantage point on Earth, as direct observation of a non-stellar solar wind is difficult, and sampling of the winds themselves significantly more difficult than that due to the inconvenient distances involved in interstellar travel.
+Because of this, extrasolar wind properties are derived from spectrography, with velocities derived through Doppler shift.
+The important parameters to consider in a wind, especially for this thesis, is the mass loss rate, $\dot M$, the wind terminal velocity, $v^\infty$ and the abundances within the wind.
+
+%https://www.ifa.hawaii.edu/users/kud/windsfromhotstars/hotwinds.html
+
+\begin{equation}
+  \frac{dM}{dt} = 4 \pi \rho(\boldsymbol{r}) v(\boldsymbol{r}) \boldsymbol{r}^2, \label{eq:massloss}
+\end{equation}
+
+\begin{equation}
+  \rho_w = \frac{\dot{\text{M}}}{4 \pi v^\infty r^2}, \label{eq:smoothwind}
+\end{equation}
+
+This section will cover the different driving mechanisms winds from low and high mass stars, the typical wind parameters and driving mechanisms are broken down in table \ref{tab:windcomp}.
+
+
 \subsection{Stellar winds in low mass stars}
 \label{sec:lowmasswinds}
+% Introduction, refer to table
 
-\subsubsection{Thomson scattering wind driving}
-\
 
-\subsubsection{Dust driven winds}
+% Low mass main sequence
+
+Low mass stellar main sequence stellar winds are quite paltry for an astrophysical phenomenon, the sun, for instance, drives thin, comparatively slow winds, with a mass loss rate of $\sim 10^{-14}$ \si{\solarmass\per\year} and a terminal velocity of 400 \si{\kilo\metre\per\second}. The mechanism behind this is gas pressure from coronal heating, with outward pressure driving gas within stellar atmosphere away from the star, this results in a transonic wind that quickly reaches its terminal velocity as the coronal temperature and subsequent pressure quickly drops off.
+
+% Short section on red dwarf winds
+
+% Off the main sequence, dust driven winds
+
+As a low mass star exits the main sequence, ballooning in size to become a red giant, the density of the stellar wind increases dramatically. 
+
+As dust condenses in the upper atmosphere of the red giant, these grains can readily adsorb photons, utilising radiation pressure to be driven away from the more luminous giant star, easily achieving escape velocity against the low surface gravity of the red giant.
+Gas is also driven away, coupled to the dust, this provides an efficient form of momentum transfer, allowing for an extremely dense albeit slow stellar wind
+
 \label{sec:dustdriven}
 
 \subsection{Stellar winds in high mass stars}
 \label{sec:radlinedriving}
 
+In the same way that high-mass stars are many orders of magnitude brighter than their low mass counterparts despite a comparatively low increase in mass, the same can be said of the density of stellar wind. A main sequence OB star typically has a mass loss rate of $10^{8}$ \si{\solarmass\per\year}, 6 orders of magnitude higher than a solar mass star.
+This discrepancy in wind density cannot be explained by stronger coronal heating, in fact, the lack of a convective envelope ensures that coronal heating is not even feasible as a driving method!
+Instead we must look towards the higher luminosities that massive stars exhibit to find a suitable mechanism.
+
+Simple radiation pressure from these stars would not be enough to explain the observed dense, highly supersonic winds emanating from these massive stars.
+
+
+Resonance lines were also considered, a photon with an energy equal to the excitation energy of an ion is absorbed by that ion, gaining the momentum of this ion.
+The ion subsequently de-excites over a timescale on the order of $10^{-8}$ \si{\second}, emitting a photon at a random angle relative to the radial direction, $\alpha$. The resultant change in radial velocity, $\Delta v_r$, for the adsorption of a photon at the resonance frequency $\nu_0$ is
+
+\begin{equation}
+  \Delta v_r = v''_r - v_r = \frac{h\nu_0}{mc} (1-\cos\alpha),
+\end{equation}
+
+where $v''_r$ is the radial velocity after the absorption and emission events, and $m$ is the ion mass.
+These ions are accelerated away from the star, along with the rest of the stellar wind which is coupled through Coulomb forces.
+The opacity of such resonance lines can be up to six orders of magnitude larger than the opacity of a Thomson scattering event \parencite{lamersIntroductionStellarWinds1999}. Additionally, this effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (figure \ref{fig:planck-comp}).
+O-type stars and Wolf-Rayets, however, emit much of their radiation within the UV range.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/plancks-law/plancks-law.pdf}
+  \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in table 1 of \cite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
+  \label{fig:planck-comp}
+\end{figure}
+
+% Need to briefly explain P-Cygni profiles as well
+
+% Radiative line driving
+
+Early computations involving resonance lines from \cite{lucy_mass_1970} provided a more reasonable mass loss rate calculation, but were still off by approximately two orders of magnitude.
+
+Building off of the work by Lucy, a vital paper in the solidification of radiative lines as the main driving mechanism behind massive star outflows was produced by Castor, Abbott and Klein\footnote{Hereafter abbreviated as CAK.}.
+This work more accurately computed the influence due to resonance lines, 
+
+% Need to read these papers before I can continue!
+
+
+\parencite{castor_radiation-driven_1975}.
+
+
+% Evolved OB stars, WR stars
+
+As previously mentioned, evolved massive stars progress into a helium burning WR phase, at this point, mass loss rates due to radiative line driving are extreme, in the order of $10^{-5}$ \si{\solarmass\per\year}.
+This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124, as seen in figure \ref{fig:wr124}.
+
+%//FIXME this is a placeholder, additionally how should I cite this?
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{assets/WR124.png}
+  \caption[M1-67 nebula around WR 124]{Reduced Hubble WFPC2 instrument data of the WN star WR 124, its extreme mass loss is currently producing an ejecta nebula, M1-67 \parencite{2010ApJ...724L..90M}.}
+  \label{fig:wr124}
+\end{figure}
+
 \begin{table}[h]
   \centering
   % \resizebox{\textwidth}{!}{%
-  \begin{tabular}{llll}
+  \begin{tabular}{cccc}
+  \hline
   \multicolumn{1}{c}{Star} & \multicolumn{1}{c}{$\dot M$} & \multicolumn{1}{c}{$v_\infty$} & \multicolumn{1}{c}{Mechanism} \\
   \multicolumn{1}{c}{}     & \multicolumn{1}{c}{$\si{\solarmass\per\year}$}         & \multicolumn{1}{c}{$\si{\kilo\metre\per\second}$}           & \multicolumn{1}{c}{}          \\ \hline
-  Sun            & $10^{-14}$        & 400  & Thomson scattering \\
-  Red Giant      & $10^{-7}-10^{-9}$ & 30   & Dust driven        \\
-  Red Supergiant & $10^{-4}-10^{-6}$ & 10   & Dust driven        \\
-  OB Star        & $10^{-7}-10^{-8}$ & 2500 & Line driving       \\
-  Wolf-Rayet     & $10^{-5}$         & 1500 & Line driving       \\ \hline
+  Sun            & $10^{-14}$        & 400  & Thermal heating \\
+  Pre Main Sequence & $10^{-4}-10^{-7}$ & 200-500 & Rotation \& magnetic fields \\
+  Red Giant      & $10^{-7}-10^{-9}$ & 30   & Radiation pressure on dust grains        \\
+  OB Star        & $10^{-7}-10^{-8}$ & 2500 & Radiation pressure \& line driving      \\
+  Wolf-Rayet     & $10^{-5}$         & 1500 & Radiation pressure \& line driving       \\ \hline
   \end{tabular}%
   % }
-  \caption{Comparison of winds from various types of star}
+  \caption[Stellar wind comparison]{Comparison winds emitted from various types of star.}
   \label{tab:windcomp}
 \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/wind-comparison/wind-comp.pdf}
+  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in equation \ref{eq:smoothwind}.}
+  \label{fig:windrhocomp}
+\end{figure}
 
 \subsection{The CAK formalism}
 \label{sec:cak}
@@ -276,12 +371,11 @@ Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio 
 
 \subsection{Cooling in the WCR}
 \label{sec:wcrcooling}
-
 %//TODO clean up this caption
 %//TODO remove grid from plot
-\begin{figure}[ht]
+\begin{figure}[h]
   \centering
-  \includegraphics{assets/cooling-curve/cooling-curve-solar-withev.pdf}
+  \includegraphics{assets/cooling-breakdown/cooling-curve-solar-withev.pdf}
   \caption[WC \& solar abundance plasma cooling curves]{Normalised plasma cooling rates as a function of temperature and thermal energy for solar abundance and WC abundance winds. The regions where forbidden line, resonance line and bremsstrahlung emission are dominant are highlighted, with H ionisation and recombination occuring between the forbidden and resonance line sections at $10^5$ \si{\kelvin}.}
   \label{fig:wcsolcooling}
 \end{figure}
@@ -325,6 +419,7 @@ As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bre
 
 
 %//TODO clean up this caption
+%//FIXME use the new cooling code for this graph, early changes in ionisation fraction result in a different appearance from 1e4 to 1e6 kelvin!
 \begin{figure}
   \centering
   \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison.pdf}
@@ -361,8 +456,6 @@ Figure \ref{fig:collisionalheatingcomparison} compares dust grain heating rates 
 At lower temperatures the dust grain cooling rate is dominated by electron excitation, especially in the WC case as the ratio of free electrons to ions is significantly higher, as the WC flow is enriched by heavier elements.
 However, as the grain temperature increases, collisional heating due to ions becomes more prevalent as the electrons are sufficiently energetic to pass through the grain without signfiicant energy transfer;
 this is referred to as the electron transparency, $h_e$ \parencite{dwek_infrared_1981}.
-
-%%/TODO Include a graph of contribution due electron heating and ion heating for a dust grain with WC and solar abundances, can modify dust code to produce this graph, use integral method with more bins
 
 \begin{figure}[h]
   \centering

@@ -61,9 +61,9 @@ This implementation was written in the form of a series of nested loops to utili
 
 % Further optimisations
 
-Whilst this method is significantly faster than calculating $\Lambda$ for each cell with an integration step, a $(100 \times 100 \times 100)$ lookup table requires \SI{32}{\mega B} of memory to store, and is much more time consuming to search through.
+Whilst this method is significantly faster than calculating $\Lambda$ for each cell with an integration step, a $(100 \times 100 \times 100)$ lookup table requires approximately \SI{32}{\mega B} of memory to store, and is much more time consuming to search through.
 As such, eliminating complexity from the binary search and reducing the number of interpolations were identified as improvements to the 
-These optimisations were made by simplifying the lookup table into a series of smaller lookup tables and relying on even logarithmic spacing of the lookup table to perform a calculation to determine the parameter indices, rather than performing a binary search.
+These optimisations were made by simplifying the lookup table into a series of smaller lookup tables and relying on even logarithmic spacing of the lookup table to determine the parameter indices, rather than performing a binary search for them.
 Additionally, as $\rho$ and $a$ are invariant within the cooling loop, these parameter offsets are solved separately using a bilinear interpolation, while in the cooling sub-step loop, a separate linear offset is performed to find the temperature offset, solving to find $\Lambda_d$. These optimisations resulted in this method scaling significantly better, as there is a lower total number of calculations required as the number of sub-steps increases (figure \ref{fig:dust-opt-speedup}).
 
 \begin{figure}
@@ -73,9 +73,8 @@ Additionally, as $\rho$ and $a$ are invariant within the cooling loop, these par
   \label{fig:dust-opt-speedup}
 \end{figure}
 
+% Approximation method 
 
-
-% Approximations in that one paper, you know the one
 The second method considered for solving the $h_e$ integral was using an approximation described by \cite{dwek_infrared_1981} where $h_e$ could be described by a series of equations:
 
 \begin{equation}

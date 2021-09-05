@@ -198,14 +198,16 @@ Electron-grain collisions are modelled similarly to ions, with some differences.
 
 where $x^* = 2.71\times 10^8 a^{2/3} (\si{\micro\metre})/T$, this approximation makes the entire dust cooling calculation about 3000\% faster than using a 400 bin integration\footnote{The fastest still reasonably accurate integration.}. Figures \ref{fig:hecomparison} and \ref{fig:lambdacomparison} compare each method, but at high temperatures maximum deviation of the approximation is on the order of $10\%$.
 
-\begin{figure}[ht]
+%//FIXME these need some work, as I have made some modifications to them anyway, see section 2
+
+\begin{figure}[h]
   \centering
   \includegraphics{assets/xe/temp.pdf}
   \caption[Comparison of $h_e$ integration and approximation for increasing gas temperature]{Comparison of $h_e$ integration and approximation for increasing gas temperature, it is clear that the divergence between integration and approximation is at its largest at very high temperatures.}
   \label{fig:hecomparison}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[h]
   \centering
   \includegraphics{assets/dustcooling/lambda-comp.pdf}
   \caption[Comparison of dust cooling parameter $\Lambda$(T)]{Comparison of dust cooling parameter $\Lambda(T)$. Error due to approximation does not propagate significantly to the calculation of $\Lambda$ even at high temperatures.}
@@ -214,7 +216,7 @@ where $x^* = 2.71\times 10^8 a^{2/3} (\si{\micro\metre})/T$, this approximation 
 
 
 % //TODO Improve caption
-\begin{figure}[ht]
+\begin{figure}[h]
   \centering
   \includegraphics{assets/ionisation-fraction/ionisation-fraction.pdf}
   \caption[OB and WR electron-ion ratios]{A comparison of the electron-ion ratio of both winds as temperature changes, included are the pure wind flows that the lookup tables are built from.}
@@ -286,7 +288,7 @@ For this project, a series of simulations were run in order to determine how dus
   Parameter & WR & OB & Unit \\ \hline
   $M$ & 10.0 & 10.0 & \si{\solarmass} \\
   $\dot M$ & \num{5.0e-6} & \num{5.0e-8} & \si{\solarmass\per\year} \\
-  $v_\infty$ & \num{1e8} & \num{2e8} & \si{km.s^{-1}} \\
+  $v_\infty$ & \num{1e8} & \num{2e8} & \si{cm.s^{-1}} \\
   $T_w$ & \num{1e4} & \num{1e4} & K
   \end{tabular}
   \caption{Wind properties of the baseline system}
@@ -321,7 +323,7 @@ Two sets of simulations were run which varied the wind momentum ratio, the first
   \begin{tabular}{cccccc}
   
   $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
-  \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\km\per\second} & \si{\km\per\second} & & \\ \hline \\ 
+  \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline \\ 
   \multicolumn{5}{c}{\textit{Baseline}} \\ \hline
   \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\ \\
   \multicolumn{5}{c}{\textit{$\dot M$ adjusted}} \\ \hline
