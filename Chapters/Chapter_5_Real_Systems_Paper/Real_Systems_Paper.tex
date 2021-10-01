@@ -27,6 +27,55 @@ Three systems were investigated for this paper, the persistent dust forming syst
 
 \subsection{Hydrodynamics}
 
+3D simulations in a Cartesian coordinate system were conducted using the Athena++\footnote{\texttt{\href{https://github.com/PrincetonUniversity/athena}{https://github.com/PrincetonUniversity/athena}}} hydrodynamical code, 
+
+The code solves a Riemann problem at each cell interface to determine the time-averaged values at the zone interfaces, and then solves the equations of hydrodynamics:
+
+\begin{subequations}
+  \begin{align}
+    \frac{\partial \rho}{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) & = 0, \\
+    \frac{\partial \rho \mathbf{u}}{\partial t} + \nabla \cdot \left(\rho \mathbf{u} u + P \right) & = 0 , \\
+    \frac{\partial \rho \epsilon}{\partial t} + \nabla \cdot \left[\left( \rho \epsilon + P \right) \mathbf{u} \right] & = \dot E_\text{gas} + \dot E_\text{dust} ,
+  \end{align}
+\end{subequations}
+
+where $\rho$ is the mass density, $\epsilon = \mathbf{u}^2 + e/\rho$ is the total specific energy, $e$ is the internal energy density, $P$ is the pressure and $\dot E$ is the energy loss due to radiative processes. An ideal equation of state is utilised with a ratiof of specific heats, $\gamma = 5/3$.
+
+Spatial reconstruction using a piecewise linear method was performed, while the time-integration scheme is a third-order accurate, three-stage strong stability preserving Runge-Kutta\footnote{SSPRK (3,3)} method \parencite{gottliebHighOrderStrong2009}.
+
+Several passive scalars are utilised to model wind mixing and dust evolution, the scalar values are transported by the fluid, for a given scalar species $i$, Athena++ transports the scalar through the following equation:
+
+\begin{equation}
+  \rho \frac{dC_i}{dt} = \frac{\partial}{\partial t} \left( \rho C_i \right) + \nabla \cdot \left( C_i \rho \mathbf{u} \right) = -\nabla \cdot \mathbf{Q}_i ,  
+\end{equation}
+
+where $\mathbf{Q}_i = - \nu_{ps} \rho \nabla C_i$ is the diffusive flux density and $\nu$ is the passive scalar diffusion coefficient \parencite{stoneAthenaAdaptiveMesh2020}.
+
+% Cover mapping on winds
+
+Stellar winds are simulated by re-writing the conserved variables in a small region around each of the stars.
+Winds flow from this ``remap'' region at the stars wind terminal velocity, meaning that line driving and stellar force effects are not simulated, additionally self-gravity forces are not simulated to reduce CPU time.
+The equations utilised to map wind onto the simulation are:
+
+\begin{subequations}
+  \begin{align}
+    \rho_r & = \frac{\dot M}{4 \pi r^2 v_\infty} , \\
+    P_r    & = \frac{\rho_r}{\mu m_H} k_B T_w , \\
+    E_r    & = \frac{P_r}{\gamma - 1} + \frac{1}{2} \rho_{r} v_{r}^2 , \\
+    p_{r}  & = \rho_R v_{r} , 
+  \end{align}
+\end{subequations}
+
+where $v_R$ is the wind velocity as it flows radially from the center of the ``remap zone'' and $r$ is the distance from the current cell to the centre of the remap zone.
+This method produces radially out-flowing winds from the ``star'' with an expected density and velocity.
+This method is stable against numerical instability, while allowing for precisely controlled winds.
+
+% Notes on refinement condition
+
+Adaptive Mesh Refinement\footnote{AMR} is utilised for these simulations in order to ensure that winds form correctly and that the wind stagnation point and surrounding collision region are correctly resolved.
+Athena++ allows for user-defined refinement conditions, which are used in this work to increase the resolution around the the stars current position as well as the estimated position of the wind stagnation point to the maximum amount, while smoothly decreasing the resolution further out from these regions. 
+
+
 \subsection{Dust model and cooling}
 
 The dust model in this paper simulates dust growth and destruction through collisions between carbon atoms and dust grains. These grains are simulated in the form of advected scalars in each cell in the numerical grid which propagate with the same hydrodynamical rules as the stellar wind; as such dust can be described as co-moving with the interstellar wind. The two scalars in use are $z$, the dust-to-gas mass ratio within the cell, and $a$, the average grain radius. Using these parameters in addition to the local wind parameters, the dust can be adequately described and evolved with time. %//TODO Clean up this sentence 
@@ -35,7 +84,7 @@ A number of assumptions are made in this dust model, for instance, the dust grai
 Additional mechanisms for dust formation and destruction could also be implemented such as grain-grain agglomeration and photoevaporation.
 Furthermore, a multi-fluid model with drag force coupling could also be implemented, however this is beyond the scope of this paper.
 
-Dust is grown through grain accretion using formulae described by \parencite{spitzer_jr._physical_2008}. Dust grains grow via collisions with the surrounding gas, as gas accretes onto these grains the associated density is subtracted from the gas density, and added to the 
+Dust is grown through grain accretion using formulae described by \parencite{spitzer_jr._physical_2008}. Dust grains grow via collisions with the surrounding gas, as gas accretes onto these grains the associated density is subtracted from the gas density. The growth rate is such that:
 
 %//TODO I have copy-pasted some paragraphs from paper 1, this needs to be fixed up a bit or streamlined. 
 
@@ -48,7 +97,7 @@ Dust is grown through grain accretion using formulae described by \parencite{spi
 
 where $w_a$ is the Maxwell-Boltzmann distribution RMS velocity, $\xi_a$ is the grain sticking efficiency, $\rho_{Gr}$ is the grain bulk density, $\rho$ is the gas density, $a$ is the dust grain radius, and $n_D$ is the grain number density. For these simulations, the grain sticking factor has been set to $10\%$, while for low temperature collisions a sticking factor of $100\%$ can be proven, grain sticking in a more energetic, hot regime could significantly reduce the probability of sticking. 
 
-Dust destruction is calculated via gas-grain sputtering using the Draine \& Salpeter prescription - a dust grain has a lifespan, $\tau$, which is dependent on the grain radius, as the grain loses radius proportional to its loss in mass; assuming a spherical grain, the rate of change in mass and radius can be calculated such that:
+Dust destruction is calculated via gas-grain sputtering using the Draine \& Salpeter prescription - a dust grain has a lifespan, $\tau$, which is dependent on the grain radius, as the grain loses radius proportional to its loss in mass; assuming a spherical grain, the rate of change in mass and radius can be calculated through the following equation:
 
 \begin{subequations}
   \begin{align}
@@ -57,7 +106,6 @@ Dust destruction is calculated via gas-grain sputtering using the Draine \& Salp
     \frac{dm}{dt} & = -1.33 \times 10^{-13} a^2 n_g n_d \rho_{Gr} ,
   \end{align}
 \end{subequations}
-
 
 \subsection{Simulated systems}
 
@@ -129,7 +177,6 @@ The orbital and wind parameters of this system were derived from work by \cite{m
 % Challenges involved in simulating WR140
 %//TODO Check if this is right
 
-Significant challenges are involved in simulating the WR 140 system compared to the other systems in this paper. The highly eccentric orbit of this system means that in order to simulate a full orbit of this system, a large section of the simulation would need to be rendered at full resolution, resulting much shorter timesteps and a significantly larger processor and memory requirement. This is impractical considering the time constraints of this project. In order to alleviate this issue the system was simulated with Adaptive Mesh Refinement (AMR) conditions instead of SMR. The region surrounding the stars orbit was refined and de-refined in order to ensure that there were at least 128 cells of finest size separating the stars. Additional refinement rules were established to progressively lower the grid resolution further out from the stars, as well as to ensure that the collision region was properly resolved.
 
 %//TODO Is it still 128? Check logic for other conditions
 

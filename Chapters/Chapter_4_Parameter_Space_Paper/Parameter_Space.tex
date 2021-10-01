@@ -274,8 +274,7 @@ where $n_g$ is the gas number density \parencite{draine_destruction_1979}. More 
 
 % //TODO cleanup sentence structures
 
-In order to propagate dust through each simulation, a small initial value for the advected scalars is propagated from the remap zones, the grain radius was set to a sensible minimum grain size of $50 \, \text{\AA}$ while the minimum dust-to-gas mass ratio was set to $10^{-6}$, changing $z_{min}$ does not significantly impact the average final dust-to-gas mass ratio of the system as $z$ rapidly increases within the WCR, and only impacts the amount of dust formed outside of the WCR.
-
+In order to propagate dust through each simulation, a small initial value for the advected scalars is propagated from the remap zones, a minimum grain radius of $50 \, \text{\AA}$ is proposed, with a minimum dust-to-gas mass ratio of $10^{-6}$ is utilised, changing $z_{min}$ does not significantly impact the average final dust-to-gas mass ratio of the system as $z$ rapidly increases within the WCR, and only impacts the amount of dust formed outside of the WCR.
 
 \section{Model Parameters}
 
@@ -286,10 +285,10 @@ For this project, a series of simulations were run in order to determine how dus
   \begin{tabular}{cccc}
   \hline
   Parameter & WR & OB & Unit \\ \hline
-  $M$ & 10.0 & 10.0 & \si{\solarmass} \\
   $\dot M$ & \num{5.0e-6} & \num{5.0e-8} & \si{\solarmass\per\year} \\
   $v_\infty$ & \num{1e8} & \num{2e8} & \si{cm.s^{-1}} \\
-  $T_w$ & \num{1e4} & \num{1e4} & K
+  $T_w$ & \num{1e4} & \num{1e4} & K \\
+  \hline
   \end{tabular}
   \caption{Wind properties of the baseline system}
   \label{tab:baseline-windproperties}
@@ -301,9 +300,10 @@ For this project, a series of simulations were run in order to determine how dus
   \begin{tabular}{ccc}
   \hline
   Parameter & Value & Unit \\ \hline
+  $M$ & 10.0 & \si{\solarmass} \\
   $d_{sep}$ & \num{5.984e13} & cm \\
   $P$ & \num{5.64e7} & s \\
-  $e$ & 0.0 &  
+  \hline
   \end{tabular}
   \caption{Baseline system orbital properties}
   \label{tab:baseline-orbits}
@@ -311,76 +311,133 @@ For this project, a series of simulations were run in order to determine how dus
 
 \subsection{Cooling}
 
-For this experiment, 3 different simulations were run against each other in order to determine the influence of cooling changes the evolution of the system.
-All systems in this section have the same parameters, that of the baseline system described in tables \ref{tab:baseline-windproperties} \& \ref{tab:baseline-orbits}, the parameter being varied was that of the presence of cooling, one simulation models cooling due to plasma and dust emission, another models cooling due to plasma emission only, whilst the final model does not simulate cooling at all, behaving completely adiabatically.
-
-\subsection{Wind momentum ratio}
-
-Two sets of simulations were run which varied the wind momentum ratio, the first set of simulations varied $\eta$ by modifying the mass loss rate of each star, while the second set of simulations adjusted the wind terminal velocity of each star. Each set of simulations had each parameter adjusted for both the Wolf-Rayet and OB star, this led to a total of 9 simulations, which are described in table \ref{tab:momrat-param}.
+For this set of simulations, the influence of cooling was changed by varying how cooling works within the simulations.
+All simulations in this set do not vary their orbital or wind parameters, which are that of the baseline system described in tables \ref{tab:baseline-windproperties} \& \ref{tab:baseline-orbits}, the main differing factor between simulations is the avenues available for cooling, the main simulation has both plasma and dust cooling in operation, while the other two simulations have plasma cooling only and no cooling respectively (table \ref{tab:cooling-param}).
+The final, no radiative cooling simulation instead relies on adiabatic expansion for temperature change; as such, this simulation behaves as if it has a $\chi$ value for both winds that is arbitrarily high.
+These simulations were performed in order to test the temperature response of the dust model, to ensure the stability of the cooling models, and to determine the role of cooling itself in the formation of dust.
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{cccccc}
-  
-  $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
-  \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline \\ 
-  \multicolumn{5}{c}{\textit{Baseline}} \\ \hline
-  \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\ \\
-  \multicolumn{5}{c}{\textit{$\dot M$ adjusted}} \\ \hline
-  \num{1.0e-5} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.544 \\
-  \num{2.5e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.04 & 1.995 \\
-  \num{5.0e-6} & \num{1.0e-7} & \num{1e8} & \num{2e8} & 0.04 & 0.997 \\
-  \num{5.0e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.088 \\ \\
-  \multicolumn{5}{c}{\textit{$v^\infty$ adjusted}} \\ \hline
-  \num{5e-6} & \num{5e-8} & \num{2e8} & \num{2e8} & 0.01 & 17.41 \\
-  \num{5e-6} & \num{5e-8} & \num{5e7} & \num{2e8} & 0.04 & 0.062 \\
-  \num{5e-6} & \num{5e-8} & \num{1e8} & \num{4e8} & 0.04 & 0.997 \\
-  \num{5e-6} & \num{5e-8} & \num{1e8} & \num{1e8} & 0.01 & 1.088
+  \begin{tabular}{ccc}
+    \hline
+    Name & Plasma cooling & Dust cooling \\
+    \hline
+    \texttt{fullcool} & Yes & Yes \\ 
+    \texttt{plasmacool} & Yes & No \\
+    \texttt{nocool} & No & No \\
+    \hline
   \end{tabular}
-  \caption{Momentum ratio modification parameters}
-  \label{tab:momrat-param}
+  \caption{Cooling series simulation parameters}
+  \label{tab:cooling-param}
 \end{table}
 
-Multiple simulations have similar momentum ratios and cooling parameters, but accomplished via different means, such as changing the secondary star wind rather than the primary. This is done in order to determine whether dust production changes are solely due to these two parameters.
+\subsection{Wind momentum ratio}
+
+A second set of simulations were devised in order to determine the role $\eta$ has on the formation of dust.
+These simulations have similar orbital properties to the baseline simulation, but with varying wind properties.
+$\eta$ is varied from 0.01 to 0.04 by adjusting the wind parameters for each star, this experiment is further subdivided by which property is modified, either the mass loss rate or wind terminal velocity.
+Multiple simulations have similar momentum ratios and cooling parameters, but accomplished via different means, such as changing the secondary star wind rather than the primary. This is done in order to determine whether dust production changes are due to these two parameters or to the momentum ratio itself.
+These simulations are also compared to the baseline simulation, which has a momentum ratio of 0.02.
+These simulations were run out to a minimum of 1 orbit, with some simulations run out further to rule out the role of orbital position and simulation advection, as the results should be consistent across multiple orbits. 
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccccc}
+  \hline
+  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
+  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline
+  \texttt{baseline}& \num{5.0e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\
+  \texttt{mdot-1}& \num{1.0e-5} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.544 \\
+  \texttt{mdot-2}& \num{2.5e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.04 & 1.995 \\
+  \texttt{mdot-3}& \num{5.0e-6} & \num{1.0e-7} & \num{1e8} & \num{2e8} & 0.04 & 0.997 \\
+  \texttt{mdot-4}& \num{5.0e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.088 \\
+  \hline
+  \end{tabular}
+  \caption[Mass loss rate series wind parameters]{Wind parameters for simulations varying the mass loss rate, $\dot M$.}
+  \label{tab:mdot-param}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccccc}
+  \hline
+  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
+  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline
+  \texttt{baseline} & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\
+  \texttt{vinf-1} & \num{5e-6} & \num{5e-8} & \num{2e8} & \num{2e8} & 0.01 & 17.41 \\
+  \texttt{vinf-2} & \num{5e-6} & \num{5e-8} & \num{5e7} & \num{2e8} & 0.04 & 0.062 \\
+  \texttt{vinf-3} & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{4e8} & 0.04 & 0.997 \\
+  \texttt{vinf-4} & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{1e8} & 0.01 & 1.088 \\
+  \hline
+  \end{tabular}
+  \caption[Terminal velocity series wind parameters]{Wind parameters for simulations varying the wind terminal velocity, $v^\infty$.}
+  \label{tab:vinf-param}
+\end{table}
 
 \subsection{Separation distance}
 
-Another series of simulations was performed with a binary pair utilising wind parameters described in table \ref{tab:baseline-windproperties} with a differing orbital separation. Separation was modified by changing the orbital period of each star; in this series, orbital separation was varied from \SI{4}{\au} to \SI{64}{\au} (table \ref{tab:dsep-param}). The main effect of adjusting the orbital radius is the subsequent modification of the cooling parameter, $\chi$, which is inversely proportional to the separation distance. As such, the purpose of these simulations is to confirm that dust formation rate relies strongly on $\chi$, or if there are other factors involved in dust formation. %//TODO clean up
+A final series of simulations was performed with a binary pair utilising wind parameters described in table \ref{tab:baseline-windproperties} with a differing orbital separation. Separation was modified by changing the orbital period of each star; in this series, orbital separation was varied from \SI{4}{\au} to \SI{64}{\au} (table \ref{tab:dsep-param}). The main effect of adjusting the orbital radius is the subsequent modification of the cooling parameter, $\chi$, which is inversely proportional to the separation distance. As such, the purpose of these simulations is to confirm that dust formation rate relies strongly on $\chi$, or if there are other factors involved in dust formation. %//TODO clean up
 
 Each simulation has a coarse resolution of $320 \times 320 \times 40$ cells, with a varying number of levels, as the separation distance is doubled, the associated static mesh refinement box is halved and the number of levels is decremented. This manipulation of levels ensures that the number of cells between the stars is kept consistent, reduces memory usage and keeps the average timestep approximately the same.
+Similarly to the previous set of simulations, a minimum of 1 orbit was needed for each simulation, however, as the orbital period of each simulation varies, certain simulations were able to run for a significantly longer length of time, with data for multiple orbits being obtained.
 
 %//TODO calculate the chi in each simulation
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccc}
+  \begin{tabular}{cccccc}
     \hline
-    P & $d_{sep}$ & $\chi_{WR}$ & Levels & Effective Resolution \\
-    \si{\second} & \si{\au} &  &  & Cells \\ \hline 
-    \num{5.647e7} & 4  & 1.049 & 7 & $20480 \times 20480 \times 2560$ \\
-    \num{1.597e8} & 8  & 2.097 & 6 & $10240 \times 10240 \times 1280$ \\
-    \num{4.518e8} & 16 & 4.194 & 5 & $5120 \times 5120 \times 640$    \\
-    \num{1.278e9} & 32 & 8.388 & 4 & $2560 \times 2560 \times 320$    \\
-    \num{3.614e9} & 64 & 16.78 & 3 & $1280 \times 1280 \times 160$    \\
+    Name & P & $d_{sep}$ & $\chi_{WR}$ & Levels & Effective Resolution \\
+    & \si{\second} & \si{\au} &  &  & Cells \\ \hline 
+    \texttt{dsep-4AU} & \num{5.647e7} & 4  & 1.049 & 7 & $20480 \times 20480 \times 2560$ \\
+    \texttt{dsep-8AU} & \num{1.597e8} & 8  & 2.097 & 6 & $10240 \times 10240 \times 1280$ \\
+    \texttt{dsep-16AU} & \num{4.518e8} & 16 & 4.194 & 5 & $5120 \times 5120 \times 640$    \\
+    \texttt{dsep-32AU} & \num{1.278e9} & 32 & 8.388 & 4 & $2560 \times 2560 \times 320$    \\
+    \texttt{dsep-64AU} & \num{3.614e9} & 64 & 16.78 & 3 & $1280 \times 1280 \times 160$    \\ \hline
   \end{tabular}
   \caption{Parameters of simulations varying separation distance.}
   \label{tab:dsep-param}
 \end{table}
 
+\subsection{Data collection}
 
+Data was collected in multiple forms, regular HDF5 files were generated at regular time intervals, 3D HDF5 meshes were generated every $1/100^{\text{th}}$ of an orbit, while 2D slices were produced every $1/1000^{th}$ of an orbit.
+These HDF5 files contain the primitive variables of the simulation, gas density, $\rho$, gas pressure, $P$ and wind velocity components, $v_x$, $v_y$ and $v_z$; these can be used to derive other variables such as 
+In addition to HDF5 outputs, history data was collected in order to plot the time evolution of the simulation, history files are log files taken at various intervals containing the volume-weighted summations of all system parameters, such as the total system mass and summated average grain radius.
+In order to derive average values, such as $\bar{z}$ and $\bar{a}$ the values for each can be divided by the total system mass.
+To calculate dust formation within the wind collision region, a method of determining if a cell was a part of the wind collision region was devised - the cells density would be compared to the predicted density of a single smooth wind with the wind parameters of the Wolf-Rayet star in the system:
 
-\section{Momentum ratio variation}
+\begin{equation}
+  \rho_\text{SW} = \frac{\dot{M}_{WR}}{4 \pi r^2 v^\infty_{WR}},
+\end{equation}
 
+where $r$ is the distance from the barycentre. This threshold value was set to $1.25\rho_\text{SW}$ as it most accurately determined if a cell was part of the WCR, increased threshold values were not successful at a larger distance from the barycentre (figure \ref{fig:overdensity-threshold}), while other methods such as determining wind mixing levels were not successful in general.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=5in]{assets/overdensity-method.png}
+  \caption[Comparison of threshold values for over-density method]{Comparison of threshold values for over-density method of determining of a cell resides in the wind collision region, a threshold value of $1.25\rho_\text{SW}$ was chosen as it most accurately determined if the cell was in the post-shock region.}
+  \label{fig:overdensity-threshold}
+\end{figure}
 
-\section{Separation variation}
+\section{Results}
 
+\subsection{Radiative processes}
 
+\subsection{Momentum ratio variation}
 
+\subsection{Separation variation}
 
-\subsection{Adiabatic flow}
+% Adiabatic flow 
 
+The most immediately apparent result to this 
 
-\subsection{Dust production yields}
+%//FIXME this needs work! 32AU result is instead labelled as 64AU and zooms aren't consistent!
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{assets/adiabatic-flow/adiabatic-flow-a4.png}
+\end{figure}
+
+% Dust yields
 
 A clear trend with orbital separation is that dust formation increases drastically as the stars are positioned closer together, at high degrees of separation dust formation ceases, and average grain size drops below the initial value of $50 \text \AA$.
 
@@ -388,7 +445,7 @@ The bulk of dust growth occurs in the immediate post shock region, as dust is ra
 
 This matches observations of episodic dust forming systems, where infrared emission due to dust is maximised at or shortly after periastron passage. This also lends further evidence that dust formation rates are not influenced solely by the momentum ratio, as this is kept constant, and instead is strongly influenced by the wind density at collision and post-shock cooling. 
 
-\subsection{Periodicity within a circular orbit}
+% Periodicity
 
 Closer orbits were also observed to cause subtle periodic changes, whilst this effect is less pronounced than in a highly eccentric system, the 
 

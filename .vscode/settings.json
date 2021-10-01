@@ -5,5 +5,7 @@
   ],
   "files.associations": {
     "iostream": "cpp"
-  }
+  },
+  "editor.wordWrap": "on",
+  "workbench.colorTheme": "Ysgrifennwr"
 }

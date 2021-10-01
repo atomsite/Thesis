@@ -1,26 +1,235 @@
 \chapter{Methodology \& Numerical Simulation}
 \label{ch:numsim}
 
+% Brief summation of computational work
+
+% Why is this it's own chapter?
+
+% Breakdown of chapter, what this involves
+
+\section{Numerical simulations}
+\label{sec:numsim}
+
+% A short history of computational fluid dynamics
+
 \section{The Purpose of Numerical Simulations}
 \label{sec:numerical-purpose}
+
+% Why are they useful in general
+
+% Why are they useful in the context of a colliding wind binary problem
+
+% Why are colliding wind binary systems such a pain to solve
 
 \section{The Mathematics of Numerical Simulations}
 \label{sec:numerical-math}
 
-\section{Computational Hydrodynamics}
+% Numerical solvers/Riemann problems
 
+% Godunov method
+
+% Pier
+
+% Numerical integration
+
+%% Strong stability preserving methods
+
+\section{Computational Hydrodynamics}
 \label{sec:hydrodynamics}
+
+\subsection{Comparison of hydrodynamical methods}
+
+% This section will cover hydrodynamical solvers, a brief history of the problem, cover the lineage of 
+
+% briefly cover MG hydrodynamical code, since this was used for the first half of this work before adopting a more modern hydro code
 
 \section{The Athena++ Hydrodynamical code}
 \label{sec:athenapp}
 
+% General schema
+
+% Meshblock system
+
+% Refinement
+
+This is covered in more detail in the next section (section \ref{sec:refinement}).
+
+% Multi-core and parallelisation
+
+Athena++ is highly parallel and utilises the OpenMP and OpenMPI software libraries in order \footnote{Sadly, the engineers at Intel who worked on the Netburst architecture were \href{https://web.archive.org/web/20210412001459/https://www.anandtech.com/show/680/6}{wrong}, processors can't easily scale up to dozens of \si{\giga\hertz}, instead, multiple cores have to be used, making high performance code that much harder to write.}
+%
+Meshblocks are distributed to processor cores 
+% OpenMPI
+In the case of a simulation that requires more cores than a single computer can provide, OpenMPI is used to distribute meshblocks between nodes in a HPC\footnote{High Performance Compute} cluster, whilst this can introduce bottlenecks due to the comparatively slow networking between nodes, this allows for thousands of cores to be used, rather than dozens.
+% Both in concert
+
+% Ghost cells
+In order to prevent numerical errors from occurring between the interfaces between meshblocks, ``ghost cells'', cells from adjacent meshblocks copied into the current meshblock, are used.
+%//TODO this needs some work
+
+% Briefly discuss parallel performance
+
+
+\section{Mesh Refinement}
+\label{sec:refinement}
+
+One of the problems previously discussed with modelling CWB systems is the 
+
+%//TODO include a diagram of 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=5in]{assets/mergecellc.pdf}
+  \caption[Adaptive mesh refinement comparison]{An example of adaptive mesh refinement in the \texttt{MG} hydrodynamical code around the OB star in a colliding wind binary problem using cylindrically symmetric co-ordinates. With AMR the region is properly resolved, while without the system cannot adequately resolve the collision region.}
+  \label{fig:mgrefine}
+\end{figure}
+
+The pseudocode for the refinement condition 
+
+%//TODO these may need to be converted into more readable pseudocode, maybe a flow diagram?
+
+\begin{lstlisting}[language=C++]
+// Get cell width
+Real dx = pmb->pcoord->dx1v(0);
+// March through cells in block, checking distance from star to cell
+for (int n = 0; n < NWIND; n++) {
+  for (int k = pmb->ks; k <= pmb->ke; k++) {
+    // Get Z co-ordinate separation from star
+    Real zc  = pmb->pcoord->x3v(k) - star[n].pos[2];
+    Real zc2 = SQR(zc);
+    for (int j = pmb->js; j <= pmb->je; j++) {
+      // Get Y co-ordinate separation from star
+      Real yc  = pmb->pcoord->x2v(j) - star[n].pos[1];
+      Real yc2 = SQR(yc);
+      for (int i = pmb->is; i <= pmb->ie; i++) {
+        // Get X co-ordinate separation from star
+        Real xc  = pmb->pcoord->x1v(i) - star[n].pos[0];
+        Real xc2 = SQR(xc);
+        // Get radial distance from current star to cell
+        Real r2 = xc2 + yc2 + zc2;
+        Real r  = sqrt(r2);
+        // Get approximate number of cells distance
+        int ri = int(r/dx);
+        // If number of cells distance is below threshold, refine
+        if (ri < amr.star_separation) {
+          return 1;
+        }
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=c++]
+// Check to see if meshblock contains the stagnation point
+for (int k = pmb->ks; k <= pmb->ke; k++) {
+  // Get Z co-ordinate separation from stagnation point
+  Real zc  = pmb->pcoord->x3v(k) - wcr.pos[2];
+  Real zc2 = SQR(zc);
+  for (int j = pmb->js; j <= pmb->je; j++) {
+    // Get Y co-ordinate separation from stagnation point
+    Real yc  = pmb->pcoord->x2v(j) - wcr.pos[1];
+    Real yc2 = SQR(yc);
+    for (int i = pmb->is; i <= pmb->ie; i++) {
+      // Get X co-ordinate separation from stagnation point
+      Real xc  = pmb->pcoord->x1v(i) - wcr.pos[0];
+      Real xc2 = SQR(xc);
+      // Get radial distance to current cell
+      Real r2 = xc2 + yc2 + zc2;
+      Real r  = sqrt(r2);
+      // Get approximate number of cells between cell and stagnation point
+      int ri = int(r/dx);
+      // If number of cells distance is below threshold, refine
+      if (ri < amr.wcr_separation) {
+        return 1;
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+All cells that do not meet these criteria are flagged for de-refinement.
+
+\section{Visualisation}
+
+%//TODO section might not be necessary
+Data was plotted using a series of custom programmes designed to parse data as quickly as possible, 
+the Python plotting library provided in the Athena++ repository was modified to incorporate Delaunay triangulation, instead of interpolating data due to mesh refinement, data-points are triangulated with each other.
+For 3D visualisation the VisIt data visualisation tool is used.
+
 \section{Simulating CWB systems}
+
+% Recap why CWB simulations are so complex
+
+% How is this performed, processes involved in mapping wind on stars, orbits, how these are performed in the context of athena++ or numsim in general
 
 \subsection{Assumptions}
 
+% Short subsection covering assumptions used in this project
+
+% Wind mapping, lack of radiative line driving
+
+% Radiation processes
+
+% Short coverage on dust model, this is explained further in a alter section
+
 \section{Cooling in numerical simulations}
 
+% Brief recamp on radiative cooling processes, compare with physical section, why they are important in the context of our work
+As discussed in section \ref{sec:wcrcooling}, there are many cooling processes that need to be considered when simulating a complex system such as a CWB.
+
+Cooling is crucial to our 
+in a purely adiabatic case, gas temperature in the post-shock region can 
+
+% Why even include cooling
+Additionally, adiabatic flows behave differently without a method of losing energy, density, pressure and post-shock velocity are constrained, which can drastically effect the evolution of the system, and prevent significant cooling down to the 
+% Need to go over my old winds work!
+In the case of strong, adiabatic shocks, the downstream gas parameters of the system are:
+
+\begin{subequations}
+  \begin{align}
+    u_b    & = \frac{1}{4} a_a , \\
+    \rho_b & = 4 \rho_a , \\ 
+    P_b    & = \frac{3}{4} \rho_a u_a^2 ,
+  \end{align}
+\end{subequations}
+
+where $a$ is the upstream side and $b$ is the downstream, post-shock side.
+
+in a radiative shock behaving isothermally (where the temperature change, $\Delta T$ throughout the entire lifespan of the fluid is equal to zero), the final density, $\rho_f$ can be approximated to:
+
+\begin{equation}
+  \rho_f \approx \gamma M_a^2 \rho_a,
+\end{equation}
+
+where $M_a$ is the pre-shock mach number.
+For a shock with an initial sound speed of $M_a = 100$ the final density can exceed the pre-shock density by a factor of $10^4$!
+
+% Complexities, conservation, that kind of thing
+
+Performing radiative cooling within a numerical simulation is computationally difficult, and trade-offs between accuracy and performance must be considered at every step of designing the simulation, as every single cell must undergo cooling.
+For this project, the final cooling can be out by a few percent at worst, but is fast enough to run the simulations in a reasonable amount of time without excessive memory requirements.
+In order to simplify the radiation calculations, radiation does not re-interact with the simulation, instead it is completely removed from the simulation.
+Due to this, scattering, re-adsorption and radiative transfer are not simulated at all.\footnote{If these are considered, your programme is now a ray-tracing programme as well as a hydrodynamical code, which is its own, even more complicated field.}.
+Other methods of reducing computational cost and optimising the code are used in this project, and will be described in detail in this section.
+
 \subsection{Plasma cooling}
+
+% This isn't a section on the radiative processeses themselves, but more to do with how plasma cooling is simulated 
+
+% Use of a lookup table
+Rather than calculate 
+
+% Improvements to accuracy of lookup table, linear search
+
+% Speed versus accuracy comparison
+
+% Why not calculate it precisely every time?
+
+% Exact versus estimated method
+
+% Why is the estimated method used? see: dust cooling, multiple winds
+
 
 \subsection{Dust cooling}
 \label{sec:dustcoolingmodel}
@@ -29,13 +238,21 @@
 
 % Difficulties in dust cooling integral, faster method of doing this
 
+\begin{figure}
+  \centering
+  \includegraphics{assets/he_accuracy/he_acc.pdf}
+  \caption[$h_e$ integration accuracy comparison]{Comparison of $h_e$ as a function of temperature for dust grains with a radius of 0.005 \si{\micro\metre}, $h_e$ is calculated via the trapezium rule with a varying number of bins, bin counts below 500 bins result in wildly inaccurate or in some case negative values for $h_e$, while beyond 500 bins the result is inaccurate.}
+  \label{fig:he-accuracy-bins}
+\end{figure}
+
 A particular difficulty in precisely calculating the rate of cooling due to emission from dust is calculating the electron transparency, $h_e$.\footnote{The probability that an electron will embed in the dust grain and heat it, rather than pass through.}
 $h_e$ can be computed via integration by parts, however due to this occurring in the main cooling loop, this results in a nesting of integrals, which can lead to extremely time-consuming computation for individual cells.
+The integral could be simplified by reducing the number of bins to integrate with, however below approximately 400 bins the results can become extremely inaccurate, resulting in \textit{negative} values for $h_e$; experimentation with the 
 Initial tests using the integral method within a numerical simulation led to severe slowdown as processing time for cooling took up to 90\% of the overall processing time for each timestep.
 
 Multiple options were considered for improving the performance of this routine.
 Initially, a $\Lambda_d$ lookup table was considered, this consisted of a logarithmically spaced table of $\rho$, $a$, $T$ and $\Lambda_d$ values calculated by an implementation of the \cite{dwek_infrared_1981} prescription. 
-A binary search for each parameter is performed, with the an offset being calculated for each parameter,
+A binary search for each parameter is performed, with the an offset, $P_d$, being calculated for each parameter,
 
 \begin{equation}
   P_{d}=\frac{P-P_{0}}{P_{1}-P_{0}} , 
@@ -91,7 +308,6 @@ Figure \ref{fig:graintransacc} shows these discrepancies, in the case where elec
 As the grains grow hotter and the electron transparency reduces, the influence on the cooling rate due to incident electrons reduces quite drastically, meaning that extremely high accuracy is less important at these temperatures (figure \ref{fig:contribution-int-vs-est}).
 The accuracy of the approximation method is also shown in figure \ref{fig:lambda-comp-int-vs-est}, the estimated value for $\Lambda_d$ closely matches the integrated value aside from the smallest dust grains at very high temperatures $T>\SI{6e8}{\kelvin}$.
 
-
 \begin{figure}
   \centering
   \includegraphics{assets/grain-transparency/grain-trans.pdf}
@@ -113,8 +329,6 @@ The accuracy of the approximation method is also shown in figure \ref{fig:lambda
   \label{fig:lambda-comp-int-vs-est}
 \end{figure}
 
-
-
 \begin{table}
   \centering
   \begin{tabular}{llll}
@@ -128,7 +342,6 @@ The accuracy of the approximation method is also shown in figure \ref{fig:lambda
   \caption[Dust cooling calculation comparison]{Comparison of methods explored for estimating $\Lambda_d(\rho,a,T)$ in cooling code, $10^4$ initial values were chosen and 128 cooling sub-steps were performed, benchmark code was compiled and run using \texttt{GCC 10.3.0} with the \texttt{-O3} optimisation set on an Intel i7-7700HQ processor with a maximum clock speed of \SI{3.8}{\giga\hertz}.}
   \label{tab:electron-speedup}
 \end{table}
-
 
 % Compare accuracy and time taken
 Table \ref{tab:electron-speedup} shows the improvements to performance inherent in the estimation method; the final result is that the approximation is over 24,500\% faster, the resulting dust cooling function therefore will have a minimal computational impact on the cooling loop as a whole.
@@ -155,16 +368,153 @@ In order to solve this problem quickly for each timestep, a lookup table similar
 
 %//TODO write this, you will have to ask Julian about this
 
+An exact integration scheme for radiative cooling described in \cite{townsendExactIntegrationScheme2009} was considered to simulate cooling in Athena++. 
+
+% Explanation of method, complex bit
+
+% Why would this be good
+This scheme is one of the rare example of a numerical method that is both accurate \textit{and} fast, taking approximately the same time as a second order explicit method, whilst also being perfectly accurate even in highly radiative hypersonic flows.
+% Why did we not use it
+Unfortunately this method has a number of limitations that precluded its usage in this project.
+First, this method would not have been able to accurately model mixed wind situations, hampering its usage cooling winds with drastically different abundances.
+%//TODO check this one with Julian
+Second, and perhaps most importantly, only plasma cooling would have been possible, dust cooling could not be modelled at the same time, resulting in two separate cooling stages, as both mechanisms are highly temperature dependent, this was not acceptable.
+
+\subsection{Implementation}
+
+In order to simulate energy loss due to radiation in Athena++, the conserved variable array is adjusted to remove energy from a specific cell, this is analogous to energy being removed from the system due to radiative processes.
+This process is assumed to be 100\% efficient, re-adsorption and scattering is not simulated, as this would be very complex to simulate at every time step.
+
+% Flesh out cooling problem in general 
+
+Radiative processes are part of a source function that is performed for every mesh block.
+The cooling routine within the source function iterates through all cells within the meshblock, calculating radiative energy loss for each cell.
+% Lookup table method recap + how it is applied
+Within the loop, the cell parameters are loaded from the conserved variables array, and additional gas and dust parameters are calculated from these conserved variables.
+in particular the mean molecular mass of a cell is calculated with the formulae:
+
+\begin{equation}
+  \mu = C\mu_{WR} + (1-C) \mu_{OB}, \label{eq:windaveraging}
+\end{equation}
+
+where $\mu_{WR}$ and $\mu_{OB}$ are the mean molecular masses of the winds and $C$ is the wind ``colour'' scalar, the contribution of each wind to the gas density of the cell.
+The temperature is subsequently calculated using the ideal gas law:
+
+\begin{equation}
+  T = \frac{P \mu m_H}{\rho k_B},
+\end{equation}
+
+At the current temperature, the cooling parameter, $\Lambda(T)$ for each wind is found from the lookup tables, and weighted in a similar manner as equation \ref{eq:windaveraging}. The energy loss due to dust grains is then calculated, with the total energy loss rate within the cell defined as:
+
+\begin{equation}
+  \dot E = \dot{E}_\text{G} + \dot{E}_\text{D} = \left(\frac{\rho}{m_H}\right)^2 \Lambda_\text{G}(T) + n_\text{D} \dot{E}_\text{grain},
+\end{equation}
+
+this energy loss rate is then multiplied by the timestep, $dt$, and then subtracted from the total energy within the cell. 
+
+% Timestep method, why is this used rather than a single timestep
+
+One of the main issues with estimating the cooling rate rather than performing an exact calculation of energy loss is that the cooling rate and current temperature are coupled, this can result in wildly inaccurate final temperatures at the end of the cooling step compared with an exact integration.
+This is especially a concern at the expected temperatures in the post-shock, radiatively cooled environment, as the $\Lambda(T)$ is maximised at approximately $10^5$ \si{\kelvin}. If the timestep is too large this can result in over-estimation of the cooling.
+The simplest solution would be to make the time-step smaller, however this would reduce the performance of the code, as the cooling loop takes significantly less time to perform than the hydrodynamical loop.
+Instead, adaptive sub-stepping is used to iterate through the time-step, adjusting the maximum sub-step for an integration based on the current gas parameters, specifically the amount of energy remaining in the cell.
+Figure \ref{fig:cooling-loop-evolution} shows the adaptive sub-stepping routine in operation, at the initial time, the cooling parameter $\Lambda$ is maximised, as such the time-step is significantly lower than when the gas has cooled as is less radiative.
+This compares favourably to a single sub-step example, which would cause the simulation to crash due to negative temperatures, and with linearly spaced steps, which either required many more steps or were potentially unstable.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/plasma-cooling-benchmarks/evolution.pdf}
+  \caption[Cooling sub-step method evolution comparison]{Comparison of the adaptive timestep method versus linearly spaced sub-steps for a solar abundance flow with a density of $10^{-16}$ \si{\gram\per\centi\metre\cubed} and an initial temperature of $10^5$ \si{\kelvin}.}
+  \label{fig:cooling-loop-evolution}
+\end{figure}
+
+A suitably accurate maximum cooling time is calculated by first calculating the cooling time in the cell using the formulae:
+
+\begin{equation}
+  \tau_\text{cool} = \frac{E_i}{\dot{E}_\text{iter}},
+\end{equation}
+
+where $E_i$ is the cells internal energy and $\dot{E}_\text{iter}$ is the total energy loss rate for the current iteration.
+A fraction of this value is used as the sub-timestep, which is used to calculate the energy loss in that iteration.
+
+\begin{equation}
+  dt_\text{step} = \kappa \tau_\text{cool}, \label{eq:kappafirstuse}
+\end{equation}
+
+Another iteration of the cooling calculation is then performed, with sub-step time re-calculated, until the elapsed time is equal to the hydrodynamical timestep, $dt$. Throughout the simulations in this project a value of $\kappa = 0.1$ was adopted.
+
+In order to assess the performance and accuracy of this method, a test environment was produced to simulate the radiation of a region of gas in the post-shock environment.
+For this test, a gas density of $10^{-16}$ \si{\gram\per\centi\metre\cubed} and an integration timestep of \SI{1000}{\second} were utilised.
+In order to demonstrate the flexibility of the adaptive method over the temperature ranges of a CWB simulation, initial temperatures of $10^5$, $10^6$ and $10^7$ \si{\kelvin} were used to demonstrate the models effectiveness in the cool, warm\footnote{See what I mean about the phrase ``warm''?} and hot regimes of the WCR.
+This was compared with the exact integration method proposed in \cite{townsendExactIntegrationScheme2009} as well as a modified version of the cooling code which uses evenly spaced sub-steps. To demonstrate the relative accuracy of the chosen cooling timescale fraction, lower values of $\kappa$ were also used to demonstrate that lower values, while more accurate, were much more computationally complex.
+
+% Discuss results of benchmarking
+
+% Potential other methods, such as using an RK solver or more through adaptive timestep
+The main limitation of a first-order Euler integration method such as this is that it converges on the correct answer slowly, and as such will be out by a few percent in the worst case so long as a sensible sub-step is used.
+Table \ref{tab:cooling-loop-speed-comp} shows that while an iteration of the logarithmic index method used in this project is slightly more performant than the fast exact integration method proposed in \cite{townsendExactIntegrationScheme2009}, multiple sub-steps quickly render this performance benefit moot, in high-temperature cases with a lower gas density this method is much more accurate with fewer steps, however, as such this method was considered suitable for performing radiative cooling in the high-temperature immediate post-shock environment and lower density low-temperature WCR environment, where the bulk of this project focusses.
+
+%//TODO plot to compare accuracy compared to single step, adaptive substep and arbitrarily large number of timesteps, temperature initial temperature 10^5K and density 10^-16g/cm^3, show tfloor as well
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/plasma-cooling-benchmarks/convergence.pdf}
+  \caption[Cooling sub-step method accuracy comparison]{Comparison of estimated , points represent $\kappa$, in the low temperature case the answer is not particularly accurate, but with the adaptive method with $\kappa = 0.1$ the result is only out by a few percent for a small number of sub-steps.}
+  \label{fig:cooling-loop-convergence}
+\end{figure}
+
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccccc}
+  \cline{2-7}
+   & \multicolumn{2}{c}{$\kappa = 0.1$} & \multicolumn{2}{c}{$\kappa = 0.01$} & \multicolumn{2}{c}{$\kappa = 0.001$} \\ \hline
+  $T_i$ & Steps & Error & Steps & Error & Steps & Error \\
+  $\SI{1e5}{\kelvin}$ & 16 & \num{6.025e-02} & 159 & \num{1.282e-02} & 1585 & \num{7.637e-03} \\
+  $\SI{1e6}{\kelvin}$ & 1 & \num{8.233e-04} & 6 & \num{1.012e-04} & 58 & \num{3.359e-05} \\
+  $\SI{1e7}{\kelvin}$ & 1 & \num{1.577e-07} & 1 & \num{1.577e-07} & 2 & \num{1.411e-07} \\ \hline
+  \end{tabular}
+  \caption[Cooling method accuracy comparison]{Accuracy of the adpative sub-step Euler method compared with the \cite{townsendExactIntegrationScheme2009} exact cooling method, with $\kappa = 0.1$ this method is out by $6\%$ at worst in the low-temperature example, while very accurate at higher temperatures with only a single step needed.}
+  \label{tab:cooling-loop-accuracy-comp}
+\end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{cccc}
+  \hline
+  & \textbf{Search} & \textbf{Logarithmic} & \textbf{\cite{townsendExactIntegrationScheme2009}} \\ \hline
+  $\tau$ (\si{\nano\second}) & 146 & 134 & 151 \\
+  $\Delta \tau$ (\si{\nano\second}) & 8.0 & 1.5 & 0.9 \\ \hline
+  \end{tabular}
+  \caption[Cooling method performance comparison]{Comparison of performance between first order Euler integration methods and the exact integration method described by \cite{townsendExactIntegrationScheme2009}. Tests were conducted with a sample of $10^6$ iterations on a 3.2 \si{\giga\hertz} M1 processor, while the code was compiled using \texttt{clang 12.0.5} and the \texttt{-O3} optimisation set.}
+  \label{tab:cooling-loop-speed-comp}
+\end{table}
+
+Whilst this is a fairly simplistic method of performing adaptive sub-stepping, it is fast, effective, and not prone to failure. An adaptive RK method and implicit method were also considered, but not utilised in the final code, as this sub-stepping procedure was intended for speed and numerical safety over accuracy.
+
+% Unresolved interfaces, need to elaborate
+
+Care is made to correctly calculate energy loss around unresolved interfaces. \textit{Finish this!}
+
+%//TODO need to ask Julian how this is done
+
+% Wrap up, how can this method be improved in general, more exact solvers, what would be the ideal?
+
 \section{The BODMAS Advected Scalar Dust Model}
 \label{sec:bodmas}
 
 \section{Contemporary Dust Models}
 
+% Ballistic dust model
+
+% Numerical dust models in non-cwb systems?
 
 \subsection{The Hendrix dust model}
 
 Perhaps the most similar contemporary dust model is the model described in \cite{hendrix_pinwheels_2016} - as this model is concerned with simulating the dynamics of dust within a CWB.
-This is not to say that these models are identical, of course, as the Hendrix model explores how dust spreads throughout the WCR of WR 98a, in order to compare with observational data using radiative transfer code. %//FIXME double check that one king 
+This is not to say that these models are identical, of course, as the Hendrix model explores how dust spreads throughout the WCR of WR 98a, in order to compare with observational data using radiative transfer code.
+%//FIXME double check that one king 
 
 % Differences between models 
 
@@ -177,8 +527,6 @@ The purpose of the Hendrix model is to analyse the distribution of dust within a
 To this end, the Hendrix model does not 
 
 \section{Future dust models}
-
-
 
 % Future work, adopt multi-fluid model?
 

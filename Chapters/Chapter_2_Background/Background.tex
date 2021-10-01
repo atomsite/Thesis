@@ -234,23 +234,17 @@ O-type stars and Wolf-Rayets, however, emit much of their radiation within the U
 
 % Need to briefly explain P-Cygni profiles as well
 
-% Radiative line driving
+% Radiative line driving, this section may need to be beefed up
 
 Early computations involving resonance lines from \cite{lucy_mass_1970} provided a more reasonable mass loss rate calculation, but were still off by approximately two orders of magnitude.
-
-Building off of the work by Lucy, a vital paper in the solidification of radiative lines as the main driving mechanism behind massive star outflows was produced by Castor, Abbott and Klein\footnote{Hereafter abbreviated as CAK.}.
-This work more accurately computed the influence due to resonance lines, 
-
-% Need to read these papers before I can continue!
-
-
-\parencite{castor_radiation-driven_1975}.
-
+Building off of the work by Lucy \& Solomon, a vital paper in the solidification of radiative lines as the main driving mechanism behind massive star outflows was produced by Castor, Abbott and Klein\footnote{Hereafter abbreviated as CAK.}.
+The CAK formalism calculated reasonably close wind velocities, while being accurate to within a factor of 3 for mass loss rates \parencite{castor_radiation-driven_1975}.
+Further work allowed for more accurate computations of the line driving effect, such as the mCAK prescription, the Sobolev approximation and the finite disk correction factor \parencite{pauldrachRadiationdrivenWindsHot1986}.
 
 % Evolved OB stars, WR stars
 
 As previously mentioned, evolved massive stars progress into a helium burning WR phase, at this point, mass loss rates due to radiative line driving are extreme, in the order of $10^{-5}$ \si{\solarmass\per\year}.
-This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124, as seen in figure \ref{fig:wr124}.
+This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124 (figure \ref{fig:wr124}).
 
 %//FIXME this is a placeholder, additionally how should I cite this?
 \begin{figure}[h]
@@ -296,6 +290,9 @@ This outsized influence on the local medium can be seen in the production of eje
 
 \subsection{Interstellar dust in massive star systems}
 \label{sec:dustmassivestars}
+
+\subsection{Radiation processes in interstellar dust}
+\label{sec:dustcooling-background}
 
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
@@ -357,17 +354,9 @@ Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio 
 
 % Considerations due to stagnation point flow \cite{stevens_stagnation-point_1994}
 
-
-
-
-
-
-
-
 % Brief notes on astrophysical shocks, link to appendix
 
 %Detailed breakdown of Wind collision region
-
 
 \subsection{Cooling in the WCR}
 \label{sec:wcrcooling}
@@ -397,15 +386,24 @@ Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio 
 % Radiative cooling, include graphs, mechanisms
 
 Cooling due to radiation emission in a hot plasma can be broken down into a variety of processes that occur over series of temperature ranges.
-Ions inside a plasma can be collisionally or photonically excited, resulting in emission through a variety of mechanisms.
+Ions inside a plasma can become excited through collisions or photon absorption resulting in emission of photons as the ions de-excited. 
 
 Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung, the influence of each mechanism waxes and wanes as temperature increases, with each mechanism clearly dominant over \parencite{dysonPhysicsInterstellarMedium2021}.
 
 % Section on forbidden line emission
 
+The first mechanism to be discussed is forbidden line emission\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer, while initially assumed to be prohibited under the contemporary understanding of atomic physics, it is in fact just astrophysicists jumping the gun again.}.
+This process dominates the cooling process of cooler gas that is not fully ionised, where collisions with free electrons excite metals within the gas, causing them to de-excite through photon emission through these forbidden lines.
+Forbidden lines themselves arise from magnetic dipole and quadrupole fine structure states within typical energy levels, despite having a much lower probability of occurring compared to conventional energy level transitions.
+This process dominates at these temperatures as the transition energies are significantly lower, on the order of 1 \si{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the gas without being re-absorbed by it.
+
 % Section on ionisation/recombination
 
+As the temperature increases there is a spike in the cooling rate of the gas as the hydrogen present begins to fully ionise, at this temperature a hydrogen ion and an electron may recombine, releasing a cascade of photons as the electron de-excites.
+
 % Section on resonance line emission
+
+As the plasma heats further resonance lines can
 
 % Section on braking radiation
 
