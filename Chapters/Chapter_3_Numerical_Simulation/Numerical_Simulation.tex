@@ -188,7 +188,7 @@ In the case of strong, adiabatic shocks, the downstream gas parameters of the sy
 
 \begin{subequations}
   \begin{align}
-    u_b    & = \frac{1}{4} a_a , \\
+    u_b    & = \frac{1}{4} u_a , \\
     \rho_b & = 4 \rho_a , \\ 
     P_b    & = \frac{3}{4} \rho_a u_a^2 ,
   \end{align}
@@ -218,18 +218,35 @@ Other methods of reducing computational cost and optimising the code are used in
 % This isn't a section on the radiative processeses themselves, but more to do with how plasma cooling is simulated 
 
 % Use of a lookup table
-Rather than calculate 
+Thus, instead of calculating the emissivity of the plasma for the current density, temperature and abundance, 
+
+% Mean molecular mass
+
 
 % Improvements to accuracy of lookup table, linear search
 
+
 % Speed versus accuracy comparison
 
-% Why not calculate it precisely every time?
-
-% Exact versus estimated method
 
 % Why is the estimated method used? see: dust cooling, multiple winds
 
+% This section needs more information, since this is very new to the codebase
+\subsubsection{Exact cooling method}
+
+%//TODO write this, you will have to ask Julian about this
+
+An exact integration scheme for radiative cooling described in \cite{townsendExactIntegrationScheme2009} was considered to simulate cooling in Athena++. 
+
+% Explanation of method, complex bit
+
+% Why would this be good
+This scheme is one of the rare example of a numerical method that is both accurate \textit{and} fast, taking approximately the same time as a second order explicit method, whilst also being perfectly accurate even in highly radiative hypersonic flows.
+% Why did we not use it
+Unfortunately this method has a number of limitations that precluded its usage in this project.
+First, this method would not have been able to accurately model mixed wind situations, hampering its usage cooling winds with drastically different abundances.
+%//TODO check this one with Julian
+Second, and perhaps most importantly, only plasma cooling would have been possible, dust cooling could not be modelled at the same time, resulting in two separate cooling stages, as both mechanisms are highly temperature dependent, this was not acceptable.
 
 \subsection{Dust cooling}
 \label{sec:dustcoolingmodel}
@@ -362,23 +379,6 @@ In order to solve this problem quickly for each timestep, a lookup table similar
 
 % Something along the line of This schematic describes, etc. etc. 
 % Schematic
-
-% This section needs more information, since this is very new to the codebase
-\subsection{Exact cooling method}
-
-%//TODO write this, you will have to ask Julian about this
-
-An exact integration scheme for radiative cooling described in \cite{townsendExactIntegrationScheme2009} was considered to simulate cooling in Athena++. 
-
-% Explanation of method, complex bit
-
-% Why would this be good
-This scheme is one of the rare example of a numerical method that is both accurate \textit{and} fast, taking approximately the same time as a second order explicit method, whilst also being perfectly accurate even in highly radiative hypersonic flows.
-% Why did we not use it
-Unfortunately this method has a number of limitations that precluded its usage in this project.
-First, this method would not have been able to accurately model mixed wind situations, hampering its usage cooling winds with drastically different abundances.
-%//TODO check this one with Julian
-Second, and perhaps most importantly, only plasma cooling would have been possible, dust cooling could not be modelled at the same time, resulting in two separate cooling stages, as both mechanisms are highly temperature dependent, this was not acceptable.
 
 \subsection{Implementation}
 
