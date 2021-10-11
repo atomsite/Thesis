@@ -11,7 +11,6 @@ set key bottom right
 
 set style fill transparent solid 0.5 noborder
 
-
 set key top left
 
 plot "electron_WC" u (10**$1):2 t "WC" w l ls 1,\
