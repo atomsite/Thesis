@@ -7,17 +7,23 @@
 
 % Breakdown of chapter, what this involves
 
-\section{Numerical simulations}
+\section{A Short History of Numerical simulations}
 \label{sec:numsim}
 
 % A short history of computational fluid dynamics
+
+
 
 \section{The Purpose of Numerical Simulations}
 \label{sec:numerical-purpose}
 
 % Why are they useful in general
 
+
+
 % Why are they useful in the context of a colliding wind binary problem
+
+Numerical simulations, due to 
 
 % Why are colliding wind binary systems such a pain to solve
 
@@ -159,7 +165,8 @@ For 3D visualisation the VisIt data visualisation tool is used.
 
 \section{Simulating CWB systems}
 
-% Recap why CWB simulations are so complex
+% Recap why CWB simulations are so complex 
+
 
 % How is this performed, processes involved in mapping wind on stars, orbits, how these are performed in the context of athena++ or numsim in general
 
@@ -194,6 +201,7 @@ In the case of strong, adiabatic shocks, the downstream gas parameters of the sy
   \end{align}
 \end{subequations}
 
+\noindent
 where $a$ is the upstream side and $b$ is the downstream, post-shock side.
 
 in a radiative shock behaving isothermally (where the temperature change, $\Delta T$ throughout the entire lifespan of the fluid is equal to zero), the final density, $\rho_f$ can be approximated to:
@@ -202,6 +210,7 @@ in a radiative shock behaving isothermally (where the temperature change, $\Delt
   \rho_f \approx \gamma M_a^2 \rho_a,
 \end{equation}
 
+\noindent
 where $M_a$ is the pre-shock mach number.
 For a shock with an initial sound speed of $M_a = 100$ the final density can exceed the pre-shock density by a factor of $10^4$!
 
@@ -275,6 +284,7 @@ A binary search for each parameter is performed, with the an offset, $P_d$, bein
   P_{d}=\frac{P-P_{0}}{P_{1}-P_{0}} , 
 \end{equation}
 
+\noindent
 these offsets are then used to perform a trilinear interpolation to calculate $\lambda_d$ from the lookup table.
 
 \begin{equation}
@@ -290,6 +300,7 @@ these offsets are then used to perform a trilinear interpolation to calculate $\
 \end{equation}
 
 %//TODO this needs a bit of sprucing, but makes sense
+\noindent
 where 0 is the lookup table value lower than the parameters actual value, and 1 is the lookup table value greater than the parameters actual value.
 This implementation was written in the form of a series of nested loops to utilise SIMD vectorisation to improve performance.
 
@@ -319,6 +330,7 @@ The second method considered for solving the $h_e$ integral was using an approxi
   \end{alignedat} \label{eq:electrontransparencyestimate}
 \end{equation}
 
+\noindent
 where $x^* = 2.71 \times 10^8 a^{2/3}(\si{\micro\metre}) /T$.
 Whilst this is less accurate, especially in the region where one case ends and the other begins where the result begins to diverge, this method is multiple orders of magnitude faster.
 Figure \ref{fig:graintransacc} shows these discrepancies, in the case where electron transparency begins to decrease the approximation is out somewhat significantly, as well as mid-way through the curve, whilst at temperatures below $10^6 \, \si{\kelvin}$ the approximation and integral methods are perfectly aligned.
@@ -397,19 +409,22 @@ in particular the mean molecular mass of a cell is calculated with the formulae:
   \mu = C\mu_{WR} + (1-C) \mu_{OB}, \label{eq:windaveraging}
 \end{equation}
 
+\noindent
 where $\mu_{WR}$ and $\mu_{OB}$ are the mean molecular masses of the winds and $C$ is the wind ``colour'' scalar, the contribution of each wind to the gas density of the cell.
 The temperature is subsequently calculated using the ideal gas law:
 
 \begin{equation}
-  T = \frac{P \mu m_H}{\rho k_B},
+  T = \frac{P \mu m_H}{\rho k_B}.
 \end{equation}
 
+\noindent
 At the current temperature, the cooling parameter, $\Lambda(T)$ for each wind is found from the lookup tables, and weighted in a similar manner as equation \ref{eq:windaveraging}. The energy loss due to dust grains is then calculated, with the total energy loss rate within the cell defined as:
 
 \begin{equation}
   \dot E = \dot{E}_\text{G} + \dot{E}_\text{D} = \left(\frac{\rho}{m_H}\right)^2 \Lambda_\text{G}(T) + n_\text{D} \dot{E}_\text{grain},
 \end{equation}
 
+\noindent
 this energy loss rate is then multiplied by the timestep, $dt$, and then subtracted from the total energy within the cell. 
 
 % Timestep method, why is this used rather than a single timestep
@@ -434,6 +449,7 @@ A suitably accurate maximum cooling time is calculated by first calculating the 
   \tau_\text{cool} = \frac{E_i}{\dot{E}_\text{iter}},
 \end{equation}
 
+\noindent
 where $E_i$ is the cells internal energy and $\dot{E}_\text{iter}$ is the total energy loss rate for the current iteration.
 A fraction of this value is used as the sub-timestep, which is used to calculate the energy loss in that iteration.
 
@@ -441,6 +457,7 @@ A fraction of this value is used as the sub-timestep, which is used to calculate
   dt_\text{step} = \kappa \tau_\text{cool}, \label{eq:kappafirstuse}
 \end{equation}
 
+\noindent
 Another iteration of the cooling calculation is then performed, with sub-step time re-calculated, until the elapsed time is equal to the hydrodynamical timestep, $dt$. Throughout the simulations in this project a value of $\kappa = 0.1$ was adopted.
 
 In order to assess the performance and accuracy of this method, a test environment was produced to simulate the radiation of a region of gas in the post-shock environment.
@@ -504,13 +521,21 @@ Care is made to correctly calculate energy loss around unresolved interfaces. \t
 \section{The BODMAS Advected Scalar Dust Model}
 \label{sec:bodmas}
 
-\section{Contemporary Dust Models}
+Binary Orbit Dust Model with Accretion and Sputtering\footnote{All good theses have a laboured acronym!}
+
+The primary focus of this project was to implement a dust model within a numerical simulation, in order to determine the growth of dust grains within the 
+
+\subsection{BODMAS features}
+
+
+
+\subsection{Contemporary dust Models}
 
 % Ballistic dust model
 
 % Numerical dust models in non-cwb systems?
 
-\subsection{The Hendrix dust model}
+\subsubsection{The Hendrix dust model}
 
 Perhaps the most similar contemporary dust model is the model described in \cite{hendrix_pinwheels_2016} - as this model is concerned with simulating the dynamics of dust within a CWB.
 This is not to say that these models are identical, of course, as the Hendrix model explores how dust spreads throughout the WCR of WR 98a, in order to compare with observational data using radiative transfer code.
@@ -526,10 +551,47 @@ At the start of this PhD this was considered but eventually rejected due to time
 The purpose of the Hendrix model is to analyse the distribution of dust within a CWB system, rather than to model the evolution of the dust itself.
 To this end, the Hendrix model does not 
 
-\section{Future dust models}
+\subsection{Implementation}
+
+\subsection{Future dust models}
 
 % Future work, adopt multi-fluid model?
 
+Due to time constraints and limitations in the code in use, only a limited set of mechanisms for dust evolution were included in this projects simulations.
+While the BODMAS model represents an interesting start for the modelling of dust grains in colliding wind binaries, future models could implement more complex models which incorporate additional destruction and growth mechanisms as well as 
+
+A multi-scalar model could be used to more accurately measure the growth of dust grains, rather than a single average grain size and 
+This would be more difficult to implement than a single model but would be able to simulate the growth of grains with a large number 
+Athena++ and MG both have issues with a large number of scalars, as such both numerical codes may require significant modification to cope with this.
+A multi-fluid model with dust being physically simulated rather than assumed to be perfectly co-moving would be an ideal next step.
+Multiple grain size distributions could also be modelled in a similar way to the proposed multi-scalar model, however the kinematics of the dust grains could also be simulated separately.
 % Mixing factors
 The increased inertia of more massive dust grains could result in the kinematics of the dust flow diverging from the co-moving assumption.
 To that end, a successor dust model would adopt a multi-fluid and drag function method, which was considered but not included for the sake of time.
+This multi-fluid model would also allow for more physically accurate simulation of grain-gas and grain-grain interactions, as the collision velocities would be exactly calculated rather than estimated through bulk motion properties, high speed collision of gas on dust grains in the immediate post-shock environment could also shatter grains, though modelling this as well as spalling of particles in the wind through the dust grains would be complex to simulate. 
+
+Furthermore, additional mechanisms for dust destruction, such as through photodissociation and sublimation could also be implemented, the implementation of these could be used to determine the effectiveness of the WCR in protecting nascent, still forming dust grains.
+
+% Better dust nucleation model
+% //TODO this section needs work
+
+The initial grain nucleation model could also be improved, injection of extremely small grains into the simulation through the stellar remap zones was chosen as the underlying chemical process for formulation of these dust grains is poorly understood at the time of writing.
+% Current model not too bad, strong dependence on a but z does not change much, being dependent on a single parameter not too bad
+The small grain nucleation model was also found to be only dependent on the initial grain radius, $a_i$, whilst changing the amount of grain nuclei in the WR wind does not change the amount of dust produced.
+As such the simulations are currently bound by a single input parameter, which can be constrained based on what is currently understood about dust grain accretion.
+% Difficulty in picking initial parameters for more complex model
+A more complex model may require additional parameters, and as such would be highly dependent on them.
+
+% Comparison with observational results
+
+Another avenue of future research would be performing a radiative transfer simulation upon a fully advected system, in order to compare with 
+This was initially considered at the start of the project, but was not performed due to the limited amount of time remaining at the end of the PhD.
+This was performed by \textcite{hendrix_pinwheels_2016}, with the resultant images emulating the sensitivity and angular resolution characteristics of UKIRT, Keck and ALMA (figure \ref{fig:hendrix-synthetic}).
+Radiative transfer models would be used to 
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/hendrix-synthetic-observation.jpeg}
+  \caption[\textcite{hendrix_pinwheels_2016} synthetic astronomy]{Synthetic images of WR 98a emulating the capabilities of ALMA using a radiative transfer model, reproduced from \textcite{hendrix_pinwheels_2016}.}
+  \label{fig:hendrix-synthetic}
+\end{figure}

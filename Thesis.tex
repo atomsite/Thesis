@@ -9,7 +9,8 @@
               {./Chapters/Chapter_3_Numerical_Simulation}
               {./Chapters/Chapter_4_Parameter_Space_Paper}
               {./Chapters/Chapter_5_Real_Systems_Paper}
-              {./Chapters/Chapter_6_Final_Notes}
+              {./Chapters/Chapter_6_Terminal_Velocity_Paper}
+              {./Chapters/Chapter_7_Final_Notes}
               {./ThesisFigs/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,12 +72,12 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 %Captions for subfigures
-\usepackage[justification=centering,
-            labelfont=bf]{caption}
+% \usepackage[format=hang,labelfont=bf]{caption}
+\usepackage[format=hang,labelfont=sl]{caption}
 
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
-
+\usepackage{spreadtab}
 
 % Define block styles
 \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
@@ -85,7 +86,6 @@
     text width=8em, text centered, rounded corners, minimum height=4em]
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm, text width=5em, minimum height=2em]
-
 
 \usepackage{listings}
 \usepackage{xcolor}
@@ -188,7 +188,8 @@
 \include{Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex}
 \include{Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex}
 \include{Chapters/Chapter_5_Real_Systems_Paper/Real_Systems_Paper.tex}
-\include{Chapters/Chapter_6_Final_Notes/Final_Notes.tex}
+\include{Chapters/Chapter_6_Terminal_Velocity_Paper/Terminal_Velocity_Paper.tex}
+\include{Chapters/Chapter_7_Final_Notes/Final_Notes.tex}
 
 %\appendix
 \appendix

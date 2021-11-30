@@ -322,7 +322,7 @@ where $n_g$ is the gas number density.
 % //TODO cleanup sentence structures
 
 In order to propagate dust through each simulation, a small initial value for the advected scalars is set in each cell in the remap zones.
-A minimum grain radius of $50 \, \text{\AA}$ and minimum dust-to-gas mass ratio of $10^{-8}$ is imposed.
+A minimum grain radius of $50 \, \text{\AA}$ and minimum dust-to-gas mass ratio of $10^{-6}$ is imposed.
 Changing $z_{min}$ does not significantly impact the final dust-to-gas mass ratio of the system as $z$ rapidly increases within the WCR and dust growth in the WCR dominates the total production.
 
 \section{Model Parameters}
@@ -407,15 +407,15 @@ As these orbits are circular, there should be no major variance of the winds aft
 
 \begin{table}
   \centering
-  \begin{tabular}{ccccccc}
+  \begin{tabular}{cccccccc}
   \hline
-  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
-  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline
-  \texttt{baseline}& \num{5.0e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\
-  \texttt{mdot-1}  & \num{1.0e-5} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.544 \\
-  \texttt{mdot-2}  & \num{2.5e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.04 & 1.995 \\
-  \texttt{mdot-3}  & \num{5.0e-6} & \num{1.0e-7} & \num{1e8} & \num{2e8} & 0.04 & 0.997 \\
-  \texttt{mdot-4}  & \num{5.0e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.088 \\
+  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ & $\chi_{OB}$ \\ 
+  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & & \\ \hline
+  \texttt{baseline}& \num{5.0e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.20 & 1915 \\
+  \texttt{mdot-1}  & \num{1.0e-5} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.01 & 0.60 & 1915 \\
+  \texttt{mdot-2}  & \num{2.5e-6} & \num{5.0e-8} & \num{1e8} & \num{2e8} & 0.04 & 2.39 & 1915 \\
+  \texttt{mdot-3}  & \num{5.0e-6} & \num{1.0e-7} & \num{1e8} & \num{2e8} & 0.04 & 1.20 & 957  \\
+  \texttt{mdot-4}  & \num{5.0e-6} & \num{2.5e-8} & \num{1e8} & \num{2e8} & 0.01 & 1.20 & 3830 \\
   \hline
   \end{tabular}
   \caption[Mass loss rate series wind parameters]{Wind parameters for simulations varying the mass loss rate, $\dot M$.}
@@ -424,15 +424,15 @@ As these orbits are circular, there should be no major variance of the winds aft
 
 \begin{table}
   \centering
-  \begin{tabular}{ccccccc}
+  \begin{tabular}{cccccccc}
   \hline
-  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ \\ 
-  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & \\ \hline
-  \texttt{baseline} & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.049 \\
-  \texttt{vinf-1}   & \num{5e-6} & \num{5e-8} & \num{2e8} & \num{2e8} & 0.01 & 17.41 \\
-  \texttt{vinf-2}   & \num{5e-6} & \num{5e-8} & \num{5e7} & \num{2e8} & 0.04 & 0.062 \\
-  \texttt{vinf-3}   & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{4e8} & 0.04 & 0.997 \\
-  \texttt{vinf-4}   & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{1e8} & 0.01 & 1.088 \\
+  Name & $\dot M_{WR}$ & $\dot M_{OB}$ & $v^\infty_{WR}$ & $v^\infty_{OB}$ & $\eta$ & $\chi_{WR}$ & $\chi_{OB}$ \\ 
+  & \si{\solarmass\per\year} & \si{\solarmass\per\year} & \si{\centi\metre\per\second} & \si{\centi\metre\per\second} & & & \\ \hline
+  \texttt{baseline} & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{2e8} & 0.02 & 1.20 & 1915  \\
+  \texttt{vinf-1}   & \num{5e-6} & \num{5e-8} & \num{2e8} & \num{2e8} & 0.01 & 19.1 & 1915  \\
+  \texttt{vinf-2}   & \num{5e-6} & \num{5e-8} & \num{5e7} & \num{2e8} & 0.04 & 0.07 & 1915  \\
+  \texttt{vinf-3}   & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{4e8} & 0.04 & 1.20 & 30638 \\
+  \texttt{vinf-4}   & \num{5e-6} & \num{5e-8} & \num{1e8} & \num{1e8} & 0.01 & 1.20 & 120   \\
   \hline
   \end{tabular}
   \caption[Terminal velocity series wind parameters]{Wind parameters for simulations varying the wind terminal velocity, $v^\infty$.}
@@ -447,20 +447,22 @@ The separation distance was varied from the baseline model of 4 \si{\au} to 64 \
 For instance, simulation \texttt{dsep-64AU} has a cooling parameter value approaching the fast WR wind model \texttt{vinf-1}, despite having a wind momentum ratio of 0.02.
 
 %//TODO this section needs some analytical work, specifically on the expected values for dt, things like that, I can also get some stuff from the results
+
 Each simulation has a coarse resolution of $320 \times 320 \times 40$ cells, with a varying number of levels, as the separation distance is doubled, the associated static mesh refinement box is halved and the number of levels is decremented. This manipulation of levels ensures that the number of cells between the stars is kept consistent, reduces memory usage and keeps the average timestep approximately the same.
+The simulation extent was doubled over the previous simulations, to approximately $2000 \times 2000 \times 250 \, \si{\au}$.
 Similarly to the previous set of simulations, a minimum of 1 orbit was needed for each simulation, however, as the orbital period of each simulation varies, certain simulations were able to run for a significantly longer length of time, with data for multiple orbits being obtained.
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{cccccc}
+  \begin{tabular}{ccccccc}
     \hline
-    Name & P & $d_{sep}$ & $\chi_{WR}$ & Levels & Effective Resolution \\
-    & \si{\second} & \si{\au} &  &  & Cells \\ \hline 
-    \texttt{dsep-4AU}  & \num{1.80} & 4  & 1.05 & 7 & $20480 \times 20480 \times 2560$ \\
-    \texttt{dsep-8AU}  & \num{5.06} & 8  & 2.10 & 6 & $10240 \times 10240 \times 1280$ \\
-    \texttt{dsep-16AU} & \num{14.3} & 16 & 4.19 & 5 & $5120 \times 5120 \times 640$    \\
-    \texttt{dsep-32AU} & \num{40.5} & 32 & 8.39 & 4 & $2560 \times 2560 \times 320$    \\
-    \texttt{dsep-64AU} & \num{115}  & 64 & 16.8 & 3 & $1280 \times 1280 \times 160$    \\ \hline
+    Name & P & $d_{sep}$ & $\chi_{WR}$ & $\chi_{OB}$ & Levels & Effective Resolution \\
+    & \si{\year} & \si{\au} & & & & Cells \\ \hline 
+    \texttt{dsep-4AU}  & \num{1.80} & 4  & 1.20 & 1915  & 7 & $20480 \times 20480 \times 2560$ \\
+    \texttt{dsep-8AU}  & \num{5.06} & 8  & 2.39 & 3830  & 6 & $10240 \times 10240 \times 1280$ \\
+    \texttt{dsep-16AU} & \num{14.3} & 16 & 4.79 & 7659  & 5 & $5120 \times 5120 \times 640$    \\
+    \texttt{dsep-32AU} & \num{40.5} & 32 & 9.57 & 15319 & 4 & $2560 \times 2560 \times 320$    \\
+    \texttt{dsep-64AU} & \num{115}  & 64 & 19.1 & 30638 & 3 & $1280 \times 1280 \times 160$    \\ \hline
   \end{tabular}
   \caption{Parameters of simulations varying separation distance.}
   \label{tab:dsep-param}
@@ -500,41 +502,331 @@ A mixed wind model for detecting over-density was also considered, however it wa
 
 \subsection{Radiative processes}
 
-\subsection{Momentum ratio variation}
+The first round of simulations were performed in order to assess whether the implemented cooling model would influence dust formation within the WCR.
+This was found to be the case, figure \ref{fig:coolingprocess-dustproduction} shows that without cooling only a marginal amount of dust formation occurs, largely due to propagation of dust grains into the simulation, dust destruction also appear to be occurring, with the average grain radius radius reducing over the course of the simulation. 
+Dust production for the radiative processes simulations is significantly higher, with the \texttt{fullcool} simulation appearing to have consistently higher dust formation rates than \texttt{plasmacool}.
+This is sensible, as \ref{fig:postshockcoolcomparison} shows that at immediate post shock temperatures small dust grains present strongly influence immediate post-shock cooling, allowing the wind to reach temperatures low enough for dust formation faster than if only plasma cooling was considered.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison-forpaper2.pdf}
+  \caption[Comparison of dust and plasma cooling rates in post-shock environment]{Comparison of plasma cooling to dust cooling with varying grain sizes in a typical post-shock flow, where $\rho_g = 10^{-16} \, \si{\gram\per\centi\metre\cubed}$ and a dust-to-gas mass ratio of $10^{-4}$.}
+  \label{fig:postshockcoolcomparison}
+\end{figure}
+
+% 
+In the case of the \texttt{fullcool} simulation, an average dust production rate of $\SI{5.4e-10}{\solarmass\per\year}$ is observed, with a peak formation rate of $\SI{7.1e-09}{\solarmass\per\year}$, this fluctuation appears to be due to dust forming mostly in high density instabilities (figure \ref{fig:coolingprocess-dustproduction}).
+The fluctuations occur multiple times per orbit, but do not appear to be related to the orbital motion itself.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/radiative/radiative-rho.pdf}
+  \caption[Instabilities due to cooling]{Density comparison for \texttt{nocool} and \texttt{fullcool} models, with cooling enabled instabilities are far more prevalent, with pockets of very high density material within the WCR.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/cool-results/cool-phase-dust_rate.pdf}
+  \caption[Comparison of dust formation rates with cooling methods]{A comparison of dust formation rates as cooling mechanisms are changed. Without adequate cooling barely any dust is formed, while dust formation does increase with all cooling mechanisms enabled plasma cooling is still the dominant cooling process for dust production.}
+  \label{fig:coolingprocess-dustproduction}
+\end{figure}
+
+% //TODO plot showing simulation a t 1.0, 2.0 and 3.0 phase, showing difference in dust formation
+
+% Temperature and dust formation on leading edge
+
+As cooling is significant in the post-shock WR wind, non-adiabatic compression is allowed to occur, resulting in much higher post-shock densities (figure \ref{fig:postshockcompression}).
+Gas rapidly cools within this post-shock region, corresponding to where energy losses were stated to be important in \textcite{usov_stellar_1991}, this results in ideal conditions for dust formation, especially within the higher density instabilities.
+A similar effect for the OB wind is not observed, as radiative energy losses are are not influential on the dynamics of the flow, due to the faster, significantly thinner stellar wind.
+Figure \ref{fig:postshocktemperature} shows that the \texttt{fullcool} simulation has a similar immediate-post shock temperature to an adiabatic model, however this region cools within an extremely short timescale, allowing the nascent dust grains to grow.
+Figure \ref{fig:full-radiative-z} shows dust clumps forming shortly after initial wind collision, 
+after initial rapid formation rapid dust production tapers off as the post-shock wind becomes more diffuse. 
+Temperature is also significantly more affected in the leading edge relative to the orbital motion, leading to a larger portion of dust forming in this region.
+
+% It is believed that this effect is due to the region not being within line-of-sight of the WC star, and as such not being subject to the same degree of oblique shocks from the stellar wind.
+% Actually it may be an idea to discuss this with Julian, since it could be a number of factors, maybe even orbital motion, or the wind colliding with late-WCR, leading to more compression better cooling? would explain instabilities
+% Julian noted in his 2009 paper that a similar principle was observed
+% Most likely due to oblique collision, between 
+\textcite{pittard_3d_2009} notes that in the case of colliding winds with $\eta = 1$ the trailing edge of the WCR takes part in oblique shocks with the stellar winds, while the leading edge is shadowed by the upstream WCR from the colliding material.
+This results in a trailing edge with strong instabilities and cool, high density clumps of post-shock wind, while the leading edge has a low density flow that is not dominated by instabilities.
+% significant distance preventing oblique shocks
+This does not appear to occur in these low-$\eta$ systems, as oblique shocks occur at a much greater distance, when the stellar wind is significantly less dense.
+% Need to discuss this a bit with julian, see if my reasoning is sound
+Instead, the leading edge of the WCR appears to be much thinner and denser than the trailing edge, this is believed to be due to the leading edge interacting with the outflowing material due to the systems orbital motion, sweeping up material and obliquely shocking the downstream WCR. % This needs further work, but I think thats a working theory
+% Dust formation occurs some distance from the immediate post-shock region, time to cool, in agreement with observations, see williams 1990
+% Formation appears to stagnate after this formation period, insufficient density due to diffusion?
+Most dust formation occurs in the downstream post shock region, as soon as the post-shock wind has sufficiently cooled.
+Furthermore dust formation slows significantly as the post-shock wind begins to diffuse, limiting overall dust formation to a region around 100 AU from the WCR apex. % This needs to be more stringent, no time for that right now
+This is in agreement with the research by \textcite{williams_dust_1990} and \textcite{hendrix_pinwheels_2016}, which note that there is a limited region suitable for dust formation.
+% Section needs a diagram showing the described contact surfaces, might be a good idea to name them, alpha beta contact surfaces? Use the eta graphs for baseline
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/radiative/radiative-crop-2-rho.pdf}
+  \caption[]{}
+  \label{fig:postshockcompression}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/radiative/radiative-crop-2-temp.pdf}
+  \caption[]{}
+  \label{fig:postshocktemperature}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/radiative/z.pdf}
+  \caption[\texttt{Baseline} simulation $z$, full extent]{Full extent of \texttt{baseline} simulation, showing dust-to-gas mass ratio, dust typical forms in clumps within instabilities, leading to variation of dust formation as the simulation progresses.}
+  \label{fig:full-radiative-z}
+\end{figure}
+
+
+% Orbital variation in general, simulation run out to a longer distance, no major variance between orbits
+
+% \begin{figure}
+%   \centering
+%   \includegraphics{assets/cool-results/cool-phase-avg_a.pdf}
+%   \caption[Comparison of grain radii with varying cooling methods]{Average grain radius throughout simulations with varying cooling methods, plasma and dust are close to being the same, however without any cooling processes dust destruction is dominant, resulting in grain radius falling below the initial grain radius, $a_i$.}
+%   \label{fig:coolingprocess-grainradius}
+% \end{figure}
+
+\subsection{Mass loss rate variation}
+
+% High mass loss rate for both stars results in a high rate of dust formation 
+Dust formation in the set of simulations which vary mass loss rate was found to be dependent on strong winds from either the WC or OB stars.
+As can be seen in figure \ref{fig:mdotdustproductionrate}, the rates are stratified into similar dust production rates for simulations with similar values of $\eta$; simulations with an $\eta$ of 0.01 produce the most dust, while simulations with $\eta = 0.04$ producing approximately 3 orders of magnitude less dust than the most productive simulations.
+% Note this is not related to the amount of wind, appears to be proportional to the wind momentum ratio instead 
+However, the heightened dust production rate does not correspond to the summated mass loss rate of the system.
+For instance, \texttt{mdot-1} and \texttt{mdot-3} produce on average $\sim 10^{-8}\,\si{\solarmass\per\year}$ with a net mass loss rate with factors of 1.99 and 1.01 higher than the baseline simulation respectively.
+While the mass loss rate for each star varies throughout these simulations by a factor of 4, the dust production rate varies significantly more than that, further ruling out the increased rate of dust production being due to there simply being more mass in the simulation.
+% Indicates that cooling is not the only factor, a strong shock must form first
+All simulations in this system have comparatively low values for $\chi_{WR}$, which suggests that the simulations are at least weakly radiative, this implies that cooling is not the only governing factor, and that a strong shock must also form.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/mdot-results/mass-loss-phase-dust_rate.pdf}
+  \caption[Dust production rate for simulations varying mass loss rate]{A comparison of dust production rates for simulations that vary mass loss rate, $\dot M$, simulations with either a strong primary or secondary wind produce similar levels of dust, whilst if either wind is weaker, dust production rate is reduced.}
+  \label{fig:mdotdustproductionrate}
+\end{figure}
+
+\subsection{Terminal velocity variation}
+\label{sec:paper1vinfresults}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/vinf-results/vinf-phase-dust_rate.pdf}
+  \caption[]{Comparison of dust production rate for simulations varying wind terminal velocity, $v^\infty$. Simulations }
+  \label{fig:vinfdustproduction}
+\end{figure}
+
+Varying wind terminal velocity appears to have an extremely strong effect on dust formation, with effects that are not solely related to $\eta$.
+% Slow WR wind = strongly cooling high dust formation
+Dust production rate is extremely high in the case of \texttt{vinf-2}, which has an extremely slow wind velocity of \SI{500}{\kilo\metre\per\second}, which is on the low end of expected wind terminal velocities for WR stars, and has a wind velocity closer to that on a typical LBV star.
+This very slow, dense wind is highly influenced by radiative cooling in the post-shock environment, driving thermal instabilities, leading to high density pockets of cooled gas, ideal for dust formation.
+% Observation shows extremely instability influenced winds, discuss instabilities in general, Kelvin Helmholtz?
+This can be seen in figure \ref{fig:vinfrhodcomp}, where \texttt{vinf-2} produces large quantities of dust in the WC-stagnation point interaction region, 
+% Shock temperature much lower
+The initial shock temperature for \texttt{vinf-2} was also significantly lower than 
+% Note increased dust in non-shocked wind, this was found to be a fraction of the overall dust produced
+It should be noted that dust production in general increases outside of the WCR, this is largely due to significantly higher wind density within the WC wind.
+This is due to the model not currently featuring destruction due to photodissociation, which can be included in future models.
+Despite this, the dust production outside of the WCR does not significantly impact the total dust production rate, and numerical analysis of dust production such as in figure \ref{fig:dsepdustproduction} does not include dust produced outside of the wind collision region.
+%//TODO find actual value
+In the case of a fast WC wind however, dust production effectively ceases,  with an average dust production rate of $\SI{8.9e-13}{\solarmass\per\year}$, multiple orders of magnitude less than \texttt{vinf-4}, which has a similar wind momentum ratio.
+
+% Fast OB wind = very strong shock
+
+% \begin{figure}
+%   \centering
+%   \includegraphics{assets/results/vinf/vinf-finished-rho.pdf}
+%   \caption[]{Comparison of terminal velocity variation simulations, simulations with a high ratio of wind velocities appear to exhibit instabilities leading to strong wind mixing, as these seem to be based on velocity shear, it is reasonable to assume that the structure of the WCR is dominated by Kelvin-Helmholtz instabilities.}
+%   \label{fig:vinfdensitycomp}
+% \end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/vinf/vinf-finished-rhod.pdf}
+  \caption[Dust density comparison of terminal velocity varying systems]{Comparison of dust density in $v^\infty$ variation simulations, simulations with either a low OB wind velocity or high WC wind velocity produce large quantities of dust. Simulation \texttt{vinf-1}, which has a high velocity WC wind, does not produce any appreciable dust within the WCR.}
+  \label{fig:vinfrhodcomp}
+\end{figure}
+
+% Focus on vinf-3 and vinf-4 figure analysis, zoom out, VINF3 has a very stable secondary wind but much stronger instabilities, implies uncertainties due to velocity differential as well? More dust produced even though mean temperature of this simulation is much higher, implies cooling not the only mechanism, strong shock + additional isntabilities
+Simulations \texttt{vinf-3} and \texttt{vinf-4} are of note as when the secondary wind velocity was altered, drastic changes to the dust formation rate occur, similar to modifying the mass loss rate of the secondary star as detailed in the previous section.
+% Instabilities in secondary wind can 
+Instabilities due to the secondary wind appear to be the result of this, a greater secondary wind velocity would lead to a greater velocity shear along the discontinuity, resulting in Kelvin-Helmholtz instabilities.
+Both \texttt{vinf-2} and \texttt{vinf-3} exhibit this behaviour, and both have a terminal velocity ratio, $\frac{v_\text{OB}^\infty}{v_\text{WR}^\infty} = 4$.
+This would augment the already present thermal instabilities due to radiative cooling, leading to a less ordered, clumpy post-shock environment \parencite{stevens_colliding_1992}.
+This is found to be the case with \texttt{vinf-3}, which has a far greater amount of dust formation within the WCR, and has a significantly more mixed wind.
+This can be seen in figure \ref{fig:obvinfzcomp} where \texttt{vinf-3} and \texttt{vinf-4} are directly compared, despite both simulations having an adiabatic second wind, the presence of a much faster secondary wind results in a velocity shear that produces a much broader WCR, with high density pockets formed within instabilities, which appear to produce the bulk of dust. 
+This suggests that prolific dust formation occurs in  a post-shock primary wind shaped by instabilities, produced either from strong radiative cooling, or through a strong velocity shear, leading to K-H instabilities.
+Radiative cooling is also important beyond thermal instabilities, in order to reduce to adequate temperatures in the high-density immediate post shock flow.
+% Stratification of simulations does not occur in the same way, 
+Results appear to be stratified somewhat in terms of $\eta$, where simulations where $\eta = 0.04$ produce significantly more dust than simulations with more imbalanced winds.
+However, this dependence is different to the mass loss rate simulation subset, and the stratification is less apparent, this suggests a loose correlation between $\dot M_D$ and $\eta$ when $v_\infty$ is varied.
+% Direct eta correlation, however fast drop of dust formation for Fast WR wind model
+
+
+% //TODO add LBV to mass loss rate chart
+
+
+% Starting to form concept that chi is also not fundamental, cooling not everything, formation of strong instabilities however by any mean is most important
+
+
+% Purpose of radiative line driving, close binaries may have lower OB wind velocity, leading to less dust formation
+% Refer to radiative inhibition 
+% Cannot be simulated with current version of code, but interesting to consider
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/vinf/vinf-rhod.pdf}
+  \caption[OB terminal velocity wind dust comparison]{Comparison of dust density in simulations with at modified OB wind terminal velocities, simulations are fully advected with $\phi = 3.0$, dust formation and instabilities are far more pronounced in \texttt{vinf-3}, which has wind velocity a factor of 4 larger than \texttt{vinf-4}.}
+  \label{fig:obvinfzcomp}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/mixed/eta-004-comparison-r0.pdf}
+  \caption[Wind colour comparison of $\eta = 0.04$ winds]{Comparison of wind colour in simulations \texttt{vinf-3} and \texttt{mdot-3}, wind mixing is significantly more pronounced, with a pronounced post-shock WR wind that appears to be strongly influenced by Kelvin-Helmholtz instabilities, due to the increased wind velocity imbalance and lower degree of cooling.}
+  \label{fig:eta004comparisoncolour}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/mixed/eta-004-comparison-rhod.pdf}
+  \caption[]{Comparison of dust density in simulations with a strong secondary wind, \texttt{vinf-3} \& \texttt{mdot-3}, dust in \texttt{vinf-3} is produced to a much higher degree in the trailing edge of the wind, and increased mixing of the wind due to Kelvin-Helmholtz instabilities has led to dust forming throughout the WCR, rather than at the WC-stagnation point boundary.}
+  \label{fig:eta004comparisonrhod}
+\end{figure}
+
+By directly comparing two prolific dust producing models with $\eta = 0.04$, \texttt{vinf-3} and \texttt{mdot-3}, we can see that both WCRs are dominated by instabilities.
+\texttt{vinf-3} in particular appears to be much more thoroughly mixed (figure \ref{fig:eta004comparisoncolour}), with a much larger trailing edge that produces large quantities of dust (figures \ref{fig:eta004comparisonrhod}).
+This additional degree of instability appears to be due to Kelvin-Helmholtz instabilities, which grow significantly as the post-shock gas flows away from the stagnation point, as described in \textcite{stevens_colliding_1992}.
+These simulations produce approximately the same amount of dust, with \texttt{vinf-3} also consistently producing dust in the trailing edge of the WCR.
+From these results it is clear that a high dust production rate is dependent on a highly imbalanced wind, with a slow WC and fast OB wind, as this drives a strong shock, leading to strong cooling and thin-shell instabilities, while also producing additional high density regions and mixing through Kelvin-Helmholtz instabilities.
+
+% \begin{figure}
+%   \centering
+%   \includegraphics{assets/vinf-results/vinf-phase-avg_a.pdf}
+% \end{figure}
+
+% //TODO include table of average/peak dust formation rates for simulations with vinf and mdot variation
 
 \subsection{Separation variation}
 
-% % Adiabatic flow 
+% Direct chi correlation, could also be due to weaker shocks
 
-% The most immediately apparent result to this 
+As can be seen in figure \ref{fig:dsepdustproduction} there is a clear correlation between separation distance and dust formation rate, with dust production drastically increasing as orbital separation is decreased.
+This influence on the dust formation rate is non-linear, with a doubling of the separation distance increasing the dust production rate by approximately one order of magnitude.
+Variation of the dust production rate also appears to increase as separation distance is reduced, leading to instances where a simulation may temporarily produce more dust than a simulation with a tighter orbit, such as the case with \texttt{dsep-4AU} and \texttt{dsep-8AU} at $\Phi = 0.6-0.7$.
+some of this could be related to numerical error, however, it is clear that systems with closer orbits are far more instability driven, as can be seen in figure \ref{fig:dsepinstabilities}.
+As we have previously discussed, instabilities drive slightly intermittent, but highly effective dust formation, which can be seen in the clumpy dust formation of \texttt{dsep-4AU} and \texttt{dsep-8AU} in particular.
 
-% %//FIXME this needs work! 32AU result is instead labelled as 64AU and zooms aren't consistent!
+% Discuss radiative line driving model
+It would be interesting to consider how 
 
-% \begin{figure}
-%   \includegraphics[width=\textwidth]{assets/adiabatic-flow/adiabatic-flow-a4.png}
-% \end{figure}
+due to radiative stagnation and braking from the 
 
-% % Dust yields
+Unfortunately, the current model does not simulate this effect, instead relying on a terminal velocity wind model. This would be an interesting avenue of research, however.
 
-% A clear trend with orbital separation is that dust formation increases drastically as the stars are positioned closer together, at high degrees of separation dust formation ceases, and average grain size drops below the initial value of $50 \text \AA$.
+%//FIXME this needs work! 32AU result is instead labelled as 64AU and zooms aren't consistent!
 
-% The bulk of dust growth occurs in the immediate post shock region, as dust is rapidly cooled and at a high enough density for dust formation to occur.
+\begin{figure}
+  \centering
+  \includegraphics{assets/adiabatic-flow/instab-comp-rho.pdf}
+  \caption[]{A comparison of the structures of simulations varying $d_\text{sep}$, the scale of each plot has been changed to allow for a similar feature size, as can be seen simulations with a closer separation distance have collision regions whose structure is more strongly influenced by instabilities, particularly thin-shell instabilities brought on by the presence of radiative cooling within the WCR.}
+  \label{fig:dsepinstabilities}
+\end{figure}
 
-% This matches observations of episodic dust forming systems, where infrared emission due to dust is maximised at or shortly after periastron passage. This also lends further evidence that dust formation rates are not influenced solely by the momentum ratio, as this is kept constant, and instead is strongly influenced by the wind density at collision and post-shock cooling. 
+% Dust yields
 
-% % Periodicity
+\begin{figure}
+  \centering
+  \includegraphics{assets/dsep-results/dsep-phase-dust_rate.pdf}
+  \caption[Dust formation rate vs. binary separation distance]{A comparison of dust formation rates versus orbital phase for a set of simulations that vary separation distance, $d_\text{sep}$. A clear inverse relationship between separation distance and dust production rate exists, most likely due to the stellar winds becoming more diffuse further from their origin stars, leading to weaker shocks and a WCR that behaves more adiabatically.}
+  \label{fig:dsepdustproduction}
+\end{figure}
 
-% Closer orbits were also observed to cause subtle periodic changes, whilst this effect is less pronounced than in a highly eccentric system, the 
+A clear trend with orbital separation is that dust formation increases drastically as the stars are positioned closer together, at high degrees of separation dust formation ceases, and average grain size drops below the initial value of $50 \text \AA$.
+
+The bulk of dust growth occurs in the immediate post shock region, as dust is rapidly cooled and at a high enough density for dust formation to occur.
+
+This matches observations of episodic dust forming systems, where infrared emission due to dust is maximised at or shortly after periastron passage. This also lends further evidence that dust formation rates are not influenced solely by the momentum ratio, as this is kept constant, and instead is strongly influenced by the wind density at collision and post-shock cooling. 
+
+% Some periodicity, shared between stars are various phases, this could be due to spirals formed as the stars rotate? Pinwheel structure?
+
+% Include table of formation rates for orbital separation
+
+\section{Conclusions}
+
+% General links of 
 
 
-% \subsection{Wind mixing within the WCR}
+\subsection{Dust formation sensitivity}
 
-% %This may need additional work
+% Dust formation appears to be extremely sensitive to initial conditions, particularly terminal velocity
+The simulations in this paper were conducted over a fairly limited range of initial conditions for mass loss rate and wind terminal velocity, wind velocity and mass loss rates are varied by no more than a factor of 4.
+Despite this, dust production varies by up to 6 orders of magnitude, in the case of wind terminal velocity.
+This suggests that dust formation is extremely sensitive to the initial conditions of 
+Dust formation rate also varies in accordance with the separation distance, but is somewhat less sensitive to change, this would present itself more in terms of WCd systems that exhibit periodic dust formation, as WC stars do not undergo significant variability of their wind properties over the timescale observed in periodic WCd systems.
+% Highly speculative, bring this one down to earth
+This would present an interesting factor in the case of CWB systems with an LBV partner such as $\eta$ Carinae, as an LBV would result in a highly variable wind collision region outside of fluctuations due to separation distance \parencite{nazeChangingWindCollision2018}.
+% Briefly discuss extrapolation of results, other systems
+The baseline system, WR98a, has a significantly lower mass loss rate than other well-characterised WCd systems, such as WR140 and WR04, the WC star in WR 140 has a mass loss rate an order of magnitude larger than WR98a, for instance.
+% Allude to additional research, covered in papers 2 and 3?
+As such, future research in this topic will cover these systems, as an exploration of more extreme conditions would be conducive to demonstrating the veracity of this dust model.
+% What does that even mean buddy
 
-% While interaction between Hydrogen and dust grains is not simulated by the dust model, \cite{leteuffModelDustFormation2002} notes that Hydrogen could be a potential catalyst for amorphous carbon grain formation.
+\subsection{Radiative inhibition and its influence on eccentric WCd systems}
 
+% Purpose of radiative line driving, close binaries may have lower OB wind velocity, leading to less dust formation
+% Refer to radiative inhibition 
+% Cannot be simulated with current version of code, but interesting to consider
 
-% \appendix
-% \section{Derivation of Dust Accretion and Destruction Rates}\label{app:accretiondestruction}
+The lack of radiative line driving, and instead using a terminal velocity model for stellar winds is an important consideration when assessing the results of this paper.
+It has been established over the course of this paper that dust production rate is highly dependent on the wind velocity of either stars stellar wind; hence any mechanism that influences the wind velocity over the course of an orbit can be a potential mechanism for the variable dust formation in CWB systems with high eccentricities.
+Whilst orbital separation is a definite factor in changing dust formation rates, with tightly bound orbits producing the most dust, it can be argued that as stellar separation decreases as the stars approach periastron, dust production will increase, and taper off as the star moves beyond this point as it heads towards apastron.
+This can be seen in observations, as dust production reaches its peak at periastron passage, however, dust formation ramps up extremely rapidly, whilst taking much longer to reduce \parencite{williamsDustFormationCollidingwind2008,williams_orbitally_2009}.
+This asymmetry implies processes that occur more strongly as the system heads towards periastron than away from it.
+Changes to wind velocity may prove to be a source of mechanisms behind this effect.
 
-% \subsection{Dust destruction}\label{app:destruction}
+As the wind is highly imbalanced, the velocity of the OB stellar wind will be lower than the expected terminal velocity due to insufficient acceleration before the wind undergoes radiative inhibition and braking.
+Whilst dust formation benefits from a slow primary wind, a slow secondary wind can drastically reduce the rate of dust formation.
+For instance, in the case of WR 140 at periastron passage, the O4-5 companion star with a terminal wind velocity of $\SI{3200}{\kilo\metre\per\second}$ was found to have a line-driven wind velocity $\sim 84\%$ of $v^\infty$ before collision with the WCR at $r_{OB}$ (figure \ref{fig:wr140-stagnation-obwind}).
+As demonstrated in the velocity variation simulations, halving the wind terminal velocity can reduce the dust formation rate by approximately 2 orders of magnitude, due to a weaker wind collision shock and a reduction in instabilities.
+A reduction of $84\%$ in the secondary wind velocity with no corresponding reduction in the primary wind velocity would result in a noticeably lower overall dust production rate for a brief period, and may be a potential factor for the rapid onset and slow decline of dust production after periastron passage. %Why?
+% It would be a good idea to run some simulations in paper 3 at WR140 periastron with radiative line driving estimates, might be an interesting avenue of research
+% Mention orbital velocity at periastron passage, for certain systems this can be very high, relative velocity of winds increased by factor of ~1.2 for WR 140, this would explain attack/decay pattern 
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/stagnation-point/stag.pdf}
+  \caption[Stagnation point wind velocity]{Graph of secondary wind velocity and density as a function of distance from the stellar surface due to radiative line driving for the WR 140 system, as well as an estimation of $r_{OB}$ and $r_{WR}$ at periastron passage. While at periastron the WC7 wind is travelling at approximately terminal velocity, the O4-5 companions wind is travelling at $\sim 84\%$ of terminal velocity before coming into contact with the WCR. CAK parameters were estimated to be $k = 0.37$, $\alpha = 0.60$ for the O4-5 star and $k=0.48$, $\alpha = 0.57$ for the WC7 star.}
+  \label{fig:wr140-stagnation-obwind}
+\end{figure}
+
+\subsection{Wind mixing within the WCR}
+
+%This may need additional work, and is largely speculation 
+
+While interaction between Hydrogen and dust grains is not simulated by the dust model, \textcite{leteuffModelDustFormation2002} notes that Hydrogen could be a potential catalyst for amorphous carbon grain formation.
+Figure \ref{fig:radiative-windmixing} shows that the wind is far more effectively mixed by instabilities if it is sufficiently radiative, an improved dust model which can calculate grain yields from chemical reactions could be used to investigate this further.
+Implementation of a chemical model into Athena++ through passive scalar is a stated goal of Athena++, though it is still in development.
+Additionally, a multi-wind model could be used to model the dynamics of grains, as larger grains carry significantly more than atoms in the stellar wind, and may not be necessarily co-moving in a turbulent wind environment.
+% Improvements to model, multi-wind model, astrochemical model? Extremely large bounds for future work
+% Mention single wind WC grain formation
+It should also be noted that dust formation around single WC stars has been observed, suggesting that nascent grains are formed within the WC wind, and carried into the Colliding Wind Binary as implied by this dust model.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/results/radiative/radiative-r0.pdf}
+  \caption[Wind mixing due to radiative methods]{Wind ``colour'' for \texttt{nocool} and \texttt{fullcool} models, the WCR is more thoroughly mixed if the simulation is allowed to cool.}
+  \label{fig:radiative-windmixing}
+\end{figure}
+
+\section{Summary and Conclusions}
+
+The introduction of an advected scalar dust model into a numerical simulation
+
+Whilst the current feature set is limited by the available remaining time in this project, future work in this vein can introduce additional dust formation
+
+Another interesting avenue of research is the 
