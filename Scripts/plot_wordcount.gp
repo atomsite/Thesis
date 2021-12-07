@@ -1,4 +1,4 @@
-set terminal cairolatex standalone size 5in,3in
+set terminal cairolatex standalone size 5in,2in
 set output "word_count.tex"
 load "Scripts/gp-pal.pal"
 
@@ -8,7 +8,7 @@ set ytics nomirror
 set xdata time
 set timefmt "%m/%d/%y"
 
-set xrange ["07/01/21":"05/01/22"]
+set xrange ["12/01/21":"05/01/22"]
 set yrange [0:200]
 set y2range [0:30000]
 

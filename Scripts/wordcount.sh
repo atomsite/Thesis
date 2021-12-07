@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Variables
 thesis_directory="$HOME/Documents/Thesis"
 # Move to working directory
