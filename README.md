@@ -4,6 +4,10 @@ This is my GitHub repo containing an up-to-date copy of my thesis, which covers 
 
 Read the thesis here: [Numerical Simulations of Dusty Colliding Wind Binaries](https://raw.githubusercontent.com/atomsite/Thesis/master/Thesis.pdf)
 
+## Word Count
+
+![Word count](word_count.png)
+
 ## Style Guide
 
 This is more for my reference, and is a series of best practices for various styles in my Thesis
@@ -13,7 +17,6 @@ This is more for my reference, and is a series of best practices for various sty
   - Other important units:
     - AU: Astronomical Unit
     - Msol: Solar Mass
-    - 
 
 ### Tables
 - Tables should contain hlines at the beginning and end, which another hline after the column headers
