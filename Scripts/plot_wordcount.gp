@@ -8,9 +8,9 @@ set ytics nomirror
 set xdata time
 set timefmt "%m/%d/%y"
 
-set xrange ["12/01/21":"05/01/22"]
-set yrange [0:200]
-set y2range [0:30000]
+set xrange ["07/20/21":"05/04/22"]
+set yrange [17:*]
+set y2range [0:*]
 
 set format x "%b"
 
@@ -18,8 +18,15 @@ set xlabel "Date"
 set ylabel "Pages"
 set y2label "Words"
 
+set ytics 25
+set y2tics 2500
+
+set grid xtics ytics mxtics mytics
+
+set key bottom right
+
 # Begin plotting
 set timefmt "%Y-%m-%d %H:%M:%S"
 set datafile separator ","
 plot "wordcount.csv" using 1:2 title "Pages" w l ls 1 ,\
-     "" using 1:3 title "Words" w l ls 2 axes x1y2
+     "" using 1:3 title "Words" w l ls 2 axes x1y2 ,\

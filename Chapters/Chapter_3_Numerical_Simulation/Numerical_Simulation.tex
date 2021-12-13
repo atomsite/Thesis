@@ -280,19 +280,41 @@ Second, and most importantly, dust cooling could not have been modelled with thi
 
 % Discuss dust cooling in brief, link to section in background, touch on lambda being dependent on 3 rather than 1 value
 
+Dust cooling 
+
+% Why so significant?
+
+In the case of the immediate post-shock environment where dust is present in the form of small, rarefied nascent grains, the cooling rate is greater than the plasma cooling rate due to bremsstrahlung, as seen in figure \ref{fig:postshockcoolcomparison-chapter3}.
+As such, it is assumed that dust cooling plays an initial role in the initial cooling of the post-shock flow in colliding wind binaries, and should ideally be included.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison-forpaper2.pdf}
+  \caption[Comparison of dust and plasma cooling rates in post-shock environment]{Comparison of energy loss due to plasma \& dust cooling with varying grain sizes in a typical post-shock flow, where $\rho_g = 10^{-16} \, \si{\gram\per\centi\metre\cubed}$ and a dust-to-gas mass ratio of $10^{-4}$. Whilst less influential at lower temperatures, dust cooling can aid cooling in the immediate post-shock environment.}
+  \label{fig:postshockcoolcomparison-chapter3}
+\end{figure}
+
 % Difficulties in dust cooling integral, faster method of doing this
 
 \begin{figure}
   \centering
   \includegraphics{assets/he_accuracy/he_acc.pdf}
-  \caption[$h_e$ integration accuracy comparison]{Comparison of $h_e$ as a function of temperature for dust grains with a radius of 0.005 \si{\micro\metre}, $h_e$ is calculated via the trapezium rule with a varying number of bins, bin counts below 500 bins result in wildly inaccurate or in some case negative values for $h_e$, while beyond 500 bins the result is inaccurate.}
+  \caption[$h_e$ integration accuracy comparison]{Comparison of $h_e$ as a function of temperature for dust grains with a radius of 0.005 \si{\micro\metre}, $h_e$ is calculated via the trapezium rule with a varying number of bins, bin counts below 400 bins result in wildly inaccurate or in some case negative values for $h_e$, while beyond 400 bins the result is accurate and converges slowly.}
   \label{fig:he-accuracy-bins}
 \end{figure}
 
-A particular difficulty in precisely calculating the rate of cooling due to emission from dust is calculating the electron transparency, $h_e$.\footnote{The probability that an electron will embed in the dust grain and heat it, rather than pass through.}
+Whilst a lookup table has proven to be adequate for plasma cooling, dust cooling for a given stellar wind is markedly more difficult to solve.
+Whilst emissivity due to radiative processes in a gas or plasma can be parametrised in terms of temperature assuming that the flow abundances remain the same, the same does not apply to dust cooling, which requires three parameters, the grain radius, density and temperature.
+Calculating emissivity due to dust is a markedly simpler proposition than calculating plasma emissivity, and could be performed quickly within a hydrodynamical code if only grain-atom interactions are considered.
+Grain-electron interactions are a markedly more complex proposition.
+
+The complexity in grain-electron interactions lies in determining the electron transparency, $h_e$, which is the probability that an electron will embed in the dust grain and heat it, rather than pass through.
 $h_e$ can be computed via integration by parts, however due to this occurring in the main cooling loop, this results in a nesting of integrals, which can lead to extremely time-consuming computation for individual cells.
-The integral could be simplified by reducing the number of bins to integrate with, however below approximately 400 bins the results can become extremely inaccurate, resulting in \textit{negative} values for $h_e$; experimentation with the 
+The integral could be simplified by reducing the number of bins to integrate with, however below approximately 400 bins the results can become extremely inaccurate, resulting in incorrect or even \textit{negative} values for $h_e$.
+More complex integration methods reduce the number of steps required, but are in themselves more time consuming to calculate, leading to the same issue.
 Initial tests using the integral method within a numerical simulation led to severe slowdown as processing time for cooling took up to 90\% of the overall processing time for each timestep.
+The effect on grain heating due to electron interactions cannot be discounted, as it can be up to an order magnitude greater than grain heating due to incident atoms.
+This was considered to be unacceptable in terms of performance, and as such a faster method needed to be determined.
 
 Multiple options were considered for improving the performance of this routine.
 Initially, a $\Lambda_d$ lookup table was considered, this consisted of a logarithmically spaced table of $\rho$, $a$, $T$ and $\Lambda_d$ values calculated by an implementation of the \cite{dwek_infrared_1981} prescription. 
@@ -546,7 +568,13 @@ The primary focus of this project was to implement a dust model within a numeric
 
 \subsection{BODMAS features}
 
+\subsection{Implementation}
 
+The most processing efficient method of 
+
+% Co-moving, drawbacks in general
+
+This method does have its drawbacks, principally, the advected scalar method cannot simulate grain-grain or grain-gas interactions with high relative velocities, such as interactions within the wind collision region, where 
 
 \subsection{Contemporary dust Models}
 
@@ -567,10 +595,10 @@ In the Hendrix model dust is modelled as a separate fluid, with an Epstein drag 
 This is a more accurate method of modelling dust, however it requires significantly more processing time and is much more difficult to implement, requiring a numerical code that supports multiple fluids.
 At the start of this PhD this was considered but eventually rejected due to time constraints.
 
-The purpose of the Hendrix model is to analyse the distribution of dust within a CWB system, rather than to model the evolution of the dust itself.
-To this end, the Hendrix model does not 
+However, the Hendrix model has limitations that this model does not have, this is because the purpose of the Hendrix model is to analyse the distribution of dust within a CWB system, rather than to model the evolution of the dust itself.
+To this end, the Hendrix model does not calculate dust growth or destruction, and only uses a single small grain size, with the dust-to-gas mass ratio calculated based on observations of the target system, WR98a.
 
-\subsection{Implementation}
+
 
 \subsection{Future dust models}
 

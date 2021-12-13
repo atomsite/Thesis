@@ -1,5 +1,6 @@
-\chapter[Hydrodynamical Simulations of WCd Systems]{Hydrodynamical Simulations of WCd Systems with an Advected Scalar Dust Model}
+%\chapter[Hydrodynamical Simulations of WCd Systems]{Hydrodynamical Simulations of WCd Systems with an Advected Scalar Dust Model}
 
+\chapter{Hydrodynamical Simulation of WR140}{Hydrodynamical Simulations of the Periodic Dust Producing System WR140}
 
 \begin{abstract}
     
@@ -21,26 +22,29 @@ Whilst observational data of CWBd systems does exist, and dust formation can be 
 
 \section{Methodology}
 
-Three systems were investigated for this paper, the persistent dust forming systems WR 98a and WR 104, as well as the periodic dust forming system WR 140. These systems were chosen as they have been previously been written about, and are considered archetypal dust producing CWB systems. The investigation consists of hydrodynamical modelling of the systems utilising a fork of the Athena++ hydrodynamical code, with modifications to the system in order to simulate binary system orbits, outflows and dust evolution \cite{stoneAthenaAdaptiveMesh2020}. Afterwards, the numerical grids produced by Athena++ are introduced into CONTINUE WHEN YOU HAVE MORE INFO ABOUT THIS
+% Three systems were investigated for this paper, the persistent dust forming systems WR 98a and WR 104, as well as the periodic dust forming system WR 140. These systems were chosen as they have been previously been written about, and are considered archetypal dust producing CWB systems. The investigation consists of hydrodynamical modelling of the systems utilising a fork of the Athena++ hydrodynamical code, with modifications to the system in order to simulate binary system orbits, outflows and dust evolution \cite{stoneAthenaAdaptiveMesh2020}.
+% Dust growth can be 
+
+The periodic dust forming system WR140 was simulated using a fork of the Athena++ hydrodynamical code \parencite{stoneAthenaAdaptiveMesh2020}, a series of modifications were implemented to simulate binary system orbits, stellar wind outflows and dust evolution.
 
 %//TODO include brief on radiative transfer modelling
 
 \subsection{Hydrodynamics}
 
-3D simulations in a Cartesian coordinate system were conducted using the Athena++\footnote{\texttt{\href{https://github.com/PrincetonUniversity/athena}{https://github.com/PrincetonUniversity/athena}}} hydrodynamical code, 
-
+3D simulations in a Cartesian coordinate system were conducted using the Athena++ hydrodynamical code, a modular and modern fluid dynamics code.
 The code solves a Riemann problem at each cell interface to determine the time-averaged values at the zone interfaces, and then solves the equations of hydrodynamics:
 
 \begin{subequations}
   \begin{align}
-    \frac{\partial \rho}{\partial t} + \nabla \cdot \left( \rho \mathbf{u} \right) & = 0, \\
-    \frac{\partial \rho \mathbf{u}}{\partial t} + \nabla \cdot \left(\rho \mathbf{u} u + P \right) & = 0 , \\
-    \frac{\partial \rho \epsilon}{\partial t} + \nabla \cdot \left[\left( \rho \epsilon + P \right) \mathbf{u} \right] & = \dot E_\text{gas} + \dot E_\text{dust} ,
+    \frac{\partial\rho}{\partial t}+\nabla \cdot \left(\rho \boldsymbol{u}\right) & = 0 , \\
+    \frac{\partial \rho \boldsymbol{u}}{\partial t} + \nabla \cdot \left(\rho \boldsymbol{u} u + P \right) & = 0, \\
+    \frac{\partial \rho \varepsilon}{\partial t} + \nabla \cdot \left[ \boldsymbol{u} \left( \rho\varepsilon + P \right) \right] & = \dot E_{cool} , 
   \end{align}
 \end{subequations}
 
-where $\rho$ is the mass density, $\epsilon = \mathbf{u}^2 + e/\rho$ is the total specific energy, $e$ is the internal energy density, $P$ is the pressure and $\dot E$ is the energy loss due to radiative processes. An ideal equation of state is utilised with a ratiof of specific heats, $\gamma = 5/3$.
-
+\noindent
+where $\varepsilon$ is the total specific energy ($\varepsilon = \boldsymbol{u}^2/2 + e/\rho $, $\rho$) is the mass density, $e$ is the internal energy density, $P$ is the gas pressure and $u$ is the gas velocity.
+In order to simulate radiative losses, the parameter $\dot E_{cool}$ is included, which is the energy loss rate per unit volume from the fluid due to gas and dust cooling.
 Spatial reconstruction using a piecewise linear method was performed, while the time-integration scheme is a third-order accurate, three-stage strong stability preserving Runge-Kutta\footnote{SSPRK (3,3)} method \parencite{gottliebHighOrderStrong2009}.
 
 Several passive scalars are utilised to model wind mixing and dust evolution, the scalar values are transported by the fluid, for a given scalar species $i$, Athena++ transports the scalar through the following equation:
@@ -53,9 +57,8 @@ where $\mathbf{Q}_i = - \nu_{ps} \rho \nabla C_i$ is the diffusive flux density 
 
 % Cover mapping on winds
 
-Stellar winds are simulated by re-writing the conserved variables in a small region around each of the stars.
-Winds flow from this ``remap'' region at the stars wind terminal velocity, meaning that line driving and stellar force effects are not simulated, additionally self-gravity forces are not simulated to reduce CPU time.
-The equations utilised to map wind onto the simulation are:
+Stellar winds are simulated by modifying the conserved variables in a small region around each of the stars.
+Winds flow from this ``remap'' region at the stars wind terminal velocity, $v^\infty$. Remap zone parameters are calculated with the formulae
 
 \begin{subequations}
   \begin{align}
@@ -66,15 +69,18 @@ The equations utilised to map wind onto the simulation are:
   \end{align}
 \end{subequations}
 
+\noindent
 where $v_R$ is the wind velocity as it flows radially from the center of the ``remap zone'' and $r$ is the distance from the current cell to the centre of the remap zone.
 This method produces radially out-flowing winds from the ``star'' with an expected density and velocity.
 This method is stable against numerical instability, while allowing for precisely controlled winds.
 
-% Notes on refinement condition
+Line driving and stellar force effects are not simulated, which can result in divergence with the correct wind velocity as stars approach periastron passage.
+Additioanlly, influence from either gravitational self-interaction and interaction with the stars gravity wells is not simulated, with the stellar winds assumed to be travelling far in excess of the system escape velocity.
 
-Adaptive Mesh Refinement\footnote{AMR} is utilised for these simulations in order to ensure that winds form correctly and that the wind stagnation point and surrounding collision region are correctly resolved.
-Athena++ allows for user-defined refinement conditions, which are used in this work to increase the resolution around the the stars current position as well as the estimated position of the wind stagnation point to the maximum amount, while smoothly decreasing the resolution further out from these regions. 
-
+Adaptive Mesh Refinement was considered for this simulation, however a known issue with the Athena++ code prevented this from being possible.
+Passive scalars incorporated into the simulation were found to not be conserved along the interfaces between mesh blocks undergoing refinement, this meant that the simulation would behave non-physically (This bug is recorded as issue \#365 on the Athena++ Github repository\footnote{\texttt{\href{https://github.com/PrincetonUniversity/athena/issues/365.}{https://github.com/PrincetonUniversity/athena/issues/365}}}).
+A ring of refined cells across the orbital path was considered, but the performance improvements of this method were found to be negligible and not worth pursuing.
+Instead, a static mesh is used, where a region around the stars at $\phi = 0.95$ is refined to the maximum level, with a gradual de-refinement away from this refinement region.
 
 \subsection{Dust model and cooling}
 
@@ -109,7 +115,8 @@ Dust destruction is calculated via gas-grain sputtering using the Draine \& Salp
 
 \subsection{Simulated systems}
 
-The systems being simulated in this paper are the persistent dust forming systems WR 98a and WR 104, as well as the periodic dust forming system WR 140. All of these systems were selected as they are well documented, face-on systems with detailed observations in the Infrared. Additionally, these systems have a number of characteristics that are important for scientific purposes as well as for evaluation of the dust model.
+% The systems being simulated in this paper are the persistent dust forming systems WR 98a and WR 104, as well as the periodic dust forming system WR 140. All of these systems were selected as they are well documented, face-on systems with detailed observations in the Infrared. Additionally, these systems have a number of characteristics that are important for scientific purposes as well as for evaluation of the dust model.
+
 
 %//TODO might needs some clean up, scientific purposes too vague
 
@@ -139,6 +146,28 @@ The systems being simulated in this paper are the persistent dust forming system
   \end{tabular}
   \caption{Orbital properties of systems simulated in this paper.}
   \label{tab:systems-orbital-properties}
+\end{table}
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccc}
+  \hline
+  \multicolumn{1}{c}{Parameter} &  &  & Citation \\ \hline
+  $P$ (d) & \multicolumn{2}{c}{2895} & \textcite{thomasOrbitStellarMasses2021} \\
+  $e$ & \multicolumn{2}{c}{0.8993} & \textcite{thomasOrbitStellarMasses2021} \\
+  $d_{\text{sep,peri}}$ (AU) & \multicolumn{2}{c}{1.53} & \textcite{thomasOrbitStellarMasses2021} \\
+  $\eta$ & \multicolumn{2}{c}{\num{0.031}} &  \\ 
+  $\chi_\text{min}$ & \multicolumn{2}{c}{\num{2.69}} &  \\ \hline \hline
+  \multicolumn{1}{c}{Parameter} & WC9 & O4-5 & Citation \\ \hline
+  $M$ (\si{\solarmass}) & 10.31 & 29.27 & \textcite{thomasOrbitStellarMasses2021} \\
+  $\dot{M}$ (\si{\solarmass\per\year}) & \num{5.6e-5} & \num{1.6e-6} &  \textcite{williamsMultifrequencyVariationsWolfrayet1990} \\
+  $v^\infty$ (\si{\kilo\metre\per\second}) & 2860 & 3200 & \textcite{williamsMultifrequencyVariationsWolfrayet1990} \\
+  X(H) & 0.000 & 0.705 &  \\
+  X(He) & 0.546 & 0.275 &  \\
+  X(C) & 0.400 & 0.003 &  \\ \hline
+  \end{tabular}
+  \caption{Parameters for the WR140 system}
+  \label{tab:wr140-params}
 \end{table}
 
 \begin{figure}
