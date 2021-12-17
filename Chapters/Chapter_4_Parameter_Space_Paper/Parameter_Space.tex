@@ -588,6 +588,20 @@ This is in agreement with the research by \textcite{williams_dust_1990} and \tex
 %   \label{fig:coolingprocess-grainradius}
 % \end{figure}
 
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccccc}
+  \hline
+  Model & $\eta$ & $\chi_\text{WR}$ & $\chi_\text{OB}$ & $\dot{\text{M}}_\text{D,avg}$ & $\dot{\text{M}}_\text{D,max}$ \\
+   &  &  &  & \si{\solarmass\per\year} & \si{\solarmass\per\year} \\ \hline
+  \texttt{baseline} & 0.02   & 1.20 & 1915 & \num{5.38e-10} & \num{9.06E-07} \\ \hline
+  \texttt{plasma}   & 0.02   & 1.20 & 1915 & \num{1.29e-10} & \num{9.06E-07} \\
+  \texttt{nocool}   & 0.02   & 1.20 & 1915 & \num{2.71e-14} & \num{9.06E-07} \\ \hline
+  \end{tabular}
+  \caption{Rates of dust production for radiative simulation set.}
+  \label{tab:radiative-average-rates}
+\end{table}
+
 \subsection{Mass loss rate variation}
 
 % High mass loss rate for both stars results in a high rate of dust formation 
@@ -605,6 +619,22 @@ All simulations in this system have low values for $\chi_{WR}$ compared to other
   \caption[Dust production rate for simulations varying mass loss rate]{A comparison of dust production rates for simulations that vary mass loss rate, $\dot M$, simulations with either a strong primary or secondary wind produce similar levels of dust, whilst if either wind is weaker, dust production rate is reduced.}
   \label{fig:mdotdustproductionrate}
 \end{figure}
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccccc}
+  \hline
+  Model & $\eta$ & $\chi_\text{WR}$ & $\chi_\text{OB}$ & $\dot{\text{M}}_\text{D,avg}$ & $\dot{\text{M}}_\text{D,max}$ \\
+   &  &  &  & \si{\solarmass\per\year} & \si{\solarmass\per\year} \\ \hline
+  \texttt{baseline} & 0.02   & 1.20 & 1915 & \num{5.38e-10} & \num{9.06E-07} \\ \hline
+  \texttt{mdot-1}   & 0.01   & 0.60 & 1915 & \num{8.79E-09} & \num{1.42E-06} \\
+  \texttt{mdot-2}   & 0.04   & 2.39 & 1915 & \num{2.53E-11} & \num{5.83E-07} \\
+  \texttt{mdot-3}   & 0.04   & 1.20 & 957  & \num{2.34E-08} & \num{1.17E-06} \\
+  \texttt{mdot-4}   & 0.01   & 1.20 & 3830 & \num{3.81E-11} & \num{7.11E-07} \\ \hline
+  \end{tabular}
+  \caption{Rates of dust production for mass loss rate simulation set.}
+  \label{tab:mdot-average-rates}
+\end{table}
 
 \subsection{Terminal velocity variation}
 \label{sec:paper1vinfresults}
@@ -707,6 +737,22 @@ From these results it is clear that a high dust production rate is dependent on 
 
 % //TODO include table of average/peak dust formation rates for simulations with vinf and mdot variation
 
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccccc}
+  \hline
+  Model & $\eta$ & $\chi_\text{WR}$ & $\chi_\text{OB}$ & $\dot{\text{M}}_\text{D,avg}$ & $\dot{\text{M}}_\text{D,max}$ \\
+   &  &  &  & \si{\solarmass\per\year} & \si{\solarmass\per\year} \\ \hline
+  \texttt{Baseline} & 0.02   & 1.20 & 1915  & \num{5.38e-10} & \num{9.06E-07} \\ \hline
+  \texttt{vinf-1}   & 0.01   & 19.1 & 1915  & \num{8.88e-13} & \num{7.11E-07} \\
+  \texttt{vinf-2}   & 0.04   & 0.07 & 1915  & \num{1.17e-7}  & \num{1.17E-06} \\
+  \texttt{vinf-3}   & 0.04   & 1.20 & 30638 & \num{6.30e-11} & \num{1.17E-06} \\
+  \texttt{vinf-4}   & 0.01   & 1.20 & 120   & \num{1.94e-8}  & \num{7.11E-07} \\ \hline
+  \end{tabular}
+  \caption{Rates of dust production for terminal velocity simulation set.}
+  \label{tab:vinf-average-rates}
+\end{table}
+
 \subsection{Separation variation}
 
 % Direct chi correlation, could also be due to weaker shocks
@@ -732,6 +778,22 @@ As we have previously discussed, instabilities drive slightly intermittent, but 
 
 % Dust yields
 This matches observations of episodic dust forming systems, where infrared emission due to dust is maximised at or shortly after periastron passage. This also lends further evidence that dust formation rates are not influenced solely by the momentum ratio, as this is kept constant, and instead is strongly influenced by the wind density at collision and post-shock cooling. 
+
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccccc}
+  \hline
+  Model & $\eta$ & $\chi_\text{WR}$ & $\chi_\text{OB}$ & $\dot{\text{M}}_\text{D,avg}$ & $\dot{\text{M}}_\text{D,max}$ \\
+   &  &  &  & \si{\solarmass\per\year} & \si{\solarmass\per\year} \\ \hline
+  \texttt{dsep-4AU}  & 0.02   & 1.20 & 1915  & \num{5.38e-10} & \num{9.06E-07} \\ 
+  \texttt{dsep-8AU}  & 0.01   & 2.39 & 3830  & \num{4.39e-11} & \num{9.06E-07} \\
+  \texttt{dsep-16AU} & 0.04   & 4.79 & 7659  & \num{1.77e-12} & \num{9.06E-07} \\
+  \texttt{dsep-32AU} & 0.04   & 9.57 & 15319 & \num{8.83e-14} & \num{9.06E-07} \\
+  \texttt{dsep-64AU} & 0.01   & 19.1 & 30638 & \num{2.41e-14} & \num{9.06E-07} \\ \hline
+  \end{tabular}
+  \caption{Rates of dust production for separation distance set.}
+  \label{tab:radiative-average-rates}
+\end{table}
 
 \section{Conclusions}
 

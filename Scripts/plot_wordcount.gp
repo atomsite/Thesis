@@ -1,4 +1,4 @@
-set terminal cairolatex standalone size 5in,2in
+set terminal cairolatex standalone size 5in,2.25in
 set output "word_count.tex"
 load "Scripts/gp-pal.pal"
 
@@ -17,6 +17,8 @@ set format x "%b"
 set xlabel "Date"
 set ylabel "Pages"
 set y2label "Words"
+
+set title "Thesis Word Count"
 
 set ytics 25
 set y2tics 2500

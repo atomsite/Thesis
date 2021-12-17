@@ -226,7 +226,6 @@
 \setlength{\marginparwidth}{3cm}
 \setlength{\footskip}{2.36cm}
 
-
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter. #1 }}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}

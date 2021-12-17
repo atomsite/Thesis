@@ -499,24 +499,65 @@ This can be simplified and expressed in the equation:
 
 %Intro to dust formation in said systems
 Despite the extremely violent conditions thus far described in CWB systems, these systems appear to be extremely prolific producers of interstellar dust.
-Whilst single star WC systems can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert up to $10^{-3}$ of their wind masses from ionised carbon into 
-This behaviour has only been observed in particularly energetic WC stars (predominantly WC9, with some WC7-8 examples), WN and WO systems have not been observed producing dust, this is most likely due to amorphous grains being significantly more chemically stable and resilient to effects such as sublimation and photoevaporation than water ice or silicate grains \parencite{salpeter_formation_1977,draineDestructionMechanismsInterstellar1979}.
-This assertion is noted in the Galactic Wolf Rayet Catalogue\footnote{The most recent version of this catalogue is available at \texttt{\href{http://pacrowther.staff.shef.ac.uk/WRcat}{http://pacrowther.staff.shef.ac.uk/WRcat}}} \parencite{rossloweSpatialDistributionGalactic2015} where of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
+Whilst single star WC systems can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert up to $10^{-3}$ of their wind masses from ionised carbon into amorphous carbon dust grains, this results in a typical dust production rate of $10^{-8} \, \si{\solarmass\per\year}$, on part with a typical Asymptotic Giant Branch (AGB) star.
+This dust forming behaviour has only been observed in particularly energetic WC stars (predominantly WC9, with some WC7-8 examples), WN and WO systems have not been observed producing dust, this is most likely due to amorphous grains being significantly more chemically stable and resilient to effects such as sublimation and photoevaporation than water ice or silicate grains \parencite{salpeter_formation_1977,draineDestructionMechanismsInterstellar1979}.
+Dust formation is also observed to form within the WCR, which can form quite beautiful pinwheel-shaped patterns, as dust streams away from the stars in the post-shock outflow.
 
-\textcite{rossloweSpatialDistributionGalactic2015} estimates that out of an estimated total of 1900 galactic WR stars, approximately 300 of these stars are predicted to be dusty WC stars.
+\begin{table}[]
+  \centering
+  \begin{tabular}{ccccccc}
+    & \multicolumn{2}{c}{Persistent} & \multicolumn{2}{c}{Variable} & \multicolumn{2}{c}{Episodic} \\ \cline{2-7} 
+    & Total & Example & Total & Example & Total & Example \\ \hline
+   WC4 & 1 & WR19 & 0 & --- & 0 & --- \\
+   WC5 & 0 & --- & 0 & --- & 1 & WR47C \\
+   WC6 & 1 & WR124-10 & 0 & --- & 0 & --- \\
+   WC7 & 3 & WR102-22 & 0 & --- & 4 & WR140 \\
+   WC8 & 6 & WR13 & 1 & WR48a & 3 & WR122-14 \\
+   WC9 & 45 & WR104 & 6 & WR98a & 1 & WR75-11 \\ \hline
+   Total & 56 &  & 7 &  & 9 &  \\ \hline
+  \end{tabular}
+  \caption[Numer of confirmed WCd systems]{Number of confirmed WCd systems with known spectral type and dust formation type from the Galactic Wolf Rayet Catalogue \parencite{rossloweSpatialDistributionGalactic2015}, systems with uncertain spectral types not included, while systems labelled ``d'' are included within the ``persistent'' category for their associated spectral type.}
+  \label{tab:wc-summated-list}
+\end{table}
 
-whilst this is a far cry from the number of galactic Asymptotic Giant Branch stars, of which carbon-rich AGBs outnumber WCd stars by approximately 3 orders of magnitude \parencite{ishiharaGalacticDistributionsCarbon2011}, these systems can still significantly impact the surrounding interstellar medium, with strong stellar feedback propagating large quantities of dust into the surrounding medium.
+% Rarity
+Whilst beautiful, they are sadly an elusively rare beauty...
+The Galactic Wolf Rayet Catalogue\footnote{The most recent version of this catalogue is available at \texttt{\href{http://pacrowther.staff.shef.ac.uk/WRcat}{http://pacrowther.staff.shef.ac.uk/WRcat}}} \parencite{rossloweSpatialDistributionGalactic2015} has a collection of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
+\textcite{rossloweSpatialDistributionGalactic2015} notes that there are a total of 42 confirmed WCd systems, approximately 35\% of all WC systems, though this value is somewhat out out date and includes single star systems.
+A more up-to-date estimate performed for this thesis using the updated dataset estimates a total of 80 WCd systems, of which 72 have well-determined spectral subtypes (table \ref{tab:wc-summated-list}).
+% Impact of systems 
+\textcite{rossloweSpatialDistributionGalactic2015} goes on to estimate that out of an estimated total of 1900 galactic WR stars, approximately 300 of these stars are predicted to be dusty WC stars.
+Whilst this is a far cry from the number of galactic AGB stars - of which carbon-rich AGBs outnumber WCd stars by approximately 3 orders of magnitude \parencite{ishiharaGalacticDistributionsCarbon2011} - these systems can still significantly impact the surrounding interstellar medium, with strong stellar feedback propagating large quantities of dust into the surrounding medium.
 
-
+% Number of WCd systems, reasoning for only certain subtypes being dust forming
+Table \ref{tab:wc-summated-list} contains an excerpt of the observed WCd systems with clearly defined spectral subtypes, most dust producing stars are either WC8 or WC9 subtypes, which are markedly cooler and less luminous than their WC4 counterparts.
+This reduced luminosity is potentially the driving factor for dust formation in the system.
+As WC8-9 systems have slower, cooler winds \parencite{niedzielskiKinematicalStructureWolfRayet2002}, they are more strongly influenced by post-shock cooling, allowing for greater dust formation within the WCR.
+A small number of these systems have somewhat variable or episodic dust production cycles, such as WR98a and WR140, which are the two systems being observed within this thesis.
+Furthermore, the bulk of WCd systems do appear to be in binary systems with a close periastron passage, in fact, this orbit itself appears to be a driving force behind how dust is produced in these systems, as we will later discuss.
 
 %Theories as to why
+A good starting point to understanding dust formation is to understand how the WCR can mitigate the mechanisms resulting in dust destruction, whilst aiding the processes involved in dust formation.
+As previously discussed, dust can be destroyed through high-velocity collisions with grains, as well as evaporation through heating or ionising radiation.
+These processes are mitigated through the cooling, as well as the high level of UV extinction due to the high density of the WCR.
+Meanwhile, the dust production rate increases within high density regions, as collisions between dust grains and gas occur at a much higher rate.
+The same can be said with dust grains, allowing for fast growth from gas and impinging ion accretion, and grain-grain collision as the number density of dust grains begins to increase.
+The accumulation of these effects would be a very fast initial growth rate, which tapers off as the post-shock region diffuses and expands, resulting in a reduction in density.
 
-% Periodic or persistent?
+% Role of instabilities
+The presence of instabilities driven by cooling and other factors can lead to pockets of high density post-shock material, as high density drives dust formation, this can lead to ``clumps'' of highly dust-enriched post-shock stellar wind.
+These clumps would have additional protection from UV photons, and would also be cooled enough for dust to form, thus, the driving hypothesis for this theory is that these are regions where the bulk of dust formation would occur.
+% How to make lots of dust + reminder of aims of project.
+As such, it is theorised in order to achieve a high rate of dust formation, a dense, highly radiative post-shock WCR must be formed, as cooling in the post-shock region is dependent on separation distance, wind velocity and mass loss rate, these parameters should first be explored, with the knowledge gleaned used to direct an analysis of observed systems such as WR140.
 
-%Observational data Link to Williams papers in particular, dust formations only around WC
-
-
-Figure \ref{fig:periodicmags} details the 
+%Observational data Link to Crowther papers in particular, dust formations only around WC
+% Discuss role of eccentricity
+Eccentricity appears to play an important factor in the production of dust, highly eccentric systems can vary their dust production rates significantly.
+Figure \ref{fig:periodicmags} shows the periodic change in mid-IR emission that can be explained as dust emission from small amorphous carbon grains, in the case of systems such as WR140 or WR125 dust production can be reduced to the point where associated emissions can drop by several magnitudes.
+This relation is clearly periodic, with a peak in dust production production coinciding with the periastron passage of these systems.
+This implies that dust production is dependent on orbital separation, which will influence the degree of cooling occurring within the WCR, it could potentially also alter the wind velocity on collision, which will also influence dust production in the same manner.
+% Metastudy
+Further analysis of available dust producing CWB systems suggests that \textit{all} WCd systems with circular orbits produce dust either persistently or with a degree of variability, while eccentric WCd systems are solely produce dust episodically.
 
 \begin{figure}
   \centering
