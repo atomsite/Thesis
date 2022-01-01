@@ -79,7 +79,7 @@ Additioanlly, influence from either gravitational self-interaction and interacti
 
 Adaptive Mesh Refinement was considered for this simulation, however a known issue with the Athena++ code prevented this from being possible.
 Passive scalars incorporated into the simulation were found to not be conserved along the interfaces between mesh blocks undergoing refinement, this meant that the simulation would behave non-physically (This bug is recorded as issue \#365 on the Athena++ Github repository\footnote{\texttt{\href{https://github.com/PrincetonUniversity/athena/issues/365.}{https://github.com/PrincetonUniversity/athena/issues/365}}}).
-A ring of refined cells across the orbital path was considered, but the performance improvements of this method were found to be negligible and not worth pursuing.
+A ring of refined cells across the orbital path was considered, but the performance improvements of this method were found to be negligible and not worth pursuing, as the block based refinement method of Athena++ would result in much redundant refinement.
 Instead, a static mesh is used, where a region around the stars at $\phi = 0.95$ is refined to the maximum level, with a gradual de-refinement away from this refinement region.
 
 \subsection{Dust model and cooling}
@@ -225,3 +225,17 @@ The orbital and wind parameters of this system were derived from work by \cite{m
 %//TODO discuss refinement conditions, maybe even a pseudocode section?
 
 \subsection{Radiative transfer modelling}
+
+\section{Results}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics{assets/wr140-periastron/periastron-rho.pdf}
+  \caption[Density plot of WR140 periastron passage]{Density plot of WR140 periastron passage. Approaching periastron the system becomes increasingly driven by instabilities, with a clear separation between primary and secondary wind collision regions on the trailing edge.}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics{assets/wr140-periastron/periastron-rhod.pdf}
+  \caption[Dust density plot of WR140 periastron passage]{Dust density plot of WR140 periastron passage. As the system approaches periastron the amount of dust within the WCR drastically increases, while tapering off at a slow rate.}
+\end{figure}

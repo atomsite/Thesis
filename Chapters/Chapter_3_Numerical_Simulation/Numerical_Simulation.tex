@@ -7,38 +7,125 @@
 
 % Breakdown of chapter, what this involves
 
-\section{A Short History of Numerical simulations}
+\section{The History \& Mathematics of Numerical Simulations}
+\label{sec:numerical-math}
 \label{sec:numsim}
 
-% A short history of computational fluid dynamics
+% Numerical solvers/Riemann problems
 
+The Euler equations are a specific case of the more general Navier-Stokes equations of fluid dynamics, covering the case of an inviscid fluid lacking thermal conductivity, these properties make the equations ideal for application to astrophysical fluids.
+At vast length scales the aggregate properties of a collection of molecules in near vacuum are essentially in-line with what is predicted by inviscid fluid dynamical equations; while the general lack of physical contact, both rare and fleeting, rules out the influence of thermal conduction and convection on the fluid at large.
+Astrophysical fluids at first appear strange and unintuitive compared to the more familiar fluid dynamics we have an almost innate understanding of as human beings; but if one zooms out enough and starts thinking in terms of parsecs and astronomical units, similarities begin to appear. 
+
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/riemann-interface/riemann.pdf}
+  \caption[Initial conditions of a Riemann problem]{The initial conditions of a Riemann problem, where $\mathbf{U}$ is a conserved variable.}
+  \label{fig:riemann}
+\end{figure}
+
+
+In a one-dimensional adiabatic case, with a fluid of density $\rho$, a velocity of $u$, a fluid pressure of $P$ and a total energy, $E$, the Euler equations take the form:
+
+\begin{subequations}
+  \begin{align}
+    \frac{\partial \rho}{\partial t} + \frac{\partial}{\partial x} (\rho u) & = 0 ,\\
+    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x} (\rho u^2 + P) & = 0 ,\\
+    \frac{\partial E}{\partial t} + \frac{\partial}{\partial x} \left[ u(E+P) \right] & = 0 .
+  \end{align}
+\end{subequations}
+
+\noindent
+As the Euler equations are a non-linear series of partial differential equations, no general analytical solution exists, to make it worse, numerical solutions aren't exactly easy either.
+% Godunov method and other exact methods
+The basest method of numerically solving such problems is Godunov's scheme \parencite{godunov_difference_1959}; this scheme is a finite-volume method wherein the problem is split into a series of cells, with a Riemann problem between the interfaces of each cell, an approximate solution to the Euler equations can then be made by solving all of these Riemann problems in sequence.
+This provides a first-order accurate approximation in a more general form, compared to the otherwise intractable set of PDEs. 
+Whilst this piecewise method of solving many thousands of Riemann problems may provide a more generalised method of calculating fluid dynamics, performing it by hand would invoke a terrible strain on a mathematicians wrists.
+Godunov's scheme however, coincided with the burgeoning field of computer science, 
+
+Solving a higher-dimensional problem is a trivial extension to the original problem.
+In the 2-D case the number of interfaces increases to 4, with each interface being the analogous to each side of a square or rectangle, while in the 3-D case the interfaces can be thought of as the 6 faces of a cuboid.
+As such, the general formulation of the Euler equations becomes:
+
+\begin{equation}
+  \frac{\partial \mathbf{U}}{\partial t} + \nabla \cdot \left[ \mathbf{F}(\mathbf{U}) \right] = 0 ,
+\end{equation}
+
+\noindent
+where $\mathbf{U}$ is a vector of conserved variables and $\mathbf{F}(\mathbf{U})$ is a vector of the corresponding fluxes of the conserved variables:
+
+\begin{equation}
+  \mathbf{U} = 
+  \begin{bmatrix}
+    \rho \\
+    \rho u \\
+    E
+  \end{bmatrix}
+  , ~
+  \mathbf{F}(\mathbf{U}) =
+  \begin{bmatrix}
+    \rho \boldsymbol{u} \\
+    \rho u \boldsymbol{u} + P \\
+    \boldsymbol{u}(E + P)
+  \end{bmatrix} .
+\end{equation}
+
+In practise however, solving higher-dimensional problems are significantly more computationally intensive, due to the increased number of interfaces and the drastically increased number of cells required to simulate the problem.
+
+% HLLC method, as used in project
+
+Approximate methods were developed to account for the exact methods computational complexity, however early methods were less exact, and could not preserve the contact surface, these methods were also markedly less stable, limiting their effectiveness.
+The Harten-Lax-van Leer-Contact (HLLC) solver \parencite{toroRestorationContactSurface1994} is a commonly used approximate Riemann solver that has a similar order of accuracy and robustness to an exact solver while being markedly more efficient to solve.
+
+% Piecewise methods
+
+Godunov's method is commonly used as a base for higher-order extensions, which employ methods to reconstruct the 
+
+
+
+
+Piecewise linear  \parencite{vanleerUltimateConservativeDifference1979}
+
+The piecewise parabolic method solves \parencite{colella_piecewise_1984}
+
+
+% Numerical integration
+
+%% Strong stability preserving methods
 
 
 \section{The Purpose of Numerical Simulations}
 \label{sec:numerical-purpose}
 
 % Why are they useful in general
+Numerical simulation, thanks to its generalised but calculation-intensive approximation of partial differential equations, has an enormous range of uses, especially in the field of astrophysics.
+In particular, numerical simulation excels in modelling over large timescales and regions that are difficult or impossible to observe.
+The laws of physics have remained fairly consistent over the last 13.8 billion years\footnote{With some earlier exceptions.}, because of this we have managed to simulate the conditions of the early universe, showing the collapse of over-dense regions of the burgeoning universe into filaments and eventually galaxies provides our only continuous look into the long-term evolution of the universe, with deep-sky observations able to catch snapshots of these effects.
+Regions that undergo too much extinction or that are too distant to observe can be simulated, as a reasonable estimation of the initial system parameters can be made.
+Numerical simulation, in a sense, fills in the gaps and weaves together the many snapshots of the universe we can make from our lone vantage point in a more uneventful part of the cosmos.
 
-
+This is of course not me screwing my simulationist hat firmly onto my head and claiming that theoretical methods of astrophysics are inherently superior.
+Whilst an immensely versatile and useful tool in an astrophysicists arsenal, numerical simulations are entirely reliant on the understanding of the laws of physics as we know them, as well as the skill of the programmer.
+If a simulationist gets too far into the weeds, wielding numerical simulations like a hammer, every astrophysical problem begins to look like a nail, which creates its own problems.
 
 % Why are they useful in the context of a colliding wind binary problem
 
-Numerical simulations, due to 
+Colliding Wind Binaries in particular are a class of astrophysical phenomena that truly rely on numerical modelling in order to glean further understanding from them.
+The WCR is particularly difficult to observe, there is no nearby prototypical WCd system, meaning observation of fine-detail features requires extremely high angular resolution telescopes to begin with, this is compounded by the relatively small size of the region of the WCR where dust is rapidly produced.
+Whilst observing the large-scale structure of the WCR is possible with current telescopes, and clear observation of the surrounding dust cloud is possible (such as in the case of the recently discovered \textcite{callinghamAnisotropicWindsWolf2019}), observing the dust producing region is markedly more difficult.
+In the typical case of a dust producing region \SI{50}{\au} across embedded in a WCd system at a distance of \SI{3000}{\kilo\pc} an angular resolution greater than \SI{30}{\micro\arcsecond} would be required to resolve the region, ruling out even the highest resolution instrumentation.
+As such, numerical simulation with a dust evolution model must be used to simulate the dust producing region, whilst the overall dust production rate from the simulation can be compared with observational estimates.
+This can be improved further, by the use of a radiative transfer model to model the dust production rate of the systems, however this was not feasible in the constraints of this projects timescale, but could be performed as a follow-up project.
 
 % Why are colliding wind binary systems such a pain to solve
 
-\section{The Mathematics of Numerical Simulations}
-\label{sec:numerical-math}
+It is a shame that CWB systems are difficult to \textit{simulate} as well!
 
-% Numerical solvers/Riemann problems
-
-% Godunov method
-
-% Pier
-
-% Numerical integration
-
-%% Strong stability preserving methods
+Numerical simulations can be vastly simplified by reducing the number of dimensions in the simulation, single object systems can be typically reduced to a 1-D spherically symmetric or 2-D cylindrically axisymmetric simulation, in the case of supernovae or jets, for instance.
+In the case of a CWB system with orbits however no dimensions can be reduced, a single dimension simulation will not simulate the WCR, while a 2-D axisymmetric simulation will not properly simulate the effect of orbital motion, which as we observe, is essential to determine the morphology of a WCd system.
+In addition to this, in order to see how dust evolves over the large length-scales of the WCR requires very large simulation domains, while accurately resolving the apex of the WCR requires a fairly high number of cells between the stars in the system (this was found to be approximately 100 cells for a typical system).
+The combination of these two factors is quite terrible, as the simulation is both 3-D and requires an extremely large effective resolution, enough to tax even the most capable of our available compute resources.
+Fortunately, mesh refinement techniques can improve this situation by drastically reducing the number of cells that need processing, simplifying our problem from ``\textit{impossibly} intensive'' to ``\textit{extremely} intensive''.
 
 \section{Computational Hydrodynamics}
 \label{sec:hydrodynamics}
@@ -47,22 +134,78 @@ Numerical simulations, due to
 
 % This section will cover hydrodynamical solvers, a brief history of the problem, cover the lineage of 
 
+\subsection{The \mg{} hydrodynamical code}
+
 % briefly cover MG hydrodynamical code, since this was used for the first half of this work before adopting a more modern hydro code
 
-\section{The Athena++ Hydrodynamical code}
+The \mg{} hydrodynamical code was utilised at the start of the project, as problem generators for CWB systems had already been written, while also being fairly well understood throughout the department.
+\mg{} is a relatively easy to use hydrodynamics code many of the required features for this project, it is fairly extensible and supports MPI and AMR for fast and effective numerical simulation, it was initially estimated that this would take a little more than a year to implement the dust model, cooling models, and be on our way to running large-scale simulations -- how wrong we were.
+
+% why we didn't use it in the end
+
+Unfortunately, the crux of the project -- the advected scalar dust model -- never adequately worked, either producing dust rates measurable in grams per year, or the simulation rapidly converting remapped wind into dust, despite it being too hot to do so according to our dust model.
+Attempts to implement the dust model through modification of the conserved variables or through a rate-based source function were made, with many different implementation attempts, none of these panned out, unfortunately, resulting in a large amount of work being discarded.
+Using strict constraints to prevent rigorous dust production resulted in strange looking systems, that did not behave as observations suggested.
+Furthermore, building a model that relies on dozens of constraints based on limited empirical data is rarely a good model, and is a bit like building a clock that doesn't move at all, so that it is at the very least right twice a day.
+
+In addition to incompatibility with the dust model, numerous technical issues compounded this work.
+Mapping the wind onto the CWB also proved difficult when combined with AMR, as the provided implementation of wind remapping required a circular region with a radius of 3 coarse cells.
+In order to get the required separation for systems with close orbits, a very high coarse resolution would be required, massively increasing memory usage.
+using a source function for wind mapping allowed for more refined cells to be used, but this could also produce artefacts at level transitions, while also producing extremely hot winds as the temperature could not be correctly defined.
+
+In general, while being very extensible in terms of being able to implement a problem generator fairly easily, low-level manipulation of the code was found to be extremely difficult due to limited documentation and a complex, linked-list mesh structure.
+As such, writing workarounds and fixes to the issues described was very time-consuming, slowing progress in the project significantly.
+Compounding on this, iteration time was extremely long, requiring multiple hours to run a simulation to determine if the fixes worked, debugging was rendered difficult by the use of OpenMPI, and the general structure of the code rendered the setting of breakpoints difficult even in the single-threaded case.
+Finally, the numerical integrator was found to not be particularly stable in the face of extremely radiative cooling environments, complex multi-step cooling processes were considered and implemented, but even these could not handle such rapid cooling without breakdown if a reasonable Courant number was to be used.
+The solution was to artificially limit cooling to a fraction of the energy in the cell per timestep, however this reduces the simulation accuracy, and results in much slower cooling within the post-shock WCR\footnote{I understand, reader, that this section reads like a series of complaints\ldots This is because it is. I recommend that you humour me, as attempting to debug \mg{} ate up more than two years of my life and was the direct cause of many, \textit{many} sleepless nights. Thankfully this is the last time we will ever speak of it, unless you and I share a pint or two at a local pub.}.
+
+In the end, the decision was made to switch from \mg{} to the new \athena{} hydrodynamical code.
+This decision was made in mid-2020, by the end of 2020 the problem generators were build, the necessary modification to the underlying code of \athena{} were completed and the dust model was fully implemented.
+
+\section{The \athena{} hydrodynamical code}
 \label{sec:athenapp}
+
+The \athena{} hydrodynamical code (\link{https://github.com/PrincetonUniversity/athena}) was found to be a much more suitable fit for this project.
+As documented in \textcite{stoneAthenaAdaptiveMesh2020}, \athena{} is a total re-write of the older Athena MHD code in \texttt{C++} with a focus on implementing Adaptive Mesh Refinement, source code clarity, modularity, and generally improved performance. 
+This clarity and modularity allows for a 
 
 % General schema
 
+As previously stated, 
+
+A problem 
+
+This problem generator is defined before compile-time, with a configuration script generating the required makefiles for \athena{} for the specific problem, this ensures that only the required problem files are included in compilation, preventing any accidental overloading of function names or compiler issues, essential in a complex project with many different problem generators, this also allows for switching between different versions of a problem without complication, requiring only a quick reconfiguration and recompilation to change problem. 
+
+Multiple time-integration and spatial reconstruction methods have been implemented into \athena{}, which requires essentially zero modification on the user's end, a startling revelation coming from other numerical codes.
+Time-integration method vary from a computationally simple \nth{2} order van Leer \parencite{vanleerUltimateConservativeDifference1979} method to strong stability preserving methods \parencite{ruuthHighOrderStrongStabilityPreservingRungeKutta2005} to super time-stepping Runge-Kutta-Legendre \parencite{meyerStabilizedRungeKuttaLegendreMethod2014} methods;
+changing of the time-integration method can be implemented without recompilation, and can even be changed upon restart of an in-progress simulation, which was found to be useful for if a simulation was having trouble running at a certain point.
+\athena{} must be recompiled for the specific spatial reconstruction method, as the number of overlapping ``ghost'' cells needs to be defined at compile-time. 
+In this project, either the \nth{3} order accurate strong stability preserving Runge-Kutta method (\texttt{rk3}) or the \nth{4} order accurate, five-stage, 3 register, SSPRK method was utilised (\texttt{ssprk5\_4}), depending on the instability of the simulation.
+The \texttt{rk3} method was found to be more than twice as fast as the \texttt{ssprk5\_4} method in the case of a CWB system, though could crash in the cases of rapid cooling and dust production, if a simulation crashed multiple times the simulation would be altered to use \texttt{ssprk5\_4}. 
+The Riemann solver can also be changed at compile-time, however this was left to the default solver, the Harten-Lax-van Leer-Contact (HLLC) solver \parencite{toroRestorationContactSurface1994}.
+
 % Meshblock system
 
+Part of 
+
+%Check this is correct, based on notes from year 2
+This is in comparison to the linked-list method of distribution which is used in \mg{}, which is not performant in distributed multiprocessing systems such as ARC, as this can result in lots of communication of relatively small packets between nodes as a time-step is being calculated, reducing performance significantly due to bandwidth and latency constraints.
+This meshblock system does have is drawbacks, however, time-stepping is synchronous, and bound to the width of the lowest level, this is not the case in \mg{}, where multiple sub-steps are performed on lower levels, which are processed first, with the coarsest levels running on a single step.
+This method is much faster but can result in significant divergence from a synchronous method.
+
+this can be slower in some cases, however in the case of a simulation such as this, with hypersonic winds and rapid cooling, a small time-step would typically need to occur anyway.
+
+
 % Refinement
+
+
 
 This is covered in more detail in the next section (section \ref{sec:refinement}).
 
 % Multi-core and parallelisation
 
-Athena++ is highly parallel and utilises the OpenMP and OpenMPI software libraries in order \footnote{Sadly, the engineers at Intel who worked on the Netburst architecture were \href{https://web.archive.org/web/20210412001459/https://www.anandtech.com/show/680/6}{wrong}, processors can't easily scale up to dozens of \si{\giga\hertz}, instead, multiple cores have to be used, making high performance code that much harder to write.}
+\athena{} is highly parallel and utilises the OpenMP and OpenMPI software libraries in order \footnote{Sadly, the engineers at Intel who worked on the Netburst architecture were \href{https://web.archive.org/web/20210412001459/https://www.anandtech.com/show/680/6}{wrong}, processors can't easily scale up to dozens of \si{\giga\hertz}, instead, multiple cores have to be used, making high performance code that much harder to write.}
 %
 Meshblocks are distributed to processor cores 
 % OpenMPI
@@ -79,88 +222,113 @@ In order to prevent numerical errors from occurring between the interfaces betwe
 \section{Mesh Refinement}
 \label{sec:refinement}
 
-One of the problems previously discussed with modelling CWB systems is the 
+One of the problems previously discussed with modelling CWB systems is the wide range of length scales needed to appropriately simulate a system, the total dust production region can cover dozens of AU, while the WCR in order to be properly resolved needs to have a feature size between 3 and 4 orders of magnitude smaller than that.
+Coupled with the requirement for a 3-D model if orbits are to be considered and suddenly you find yourself looking at a simulation with a resolution with $10^9$ cells or higher.
+In order to remain compliant with the Courant-Friedrichs-Lewy condition, the associated timestep must also be reduced, increasing the amount of computations in accordance with a fourth dimension. % //TODO This might need a bit of work 
+In the case of the more ambitious simulations in this project, a region approximately \SI{1000}{\au} was defined, with an effective resolution of approximately \num{1.07e12} cells; this sheer amount of data would be difficult to store, let alone compute, and would be far beyond the capabilities of any HPC service available to this project.
 
 %//TODO include a diagram of 
 
 \begin{figure}
   \centering
   \includegraphics[width=5in]{assets/mergecellc.pdf}
-  \caption[Adaptive mesh refinement comparison]{An example of adaptive mesh refinement in the \texttt{MG} hydrodynamical code around the OB star in a colliding wind binary problem using cylindrically symmetric co-ordinates. With AMR the region is properly resolved, while without the system cannot adequately resolve the collision region.}
+  \caption[Adaptive mesh refinement comparison]{An example of adaptive mesh refinement in the \texttt{MG} hydrodynamical code around the OB star in a colliding wind binary problem using cylindrically symmetric co-ordinates. With AMR the WCR is properly resolved, while without the system cannot adequately resolve the WCR.}
   \label{fig:mgrefine}
 \end{figure}
 
-The pseudocode for the refinement condition 
+In order to resolve this resolution issue, using cells more effectively than brute-force increasing the resolution must be performed, as such, algorithms such as Adaptive Mesh Refinement (AMR) were introduced to the field of numerics with almost immediate uptake.
+AMR is a flexible method of mesh refinement, first discussed by \textcite{bergerAdaptiveMeshRefinement1984} and expanded upon by \textcite{bergerLocalAdaptiveMesh1989}.
+This method starts with a ``coarse'' grid at the lowest defined resolution, and tests each cell against a series of conditions, such as proximity to an object in the simulation, conserved parameter or truncation error; if the cell passes any of these threshold conditions it is flagged for refinement.
+At the end of a simulation step, the AMR algorithm will split the cell in half along each axis, increasing the effective resolution of the cell.
+Conversely, a region can be flagged for de-refinement, where the cells are merged together again, if a condition was transient and is no longer being passed.
+Figure \ref{fig:mgrefine} shows this effect, the application of mesh refinement greatly increasing the resolution of of the WCR, allowing for the space between the star and the WCR to be properly resolved, which is crucial for the physically accurate simulation of the CWB.
+
+The benefit of this refinement on systems with only small regions requiring high resolutions is immediately apparent.
+In the case of the previously described system with \SI{1.07e12} cells, na\"ively refining a region around 1.5 times the orbital separation from the barycentre with 7 refinement levels reduced the number of cells in the simulation to \num{1.55e6} cells, a 6 order of magnitude reduction in cell count and memory usage.
+Care must be taken, however, not to over-refine the simulation or to rapidly refine and de-refine a region.
+The former can be mitigated by defining a maximum refinement level, while the latter can be mitigated by defining a minimum number of timesteps required for a cell to be repeatedly flagged for refinement and de-refinement.
+% //TODO Check with Julian 
+Another issue with this method is multiple refinements per timestep for a cell, which can render the simulation unstable.
+
+In the case of \athena{} meshblocks are instead refined or de-refined, whilst this improves multi-threaded performance with multiple CPUs as it reduces the amount of communication required between processor nodes, this method does increase memory requirements, and is not optimal in an idealised case.
+Though, as these simulations are being performed on an HPC cluster this is optimal for our case.
+% Note current issues with adaptive mesh refinement, why static mesh refinement is suitable for this project
+Unfortunately, despite the advantages of AMR over SMR, there is a known issue with \athena{}\footnote{\link{https://github.com/PrincetonUniversity/athena/issues/365}} which prevents the use of AMR with passive scalars enabled, scalar values are not conserved properly around meshblock interfaces, which can rapidly escalate and result in physical inaccuracy and breakdown of the simulation.
+As there was ultimately no time to correct this bug, the decision was made to persist with using Static Mesh Refinement (SMR) for the second papers work, despite a version of the code already being written with AMR in mind.
+
+Static Mesh Refinement operates by refining regions defined in the problem config file or code that can be refined to a higher resolution, which will progressively de-refine beyond this region until the coarse level is reached.
+Whilst markedly less flexible, this is still particularly useful for simulations where the resolution requirements remain approximately in the same place spatially.
+In the case of CWB systems this is a reasonably good approximation, as the region around the orbit of the stars can be refined to a higher resolution, while progressively de-refining further out from the barycentre.
+Due to the comparatively low flexibility of AMR in a block-based hydrodynamical code such as \athena{}, this was a preferable alternative to refactoring our model to work in either \mg{} or a different numerical code such as \texttt{Enzo}.
+
 
 %//TODO these may need to be converted into more readable pseudocode, maybe a flow diagram?
 
-\begin{lstlisting}[language=C++]
-// Get cell width
-Real dx = pmb->pcoord->dx1v(0);
-// March through cells in block, checking distance from star to cell
-for (int n = 0; n < NWIND; n++) {
-  for (int k = pmb->ks; k <= pmb->ke; k++) {
-    // Get Z co-ordinate separation from star
-    Real zc  = pmb->pcoord->x3v(k) - star[n].pos[2];
-    Real zc2 = SQR(zc);
-    for (int j = pmb->js; j <= pmb->je; j++) {
-      // Get Y co-ordinate separation from star
-      Real yc  = pmb->pcoord->x2v(j) - star[n].pos[1];
-      Real yc2 = SQR(yc);
-      for (int i = pmb->is; i <= pmb->ie; i++) {
-        // Get X co-ordinate separation from star
-        Real xc  = pmb->pcoord->x1v(i) - star[n].pos[0];
-        Real xc2 = SQR(xc);
-        // Get radial distance from current star to cell
-        Real r2 = xc2 + yc2 + zc2;
-        Real r  = sqrt(r2);
-        // Get approximate number of cells distance
-        int ri = int(r/dx);
-        // If number of cells distance is below threshold, refine
-        if (ri < amr.star_separation) {
-          return 1;
-        }
-      }
-    }
-  }
-}
-\end{lstlisting}
+% \begin{lstlisting}[language=C++]
+% // Get cell width
+% Real dx = pmb->pcoord->dx1v(0);
+% // March through cells in block, checking distance from star to cell
+% for (int n = 0; n < NWIND; n++) {
+%   for (int k = pmb->ks; k <= pmb->ke; k++) {
+%     // Get Z co-ordinate separation from star
+%     Real zc  = pmb->pcoord->x3v(k) - star[n].pos[2];
+%     Real zc2 = SQR(zc);
+%     for (int j = pmb->js; j <= pmb->je; j++) {
+%       // Get Y co-ordinate separation from star
+%       Real yc  = pmb->pcoord->x2v(j) - star[n].pos[1];
+%       Real yc2 = SQR(yc);
+%       for (int i = pmb->is; i <= pmb->ie; i++) {
+%         // Get X co-ordinate separation from star
+%         Real xc  = pmb->pcoord->x1v(i) - star[n].pos[0];
+%         Real xc2 = SQR(xc);
+%         // Get radial distance from current star to cell
+%         Real r2 = xc2 + yc2 + zc2;
+%         Real r  = sqrt(r2);
+%         // Get approximate number of cells distance
+%         int ri = int(r/dx);
+%         // If number of cells distance is below threshold, refine
+%         if (ri < amr.star_separation) {
+%           return 1;
+%         }
+%       }
+%     }
+%   }
+% }
+% \end{lstlisting}
 
-\begin{lstlisting}[language=c++]
-// Check to see if meshblock contains the stagnation point
-for (int k = pmb->ks; k <= pmb->ke; k++) {
-  // Get Z co-ordinate separation from stagnation point
-  Real zc  = pmb->pcoord->x3v(k) - wcr.pos[2];
-  Real zc2 = SQR(zc);
-  for (int j = pmb->js; j <= pmb->je; j++) {
-    // Get Y co-ordinate separation from stagnation point
-    Real yc  = pmb->pcoord->x2v(j) - wcr.pos[1];
-    Real yc2 = SQR(yc);
-    for (int i = pmb->is; i <= pmb->ie; i++) {
-      // Get X co-ordinate separation from stagnation point
-      Real xc  = pmb->pcoord->x1v(i) - wcr.pos[0];
-      Real xc2 = SQR(xc);
-      // Get radial distance to current cell
-      Real r2 = xc2 + yc2 + zc2;
-      Real r  = sqrt(r2);
-      // Get approximate number of cells between cell and stagnation point
-      int ri = int(r/dx);
-      // If number of cells distance is below threshold, refine
-      if (ri < amr.wcr_separation) {
-        return 1;
-      }
-    }
-  }
-}
-\end{lstlisting}
-
-All cells that do not meet these criteria are flagged for de-refinement.
+% \begin{lstlisting}[language=c++]
+% // Check to see if meshblock contains the stagnation point
+% for (int k = pmb->ks; k <= pmb->ke; k++) {
+%   // Get Z co-ordinate separation from stagnation point
+%   Real zc  = pmb->pcoord->x3v(k) - wcr.pos[2];
+%   Real zc2 = SQR(zc);
+%   for (int j = pmb->js; j <= pmb->je; j++) {
+%     // Get Y co-ordinate separation from stagnation point
+%     Real yc  = pmb->pcoord->x2v(j) - wcr.pos[1];
+%     Real yc2 = SQR(yc);
+%     for (int i = pmb->is; i <= pmb->ie; i++) {
+%       // Get X co-ordinate separation from stagnation point
+%       Real xc  = pmb->pcoord->x1v(i) - wcr.pos[0];
+%       Real xc2 = SQR(xc);
+%       // Get radial distance to current cell
+%       Real r2 = xc2 + yc2 + zc2;
+%       Real r  = sqrt(r2);
+%       // Get approximate number of cells between cell and stagnation point
+%       int ri = int(r/dx);
+%       // If number of cells distance is below threshold, refine
+%       if (ri < amr.wcr_separation) {
+%         return 1;
+%       }
+%     }
+%   }
+% }
+% \end{lstlisting}
 
 \section{Visualisation}
 
 %//TODO section might not be necessary
 Data was plotted using a series of custom programmes designed to parse data as quickly as possible, 
-the Python plotting library provided in the Athena++ repository was modified to incorporate Delaunay triangulation, instead of interpolating data due to mesh refinement, data-points are triangulated with each other.
+the Python plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating data due to mesh refinement, data-points are triangulated with each other.
 For 3D visualisation the VisIt data visualisation tool is used.
 
 \section{Simulating CWB systems}
@@ -168,7 +336,7 @@ For 3D visualisation the VisIt data visualisation tool is used.
 % Recap why CWB simulations are so complex 
 
 
-% How is this performed, processes involved in mapping wind on stars, orbits, how these are performed in the context of athena++ or numsim in general
+% How is this performed, processes involved in mapping wind on stars, orbits, how these are performed in the context of \athena{} or numsim in general
 
 \subsection{Assumptions}
 
@@ -180,7 +348,9 @@ For 3D visualisation the VisIt data visualisation tool is used.
 
 % Short coverage on dust model, this is explained further in a alter section
 
-\section{Cooling in numerical simulations}
+\subsection{Wind propagation \& refinement}
+
+\subsection{Cooling in numerical simulations}
 
 % Brief recamp on radiative cooling processes, compare with physical section, why they are important in the context of our work
 As discussed in section \ref{sec:wcrcooling}, there are many cooling processes that need to be considered when simulating a complex system such as a CWB.
@@ -222,7 +392,7 @@ In order to simplify the radiation calculations, radiation does not re-interact 
 Due to this, scattering, re-adsorption and radiative transfer are not simulated at all.\footnote{If these are considered, your programme is now a ray-tracing programme as well as a hydrodynamical code, which is its own, even more complicated field.}.
 Other methods of reducing computational cost and optimising the code are used in this project, and will be described in detail in this section.
 
-\subsection{Plasma cooling}
+\subsubsection{Plasma cooling}
 
 % This isn't a section on the radiative processeses themselves, but more to do with how plasma cooling is simulated 
 
@@ -275,7 +445,7 @@ First, this method would not have been able to accurately model mixed wind situa
 %//TODO check this one with Julian
 Second, and most importantly, dust cooling could not have been modelled with this single parameter TEF method, which would have required using a two stage cooling method, as the gas temperature would not be synchronised between stages, this would have resulted in a highly inaccurate cooling solution, obviating the advantages of the exact cooling method.
 
-\subsection{Dust cooling}
+\subsubsection{Dust cooling}
 \label{sec:dustcoolingmodel}
 
 % Discuss dust cooling in brief, link to section in background, touch on lambda being dependent on 3 rather than 1 value
@@ -432,10 +602,10 @@ In order to solve this problem quickly for each timestep, a lookup table similar
 % Something along the line of This schematic describes, etc. etc. 
 % Schematic
 
-\subsection{Implementation}
+\subsection{Model implementation}
 \label{sec:cooling-implementation}
 
-In order to simulate energy loss due to radiation in Athena++, the conserved variable array is adjusted to remove energy from a specific cell, this is analogous to energy being removed from the system due to radiative processes.
+In order to simulate energy loss due to radiation in \athena{}, the conserved variable array is adjusted to remove energy from a specific cell, this is analogous to energy being removed from the system due to radiative processes.
 This process is assumed to be 100\% efficient, re-adsorption and scattering is not simulated, as this would be very complex to simulate at every time step.
 
 % Flesh out cooling problem in general 
@@ -609,7 +779,7 @@ While the BODMAS model represents an interesting start for the modelling of dust
 
 A multi-scalar model could be used to more accurately measure the growth of dust grains, rather than a single average grain size and 
 This would be more difficult to implement than a single model but would be able to simulate the growth of grains with a large number 
-Athena++ and MG both have issues with a large number of scalars, as such both numerical codes may require significant modification to cope with this.
+\athena{} and MG both have issues with a large number of scalars, as such both numerical codes may require significant modification to cope with this.
 A multi-fluid model with dust being physically simulated rather than assumed to be perfectly co-moving would be an ideal next step.
 Multiple grain size distributions could also be modelled in a similar way to the proposed multi-scalar model, however the kinematics of the dust grains could also be simulated separately.
 % Mixing factors
