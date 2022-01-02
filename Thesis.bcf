@@ -2948,7 +2948,7 @@
     <bcf:citekey order="133">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
     <bcf:citekey order="134">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
     <bcf:citekey order="135">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="136">soulain_sphere_2018</bcf:citekey>
+    <bcf:citekey order="136">soulainSPHEREViewWolfRayet2018</bcf:citekey>
     <bcf:citekey order="137">harries_three-dimensional_2004</bcf:citekey>
     <bcf:citekey order="138">lamersIntroductionStellarWinds1999</bcf:citekey>
     <bcf:citekey order="139">monnier_first_2011</bcf:citekey>
@@ -2966,6 +2966,8 @@
     <bcf:citekey order="151">astropy:2018</bcf:citekey>
     <bcf:citekey order="152">Hunter:2007</bcf:citekey>
     <bcf:citekey order="153">Hunter:2007</bcf:citekey>
+    <bcf:citekey order="154">athena</bcf:citekey>
+    <bcf:citekey order="155">athena</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
