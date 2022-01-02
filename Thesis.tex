@@ -132,7 +132,9 @@
   % citestyle=authoryear,
   backend=biber,
   bibencoding=utf8,
-  url=false
+  url=false,
+  doi=false,
+  isbn=false
 ]{biblatex}
 \addbibresource{References/library-biblatex.bib}
 
@@ -164,6 +166,10 @@
   backrefpage = {cited on page},% originally "cited on page"
   backrefpages = {cited on pages},% originally "cited on pages"
 }
+\AtEveryBibitem{\clearfield{note}\clearfield{addendum}}
+\AtEveryCitekey{\clearfield{note}\clearfield{addendum}}
+\AtEveryBibitem{\clearfield{note}\clearfield{annotation}}
+\AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
 
 \begin{document}
 %\baselineskip=18pt plus1pt
