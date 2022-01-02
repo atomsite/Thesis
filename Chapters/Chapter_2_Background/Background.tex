@@ -569,7 +569,36 @@ Further analysis of available dust producing CWB systems suggests that \textit{a
 
 \subsection{Important WCd systems}
 
-The principle systems that are being observed in this thesis are the variable dust forming system, WR98a, and the episodic dust forming system  
+The principle systems that are being observed in this thesis are the variable dust forming system, WR98a, and the episodic dust forming system WR140.
+The archetypal continuous dust forming system WR104 was also proposed for simulation, but had to be cut due to time constraints, this system will also be discussed to provide a point of comparison between the two systems.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccccc}
+  \hline
+  System & $\dot{\text M}_{\text{WR}}$ & $\dot{\text M}_{\text{OB}}$ & $v_{\text{WR}}^\infty$ & $v_{\text{OB}}^\infty$ & $\eta$ & $\chi_\text{min}$ \\
+   & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & (AU) & \\ \hline
+  WR 98a & \num{5.0e-6} & \num{5.0e-8} & 900  & 2000 & 0.0222 & 0.7970 \\
+  WR 104 & \num{3.0e-5} & \num{6.0e-8} & 1220 & 2000 & 0.0033 & 0.2430 \\
+  WR 140 & \num{5.6e-5} & \num{1.6e-6} & 2895 & 3200 & 0.0314 & 2.6866 \\ \hline
+  \end{tabular}
+  \caption{Wind properties of systems simulated in this thesis.}
+  \label{tab:systems-wind-properties}
+\end{table}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccccccc}
+  \hline
+  System & Period & Eccentricity & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
+   & (d) & ($e$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
+  WR 98a & 556 & $\sim 0$ & 10.0 & 18.0 & 4.06 & 4.06 \\
+  WR 104 & 245 & 0.0600 & 10.0 & 20.0 & 2.20 & 2.48 \\
+  WR 140 & 2869 & 0.8993 & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
+  \end{tabular}
+  \caption{Orbital properties of systems simulated in this thesis.}
+  \label{tab:systems-orbital-properties}
+\end{table}
 
 \subsubsection{WR98a}
 
@@ -579,7 +608,39 @@ The principle systems that are being observed in this thesis are the variable du
   \caption[Multiwavelength aperture synthesis image of WR98a]{Multiwavelength aperture synthesis images of WR98a taken on June \nth{24} 2000, at 1.65, 2.2, and \SI{3.08}{\micro\metre}. Plot sourced from \textcite{monnierKeckAperturemaskingExperiment2007}, the significant IR excess is a clear sign of ongoing dust production. The system also has a pronounced pinwheel structure most prominent at \SI{2.2}{\micro\metre}.}
 \end{figure}
 
+% Physical properties
+
+% Historical observation 
+
+% Questions as to orbit shape, approximately circular
+
+% Ease of simulation, good starting point
+
+% Parameter space exploration
+Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in chapter \ref{chap:parameterspace}.
+
 \subsubsection{WR140}
+
+% Physical properties
+
+% Historical observation
+
+% Eccentric orbit, variable dust formation
+
+% Difficulty of simulation
+
+
+\subsubsection{WR104}
+
+% Physical properties
+
+% Why it wasn't assessed, difficulty of simulation, needed AMR
+
+% Many level simulation required for large-scale observation
+
+% Instability required running at very low Courant number
+
+\subsection{WR+WR systems}
 
 % This might be a good section?
 \subsection{Contemporary research in extragalactic low-metallicity WCd systems}

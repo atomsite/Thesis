@@ -276,7 +276,7 @@
     \interlinepenalty\@M
     \vspace{5pt}%                                 % add vertical space
     \hrule                                   % horizontal rule
-    \rule{\textwidth}{0.5mm} \\
+    \rule{\textwidth}{0.0mm} \\
     \vspace{40pt}
     \huge #1\par                         % chapter title
     \nobreak

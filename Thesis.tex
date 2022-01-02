@@ -128,6 +128,7 @@
 % Setup for BibLaTeX, used instead of BibTeX as it is more flexible and has proper APA citation
 \usepackage[
   style=apa,
+  backref=true,
   % citestyle=authoryear,
   backend=biber,
   bibencoding=utf8,
@@ -158,6 +159,11 @@
 {\text{erg}}
 \DeclareSIUnit[]\arcsecond
 {\text{as}}
+
+\DefineBibliographyStrings{english}{%
+  backrefpage = {cited on page},% originally "cited on page"
+  backrefpages = {cited on pages},% originally "cited on pages"
+}
 
 \begin{document}
 %\baselineskip=18pt plus1pt
@@ -209,9 +215,11 @@
 % \bibliographystyle{apalike} % bibliography style
 % \renewcommand{\bibname}{References} 
 % \bibliography{References/library} % References file
-  
+
 \printbibheading
-\printbibliography[type=book,heading=subbibliography,title={Book Sources}]
-\printbibliography[nottype=book,heading=subbibliography,title={Journal Sources}]
+\printbibliography[type=book,notkeyword=software,heading=subbibliography,title={Book Citations}]
+\printbibliography[type=article,notkeyword=software,heading=subbibliography,title={Journal Citations}]
+\printbibliography[keyword=software,heading=subbibliography,title={Software Citations}]
+\printbibliography[nottype=book,nottype=article,notkeyword=software,heading=subbibliography,title={Other Citations}]
 
 \end{document}
