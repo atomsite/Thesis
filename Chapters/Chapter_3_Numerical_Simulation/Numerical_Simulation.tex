@@ -324,12 +324,42 @@ Due to the comparatively low flexibility of AMR in a block-based hydrodynamical 
 % }
 % \end{lstlisting}
 
-\section{Visualisation}
+\section{Datatypes \& visualisation}
+\label{sec:visualisation}
+
+\athena{} exports data in a number of data formats, from formatted tables, to \texttt{VTK} files \parencite{VTK4} to the Hierarchical Data Format standard (\texttt{HDF5}) \parencite{hdf5}.
+For all numerical grids being exported, the \texttt{HDF5} standard was used as it was easily the most flexible.
+In particular, \texttt{HDF5} has native support for \texttt{MPI} parallelised I/O, which negates the need for writing out individual files for the data for each processing node, and generally has a much greater throughput.
+A separate, comma-delimited ``history'' filetype was used to store summated values of conserved variables and advected scalars, this was used primarily to determine simulation-wide dust production rates and average grain sizes as the simulation evolved.
+The \athena{} input file syntax allows the user to define multiple outputs to be written at a certain elapsed simulation times, as well as periodically writing ``checkpoint'' files for the simulation to resume from.  
+For most simulations, this was performed every fraction of an orbit, with checkpoint files and 3D datasets being written every 1/\nth{100} of an orbit, and 2D datasets and ``history'' file updates being written every 1/\nth{1000} of an orbit.
 
 %//TODO section might not be necessary
 Data was plotted using a series of custom programmes designed to parse data as quickly as possible, 
-the Python plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating data due to mesh refinement, data-points are triangulated with each other.
-For 3D visualisation the VisIt data visualisation tool is used.
+the \texttt{Python 3.8} \parencite{10.5555/1593511} plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating static meshes to the finest level in order to operate correctly with \texttt{Matplotlib} \parencite{Hunter:2007}, data-points are triangulated with each other.
+This is a markedly more memory and processing efficient method, as data is not duplicated or smoothed at the interpolation step, and was found to be approximately 2000\% faster.
+Whilst this can result in artefacts at low resolutions, the resolution of the simulation was sufficient such that these artefacts were not observed.
+The GNU Parallel library was used to batch-process 2D exports \parencite{tange_2021_5523272}, as \texttt{Python} is for the most part single threaded and interpreted it was found to be more effective use Parallel to run multiple python instances at once, each processing a single data file using the command:
+
+\begin{lstlisting}[language=bash]
+seq 0 <max> | parallel -j44  "athena_plot.py plot-config.yaml -n {}"
+\end{lstlisting}
+
+\noindent
+where \texttt{<max>} is the number of simulation files.
+The \texttt{Numba} library \parencite{lam2015numba} was also used to improve performance by  JIT\footnote{Just In Time.} compiling, parallelising and vectorising certain steps that were not performant in either \texttt{Python} or \texttt{Numpy} \parencite{harris2020array}.
+In this case, \texttt{Numba} was used to restructure numerical array data into a linear series of arrays, performing derived parameter such as dust density and temperature calculations, and matrix co-ordinate transforms.
+While this is less straightforward to implement, as many of \texttt{Pythons} data-types cannot be used, this offered a 2 order of magnitude processing speed increase in the case of an 8-core workstation.
+
+For 3D visualisation the \texttt{VisIt} application is used \parencite{HPV:VisIt}.
+However for print 2D slices generated using \texttt{Matplotlib} were used. 
+The \texttt{Gnuplot} utility \parencite{gnuplot} was used for generating line and scatter plots throughout this thesis, in particular history outputs from \athena{}.
+Occasionally, rendering video of the batch processes 2D exports was performed in order to better understand how the systems propagated over time, in order to do this \texttt{ffmpeg} library \parencite{tomar2006converting} was used to render the videos.
+For this, the following command was used:
+
+\begin{lstlisting}[language=bash]
+cat /*.png | ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -vf format=yuv420p output.mp4
+\end{lstlisting}
 
 \section{Simulating CWB systems}
 
@@ -339,16 +369,52 @@ For 3D visualisation the VisIt data visualisation tool is used.
 % How is this performed, processes involved in mapping wind on stars, orbits, how these are performed in the context of \athena{} or numsim in general
 
 \subsection{Assumptions}
+\label{sec:simassumptions}
 
 % Short subsection covering assumptions used in this project
 
 % Wind mapping, lack of radiative line driving
+Another assumption is that the outflow from each star is rapidly accelerated to the stars wind terminal velocity, $v^\infty$.
+This negates the need for simulating radiative line driving effects on the stellar wind, or calculating the CAK parameters for each wind, however this can result in over-estimation of the wind collision velocity if the wind momentum is sufficiently imbalanced, and the apex of the WCR is close to the secondary star.
+If the wind velocity is sufficiently reduced this can effect the structure of the wind collision region, as the wind momentum ratio and cooling parameter will be changed.
+Additional factors such as sudden radiative braking can also effect the primary star, where in the case of an extremely unbalanced wind, the primary stellar wind can become rapidly decelerated as it approaches the secondary star and its radiative flux is more influential than the driving force of the parent star \parencite{gayley_sudden_1997}.
+This should be considered when analysing the results of each simulation, and understanding how the secondary wind velocity can effect the cooling and dust production rate of the WCR.
 
 % Radiation processes
 
 % Short coverage on dust model, this is explained further in a alter section
 
 \subsection{Wind propagation \& refinement}
+
+% Orbits
+
+% Why not gravitational interaction?
+As there are only two gravitationally interacting bodies in the system, it was deemed unnecessary to implement a more complex n-body gravitational system to model the dynamics of the stars.
+Additionally, calculating the radial velocity at the start of the simulation would be required, all of which is not needed in the case of a Keplerian orbit simulation.
+As the orbital path of the system is already known, this also allowed the use of a ``phase offset'' to change the starting point of each simulation, such as in the case of the WR140 simulation, which begins at $\phi = 0.95$.
+
+% Wind propagation
+With the assumption that winds are rapidly accelerated to $v^\infty$, propagating stellar winds through a simulation has been drastically simplified.
+% Wind remapping
+In the simulation, the conserved variables inside a small spherical region 6 fine cells in radius are modified in order to inherent the parameters of a stellar outflow, with a mass loss rate of $\dot{\text{M}}$ and a wind velocity of $v_\infty$ radially outwards from the star.
+The conserved variables, correspond to:
+
+\begin{subequations}
+  \begin{align}
+    \rho_R &= \frac{\dot{\text{M}}}{4 \pi r^2 v_\infty}, \\
+    P_R    &= \rho_R v_\infty^*, \\
+    E_R    &= \frac{P_R}{\gamma - 1} + \frac{1}{2} \rho_R v_\infty^2,
+  \end{align}
+\end{subequations}
+
+\noindent
+where $r$ is the radial distance from the star, $P_R$ is the cell pressure, and $\gamma$ is the ratio of specific heats, typically $5/3$.
+Whilst this method is very fast and effective, it requires the remap region to remain completely undisturbed, if the WCR impinges upon the remap region this will result in significant physical inaccuracy.
+In order to mitigate this, it was found that there should be $75-120$ fine cells separating the stars, for a system with $\eta\sim 0.01$.
+For systems with a WCR closer to the secondary star the number of cells should be significantly increased.
+ 
+% How refinement is performed 
+Throughout this thesis SMR is used to increase the effective resolution of simulations, a box around the CWB orbit is refined to the highest level defined in the simulations input file, \athena{} de-refines the cells gradually around this box until the simulation is at its coarsest resolution.
 
 \subsection{Cooling in numerical simulations}
 
@@ -650,7 +716,7 @@ This compares favourably to a single sub-step example, which would cause the sim
 \begin{figure}
   \centering
   \includegraphics{assets/plasma-cooling-benchmarks/evolution.pdf}
-  \caption[Cooling sub-step method evolution comparison]{Comparison of the adaptive timestep method versus linearly spaced sub-steps for a solar abundance flow with a density of $10^{-16}$ \si{\gram\per\centi\metre\cubed} and an initial temperature of $10^5$ \si{\kelvin}.}
+  \caption[Cooling sub-step method evolution comparison]{Comparison of the adaptive timestep method versus linearly spaced sub-steps for a solar abundance flow with a density of $10^{-16}$ \si{\gram\per\centi\metre\cubed} and an initial temperature of $10^5$ \si{\kelvin}. Cooling was artificially limited to prevent negative temperatures, which would have occurred in the case of the 1 sub-step method.}
   \label{fig:cooling-loop-evolution}
 \end{figure}
 
@@ -809,6 +875,6 @@ Radiative transfer models would be used to
 \begin{figure}
   \centering
   \includegraphics{assets/hendrix-synthetic-observation.jpeg}
-  \caption[\textcite{hendrix_pinwheels_2016} synthetic astronomy]{Synthetic images of WR 98a emulating the capabilities of ALMA using a radiative transfer model, reproduced from \textcite{hendrix_pinwheels_2016}.}
+  \caption[\textit{Radiative transfer images of WR98a \parencite{hendrix_pinwheels_2016}}]{Synthetic images of WR 98a emulating the capabilities of ALMA using a radiative transfer model, reproduced from \textcite{hendrix_pinwheels_2016}.}
   \label{fig:hendrix-synthetic}
 \end{figure}

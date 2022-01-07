@@ -67,6 +67,8 @@
 %\usepackage{Utopia} % The "Utopia" font
 
 \usepackage{siunitx} % Better units, especially SI
+\sisetup{separate-uncertainty=true} % Use uncertainties
+
 \usepackage{mathtools}
 % Better tables
 \usepackage{longtable}
@@ -89,7 +91,6 @@
 
 \usepackage{listings}
 \usepackage{xcolor}
-
 \usepackage[super]{nth} % Allows for superscripting numbers
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -147,6 +148,8 @@
 {\text{\ensuremath{\textup{M}_{\odot}}}}
 \DeclareSIUnit[]\solarluminosity
 {\text{\ensuremath{\textup{L}_{\odot}}}}
+\DeclareSIUnit[]\solarradius
+{\text{\ensuremath{\textup{R}_{\odot}}}}
 \DeclareSIUnit[]\year
 {\text{yr}}
 \DeclareSIUnit[]\megayear

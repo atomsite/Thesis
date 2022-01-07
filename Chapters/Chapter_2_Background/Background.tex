@@ -249,7 +249,7 @@ This outsized influence on the local medium can be seen in the production of eje
 \begin{figure}[h]
   \centering
   \includegraphics[width=4in]{assets/WR124.png}
-  \caption[M1-67 nebula around WR 124]{Reduced Hubble WFPC2 data of the WN star WR 124, its extreme mass loss is currently producing the ejecta nebula M1-67 \parencite{2010ApJ...724L..90M}.}
+  \caption[\textit{M1-67 nebula around WR 124 \parencite{2010ApJ...724L..90M}}]{Reduced Hubble WFPC2 data of the WN star WR 124, its extreme mass loss is currently producing the ejecta nebula M1-67 \parencite{2010ApJ...724L..90M}.}
   \label{fig:wr124}
 \end{figure}
 
@@ -306,7 +306,9 @@ Unfortunately, the simplicity of the systems ends here, CWB systems are extremel
 %History and classification, useful sources in Stevens & Pollock 1994 
 
 Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright persistent thermal x-ray sources, with x-ray 
-The first classification and analysis of Colliding Wind Binary systems were independently performed by \cite{prilutskii_x_1976} and \cite{cherepashchukDetectabilityWolfRayetBinaries1976}, these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures and the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
+The first classification and analysis of Colliding Wind Binary systems were independently performed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures and the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
+
+% Early work categorising, using gamma 2 vel and V444Cyg
 
 % Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
 
@@ -387,7 +389,8 @@ Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio 
 Cooling due to radiation emission in a hot plasma can be broken down into a variety of processes that occur over series of temperature ranges.
 Ions inside a plasma can become excited through collisions or photon absorption resulting in emission of photons as the ions de-excited. 
 
-Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung, the influence of each mechanism waxes and wanes as temperature increases, with each mechanism clearly dominant over \parencite{dysonPhysicsInterstellarMedium2021}.
+Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung \parencite{dysonPhysicsInterstellarMedium2021}.
+The influence of each mechanism waxes and wanes as temperature increases, with each mechanism dominant over a certain temperature range (table \ref{tab:coolprocess}).
 
 % Section on forbidden line emission
 
@@ -574,15 +577,15 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccccc}
+  \begin{tabular}{cccccccc}
   \hline
-  System & $\dot{\text M}_{\text{WR}}$ & $\dot{\text M}_{\text{OB}}$ & $v_{\text{WR}}^\infty$ & $v_{\text{OB}}^\infty$ & $\eta$ & $\chi_\text{min}$ \\
-   & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & (AU) & \\ \hline
-  WR 98a & \num{5.0e-6} & \num{5.0e-8} & 900  & 2000 & 0.0222 & 0.7970 \\
-  WR 104 & \num{3.0e-5} & \num{6.0e-8} & 1220 & 2000 & 0.0033 & 0.2430 \\
-  WR 140 & \num{5.6e-5} & \num{1.6e-6} & 2895 & 3200 & 0.0314 & 2.6866 \\ \hline
+  System & $\dot{\text M}_{\text{WR}}$ & $\dot{\text M}_{\text{OB}}$ & $v_{\text{WR}}^\infty$ & $v_{\text{OB}}^\infty$ & $\eta$ & $\chi_\text{min}$ & $\dot{\text M}_\text{D}$ \\
+   & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & (AU) & & (\si{\solarmass\per\year}) \\ \hline
+  WR98a & \num{5.0e-6} & \num{5.0e-8} & 900  & 2000 & 0.0222 & 0.7970 & $\left(6.10^{+1.77}_{-1.38}\right) \times 10^{-7}$ \\ 
+  WR104 & \num{3.0e-5} & \num{6.0e-8} & 1220 & 2000 & 0.0033 & 0.2430 & $\left(4.39^{+1.27}_{-0.97}\right) \times 10^{-6}$ \\
+  WR140 & \num{5.6e-5} & \num{1.6e-6} & 2895 & 3200 & 0.0314 & 2.6866 & $\left(8.11^{+4.83}_{-4.15}\right) \times 10^{-10}$ \\ \hline
   \end{tabular}
-  \caption{Wind properties of systems simulated in this thesis.}
+  \caption[Wind properties of systems considered for simulation]{Wind properties of systems considered for simulation in this thesis.}
   \label{tab:systems-wind-properties}
 \end{table}
 
@@ -592,11 +595,11 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
   \hline
   System & Period & Eccentricity & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
    & (d) & ($e$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
-  WR 98a & 556 & $\sim 0$ & 10.0 & 18.0 & 4.06 & 4.06 \\
-  WR 104 & 245 & 0.0600 & 10.0 & 20.0 & 2.20 & 2.48 \\
-  WR 140 & 2869 & 0.8993 & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
+  WR98a & 556 & $\sim 0$ & 10.0 & 18.0 & 4.06 & 4.06 \\
+  WR104 & 245 & 0.0600 & 10.0 & 20.0 & 2.20 & 2.48 \\
+  WR140 & 2869 & 0.8993 & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
   \end{tabular}
-  \caption{Orbital properties of systems simulated in this thesis.}
+  \caption[Orbital properties of systems considered for simulation]{Orbital properties of systems considered for simulation in this thesis.}
   \label{tab:systems-orbital-properties}
 \end{table}
 
@@ -605,12 +608,16 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 \begin{figure}
   \centering
   \includegraphics{assets/systems/wr98a-monnier2007.pdf}
-  \caption[Multiwavelength aperture synthesis image of WR98a]{Multiwavelength aperture synthesis images of WR98a taken on June \nth{24} 2000, at 1.65, 2.2, and \SI{3.08}{\micro\metre}. Plot sourced from \textcite{monnierKeckAperturemaskingExperiment2007}, the significant IR excess is a clear sign of ongoing dust production. The system also has a pronounced pinwheel structure most prominent at \SI{2.2}{\micro\metre}.}
+  \caption[\textit{Multiwavelength image of WR98a \parencite{monnierKeckAperturemaskingExperiment2007}}]{Multiwavelength aperture synthesis images of WR98a taken on June \nth{24} 2000, at 1.65, 2.2, and \SI{3.08}{\micro\metre}. Plot sourced from \textcite{monnierKeckAperturemaskingExperiment2007}, the significant IR excess is a clear sign of ongoing dust production. The system also has a pronounced pinwheel structure most prominent at \SI{2.2}{\micro\metre}.}
 \end{figure}
 
 % Physical properties
 
+WR98a is a  
+
 % Historical observation 
+
+% Hendrix paper dust formation monnier 2002 radio domain
 
 % Questions as to orbit shape, approximately circular
 
@@ -624,26 +631,106 @@ Because of this relative ease of simulation and relatively slow wind velocity fo
 % Physical properties
 
 % Historical observation
+WR140 is significant in that it is the first system to be observed with episodic dust forming CWB properties, \textcite{williamsCondensationShellHD1978} notes a rapid brightening in the infrared, suggesting the formation of a new shell of dust around the system.
+WR140 has undergone frequent observations, with spectroscopic data going back to 1972, and is perhaps the most well-observed episodic WCd system, for this it was immediately considered for 
 
 % Eccentric orbit, variable dust formation
 
 % Difficulty of simulation
+As it is a highly eccentric system with a particularly long period orbit, a number of difficulties 
+
+with the constraints of only having SMR available throughout this project, with AMR not currently being stable in this particular hydrodynamical code, 
+% Snippet
+As such, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$, as a full orbit of the system would require AMR to undertake within the time constraints remaining in this project. 
 
 
 \subsubsection{WR104}
 
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/systems/soulain-2018-wr104.pdf}
+  \caption[\textit{Spiral structure of WR104 \parencite{soulainSPHEREViewWolfRayet2018}}]{Deconvolution of J, H, K, and \SI{2.27}{\micro\metre} bands of WR104 sourced from \textcite{soulainSPHEREViewWolfRayet2018}. The spiral pattern and first revolution is visible in all images, in particular at \SI{2.27}{\micro\metre}.}
+  \label{fig:soulain-wr104}
+\end{figure}
+
 % Physical properties
+WR104 is an archetypal example of a continuous WCd system, it is a comparatively tight binary with a semi-major axis of \SI{2.34}{\au} and a period of $\sim 241$ days, the orbit is also relatively circular, with an eccentricity of $e = 0.06$ \parencite{lamberts_colliding_2012}.
+The system consists of a WC9 star with a B0.5V partner \parencite{williamsSpectroscopyWC9WolfRayet2000}, this combination of a WC star and a comparatively weak B partner results in a severely imbalanced wind, with a momentum ratio of $0.003$, an order of magnitude lower than WR98a.
+This imbalanced wind, combined with the tight orbit, results in an extremely strong WCR that is constantly churning out dust.
+% Mass loss rate
+Using radiative transfer models, \textcite{harries_three-dimensional_2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the carbon mass loss rate of 
+A more advanced model by \textcite{lauRevisitingImpactDust2020}, which is used to assess the dust formation rates of systems in this thesis, calculated the dust formation rate to be $\left(4.39^{+1.27}_{-0.97}\right) \times 10^{-6}\, \si{\solarmass\per\year}$.
+
+% Why is it archetypal 
+
+WR104 can be considered to be an ideal example of a continuous dust forming system, the system is relatively close, at a distance of \SI{2.5}{\kilo\parsec}, and is at an inclination that is almost face-on relative to Earth, at $i \lesssim 16^\circ$. 
+As such, the pinwheel outflow from the system can be clearly resolved, with infrared excess due to dust clearly observed within the pinwheel structure (\textcite{soulainSPHEREViewWolfRayet2018}, see figure \ref{fig:soulain-wr104}).
+Due to the systems parameters and well defined observable dusty pinwheel structure, along with prior observations and simulations of the system, it is an ideal candidate for simulation 
+
+There are a number of reasons for this prodigious dust formation rate, as the systems orbit is comparatively close and circular with a very dense primary wind, the wind is expected to be highly radiative throughout the entire orbital period, this suggests a cool post-shock WCR that can continuously produce dust.
+The estimated cooling parameter is more than an order of magnitude lower than the other systems considered for simulation, leading to a
 
 % Why it wasn't assessed, difficulty of simulation, needed AMR
-
+Unfortunately, despite being a very strong candidate for simulation, attempting to simulate the system proved to be exceptionally difficult.
 % Many level simulation required for large-scale observation
-
+The very close orbit of the system would mandate a very high simulation resolution, increasing the amount of compute time required to finish the simulation, only simulating a small region would prevent the pinwheel from being formed and observed, which we would have ideally wanted to include.
 % Instability required running at very low Courant number
+In addition the strong radiative cooling resulted in the simulation being very unstable unless the Courant number is exceedingly small, this also significantly increases compute time.
+With a limited amount of compute resources as well as a limited amount of time, this stretched the feasibility of simulating this system.
+% Physical effects, gayley
+As the wind from the primary star is significantly stronger than its partners, WR104 has a much lower momentum ratio than the other systems being considered, as such, the WCR is situated much closer to the secondary star.
+At closest approach, $r_\text{OB} \approx \SI{60}{\solarradius}$, which would require WR104 to be simulated at a much higher resolution, in turn demanding significantly more computational resources.
+Physical effects, such as radiative inhibition and sudden braking may also significantly alter the wind velocity and post-shock environment, reducing the pre-shock primary wind velocity \textcite{gayley_sudden_1997}.
+The pre-shock secondary wind velocity would also be influenced, due to insufficient acceleration from line driving before the winds collide.
+As radiative line driving is not simulated these effects cannot be taken into account, and would have resulted in an inaccurate simulation of the system.
+The effect of incomplete acceleration and sudden braking in highly wind-imbalanced systems is discussed more substantially in section \ref{sec:simassumptions}.
+% Why it was discarded
+With limited time remaining in the project, as well as the above factors, simulation work on WR104 was abandoned in favour of a parameter space search of a system with baseline properties similar to WR98a, as well as a limited simulation of WR140. 
+Simulating this system however, is a particularly enticing avenue of future research.
 
 \subsection{WR+WR systems}
 
-% This might be a good section?
-\subsection{Contemporary research in extragalactic low-metallicity WCd systems}
+Recently, two candidates of a theorised subset of CWB have been discovered - WR+WR systems, which have a \textit{second} Wolf-Rayet star as their partner, with a secondary wind around 3 orders of magnitude denser than a WR+OB system, this would of course result in a truly titanic wind collision.
+These candidates are the recently discovered WR70-16 \parencite{callinghamAnisotropicWindsWolf2019}, and the previously discovered WR48a system \parencite{danksInfraredSpectroscopyInfrared1983}, which exhibits the spectroscopic lines of both a WC and WN system \parencite{williamsVariableDustEmission2019}.
+These systems are predicted to be comparatively rare, even among CWB systems, this is largely due to unlikelihood that both stars in the system would be in their Wolf-Rayet phase at the same time.
+Despite these systems having an enormous combined mass-loss rate, initial estimates of the dust production rates of both systems indicate that their dust conversion efficiencies are comparatively low compared to less energetic systems, and overall quite mundane dust production rates in general.
+Whether this suppressed dust production rate is a common phenomena among WR+WR systems remains to be seen, as more systems would need to be discovered in order to determine this.
 
-\label{sec:knowndustysystems}
+\subsubsection{WR70-16 (``Apep'') -- a recently discovered WR+WR system}
 
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/systems/apep-callingham-2019.pdf}
+  \caption[\textit{VLT image of Apep \parencite{callinghamAnisotropicWindsWolf2019}}]{\textcite{callinghamAnisotropicWindsWolf2019}}
+  \label{fig:apep-callingham}
+\end{figure}
+
+A potential avenue of research for this field is the simulation of WR+WR systems such as the recently discovered WR70-16 system (hereafter referred to as ``Apep''), this system was discovered due to the significant difference between the spectroscopically derived wind velocity of \SI{3400(200)}{\kilo\metre\per\second} and the observed expansion speed of \SI{570(70)}{\kilo\metre\per\second}  \parencite{callinghamAnisotropicWindsWolf2019}.
+This inhibited wind velocity, far below any categorised WR wind velocity, suggests that much of the wind undergoes collision with the wind of a binary partner.
+The extremely luminous non-thermal and infrared emission, suggested two extremely high mass loss rate stars within the system, as well as evidence for a third, distant partner in a loose trinary system \parencite{callinghamTwoWolfRayet2020}.
+Spectroscopic analysis suggested that the central component of the Apep system consists of a nitrogen sequence WN4-6b and a carbon sequence WC8 star, with more more massive and luminous WN4-6b star kinematically dominating the system.
+This discovery is very significant as it is the first galactic WR+WR system discovered, other systems have been identified, but are extragalactic in nature.
+
+Further work by \textcite{hanExtremeCollidingwindSystem2020} has estimated the orbital parameters of Apep, finding that it is a highly eccentric system with a period of \SI{125(20)}{\year} and an eccentricity of \num{0.7(0.1)}, inclined at $\pm \ang{30} \pm \ang{5}$ towards Earth.
+An initial estimate of the dust formation rate was made, finding a dust production rate of $\sim \SI{5e-7}{\solarmass\per\year}$, while observation of the surrounding dust shell suggests that it is a periodic dust forming system, which is sensible considering the systems high eccentricity.
+
+The opening angle of the WCR was found to be very wide, at $\ang{125}\pm\ang{10}$, further suggesting the presence of two very high mass loss rate objects within the system, suggesting relatively balanced wind momenta for a CWB system.
+Additional calculations by \textcite{marcoteAUscaleRadioImaging2021} estimated the systems wind momentum ratio to be $0.44\pm 0.08$, again in line with WR+WR hypothesis. 
+Finally, pre-print work by \textcite{delpalacioNonthermalEmissionCollidingwind2021} finds a mass loss rate of \SI{4e-5}{\solarmass\per\year} for the WN star and \SI{2.9e-5}{\solarmass\per\year} for the WC star, which all but confirms the presence of a WR+WR binary at the heart of Apep.
+
+With an estimated combined mass loss rate of \SI{6.9e-5}{\solarmass\per\year} we can estimate that the system has a dust conversion efficiency of 0.7\%;
+whilst this system is therefore not a prodigious producer of dust this is most likely due to the extremely high wind terminal velocity and high separation distance, which would suggest a fairly smooth and adiabatic post-shock region. 
+We can estimate the cooling parameter of the system to be $\sim 80$, based on angular separation from \textcite{hanExtremeCollidingwindSystem2020}, confirming that at present, the winds are adiabatic.
+In order to estimate the closest approach of the system, and therefore the minimum cooling parameter an accurate measure of the stellar mass of both objects would need to be made, there is insufficient data for this at the time of writing.
+
+\subsubsection{WR48a -- revisiting a WR+WR candidate}
+
+% Why simulate it? And difficulties therein
+WR+WR systems appear to be incredibly rare, with only a small number of extragalactic WN sequence examples in the LMC \parencite{shenarWolfRayetBinaries2019}, as well as an additional galactic WR+WR binary candidate, WR48a, \parencites(){zhekovMultiwavelengthViewDusty2014}{williamsVariableDustEmission2019}{zhekovChandraRevisitsWR2022}.
+In the case of WR48a, its change in classification from a dust forming WC8 with an unknown partner to a WC8-WN8 is contemporaneous with the discovery and classification of Apep, though there is a distinct lack of recent observations of the system compared to the more recent WR+WR candidate.
+
+\textcite{lauRevisitingImpactDust2020} calculated a dust formation rate for WR48a of $\left(8.46^{+3.48}_{-4.38}\right) \times 10^{-8} \, \si{\solarmass\per\year}$ with a dust conversion efficiency of $0.12\%$, markedly less than other systems with much less available material.
+A future avenue of research would be to simulate these systems to understand why the dust formation rate is comparatively low, despite the readily available stellar material.
+The main difficulty of simulating these systems is the lack of orbital parameters and accurate mass loss rates, as WR48a has insufficient data and Apep has only been recently discovered, there are currently too many unknown factors in order to build an adequate simulacrum of the systems\footnote{A lack of accurate orbital parameters is also an issue in devising simulations for more conventional WR+OB systems}.
+Another difficulty is the large degree of orbital separation, high eccentricity and long orbital timescales required to simulate these systems.
+The current limitations of the hydrodynamical code being used in this project render it difficult to simulate entire orbital passes of highly elliptical systems with long periods, if these issues are resolved in later versions of the hydro code however, this would present an interesting avenue of future research.
