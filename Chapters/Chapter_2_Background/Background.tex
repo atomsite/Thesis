@@ -300,23 +300,49 @@ This outsized influence on the local medium can be seen in the production of eje
 
 
 % //TODO Cannot get into the groove of this paragraph, please fix this future Joe
-Colliding Wind Binaries\footnote{Abbreviated to CWBs.}, in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
-Unfortunately, the simplicity of the systems ends here, CWB systems are extremely complex and poorly understood as they are difficult environments to observe or simulate.
+Colliding Wind Binaries (abbreviated hereon to CWBs), in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
+Unfortunately, the simplicity of the systems ends here, CWB systems are very poorly understood phenomena, due to a variety of factors that this section will discuss.
+
+\subsection{History of CWB observation}
 
 %History and classification, useful sources in Stevens & Pollock 1994 
 
-Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright persistent thermal x-ray sources, with x-ray 
-The first classification and analysis of Colliding Wind Binary systems were independently performed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures and the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
+Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright and variable thermal X-ray sources.
+Many of these early galactic X-ray sources were found to be compact objects, and many more contained the characteristic spectral lines of a Wolf-Rayet star.
+While single Wolf-Rayet stars are capable of producing X-ray emission, this is typically much dimmer than what was being observed 
+\parencite{oskinovaXrayEmissionSingle2015,sewardXraysEtaCarinae1979}.
+
+
+
+The existence of CWB systems were independently proposed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, 
+
+
+
+
+
+
+these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures ad the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
 
 % Early work categorising, using gamma 2 vel and V444Cyg
 
+Early 
+
 % Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
+
+Further research by \textcite{pollockEinsteinViewWolfRayet1987} found that that while all 
 
 % Formation 
 
 
 \subsection{The Wind Collision Region}
 \label{sec:wcr}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3in]{assets/eichler-diagram/cwb-diagram.png}
+  \caption[\textit{A diagram of the Wind Collision Region \parencite{eichler_particle_1993}}]{A diagram of a typical Wind Collision Region inside a WR+OB CWB system. The $S_1$ and $S_2$ surfaces denote the shock waves from the primary and secondary winds respectively, and $C$ denotes the contact surface. The surfaces $\widetilde{S}_1$, $\widetilde{S}_2$ and $\widetilde{C}$ represent conic approximations of their corresponding surfaces at intermediate distances from the OB star. The region of stellar wind collision is hatched in the bottom diagram \parencite{eichler_particle_1993}.}
+  \label{fig:wcr-diagram}
+\end{figure}
 
 % What is this region
 The Wind Collision Region\footnote{WCR} is the most violent and turbulent region of a CWB system, a region where strong shocks lead to temperatures in excess of $10^8$ $\si{\kelvin}$.
@@ -397,7 +423,7 @@ The influence of each mechanism waxes and wanes as temperature increases, with e
 The first mechanism to be discussed is forbidden line emission\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer, while initially assumed to be prohibited under the contemporary understanding of atomic physics, it is in fact just astrophysicists jumping the gun again.}.
 This process dominates the cooling process of cooler gas that is not fully ionised, where collisions with free electrons excite metals within the gas, causing them to de-excite through photon emission through these forbidden lines.
 Forbidden lines themselves arise from magnetic dipole and quadrupole fine structure states within typical energy levels, despite having a much lower probability of occurring compared to conventional energy level transitions.
-This process dominates at these temperatures as the transition energies are significantly lower, on the order of 1 \si{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the gas without being re-absorbed by it.
+This process dominates at these temperatures as the transition energies are significantly lower, on the order of \SI{1}{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the gas.
 
 % Section on ionisation/recombination
 
@@ -415,15 +441,12 @@ As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bre
 \parencite{schureNewRadiativeCooling2009}
 \parencite{rybickiRadiativeProcessesAstrophysics2004}
 
-
-
-
 %//TODO clean up this caption
 %//FIXME use the new cooling code for this graph, early changes in ionisation fraction result in a different appearance from 1e4 to 1e6 kelvin!
 \begin{figure}
   \centering
   \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison.pdf}
-  \caption[Dust cooling vs. plasma cooling]{Comparison of plasma cooling to dust cooling with different grain sizes in a solar abundance gas, where $\rho_g = 10^{-20}$ \si{\gram\per\centi\metre\cubed} and a dust-to-gas mass ratio of 0.01.}
+  \caption[Dust cooling vs. plasma cooling]{Comparison of plasma cooling to dust cooling with different grain sizes in a solar abundance gas, with a gas density of \SI{1e-20}{\gram\per\centi\metre\cubed} and a dust-to-gas mass ratio of 0.01.}
   \label{fig:dustplasmacomparison}
 \end{figure}
 
@@ -460,7 +483,6 @@ However, as the grain temperature increases, collisional heating due to ions bec
   \caption[$H_{el}$ and $H_{coll}$ comparison]{Comparison of grain heating rate due to ion collisional excitation, $H_{coll}$, and electron excitation, $H_{el}$. The dust grain has a grain radius of \SI{5e-3}{\micro\metre} and is travelling through a gas with a density of $10^{-20}$ \si{\gram\per\centi\metre\cubed} with solar and WC abundances.}
   \label{fig:collisionalheatingcomparison}
 \end{figure}
-
 
 Work by \cite{dwek_infrared_1981} is used predominantly in this project to simulate cooling due to dust, a fast method for calculating the cooling rate due to dust was integrated into the numerical code for this project, which is elaborated on in section \ref{sec:dustcoolingmodel}.
 % Finish and link to below paragraph

@@ -126,18 +126,29 @@
 \newcommand{\athena}{\texttt{Athena++}}
 \newcommand{\link}[1]{\texttt{\href{#1}{#1}}}
 
-% Setup for BibLaTeX, used instead of BibTeX as it is more flexible and has proper APA citation
+% Setup for BibLaTeX, used instead of BibTeX as it is more flexible
 \usepackage[
-  style=apa,
-  backref=true,
-  % citestyle=authoryear,
-  backend=biber,
-  bibencoding=utf8,
-  url=false,
-  doi=false,
-  isbn=false
+  style=apa,        % Use American Psychological Association style
+  backref=true,     % Link back to citation pages in bibliography
+  backend=biber,    % Use biber to process citations
+  bibencoding=utf8, % Ensure UTF8 encoding for fancy characters
+  url=false,        % Don't show URLs
+  doi=false,        % Don't show DOIs
+  isbn=false        % Don't show ISB numbers
 ]{biblatex}
-\addbibresource{References/library-biblatex.bib}
+% Point biber towards bibliography
+\addbibresource{References/library-biblatex.bib} 
+% Sylistic changes to bibliography 
+\DefineBibliographyStrings{english}{
+  backrefpage = {cited on page},     % originally "cited on page"
+  backrefpages = {cited on pages},   % originally "cited on pages"
+}
+% Ensure addendums are not shown
+\AtEveryBibitem{\clearfield{note}\clearfield{addendum}} 
+\AtEveryCitekey{\clearfield{note}\clearfield{addendum}}
+% Ensure annotations are not shown
+\AtEveryBibitem{\clearfield{note}\clearfield{annotation}}
+\AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
 
 \linespread{1.3} %1.5 line spacing
 
@@ -165,14 +176,7 @@
 \DeclareSIUnit[]\arcsecond
 {\text{as}}
 
-\DefineBibliographyStrings{english}{%
-  backrefpage = {cited on page},% originally "cited on page"
-  backrefpages = {cited on pages},% originally "cited on pages"
-}
-\AtEveryBibitem{\clearfield{note}\clearfield{addendum}}
-\AtEveryCitekey{\clearfield{note}\clearfield{addendum}}
-\AtEveryBibitem{\clearfield{note}\clearfield{annotation}}
-\AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
+
 
 \begin{document}
 %\baselineskip=18pt plus1pt
@@ -221,10 +225,6 @@
 
 % References separate from main matter or appendix
 \addcontentsline{toc}{chapter}{References} % Adds References to contents page
-% \bibliographystyle{apalike} % bibliography style
-% \renewcommand{\bibname}{References} 
-% \bibliography{References/library} % References file
-
 \printbibheading
 \printbibliography[type=book,notkeyword=software,heading=subbibliography,title={Book Citations}]
 \printbibliography[type=article,notkeyword=software,heading=subbibliography,title={Journal Citations}]
