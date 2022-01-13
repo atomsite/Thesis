@@ -67,7 +67,10 @@
 %\usepackage{Utopia} % The "Utopia" font
 
 \usepackage{siunitx} % Better units, especially SI
-\sisetup{separate-uncertainty=true} % Use uncertainties
+\sisetup{separate-uncertainty=true,   % Allow uncertainties
+         print-unity-mantissa=false,  % If 1e2, write as 10^2 not 1x10^2
+         group-minimum-digits=4,      % Start separating > 999, not > 9,999
+         group-separator = {,}}       % Unit now 1,000 instead of 1000
 
 \usepackage{mathtools}
 % Better tables

@@ -190,44 +190,42 @@ This section will cover the different driving mechanisms winds from low and high
 
 % Low mass main sequence
 
-Low mass stellar main sequence stellar winds are quite paltry for an astrophysical phenomenon, the sun, for instance, drives thin, comparatively slow winds, with a mass loss rate of $\sim 10^{-14}$ \si{\solarmass\per\year} and a terminal velocity of 400 \si{\kilo\metre\per\second}. The mechanism behind this is gas pressure from coronal heating, with outward pressure driving gas within stellar atmosphere away from the star, this results in a transonic wind that quickly reaches its terminal velocity as the coronal temperature and subsequent pressure quickly drops off.
+Low mass stellar main sequence stellar winds are quite paltry compared to their high-mass counterparts.
+The sun, for instance, drives thin, comparatively slow winds, with a mass loss rate of \SI{1e-14}{\solarmass\per\year} and a terminal velocity of \SI{400}{\kilo\metre\per\second}.
+The mechanism behind this is gas pressure from coronal heating, with outward pressure driving gas in the stellar atmosphere away from the star, this results in a transonic wind that quickly reaches its terminal velocity as the coronal temperature and subsequent pressure quickly tapers off \parencite{lamersIntroductionStellarWinds1999}.
 
 % Short section on red dwarf winds
 
 % Off the main sequence, dust driven winds
-
 As a low mass star exits the main sequence, ballooning in size to become a red giant, the density of the stellar wind increases dramatically. 
-
 As dust condenses in the upper atmosphere of the red giant, these grains can readily adsorb photons, utilising radiation pressure to be driven away from the more luminous giant star, easily achieving escape velocity against the low surface gravity of the red giant.
-Gas is also driven away, coupled to the dust, this provides an efficient form of momentum transfer, allowing for an extremely dense albeit slow stellar wind
-
-\label{sec:dustdriven}
+Gas is also driven away, coupled to the dust, this provides an efficient form of momentum transfer, allowing for an extremely dense albeit slow stellar wind.
 
 \subsection{Stellar winds in high mass stars}
 \label{sec:radlinedriving}
 
-In the same way that high-mass stars are many orders of magnitude brighter than their low mass counterparts despite a comparatively low increase in mass, the same can be said of the density of stellar wind. A main sequence OB star typically has a mass loss rate of $10^{8}$ \si{\solarmass\per\year}, 6 orders of magnitude higher than a solar mass star.
-This discrepancy in wind density cannot be explained by stronger coronal heating, in fact, the lack of a convective envelope ensures that coronal heating is not even feasible as a driving method!
-Instead we must look towards the higher luminosities that massive stars exhibit to find a suitable mechanism.
-
-Simple radiation pressure from these stars would not be enough to explain the observed dense, highly supersonic winds emanating from these massive stars.
-
-Resonance lines were also considered, a photon with an energy equal to the excitation energy of an ion is absorbed by that ion, gaining the momentum of this ion.
-The ion subsequently de-excites over a timescale on the order of $10^{-8}$ \si{\second}, emitting a photon at a random angle relative to the radial direction, $\alpha$. The resultant change in radial velocity, $\Delta v_r$, for the adsorption of a photon at the resonance frequency $\nu_0$ is
+In the same way that high-mass stars are many orders of magnitude brighter than their low mass counterparts despite a comparatively low increase in mass, a similar correlation can be found in the density and velocity of a high-mass star's wind.
+A main sequence OB star typically has a mass loss rate of $10^{8}$ \si{\solarmass\per\year}, 6 orders of magnitude higher than a solar mass star.
+This discrepancy in wind density cannot be explained by stronger coronal heating, as the lack of a convective envelope ensures that coronal heating is not even feasible as a driving method.
+Radiation pressure alone would also not be enough to explain the observed dense, highly supersonic winds emanating from these massive stars.
+Resonance lines appeared to be a more feasible explanation, a photon with an energy equal to the excitation energy of an ion is scattered by the ion.
+The ion subsequently de-excites over a timescale of \SI{1e-8}{\second}, emitting a photon at a random angle relative to the radial direction, $\alpha$. The resultant change in radial velocity, $\Delta v_r$, for the adsorption of a photon at the resonance frequency $\nu_0$ is:
 
 \begin{equation}
   \Delta v_r = v''_r - v_r = \frac{h\nu_0}{mc} (1-\cos\alpha),
 \end{equation}
 
+\noindent
 where $v''_r$ is the radial velocity after the absorption and emission events, and $m$ is the ion mass.
-These ions are accelerated away from the star, along with the rest of the stellar wind which is coupled through Coulomb forces.
-The opacity of such resonance lines can be up to six orders of magnitude larger than the opacity of a Thomson scattering event \parencite{lamersIntroductionStellarWinds1999}. Additionally, this effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (figure \ref{fig:planck-comp}).
-O-type stars and Wolf-Rayets, however, emit much of their radiation within the UV range.
+These ions are then propelled away from the star, along with the rest of the stellar wind, as it is coupled to the ions through Coulomb forces.
+The opacity of such resonance lines can be up to six orders of magnitude larger than the opacity of a Thomson scattering event \parencite{lamersIntroductionStellarWinds1999}, making it a markedly more efficient process.
+This effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (figure \ref{fig:planck-comp}).
+O-type and Wolf-Rayet stars, however, emit much of their radiation within the UV range, due to their higher temperatures.
 
 \begin{figure}
   \centering
   \includegraphics{assets/plancks-law/plancks-law.pdf}
-  \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in table 1 of \cite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
+  \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in table 1 of \textcite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
   \label{fig:planck-comp}
 \end{figure}
 
@@ -235,7 +233,7 @@ O-type stars and Wolf-Rayets, however, emit much of their radiation within the U
 
 % Radiative line driving, this section may need to be beefed up
 
-Early computations involving resonance lines from \cite{lucy_mass_1970} provided a more reasonable mass loss rate calculation, but were still off by approximately two orders of magnitude.
+Early computations involving resonance lines from \textcite{lucy_mass_1970} provided a more reasonable mass loss rate calculation, but were still off by approximately two orders of magnitude.
 Building off of the work by Lucy \& Solomon, a vital paper in the solidification of radiative lines as the main driving mechanism behind massive star outflows was produced by Castor, Abbott and Klein\footnote{Hereafter abbreviated as CAK.}.
 The CAK formalism calculated reasonably close wind velocities, while being accurate to within a factor of 3 for mass loss rates \parencite{castor_radiation-driven_1975}.
 Further work allowed for more accurate computations of the line driving effect, such as the mCAK prescription, the Sobolev approximation and the finite disk correction factor \parencite{pauldrachRadiationdrivenWindsHot1986}.
@@ -258,16 +256,16 @@ This outsized influence on the local medium can be seen in the production of eje
   % \resizebox{\textwidth}{!}{%
   \begin{tabular}{cccc}
   \hline
-  \multicolumn{1}{c}{Star} & \multicolumn{1}{c}{$\dot M$} & \multicolumn{1}{c}{$v_\infty$} & \multicolumn{1}{c}{Mechanism} \\
-  \multicolumn{1}{c}{}     & \multicolumn{1}{c}{$\si{\solarmass\per\year}$}         & \multicolumn{1}{c}{$\si{\kilo\metre\per\second}$}           & \multicolumn{1}{c}{}          \\ \hline
+  \multicolumn{1}{c}{Classification} & \multicolumn{1}{c}{$\dot M$} & \multicolumn{1}{c}{$v_\infty$} & \multicolumn{1}{c}{Mechanism} \\
+  \multicolumn{1}{c}{}     & \multicolumn{1}{c}{\si{\solarmass\per\year}}         & \multicolumn{1}{c}{\si{\kilo\metre\per\second}}           & \multicolumn{1}{c}{}          \\ \hline
   Sun            & $10^{-14}$        & 400  & Thermal heating \\
-  Pre Main Sequence & $10^{-4}-10^{-7}$ & 200-500 & Rotation \& magnetic fields \\
+  PMS & $10^{-4}-10^{-7}$ & 200-500 & Rotation \& magnetic fields \\
   Red Giant      & $10^{-7}-10^{-9}$ & 30   & Radiation pressure on dust grains        \\
   OB Star        & $10^{-7}-10^{-8}$ & 2500 & Radiation pressure \& line driving      \\
   Wolf-Rayet     & $10^{-5}$         & 1500 & Radiation pressure \& line driving       \\ \hline
   \end{tabular}%
   % }
-  \caption[Stellar wind comparison]{Comparison winds emitted from various types of star.}
+  \caption[Stellar wind comparison]{Comparison of stellar winds emitted from various classification of star.}
   \label{tab:windcomp}
 \end{table}
 
@@ -296,10 +294,6 @@ This outsized influence on the local medium can be seen in the production of eje
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
 
-% Introduction 
-
-
-% //TODO Cannot get into the groove of this paragraph, please fix this future Joe
 Colliding Wind Binaries (abbreviated hereon to CWBs), in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
 Unfortunately, the simplicity of the systems ends here, CWB systems are very poorly understood phenomena, due to a variety of factors that this section will discuss.
 
@@ -310,80 +304,129 @@ Unfortunately, the simplicity of the systems ends here, CWB systems are very poo
 Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright and variable thermal X-ray sources.
 Many of these early galactic X-ray sources were found to be compact objects, and many more contained the characteristic spectral lines of a Wolf-Rayet star.
 While single Wolf-Rayet stars are capable of producing X-ray emission, this is typically much dimmer than what was being observed 
-\parencite{oskinovaXrayEmissionSingle2015,sewardXraysEtaCarinae1979}.
-
-
+\parencite{sewardXraysEtaCarinae1979}.
 
 The existence of CWB systems were independently proposed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, 
+they proposed that significant and variable X-ray flux would result from the collision between two stellar winds, as these winds collide the gas becomes shocked and heated to temperatures on the order of \SI{1e8}{\kelvin}, hot enough to emit an appreciable quantity of X-rays.
+The X-ray variability can also be explained as a result of the orbital properties of the systems, X-ray variability would result from the following effects:
+% This may need to be expanded on or changed
+\begin{itemize}
+  \item Eccentricity in the orbits of the systems, leading to differing shock intensity and changing of the shock geometry, changing the fraction of the winds being shocked.
+  \item Edge-on orbits resulting occlusion of X-rays by the stellar wind from each star. 
+  \item Face-on orbits resulting in photospheric eclipses.
+\end{itemize}
 
-
-
-
-
-
-these systems were found to contain a close binary system, consisting of an evolved WR star and an OB counterpart, as their winds collide, a strong shock forms, heating the winds to temperatures in the order of $10^8$ \si{\kelvin} in the immediate post-shock environment, these extreme temperatures ad the large quantity of shocked material accounted for the extremely bright thermal x-ray emission. The evidence was further compounded as the variation of the x-ray flux could be attributed to orbital motion of these binary systems.
+\noindent
+Such effects could not be produced within a single star system \parencite{pittard_x-ray_1999}.
+Further research by \textcite{pollockEinsteinViewWolfRayet1987} also found that single WR stars were typically faint, with the brightest X-ray emitting WR stars being confirmed to within massive binaries.
+WR+OB systems were also found to be the brightest of such objects, while OB+OB binaries with significant X-ray flux were observed, these were typically less luminous.
 
 % Early work categorising, using gamma 2 vel and V444Cyg
 
-Early 
-
+Early work was more concerned with X-ray observation, in particular the systems $\gamma^2$ Velorum and V444 Cygni, which were noted in particular as prototypical CWB systems by \textcite{prilutskii_x_1976}.
 % Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
-
-Further research by \textcite{pollockEinsteinViewWolfRayet1987} found that that while all 
-
-% Formation 
-
+Later, infrared observations of these systems found another, more curious attribute, a significant excess correlating to dust formation around these systems \parencite{williamsInfraredPhotometryLatetype1987}.
+This will be discussed in more detail later in this section, but needless to say this phenomena is puzzling, as fragile grains of interstellar dust would not survive for long in the outflow of a WC star, due to the high wind temperatures and immense UV flux.
+Because of this, dust growth was speculated, and later confirmed, to occur within the Wind Collision Region, the topic of the next section of this thesis.
 
 \subsection{The Wind Collision Region}
 \label{sec:wcr}
 
 \begin{figure}
   \centering
-  \includegraphics[width=3in]{assets/eichler-diagram/cwb-diagram.png}
+  \includegraphics[width=3in]{assets/cwb-diagrams/eichler.png}
   \caption[\textit{A diagram of the Wind Collision Region \parencite{eichler_particle_1993}}]{A diagram of a typical Wind Collision Region inside a WR+OB CWB system. The $S_1$ and $S_2$ surfaces denote the shock waves from the primary and secondary winds respectively, and $C$ denotes the contact surface. The surfaces $\widetilde{S}_1$, $\widetilde{S}_2$ and $\widetilde{C}$ represent conic approximations of their corresponding surfaces at intermediate distances from the OB star. The region of stellar wind collision is hatched in the bottom diagram \parencite{eichler_particle_1993}.}
   \label{fig:wcr-diagram}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=6in]{assets/cwb-diagrams/eta.png}
+  \caption[Comparison of wind momentum ratio, $\eta$, on WCR strtucture]{2D axisymmetric hydrodynamical simulations of CWB systems with wind momentum ratios of \num{1}, \num{0.1} and \num{0.001}. Momentum ratio is varied by changing the mass loss rate of the second star, $\dot{\text{M}}_2$. As $\eta$ decreases, the WCR begins to wrap itself around the secondary star.}
+  \label{fig:wcr-eta}
+\end{figure}
+
 % What is this region
-The Wind Collision Region\footnote{WCR} is the most violent and turbulent region of a CWB system, a region where strong shocks lead to temperatures in excess of $10^8$ $\si{\kelvin}$.
-These strong shocks contain enormous amounts of mechanical energy, in the region of $10^3$ $\si{\solarluminosity}$, WCRs are engines capable of producing huge quantities radiation through multiple thermal and non-thermal mechanisms \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
-Despite these extreme conditions, these regions are capable of producing amorphous carbon dust grains at a rate on the order \num{1e-8} \si{\solarmass\per\year}.
-As these grains are extremely fragile, this is a conundrum that has plagued researchers in this field, as direct observation of the innermost regions of even nearby WCRs is difficult, bordering on impossible, much of the work in this area involves hydrodynamical simulation.
+The Wind Collision Region (WCR) is the most violent and turbulent region of a CWB system, a region of high densities and even higher temperatures.
+If the interacting stellar winds are dense as they begin to interact, a shocked region of plasma in excess of \SI{1e8}{\kelvin} is formed, the winds rapidly decelerate from hypersonic to subsonic, liberating an enormous amount of mechanical energy, on the order of \SI{1e3}{\solarluminosity}.
+As previously discussed, this is the engine that drives the significant X-ray flux observed by astronomers in the 1970s, as well as other thermal and non-thermal emissions from the UV up to gamma rays \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
+As wind enters from either side of the wind collision region, it passes through a shock wave, and flows towards the centre of the wind collision region at the contact discontinuity, $C$ (figure \ref{fig:wcr-diagram}).
+The wind behind the shock is driven by a combination of thermal pressure from the outflowing stellar wind, as well as the significant momentum the wind carried before being shocked \parencite{stevens_colliding_1992}.
 
-% Properties of region
-
-%//TODO This needs a lot of work, writing equation sections is boring
-
-% Equations
-The properties of the WCR can be described by a small number of parameters.
-The first of such parameters is the wind momentum ratio, $\eta$, which describes the available \parencite{usov_stellar_1991}.
-
+The geometry of the WCR is influenced strongly by the wind parameters of both stars, the most important of which is the wind momentum ratio, or $\eta$, which we define as:
 
 \begin{equation}
-  \eta = \frac{\dot M_\text{OB} v_\infty^\text{OB}}{\dot M_\text{WR} v_\infty^\text{WR}},
+  \eta = \frac{\dot M_\text{OB} v^\infty_\text{OB}}{\dot M_\text{WR} v^\infty_\text{WR}},
 \end{equation}
 
-%Theres a particular paper on improved analytical observations 
+\noindent
+where $\dot{\text{M}}_\text{WR}$ and $v^{\infty}_\text{WR}$ denotes the mass loss rate and wind terminal velocity of the primary, typically Wolf-Rayet star and $\dot{\text{M}}_\text{OB}$ and $v^{\infty}_\text{OB}$ denotes the mass loss rate and wind terminal velocity of the OB partner \parencite{usov_stellar_1991}.
+A lower value of $\eta$ indicates a more unbalanced wind, with wind momentum ratio of \num{0.01} or lower being common for a typical WR+OB system.
+Additionally, if $\eta = 1$, we observe a sheet of interacting plasma flowing away from the system perpendicular to the orbital plane.
+In the case of a system where one stars momentum is significantly larger than the other, we observe the WCR extend and envelop the OB star, forming an approximately conical surface extending away from the Wolf-Rayet star (figure \ref{fig:wcr-eta}).
 
-This momentum ratio can also be used to estimate the distance of the apex of the WCR to each star, using the following equations:
+
+As the wind becomes more and more imbalanced, the contact discontinuity moves closer to the OB partner, this can be estimated with the equation:
 
 \begin{equation}
-  r_\text{WR} = \frac{1}{1+\eta^{1/2}} , ~~~ r_\text{OB} = \frac{\eta^{1/2}}{1+\eta^{1/2}},
+  r_\text{WR} = \frac{1}{1+\eta^{1/2}} d_\text{sep} , ~~~ r_\text{OB} = \frac{\eta^{1/2}}{1+\eta^{1/2}} d_\text{sep} ,
 \end{equation}
 
-where $r_{WR}$ is the distance from the WR star to the WCR apex, and $r_\text{OB}$ is the distance from the OB star to the WCR apex.
-Work by \cite{eichler_particle_1993} goes further to utilise the momentum ratio to approximate the shape of the wind collision region, further out from the apex of the WCR, the region forms an approximately conical shape with an opening angle, $\theta_c$ of:
+\noindent
+where $r_{WR}$ is the distance from the WR star to the contact discontinuity, $r_\text{OB}$ is the distance from the OB star to the contact discontinuity and $d_\text{sep}$ is the orbital separation distance of the stars.
+
+% Conic approximation
+
 
 \begin{equation}
   \theta_c \simeq 2.1 \left(1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3}, ~~ \text{for } 10^{-4} \leq \eta \leq 1, \label{eq:conic}
 \end{equation}
 
+% Wind shock factor, see Julians paper
+
+% Analytical expressions of the opening angle for the shocks $S_1$ and $S_2$ have been provided by \textcite{pittardCollidingStellarWinds2018}.
+% In this paper, a series of hydrodynamical simulations were performed with varying values of $\eta$, 
+% The opening angle for $C$ was found to be consistent with the solution provided by \textcite{eichler_particle_1993}, while 
+
+Work by \textcite{pittardCollidingStellarWinds2018} on determining the accuracy of opening angle expressions such as equation \ref{eq:conic} found that this approximation is accurate under the condition $\eta > 0.01$, but begins to diverge significantly if this condition is exceeded.
+This was accomplished through a series of hydrodynamical simulations with different values for $\eta$, with the resultant opening angle calculated from the fully advected simulations.
+This work goes on to derive analytical solutions to the opening angles of the conic approximations of $\widetilde{S}_1$ and $\widetilde{S}_2$, these solutions were found to be:
+
+\begin{subequations}
+  \begin{align}
+    \theta_1 & = 2 \tan^{-1} \left(\eta^{1/3}\right) + \delta \theta , \\
+    \theta_2 & = 0.658 \log_{10} \left(71.7 \eta \right) 
+  \end{align}
+\end{subequations}
+
+\noindent
+where $\delta \theta \approx \pi/9$.
+From these estimations the fraction of each wind that is shocked, $f$, can be calculated:
+
+\begin{subequations}
+  \label{eq:windshockfraction}
+  \begin{align}
+    f_1 & = \frac{1 - \cos\left(\theta_1\right)}{2} , \\
+    f_2 & = \frac{1 + \cos\left(\theta_2\right)}{2} .
+  \end{align}
+\end{subequations}
+
+\noindent
+\textcite{pittardCollidingStellarWinds2018} found that entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime typical of a WR+OB system ($0.001 \leq \eta \leq 0.01$), only $\approx 10\%$ of the WR wind is shocked (figure \ref{fig:wind-shock-factor}).
+Whilst these analytical expressions are based on adiabatic simulations, and as such do not take into account the effect of a highly radiative WCR, they are still useful for setting an upper bound on dust production rates.
+
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/wind-shock-factor/shock-factor.pdf}
+  \caption[Wind shock fraction, as a function of $\eta$]{Comparison of the opening angle of $\widetilde{S_1}$ and $\widetilde{S_2}$ as a function of $\eta$. The wind shock fraction, $f$, is also plotted. $\approx 10\%$ of the primary wind is shocked under typical WR+OB conditions, while the entire secondary wind is typically shocked.}
+  \label{fig:wind-shock-factor}
+\end{figure}
 
 % Considerations due to stagnation point flow \cite{stevens_stagnation-point_1994}
 
-% Brief notes on astrophysical shocks, link to appendix
-
 %Detailed breakdown of Wind collision region
+
+% Influence of orbital motion
 
 \subsection{Cooling in the WCR}
 \label{sec:wcrcooling}
@@ -421,9 +464,8 @@ The influence of each mechanism waxes and wanes as temperature increases, with e
 % Section on forbidden line emission
 
 The first mechanism to be discussed is forbidden line emission\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer, while initially assumed to be prohibited under the contemporary understanding of atomic physics, it is in fact just astrophysicists jumping the gun again.}.
-This process dominates the cooling process of cooler gas that is not fully ionised, where collisions with free electrons excite metals within the gas, causing them to de-excite through photon emission through these forbidden lines.
-Forbidden lines themselves arise from magnetic dipole and quadrupole fine structure states within typical energy levels, despite having a much lower probability of occurring compared to conventional energy level transitions.
-This process dominates at these temperatures as the transition energies are significantly lower, on the order of \SI{1}{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the gas.
+This process dominates the cooling process of cooler gas that is not fully ionised, where collisions with free electrons excite metallic elements within the gas, which de-excite through magnetic dipole and quadrupole fine structure state transitions.
+This process dominates at these temperatures as the transition energies are significantly lower, on the order of \SI{1}{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the surrounding gas.
 
 % Section on ionisation/recombination
 
