@@ -282,14 +282,80 @@ This outsized influence on the local medium can be seen in the production of eje
 \section{Interstellar Dust}
 \label{sec:dust}
 
-\subsection{The importance of interstellar dust}
-\label{sec:dustimportance}
+% What is interstellar dust
 
-\subsection{Interstellar dust in massive star systems}
-\label{sec:dustmassivestars}
+% Observational history
+
+% Background in interstellar dust, growth and destruction processes
+
+% General fragility
+
+% Grain types being considered, amorphous carbon grains
+
+Carbon chemistry in dust grains is particularly fascinating, 
+
+$sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been observed with characteristic emission lines, simple organic chemistry, such as hydrogenation and formaldehydes
+
+Amorphous carbon grains are defined as a mixture of $sp^2$- and $sp^3$-bonded carbon, with no structural order or polymerisation \parencite{draine_interstellar_2003}.
+These amorphous grains are the primary focus of this project, as they are the sole dust grain species observed in and around CWB systems.
+These refractory dust grains are particularly hardy, and are significantly more shock resistant than other types of dust grain 
+
+% Other grain types, PAHs, ice and silicates
+Whilst amorphous carbon grains are the focus of this project, other species of interstellar dust are abundant throughout the ISM.
+In particular, water ice, silicate grains and Polycyclic Aromatic Hydrocarbons (PAHs) are of particular note.
+
+In addition, these grains are also markedly more resistant to interstellar 
+
+\parencite{draineDestructionMechanismsInterstellar1979}.
+
+
+
 
 \subsection{Radiation processes in interstellar dust}
 \label{sec:dustcooling-background}
+
+% Diffuse emission
+Interstellar dust can be a significant factor in the cooling of its local interstellar medium through a series of continuum and line emission processes.
+Collisional excitation and adsorption of photons can stochastically heat dust grains, this excess energy is then emitted in the form of near-infrared radiation \parencite{dwekCoolingSputteringInfrared1996}.
+The radiative emittance of a dust grain can be approximated as a black body, and hence radiates in accordance with the Stefan-Boltzmann law:
+
+\begin{equation}
+  L = 4\pi r^2 \sigma T^4 , 
+\end{equation}
+
+\noindent
+where $L$ is the grain luminance, $r$ is the grain radius, $\sigma$ is the Stefan-Boltzmann constant and $T$ is the grain temperature.
+At sufficiently high gas densities this radiative process can become the dominant dominant cooling method in the ISM \parencite{wolfireNeutralAtomicPhases1995}.
+In addition to this continuum emission, emission lines can also occur if characteristic vibrational modes in a grain lattice are excited, such as the silicate grain stretching and bending vibrational modes at \SI{9.7}{\micro\metre} and \SI{18.5}{\micro\metre} \parencite[212]{whittetDustGalacticEnvironment2002}.
+
+\subsection{The importance of interstellar dust}
+\label{sec:dustimportance}
+
+We should quickly ask ourselves why any of this matters
+
+% Interstellar dust grain species
+
+Over 150 molecular species have been observed 
+
+Such complex organic molecules include benzene, acetone and ethanol, 
+
+Furthermore, there is strong evidence that the formation sites for these organic species is on the surface of interstellar dust grains, with gas-phase chemistry accounting for simple molecule formation.
+\parencite{herbstComplexOrganicInterstellar2009}
+
+% Coolant in collapsing gas clouds, stellar cycle
+Dust grains are also vitally important in the star formation cycle.
+As a Giant Molecular Cloud (GMC) collapses following perturbation, heat is generated, in the adiabatic case the increased temperature would provide a counterbalancing pressure on the collapsing cloud, forming a hydrostatic equilibrium and preventing the cloud from collapsing any further.
+In the case of extremely massive clouds, this collapse can still occur as gravity will dominate, but this equilibrium dictates the minimum mass for a cloud to collapse into a protostar.
+As such, for all but the most massive stars to form, energy must be lost in the form of radiation \parencite{ward-thompsonIntroductionStarFormation2011}.
+
+As radiative cooling from dust grains is extremely efficient in cold, dense environments, this mechanism is well-suited for the environment of a GMC.
+In addition to cooling through rotational mechanisms of simple molecules in the gas-phase of the medium, these processes sufficiently cool the GMC, allowing for further collapse.
+In addition, dust grains would also provide a replenishing source of cooling molecules such as CO and OH through non-thermal grain desorption processes.
+The presence of dust grains within a GMC therefore strongly influences the minimum mass of stars
+\parencite{williamsChemistryCosmicDust2015}.
+
+% Planetary formation
+Interstellar dust is also crucial for the formation of planets, through fairly similar mechanisms. ELABORATE.
 
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
@@ -400,7 +466,7 @@ This work goes on to derive analytical solutions to the opening angles of the co
 \end{subequations}
 
 \noindent
-where $\delta \theta \approx \pi/9$.
+where $\delta \theta$ is a small correction factor found to be $\approx \pi/9$.
 From these estimations the fraction of each wind that is shocked, $f$, can be calculated:
 
 \begin{subequations}
@@ -412,8 +478,8 @@ From these estimations the fraction of each wind that is shocked, $f$, can be ca
 \end{subequations}
 
 \noindent
-\textcite{pittardCollidingStellarWinds2018} found that entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime typical of a WR+OB system ($0.001 \leq \eta \leq 0.01$), only $\approx 10\%$ of the WR wind is shocked (figure \ref{fig:wind-shock-factor}).
-Whilst these analytical expressions are based on adiabatic simulations, and as such do not take into account the effect of a highly radiative WCR, they are still useful for setting an upper bound on dust production rates.
+\textcite{pittardCollidingStellarWinds2018} observed that the entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime $0.001 \leq \eta \leq 0.01$, only $\approx 10\%$ of the WR wind is shocked (figure \ref{fig:wind-shock-factor}).
+These expressions, while useful for describing the geometry of WCR in broad strokes, are based on adiabatic simulations with instantaneous acceleration, and thus have their limitations.
 
 \begin{figure}
   \centering
@@ -422,11 +488,11 @@ Whilst these analytical expressions are based on adiabatic simulations, and as s
   \label{fig:wind-shock-factor}
 \end{figure}
 
-% Considerations due to stagnation point flow \cite{stevens_stagnation-point_1994}
-
-%Detailed breakdown of Wind collision region
-
 % Influence of orbital motion
+Orbital motion is also a significant factor in the geometry of a WCR, as the stars orbit each other the WCR curves and wraps around the system, as the angle of the WCR relative to the outflow from the system is constantly changing.
+The conical approximation as described in \textcite{eichler_particle_1993} was found to be valid to a distance of $r_\text{OB} \ll r \ll (P v^\infty_\text{WR})/2$, where $P$ is the orbital period.
+In systems with a short orbital period, this can result in the production of a pinwheel-like structure as the WCR extends away from the stars.
+In particular, the systems WR104 and WR98a produce easily observable pinwheel structures, especially in the infrared.
 
 \subsection{Cooling in the WCR}
 \label{sec:wcrcooling}

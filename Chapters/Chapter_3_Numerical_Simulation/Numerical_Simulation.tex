@@ -166,16 +166,14 @@ This decision was made in mid-2020, by the end of 2020 the problem generators we
 \label{sec:athenapp}
 
 The \athena{} hydrodynamical code (\link{https://github.com/PrincetonUniversity/athena}) was found to be a much more suitable fit for this project.
-As documented in \textcite{stoneAthenaAdaptiveMesh2020}, \athena{} is a total re-write of the older Athena MHD code in \texttt{C++} with a focus on implementing Adaptive Mesh Refinement, source code clarity, modularity, and generally improved performance. 
-This clarity and modularity allows for a 
-
-% General schema
-
-As previously stated, 
-
-A problem 
-
-This problem generator is defined before compile-time, with a configuration script generating the required makefiles for \athena{} for the specific problem, this ensures that only the required problem files are included in compilation, preventing any accidental overloading of function names or compiler issues, essential in a complex project with many different problem generators, this also allows for switching between different versions of a problem without complication, requiring only a quick reconfiguration and recompilation to change problem. 
+\athena{} is a total re-write of the older Athena MHD code in \texttt{C++} with a focus on implementing Adaptive Mesh Refinement, source code clarity, modularity, and generally improved performance \parencite{stoneAthenaAdaptiveMesh2020}. 
+This clarity and modularity allowed us to port over our dust model from \mg{} to \athena{} in a few months.
+% Problem generators 
+This modularity is best exemplified by the use of ``problem generators'' to define a specific hydrodynamical problem.
+% issue with MG, code portability and modularity
+A problem generator is a \texttt{C++} file that is included at compile-time, containing the initialisation conditions, run-time functions, source terms and refinement conditions needed to generate and simulate a hydrodynamical problem.
+As problem generator is defined at compile-time this ensures that only the required problem files are included in compilation, preventing any accidental overloading of function names or compiler issues.
+This also allows for switching between different versions of a problem without complication, requiring only a quick reconfiguration and recompilation to change problem. 
 
 Multiple time-integration and spatial reconstruction methods have been implemented into \athena{}, which requires essentially zero modification on the user's end, a startling revelation coming from other numerical codes.
 Time-integration method vary from a computationally simple \nth{2} order van Leer \parencite{vanleerUltimateConservativeDifference1979} method to strong stability preserving methods \parencite{ruuthHighOrderStrongStabilityPreservingRungeKutta2005} to super time-stepping Runge-Kutta-Legendre \parencite{meyerStabilizedRungeKuttaLegendreMethod2014} methods;
@@ -185,39 +183,47 @@ In this project, either the \nth{3} order accurate strong stability preserving R
 The \texttt{rk3} method was found to be more than twice as fast as the \texttt{ssprk5\_4} method in the case of a CWB system, though could crash in the cases of rapid cooling and dust production, if a simulation crashed multiple times the simulation would be altered to use \texttt{ssprk5\_4}. 
 The Riemann solver can also be changed at compile-time, however this was left to the default solver, the Harten-Lax-van Leer-Contact (HLLC) solver \parencite{toroRestorationContactSurface1994}.
 
+\begin{table}[]
+  \centering
+  \begin{tabular}{cccc}
+  \hline
+  Integrator & Elapsed Time & Relative Time & $\tau_f$ \\ \hline
+  \texttt{rk3}       & \SI{1444.6}{\second} & 100.0\% & \SI{5.467E+05}{\second}\\
+  \texttt{ssprk5\_4} & \SI{2352.4}{\second} & 163.1\% & \SI{5.542E+05}{\second}\\ \hline
+  \end{tabular}
+  \caption{Time elapsed}
+  \label{tab:rkssprkcomparison}
+\end{table}
+
+
 % Meshblock system
 
-Part of 
-
+One of the reasons outside of stability for choosing \athena{} was its very high parallel performance, the problem is divided into a regular array of sub-volumes containing $X \times Y \times Z$ cells.
+This array, referred to as a ``meshblock'' is then distributed to a processing node available to the programme to calculate the next time-step.
+The meshblocks are encoded in a tree structure, in the 3D case an octree \parencite{stoneAthenaAdaptiveMesh2020}, as the relationship between parent and child blocks must be preserved for mesh refinement to work.
 %Check this is correct, based on notes from year 2
 This is in comparison to the linked-list method of distribution which is used in \mg{}, which is not performant in distributed multiprocessing systems such as ARC, as this can result in lots of communication of relatively small packets between nodes as a time-step is being calculated, reducing performance significantly due to bandwidth and latency constraints.
 This meshblock system does have is drawbacks, however, time-stepping is synchronous, and bound to the width of the lowest level, this is not the case in \mg{}, where multiple sub-steps are performed on lower levels, which are processed first, with the coarsest levels running on a single step.
 This method is much faster but can result in significant divergence from a synchronous method.
-
-this can be slower in some cases, however in the case of a simulation such as this, with hypersonic winds and rapid cooling, a small time-step would typically need to occur anyway.
-
-
-% Refinement
-
-
-
-This is covered in more detail in the next section (section \ref{sec:refinement}).
+Whilst a synchronous timestep can be slower in some cases, in the case of a simulation with hypersonic winds and rapid cooling a small time-step would typically need to occur anyway.
 
 % Multi-core and parallelisation
 
 \athena{} is highly parallel and utilises the OpenMP and OpenMPI software libraries in order \footnote{Sadly, the engineers at Intel who worked on the Netburst architecture were \href{https://web.archive.org/web/20210412001459/https://www.anandtech.com/show/680/6}{wrong}, processors can't easily scale up to dozens of \si{\giga\hertz}, instead, multiple cores have to be used, making high performance code that much harder to write.}
-%
-Meshblocks are distributed to processor cores 
 % OpenMPI
 In the case of a simulation that requires more cores than a single computer can provide, OpenMPI is used to distribute meshblocks between nodes in a HPC\footnote{High Performance Compute} cluster, whilst this can introduce bottlenecks due to the comparatively slow networking between nodes, this allows for thousands of cores to be used, rather than dozens.
 % Both in concert
 
 % Ghost cells
 In order to prevent numerical errors from occurring between the interfaces between meshblocks, ``ghost cells'', cells from adjacent meshblocks copied into the current meshblock, are used.
-%//TODO this needs some work
-
+In this work, the two outermost layers of cells in a meshblock are distributed along with the adjacent meshblocks to processing nodes, which represents a substantial memory saving compared to the all processing nodes having the entire problem stored in memory.
 % Briefly discuss parallel performance
+In our case, using \athena{} with the ARC4 HPC was found to be performant up to \num{192} cores, with diminishing returns with additional cores.
+Typically, \num{128} cores were used for each simulation, as this represented a good trade-off in processing throughput and node availability, as ARC4 is a heavily utilised resource.
+Calculating the parallel fraction of \athena{} using a distributed computing cluster such as ARC4 proved to be difficult, as node locations in the network could not be taken into account.
+A fork of \athena{} that utilises GPGPU acceleration has been developed, and boasts an even higher performance compared to the more traditional CPU bound \athena{}, however, this was not used due to the scarcity of GPGPU compute nodes in ARC \parencite{greteKAthenaPerformancePortable2020}.
 
+% Jumpcannon parallel performance? 
 
 \section{Mesh Refinement}
 \label{sec:refinement}
@@ -805,6 +811,9 @@ The primary focus of this project was to implement a dust model within a numeric
 \subsection{BODMAS features}
 
 \subsection{Implementation}
+
+% Initial grain size 50 angstrom
+\parencite{dwekCoolingSputteringInfrared1996}
 
 The most processing efficient method of 
 

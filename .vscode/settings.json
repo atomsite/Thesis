@@ -1,5 +1,5 @@
 {
-  "latex-workshop.latex.recipe.default": "pdflatex -> biber -> pdflatex*2",
+  "latex-workshop.latex.recipe.default": "latexmk + wordcount",
   "cSpell.words": [
     "metallicity"
   ],
