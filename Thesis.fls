@@ -1715,6 +1715,11 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/ms
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eurm5.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmri10.tfm
+INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtt9.tfm
 INPUT ./Abstract/abstract.tex
 INPUT ./Abstract/abstract.tex
 INPUT ./Abstract/abstract.tex
@@ -1729,10 +1734,6 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT ./Thesis.toc
 INPUT Thesis.toc
 INPUT Thesis.toc
-INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
-INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
-INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
-INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ot1lmtt.fd
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtt10.tfm
 OUTPUT Thesis.toc
 INPUT ./Thesis.lof
@@ -1818,6 +1819,11 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/tex/latex/lm/ts1lmr.fd
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/ts1-lmr10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/ts1-lmr8.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/ts1-lmr6.tfm
+INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
+INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
+INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
+INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
+INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
@@ -1848,7 +1854,6 @@ INPUT ./Chapters/Chapter_2_Background/assets/dust-electron-contribution/coll-el-
 INPUT ./Chapters/Chapter_2_Background/assets/dust-electron-contribution/coll-el-comp.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/dust-electron-contribution/coll-el-comp.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/dust-electron-contribution/coll-el-comp.pdf
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtt9.tfm
 INPUT ./Chapters/Chapter_2_Background/assets/magnitudes/magnitudes.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/magnitudes/magnitudes.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/magnitudes/magnitudes.pdf

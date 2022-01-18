@@ -30,22 +30,21 @@
 
 \subsection{WR 104 as a local GRB candidate}
 
-\subsection{Research software acknowledgements}
+\section{Research software acknowledgements}
 
-GNU Parallel
-\textcite{tange_2021_5523272}
+This work was undertaken on ARC4 and ARC3, part of the High Performance Computing facilities at the University of Leeds, UK.
 
-Visit 
-\textcite{HPV:VisIt}
+A good deal of the data reduction of this thesis was conducted using the Python 3 programming language \parencite{10.5555/1593511}, in particular, the following open source modules were used extensively:
 
-NumPy
-\textcite{harris2020array}
+\begin{itemize}
+  \item \footlink{\texttt{NumPy}}{https://numpy.org/} \parencite{harris2020array}
+  \item \footlink{\texttt{Astropy}}{https://www.astropy.org/} \parencite{astropy:2013,astropy:2018}
+  \item \footlink{\texttt{Matplotlib}}{https://matplotlib.org/} \parencite{Hunter:2007}
+\end{itemize}
 
-Astropy
-\textcite{astropy:2013} \textcite{astropy:2018}
+\athena{} \parencite{athena} was also used extensively throughout the work in this thesis.
 
-Matplotlib
-\textcite{Hunter:2007}
-
-Athena++
-\textcite{athena}
+GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project, if parallel programming is difficult, sometimes the only option is to run many, \textit{many} serial programmes at once.
+Finally, this thesis was typeset with \LaTeX{}, using the {\TeX}live distribution and \texttt{latexmk} for compilation.
+It is abundantly clear that scientists the world over owe an enormous debt of gratitude to Donald Knuth and Leslie Lamport for their work on the \TeX{} and \LaTeX{} projects.
+Let's hope that the version $\pi$ update isn't coming too soon.

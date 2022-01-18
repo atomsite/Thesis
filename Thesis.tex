@@ -96,38 +96,39 @@
 \usepackage{xcolor}
 \usepackage[super]{nth} % Allows for superscripting numbers
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
+% Colour style for programming markup, using nord scheme https://www.nordtheme.com/
+\definecolor{codetext}{HTML}{2e3440}
+\definecolor{codegreen}{HTML}{a3be8c}
+\definecolor{codegray}{HTML}{d8dee9}
+\definecolor{codeblue}{HTML}{5e81ac}
+\definecolor{codeorange}{HTML}{d08770}
+\definecolor{backcolour}{HTML}{eceff4}
+\lstdefinestyle{nord}{
+    backgroundcolor=\color{backcolour},
     commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    keywordstyle=\color{codeorange},
+    numberstyle=\ttfamily\footnotesize\color{codegray},
+    stringstyle=\color{codeblue},
+    basicstyle=\ttfamily\footnotesize\color{codetext},
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2
 }
-
-\lstset{style=mystyle}
-
+\lstset{style=nord}
 
 \newcommand{\tx}{\text}
 \newcommand{\ts}{\textsuperscript}
 \newcommand{\mg}{\texttt{MG}}
 \newcommand{\athena}{\texttt{Athena++}}
 \newcommand{\link}[1]{\texttt{\href{#1}{#1}}}
+\newcommand{\footlink}[2]{\href{#2}{#1}\footnote{\texttt{\href{#2}{#2}}}}
 
 % Setup for BibLaTeX, used instead of BibTeX as it is more flexible
 \usepackage[
@@ -147,11 +148,11 @@
   backrefpages = {cited on pages},   % originally "cited on pages"
 }
 % Ensure addendums are not shown
-\AtEveryBibitem{\clearfield{note}\clearfield{addendum}} 
-\AtEveryCitekey{\clearfield{note}\clearfield{addendum}}
+\AtEveryBibitem{\clearfield{note}\clearfield{addendum}\clearfield{annotation}} 
+\AtEveryCitekey{\clearfield{note}\clearfield{addendum}\clearfield{annotation}}
 % Ensure annotations are not shown
-\AtEveryBibitem{\clearfield{note}\clearfield{annotation}}
-\AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
+% \AtEveryBibitem{\clearfield{note}}
+% \AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
 
 \linespread{1.3} %1.5 line spacing
 
@@ -166,12 +167,8 @@
 {\text{\ensuremath{\textup{R}_{\odot}}}}
 \DeclareSIUnit[]\year
 {\text{yr}}
-\DeclareSIUnit[]\megayear
-{\text{Myr}}
 \DeclareSIUnit[]\au
 {\text{AU}}
-\DeclareSIUnit[]\pc
-{\text{pc}}
 \DeclareSIUnit[]\parsec
 {\text{pc}}
 \DeclareSIUnit[]\erg

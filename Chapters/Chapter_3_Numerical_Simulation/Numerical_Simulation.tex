@@ -113,7 +113,7 @@ If a simulationist gets too far into the weeds, wielding numerical simulations l
 Colliding Wind Binaries in particular are a class of astrophysical phenomena that truly rely on numerical modelling in order to glean further understanding from them.
 The WCR is particularly difficult to observe, there is no nearby prototypical WCd system, meaning observation of fine-detail features requires extremely high angular resolution telescopes to begin with, this is compounded by the relatively small size of the region of the WCR where dust is rapidly produced.
 Whilst observing the large-scale structure of the WCR is possible with current telescopes, and clear observation of the surrounding dust cloud is possible (such as in the case of the recently discovered \textcite{callinghamAnisotropicWindsWolf2019}), observing the dust producing region is markedly more difficult.
-In the typical case of a dust producing region \SI{50}{\au} across embedded in a WCd system at a distance of \SI{3000}{\kilo\pc} an angular resolution greater than \SI{30}{\micro\arcsecond} would be required to resolve the region, ruling out even the highest resolution instrumentation.
+In the typical case of a dust producing region \SI{50}{\au} across embedded in a WCd system at a distance of \SI{3000}{\kilo\parsec} an angular resolution greater than \SI{30}{\micro\arcsecond} would be required to resolve the region, ruling out even the highest resolution instrumentation.
 As such, numerical simulation with a dust evolution model must be used to simulate the dust producing region, whilst the overall dust production rate from the simulation can be compared with observational estimates.
 This can be improved further, by the use of a radiative transfer model to model the dust production rate of the systems, however this was not feasible in the constraints of this projects timescale, but could be performed as a follow-up project.
 
@@ -165,7 +165,7 @@ This decision was made in mid-2020, by the end of 2020 the problem generators we
 \section{The \athena{} hydrodynamical code}
 \label{sec:athenapp}
 
-The \athena{} hydrodynamical code (\link{https://github.com/PrincetonUniversity/athena}) was found to be a much more suitable fit for this project.
+The \footlink{\athena{}}{https://github.com/PrincetonUniversity/athena} hydrodynamical code was found to be a much more suitable fit for this project.
 \athena{} is a total re-write of the older Athena MHD code in \texttt{C++} with a focus on implementing Adaptive Mesh Refinement, source code clarity, modularity, and generally improved performance \parencite{stoneAthenaAdaptiveMesh2020}. 
 This clarity and modularity allowed us to port over our dust model from \mg{} to \athena{} in a few months.
 % Problem generators 
@@ -259,7 +259,7 @@ Another issue with this method is multiple refinements per timestep for a cell, 
 In the case of \athena{} meshblocks are instead refined or de-refined, whilst this improves multi-threaded performance with multiple CPUs as it reduces the amount of communication required between processor nodes, this method does increase memory requirements, and is not optimal in an idealised case.
 Though, as these simulations are being performed on an HPC cluster this is optimal for our case.
 % Note current issues with adaptive mesh refinement, why static mesh refinement is suitable for this project
-Unfortunately, despite the advantages of AMR over SMR, there is a known issue with \athena{}\footnote{\link{https://github.com/PrincetonUniversity/athena/issues/365}} which prevents the use of AMR with passive scalars enabled, scalar values are not conserved properly around meshblock interfaces, which can rapidly escalate and result in physical inaccuracy and breakdown of the simulation.
+Unfortunately, despite the advantages of AMR over SMR, there is a known issue with \footlink{\athena{}}{https://github.com/PrincetonUniversity/athena/issues/365} which prevents the use of AMR with passive scalars enabled, scalar values are not conserved properly around meshblock interfaces, which can rapidly escalate and result in physical inaccuracy and breakdown of the simulation.
 As there was ultimately no time to correct this bug, the decision was made to persist with using Static Mesh Refinement (SMR) for the second papers work, despite a version of the code already being written with AMR in mind.
 
 Static Mesh Refinement operates by refining regions defined in the problem config file or code that can be refined to a higher resolution, which will progressively de-refine beyond this region until the coarse level is reached.

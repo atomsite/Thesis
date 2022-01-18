@@ -5,7 +5,7 @@ thesis_directory="$HOME/Documents/Thesis"
 # Move to working directory
 cd $thesis_directory
 # First, decompress .csv
-gunzip wordcount.csv.gz
+lzma -d  wordcount.csv.lzma
 # Get 
 datetime=`date -u +"%Y-%m-%d %H:%M:%S"`
 pagecount=`pdfinfo Thesis.pdf | grep Pages | sed 's/[^0-9]*//'`
@@ -17,7 +17,7 @@ gnuplot Scripts/plot_wordcount.gp
 pdflatex word_count.tex
 convert -density 600 -flatten word_count.pdf word_count.png
 # Zip up data
-gzip -9 wordcount.csv
+lzma -9 wordcount.csv
 # Cleanup
 rm word_count.tex
 rm word_count-inc.pdf

@@ -289,26 +289,59 @@ This outsized influence on the local medium can be seen in the production of eje
 % Background in interstellar dust, growth and destruction processes
 
 % General fragility
+Dust grains are quite fragile, and susceptible to a number of destruction mechanisms.
+% Thermal effects
+
+% Shocks
+
+% Sputtering
+Sputtering through grain-gas interactions can occur, 
+
+at temperatures above $\sim \SI{3e6}{\kelvin}$ this rate of sputtering is nearly constant, and dependent on the 
+
+\begin{equation}
+  \frac{1}{n_\text{H}} \frac{da}{dt} \approx \SI[print-unity-mantissa=true]{1e-6}{\centi\metre\cubed\micro\metre\per\year}
+\end{equation}
+
+\noindent
+for graphite grains and
+
+\begin{equation}
+  \frac{1}{n_\text{H}} \frac{da}{dt} \SI[print-unity-mantissa=true]{2e-6}{\centi\metre\cubed\micro\metre\per\year}
+\end{equation}
+
+\noindent
+for silicate grains, where $n_\text{H}$ is the gas number density
+\parencite{dwekCoolingSputteringInfrared1996}.
+In the case of a micron-sized carbon dust grain in a flow of density $n_\text{H} = \SI{1}{\gram\per\centi\metre\cubed}$ we find that the average lifespan is approximately \SI{1}{\mega\year} (figure \ref{fig:grain-lifespan}).
+
+% Collision/shattering
+Grain shattering through high velocity grain-grain collisions can also 
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/tielens-sputtering/sputter.pdf}
+  \caption[Grain lifetime comparison]{Comparison of grain lifetimes for various interstellar dust species undergoing thermal sputtering in a fast interstellar shock. Lifetime is normalised to a grain radius of \SI{1}{\micro\metre} and a flow of \SI{1}{\gram\per\centi\metre\cubed} in a shock of solar abundance. Data is derived from \nth{5} order polynomial fits provided in \textcite[Table~4]{tielens_physics_1994}.}
+  \label{fig:grain-lifespan}
+\end{figure}
+
+
+\parencite{draineDestructionMechanismsInterstellar1979}
 
 % Grain types being considered, amorphous carbon grains
 
-Carbon chemistry in dust grains is particularly fascinating, 
-
-$sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been observed with characteristic emission lines, simple organic chemistry, such as hydrogenation and formaldehydes
-
-Amorphous carbon grains are defined as a mixture of $sp^2$- and $sp^3$-bonded carbon, with no structural order or polymerisation \parencite{draine_interstellar_2003}.
-These amorphous grains are the primary focus of this project, as they are the sole dust grain species observed in and around CWB systems.
-These refractory dust grains are particularly hardy, and are significantly more shock resistant than other types of dust grain 
-
+The most important species of interstellar dust in this thesis are those containing large quantities of carbon.
+$sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been detected from their characteristic emission lines, as well as hydrocarbon chains and Polycyclic Aromatic Hydrocarbons (PAHs).
+Complex organic molecules have also also been detected in dusty environments, they are believed to have formed in the surface of dust grains, instead of forming within the ISM itself
+\parencite{herbstComplexOrganicInterstellar2009}.
+The primary dust detected in CWB systems is amorphous carbon grains, which are defined as grains with a mixture of $sp^2$- and $sp^3$-bonded carbon, with no structural order or polymerisation
+\parencite{draine_interstellar_2003}.
 % Other grain types, PAHs, ice and silicates
-Whilst amorphous carbon grains are the focus of this project, other species of interstellar dust are abundant throughout the ISM.
-In particular, water ice, silicate grains and Polycyclic Aromatic Hydrocarbons (PAHs) are of particular note.
-
-In addition, these grains are also markedly more resistant to interstellar 
-
+Other species of interstellar dust are abundant throughout the ISM; these species include water ice, silicate grains and Polycyclic Aromatic Hydrocarbons (PAHs).
+However, these grain species have not been detected in dust producing CWB systems, in part due to element depletion, as WC stars are hydrogen-depleted.
+Amorphous carbon grains are also markedly more resistant to erosion and fragmentation due to shocks than other grain types.
+They are also more resistant to thermal sputtering as well, due to their higher sublimation temperature, this resilience is vital if they are to survive in the extreme conditions of a CWB system
 \parencite{draineDestructionMechanismsInterstellar1979}.
-
-
 
 
 \subsection{Radiation processes in interstellar dust}
@@ -328,25 +361,30 @@ where $L$ is the grain luminance, $r$ is the grain radius, $\sigma$ is the Stefa
 At sufficiently high gas densities this radiative process can become the dominant dominant cooling method in the ISM \parencite{wolfireNeutralAtomicPhases1995}.
 In addition to this continuum emission, emission lines can also occur if characteristic vibrational modes in a grain lattice are excited, such as the silicate grain stretching and bending vibrational modes at \SI{9.7}{\micro\metre} and \SI{18.5}{\micro\metre} \parencite[212]{whittetDustGalacticEnvironment2002}.
 
+% General cooling laws
+
 \subsection{The importance of interstellar dust}
 \label{sec:dustimportance}
 
-We should quickly ask ourselves why any of this matters
+We should ask ourselves, why are dust grains important enough to merit thousands of papers, and dozens of doctoral theses?
+Over this short section we will attempt to explain in brief why dust grains so important.
 
 % Interstellar dust grain species
 
-Over 150 molecular species have been observed 
+Over 150 molecular species have been observed in the interstellar medium, with a surprisingly complex degree of organic chemistry; of the molecules with six or more atoms that have been detected, 100\% of these have been organic in nature.
+Such complex organic molecules include benzene, acetone and ethanol, this degree of complexity should not necessarily be possible in interstellar gas-phase chemistry.
+Instead, these organic species form on the surface of interstellar dust grains, with gas-phase chemistry accounting for simple molecule formation such as $\text{H}_2$ and $\text{CO}$
+\parencite{herbstComplexOrganicInterstellar2009}.
 
-Such complex organic molecules include benzene, acetone and ethanol, 
-
-Furthermore, there is strong evidence that the formation sites for these organic species is on the surface of interstellar dust grains, with gas-phase chemistry accounting for simple molecule formation.
-\parencite{herbstComplexOrganicInterstellar2009}
+The role of dust as the chemical refineries of the interstellar medium has a number of effects when it comes to star and planetary formation, as well as organic and pre-biotic chemistry throughout the universe.
+It is no understatement to say that the universe would be remarkably different if interstellar dust was not so readily abundant.
 
 % Coolant in collapsing gas clouds, stellar cycle
 Dust grains are also vitally important in the star formation cycle.
 As a Giant Molecular Cloud (GMC) collapses following perturbation, heat is generated, in the adiabatic case the increased temperature would provide a counterbalancing pressure on the collapsing cloud, forming a hydrostatic equilibrium and preventing the cloud from collapsing any further.
 In the case of extremely massive clouds, this collapse can still occur as gravity will dominate, but this equilibrium dictates the minimum mass for a cloud to collapse into a protostar.
-As such, for all but the most massive stars to form, energy must be lost in the form of radiation \parencite{ward-thompsonIntroductionStarFormation2011}.
+As such, for all but the most massive stars to form, energy must be lost in the form of radiation
+\parencite{ward-thompsonIntroductionStarFormation2011}.
 
 As radiative cooling from dust grains is extremely efficient in cold, dense environments, this mechanism is well-suited for the environment of a GMC.
 In addition to cooling through rotational mechanisms of simple molecules in the gas-phase of the medium, these processes sufficiently cool the GMC, allowing for further collapse.
@@ -355,7 +393,15 @@ The presence of dust grains within a GMC therefore strongly influences the minim
 \parencite{williamsChemistryCosmicDust2015}.
 
 % Planetary formation
-Interstellar dust is also crucial for the formation of planets, through fairly similar mechanisms. ELABORATE.
+Interstellar dust is also crucial for the formation of planets.
+Collision between refractory dust grains is the first stage of planetesimal formation, within the protoplanetary disk, low velocity collisions between micron-sized grains can occur, causing these grains to stick and rapidly accrete.
+If local region of the disk is gravitationally instable, these small grains will form a gravitationally bound cluster, and contract over time into a planetesimal, afterwards, rapid accretion of other planetesimals gives rise to the formation of both rocky planets and gas giants
+\parencite{apaiProtoplanetaryDustAstrophysical2010}.
+Dust is also a regulator of opacity, which determines the temperature structure and composition of the protoplanetary disk.
+Finally, and perhaps most importantly to the reader, the complex organic molecules produced in the dust grain are pre-biotic precursors to life
+\parencite{birnstielDustEvolutionFormation2016}.
+
+As the role of interstellar dust in star and planet formation, as well as the long-term implications of the formation of life in the universe are \textit{slightly} out of the scope of this project, I will stop here, but it is always interesting to consider the repercussions of the topics that you research.
 
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
@@ -378,7 +424,7 @@ The X-ray variability can also be explained as a result of the orbital propertie
 % This may need to be expanded on or changed
 \begin{itemize}
   \item Eccentricity in the orbits of the systems, leading to differing shock intensity and changing of the shock geometry, changing the fraction of the winds being shocked.
-  \item Edge-on orbits resulting occlusion of X-rays by the stellar wind from each star. 
+  \item Edge-on orbits resulting occlusion of x-rays by the stellar wind from each star. 
   \item Face-on orbits resulting in photospheric eclipses.
 \end{itemize}
 
