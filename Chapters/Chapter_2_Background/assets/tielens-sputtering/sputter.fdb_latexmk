@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1642528810 "sputter.tex" "sputter.pdf" "sputter" 1642528811
+["pdflatex"] 1642693273 "sputter.tex" "sputter.pdf" "sputter" 1642693273
   "/Users/py13je/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1136768653 1528 abec98dbc43e172678c11b3b9031252a ""
   "/Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -38,10 +38,10 @@
   "/Users/py13je/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1629464937 5184975 d28304f819a08f584871ba26082ba1b7 ""
   "/Users/py13je/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1629464989 2801736 4a704b36d309f1aa55103cbc5fc683e7 ""
   "/Users/py13je/texlive/2021/texmf.cnf" 1629464930 577 4c1911a7228e554c6032256d3cf5567d ""
-  "sputter-inc.pdf" 1642528809 16331 4f70f73293a89c8bf8eefa80bd73763b ""
-  "sputter.aux" 1642528811 71 a40ec6198ff4197eade850527fe0bf66 "pdflatex"
-  "sputter.tex" 1642528809 6518 cddeefe47ce7bcffea93d1f7e7f14c6d ""
+  "sputter-inc.pdf" 1642693264 17716 b741f3d67c1c3e587a5f173974a4fbf6 ""
+  "sputter.aux" 1642693273 71 a40ec6198ff4197eade850527fe0bf66 "pdflatex"
+  "sputter.tex" 1642693264 6605 6f65c27fa2c9cb5fa0e1a46f132ed732 ""
   (generated)
-  "sputter.aux"
-  "sputter.pdf"
   "sputter.log"
+  "sputter.pdf"
+  "sputter.aux"

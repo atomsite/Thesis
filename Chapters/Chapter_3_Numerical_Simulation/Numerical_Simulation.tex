@@ -815,11 +815,74 @@ The primary focus of this project was to implement a dust model within a numeric
 % Initial grain size 50 angstrom
 \parencite{dwekCoolingSputteringInfrared1996}
 
+% Advected grain method
+
 The most processing efficient method of 
+
+
+The dust content of the system can be defined in the form of 
+
+$a$ and $z$
 
 % Co-moving, drawbacks in general
 
 This method does have its drawbacks, principally, the advected scalar method cannot simulate grain-grain or grain-gas interactions with high relative velocities, such as interactions within the wind collision region, where 
+
+
+
+% Calculations
+
+Dust grains are assumed to be spherical, as atoms accrete or sputter from the surface of the grain, this corresponds to a change in grain radius, $da/dt$, this can be extrapolated to find the change in grain density with the formulae:
+
+\begin{subequations}
+  \begin{align}
+    \frac{dV\rms{gr}}{dt} & = 4 \pi a^2 \frac{da}{dt} ,\\
+    \frac{dm\rms{gr}}{dt} & = \rho\rms{gr} \frac{dV\rms{gr}}{dt} ,\\
+    \frac{d\rho\rms{d}}{dt}   & = n\rms{d} \frac{dm\rms{gr}}{dt} ,
+  \end{align}
+\end{subequations}
+
+where $dV\rms{gr}/dt$ and $dm\rms{gr}/dt$ are the change in grain volume 
+
+at the end of every time step, 
+
+
+% Sputtering rate
+
+
+% Grain destruction rate
+
+
+% What occurs at what temperature
+
+Grain accretion in this model occurs at temperatures from \SI{1e4}{\kelvin} to \SI{1.4e4}{\kelvin},
+
+
+% Integration and changing of values
+
+
+$da/dt$ and $d\rho\rms{d}/dt$ are then integrated across the simulation time-step using the Euler method, as the time-scale of dust accreting in significant quantities is much smaller than the time-scale of a single step.
+
+
+The grain radius scalar is recalculated using following formula:
+
+\begin{equation}
+  a\rms{new} = a\rms{old} + \Delta a\rms{accretion} - a\rms{sputter},
+\end{equation}
+where $a\rms{old}$ is the pre-timestep grain radius, 
+
+
+
+The new gas density in the cell is then recalculated using the formulae:
+
+\begin{equation}
+  \rho\rms{g,new} = \rho\rms{g,old} + \Delta\rho\rms{d,sputter} - \Delta\rho\rms{d,accretion},
+\end{equation}
+
+\noindent
+$\Delta\rho\rms{d,sputter}$ and $\Delta\rho\rms{d,accretion}$ are the changes in dust density due to sputtering and grain-gas accretion respectively.
+Finally, the scalars $z$ is recalculated for the new dust and gas densities.
+
 
 \subsection{Contemporary dust Models}
 

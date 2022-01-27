@@ -84,6 +84,9 @@
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{spreadtab}
 
+% Hyphen texttt{}
+\usepackage[htt]{hyphenat}
+
 % Define block styles
 \tikzstyle{decision} = [diamond, draw, fill=blue!20, 
     text width=8em, text badly centered, inner sep=0pt]
@@ -123,12 +126,19 @@
 }
 \lstset{style=nord}
 
+% Text macros
 \newcommand{\tx}{\text}
 \newcommand{\ts}{\textsuperscript}
 \newcommand{\mg}{\texttt{MG}}
 \newcommand{\athena}{\texttt{Athena++}}
 \newcommand{\link}[1]{\texttt{\href{#1}{#1}}}
 \newcommand{\footlink}[2]{\href{#2}{#1}\footnote{\texttt{\href{#2}{#2}}}}
+
+% Math macros 
+\newcommand{\swr}{\ensuremath{_{\text{WR}}}}
+\newcommand{\sob}{\ensuremath{_{\text{OB}}}}
+\newcommand{\rms}[1]{\ensuremath{_\text{#1}}}
+\newcommand{\mdot}{\ensuremath{\dot{\text{M}}}}
 
 % Setup for BibLaTeX, used instead of BibTeX as it is more flexible
 \usepackage[
@@ -137,22 +147,25 @@
   backend=biber,    % Use biber to process citations
   bibencoding=utf8, % Ensure UTF8 encoding for fancy characters
   url=false,        % Don't show URLs
-  doi=false,        % Don't show DOIs
-  isbn=false        % Don't show ISB numbers
+  doi=true,        % Don't show DOIs
+  isbn=true        % Don't show ISB numbers
 ]{biblatex}
 % Point biber towards bibliography
 \addbibresource{References/library-biblatex.bib} 
 % Sylistic changes to bibliography 
 \DefineBibliographyStrings{english}{
-  backrefpage = {cited on page},     % originally "cited on page"
-  backrefpages = {cited on pages},   % originally "cited on pages"
+  backrefpage = {cit. p.},     % originally "cited on page"
+  backrefpages = {cit. p.},   % originally "cited on pages"
 }
+\DeclareFieldFormat{doi}{\\ \footnotesize{DOI: \texttt{\href{https://doi.org/#1}{#1}}}}
+% \DeclareFieldFormat{url}{\\ \footnotesize{URL: \texttt{\url{#1}}}}
+
 % Ensure addendums are not shown
 \AtEveryBibitem{\clearfield{note}\clearfield{addendum}\clearfield{annotation}} 
 \AtEveryCitekey{\clearfield{note}\clearfield{addendum}\clearfield{annotation}}
 % Ensure annotations are not shown
-% \AtEveryBibitem{\clearfield{note}}
-% \AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
+\AtEveryBibitem{\clearfield{note}}
+\AtEveryCitekey{\clearfield{note}\clearfield{annotation}}
 
 \linespread{1.3} %1.5 line spacing
 
@@ -175,6 +188,7 @@
 {\text{erg}}
 \DeclareSIUnit[]\arcsecond
 {\text{as}}
+\DeclareSIUnit[]\angstrom{\textup{\AA}}
 
 
 

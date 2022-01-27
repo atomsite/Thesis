@@ -12,7 +12,7 @@ set ylabel '$\tau$ (yr $\mu$m cm$^{-3}$)'
 
 set key outside
 
-set yrange [1e4:1e8]
+set yrange [1e4:1e9]
 
 # set grid x y mx my
 

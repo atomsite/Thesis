@@ -288,49 +288,66 @@ This outsized influence on the local medium can be seen in the production of eje
 
 % Background in interstellar dust, growth and destruction processes
 
-% General fragility
-Dust grains are quite fragile, and susceptible to a number of destruction mechanisms.
-% Thermal effects
+% Growth processes
 
-% Shocks
+Dust, particularly in the case of small grains, is more of a loose collective of atoms and molecules held together by molecular bonds
 
-% Sputtering
-Sputtering through grain-gas interactions can occur, 
 
-at temperatures above $\sim \SI{3e6}{\kelvin}$ this rate of sputtering is nearly constant, and dependent on the 
+While the largest dust grains can be on the order of centimetres, in the case of protoplanetary disks, the typical grain size we will be 
+
+\parencite{krugel_physics_2002}
+
+Cores of dust grains typically condense rapidly, 
+
+these refractory cores are very small, on the order of \SI{50}{\angstrom}, around which dust grains can accrete material 
+
+Low velocity mergers of dust grains can also occur, below a critical velocity these grains
+
+the critical velocity is typically higher for smaller grains, 
+
+\parencite{chokshiDustCoagulation1993}
+
+At higher collision velocities these grains can simply bounce off of each other, doing no appreciable damage.
+At high energies still these grains can shatter and fragment each other, which in the case of high velocity shocks with large grains can result in the grains being completely pulverised, turning from an accretion process to the principle cause of dust destruction
+\parencite{jonesGrainShatteringShocks1996,jonesDustDestructionProcesses2004}.
+
+The principle causes of puttering through grain-gas interactions can occur, 
+
+Grain destruction is dominated by gas-grain sputtering at all temperatures in shocks, with fast enough 
 
 \begin{equation}
-  \frac{1}{n_\text{H}} \frac{da}{dt} \approx \SI[print-unity-mantissa=true]{1e-6}{\centi\metre\cubed\micro\metre\per\year}
+  \frac{1}{n\rms{g}} \frac{da}{dt} = \tau 
 \end{equation}
 
 \noindent
-for graphite grains and
-
-\begin{equation}
-  \frac{1}{n_\text{H}} \frac{da}{dt} \SI[print-unity-mantissa=true]{2e-6}{\centi\metre\cubed\micro\metre\per\year}
-\end{equation}
-
-\noindent
-for silicate grains, where $n_\text{H}$ is the gas number density
+where $n\rms{g}$ is the gas number density and $\tau$ is the normalised sputtering rate.
+$\tau$ is nearly constant at temperatures above \SI{3e6}{\kelvin}, and is found to be approximately \SI[print-unity-mantissa=true]{1e-6}{\centi\metre\cubed\micro\metre\per\year} for carbon grains and \SI{2e-6}{\centi\metre\cubed\micro\metre\per\year} for silicates
 \parencite{dwekCoolingSputteringInfrared1996}.
-In the case of a micron-sized carbon dust grain in a flow of density $n_\text{H} = \SI{1}{\gram\per\centi\metre\cubed}$ we find that the average lifespan is approximately \SI{1}{\mega\year} (figure \ref{fig:grain-lifespan}).
-
-% Collision/shattering
-Grain shattering through high velocity grain-grain collisions can also 
+In the case of a micron-sized carbon dust grain in a flow of density $n_\text{H} = \SI{1}{\gram\per\centi\metre\cubed}$ we find that the average grain lifespan is $\sim \SI{1}{\mega\year}$ (figure \ref{fig:grain-lifespan}).
+Below \SI{3e6}{\kelvin} we find that the sputtering rate tapers off drastically as the gas cools, reaching $\sim \SI{1}{\giga\year}$ below \SI{1e5}{\kelvin}
+\parencite{tielens_physics_1994}.
 
 \begin{figure}
   \centering
   \includegraphics{assets/tielens-sputtering/sputter.pdf}
-  \caption[Grain lifetime comparison]{Comparison of grain lifetimes for various interstellar dust species undergoing thermal sputtering in a fast interstellar shock. Lifetime is normalised to a grain radius of \SI{1}{\micro\metre} and a flow of \SI{1}{\gram\per\centi\metre\cubed} in a shock of solar abundance. Data is derived from \nth{5} order polynomial fits provided in \textcite[Table~4]{tielens_physics_1994}.}
+  \caption[Grain lifetime comparison]{Comparison of grain lifetimes for various interstellar dust species undergoing thermal sputtering in a fast interstellar shock. Lifetime is normalised to a grain radius of \SI{1}{\micro\metre} and a flow of \SI{1}{\gram\per\centi\metre\cubed} in a shock of solar abundance. Data is derived from \nth{5} order polynomial fits calculated in \textcite[Table~4]{tielens_physics_1994}.}
   \label{fig:grain-lifespan}
 \end{figure}
 
+% Collision/shattering
+Grain shattering through high velocity grain-grain collisions can also occur, though this is a less significant process in the case of small dust grains.
+A myriad of other dust destruction processes exist, such as electron-grain and cosmic ray-grain interaction, but these are considered to be out of the scope of this project, and not influential in the case of a hot gas or dense post-shock environment
+\parencite{jonesDustDestructionProcesses2004}.
 
-\parencite{draineDestructionMechanismsInterstellar1979}
+Outside of shocks, dominant destruction processes include thermal and photo-dissociation methods.
+UV light emitted from stars emitted from 
+
+This of course makes the premise of our project all the more curious, with so many mechanisms underpinning dust destruction, particularly in hot, dense environments, how come we observe significant dust production in Wolf-Rayet binary systems?
+
+\subsection{Dust composition}
 
 % Grain types being considered, amorphous carbon grains
-
-The most important species of interstellar dust in this thesis are those containing large quantities of carbon.
+The most important species of interstellar dust in this thesis are those composed of carbon.
 $sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been detected from their characteristic emission lines, as well as hydrocarbon chains and Polycyclic Aromatic Hydrocarbons (PAHs).
 Complex organic molecules have also also been detected in dusty environments, they are believed to have formed in the surface of dust grains, instead of forming within the ISM itself
 \parencite{herbstComplexOrganicInterstellar2009}.
@@ -342,7 +359,6 @@ However, these grain species have not been detected in dust producing CWB system
 Amorphous carbon grains are also markedly more resistant to erosion and fragmentation due to shocks than other grain types.
 They are also more resistant to thermal sputtering as well, due to their higher sublimation temperature, this resilience is vital if they are to survive in the extreme conditions of a CWB system
 \parencite{draineDestructionMechanismsInterstellar1979}.
-
 
 \subsection{Radiation processes in interstellar dust}
 \label{sec:dustcooling-background}
@@ -360,6 +376,8 @@ The radiative emittance of a dust grain can be approximated as a black body, and
 where $L$ is the grain luminance, $r$ is the grain radius, $\sigma$ is the Stefan-Boltzmann constant and $T$ is the grain temperature.
 At sufficiently high gas densities this radiative process can become the dominant dominant cooling method in the ISM \parencite{wolfireNeutralAtomicPhases1995}.
 In addition to this continuum emission, emission lines can also occur if characteristic vibrational modes in a grain lattice are excited, such as the silicate grain stretching and bending vibrational modes at \SI{9.7}{\micro\metre} and \SI{18.5}{\micro\metre} \parencite[212]{whittetDustGalacticEnvironment2002}.
+
+\textit{Discuss the mathematics of this in more detail.}
 
 % General cooling laws
 
@@ -569,9 +587,8 @@ In particular, the systems WR104 and WR98a produce easily observable pinwheel st
 
 Cooling due to radiation emission in a hot plasma can be broken down into a variety of processes that occur over series of temperature ranges.
 Ions inside a plasma can become excited through collisions or photon absorption resulting in emission of photons as the ions de-excited. 
-
 Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung \parencite{dysonPhysicsInterstellarMedium2021}.
-The influence of each mechanism waxes and wanes as temperature increases, with each mechanism dominant over a certain temperature range (table \ref{tab:coolprocess}).
+The influence of each mechanism varies over a particular temperature range, with each mechanism dominant over a certain temperature range (Table \ref{tab:coolprocess} and Fig. \ref{fig:wcsolcooling}).
 
 % Section on forbidden line emission
 
@@ -604,20 +621,69 @@ As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bre
   \label{fig:dustplasmacomparison}
 \end{figure}
 
-% Needs to be spun off into a subsection
 
-% Cooling parameter
-
-\begin{subequations}
-  \begin{align}
-    \tau_\text{cool} & = \frac{k_B T_s}{4n_w \Lambda(T_s)} \label{eq:taucool} ,\\ 
-    \tau_\text{esc}  & = \frac{d_\text{sep}}{c_s} \label{eq:tauesc} ,
-  \end{align}
-\end{subequations}
+We define an energy loss rate of a volume of gas, $\dot{E}$, which in the case of plasma cooling is calculated by the equation:
 
 \begin{equation}
-  \chi = \frac{\tau_\text{cool}}{\tau_\text{esc}} \approx \frac{v^4_{\infty,8} d_\text{sep,12}}{\dot M_{-7}} \label{eq:coolingparameter} ,
+  \frac{dE}{dt} = \left(\frac{\rho}{m\rms{H}}\right)^2 \Lambda(T) = n\rms{g}^2 \Lambda(T)
 \end{equation}
+\noindent
+where $n\rms{g}$ is the number density of the gas and $\Lambda(T)$ is the emissivity of the gas.
+The gas is assumed to be optically thin.
+
+% Needs to be spun off into a subsection
+
+Radiative cooling through plasma and dust cooling can play an extremely important role in the dynamics of the WCR.
+A more radiative WCR will typically be dominated structurally by thermal and thin-shell instabilities, leading to regions with markedly higher local gas densities.
+In addition to these instabilities, the region will overall be significantly more dense, as a radiative shock is capable of compressing gas beyond the adiabatic limit of $\rho\rms{post-shock} = 4 \rho\rms{pre-shock}$. 
+The post-shock region will also be much cooler, as gas can cool back to the initial wind temperature.
+This allows dust to form, and is perhaps the most important factor for explaining dust formation in a CWB system.
+The influence on radiative cooling varies from system to system, but the influence is determined exclusively by the wind properties and orbital separation of the system, leading to it being consistent in systems with circular orbits, and can vary significantly in the case of systems with highly elliptical orbits.
+This provides further clues for the mechanisms behind the formation of dust in the WCR, as we shall see later.
+The extent to which the WCR is affected by cooling is dependent on similar parameters that govern the shape and structure of the WCR itself.
+Cooling becomes influential on the structure of the WCR if the immediate post-shock gas is able to cool to the post shock temperature shortly after escaping from the shock, this is described in this thesis as:
+
+\begin{equation}
+  \chi = \frac{\tau\rms{cool}}{\tau\rms{esc}} ,
+\end{equation}
+
+\noindent
+where $\tau\rms{cool}$ is the cooling timescale and $\tau\rms{esc}$ is the escape timescale.
+The cooling timescale is the time required for the gas to radiate all of its energy at a rate $\dot{E}$, hence, $\tau\rms{cool} = E/\dot{E}$ or:
+
+\begin{equation}
+  \tau\rms{cool} = \frac{k\rms{B}T\rms{s}}{4n\rms{w}\Lambda(T\rms{s})},
+\end{equation}
+
+\noindent
+where $k\rms{B}$ is the Boltzmann constant, $T\rms{s}$ is the shock temperature and $n\rms{w}$ is the post-shock wind number density.
+The escape timescale represents the approximate time taken for the gas to escape the shock, corresponding to:
+
+\begin{equation}
+  \tau\rms{esc} = \frac{d\rms{sep}}{c\rms{s}} , 
+\end{equation}
+
+\noindent
+where $c\rms{s}$ is the post-shock sound speed.
+As the expected shock temperatures of a CWB align closely with a local minima in $\Lambda(T)$, $\chi$ can be approximated with the equation:
+
+\begin{equation}
+  \label{eq:coolingparameter} 
+  \chi \approx \frac{v^4_{\infty,8} d_\text{sep,12}}{\mdot_{-7}},
+\end{equation}
+
+\noindent
+where $v_{\infty,8}$ is the wind terminal velocity in units of \SI{1e8}{\centi\metre\per\second}, $d_\text{sep,12}$ is the separation distance in units of \SI{1e12}{\centi\metre} and $\mdot_{-7}$ is the mass loss rate in units of \SI{1e-7}{\solarmass\per\year}
+\parencite{stevens_colliding_1992}.
+In the case of a CWB system with a cooling parameter $\chi \gg 1$, the system is adiabatic, leading to smooth winds and gas remaining at high temperatures, at it can only cool through expansion.
+In the case of $\chi \leq 1$, the system is strongly radiative, the gas rapidly cools after being shocked, leading to a very dense post-shock region with a structure strongly influenced by thermal instabilities.
+
+As we can see from Eq. \ref{eq:coolingparameter}, we find that strongly radiative WCRs are favoured in stars with stars with slow, dense winds and close orbits.
+Wind velocity in particular is highly influential on the radiative dynamics of the WCR, and could be one of the driving reasons for a lack of dust formation in certain WC sub-types.
+Systems with high eccentricities can also vary their orbit significantly, leading to fluctuations in $\chi$ by 2 orders of magnitude.
+The corresponding velocity shear between a WR and an OB wind also results in the formation of Kelvin-Helmholtz instabilities.
+
+\subsubsection{Dust cooling}
 
 % Dust cooling? Might need to move CWB dust formation up
 The presence of dust within the immediate post-shock environment significantly increases the cooling rate.
