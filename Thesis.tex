@@ -76,9 +76,12 @@
 % Better tables
 \usepackage{longtable}
 \usepackage{booktabs}
+\usepackage{floatrow}
+\DeclareFloatFont{scriptsize}{\scriptsize}
+\floatsetup[table]{font=scriptsize}
 %Captions for subfigures
 % \usepackage[format=hang,labelfont=bf]{caption}
-\usepackage[format=hang,labelfont=bf]{caption}
+\usepackage[format=hang,labelfont={bf,scriptsize},font=scriptsize]{caption}
 
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
@@ -139,6 +142,7 @@
 \newcommand{\sob}{\ensuremath{_{\text{OB}}}}
 \newcommand{\rms}[1]{\ensuremath{_\text{#1}}}
 \newcommand{\mdot}{\ensuremath{\dot{\text{M}}}}
+\newcommand{\dsep}{d\rms{sep}}
 
 % Setup for BibLaTeX, used instead of BibTeX as it is more flexible
 \usepackage[

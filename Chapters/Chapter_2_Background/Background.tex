@@ -157,7 +157,9 @@ However, I wouldn't want to spoil too much too soon, but you can skip ahead to s
 
 % Section covers wind driving mechanisms, while wind is touched on in the previous section, this covers the mechanisms more thoroughly
 
-Stellar winds have already been discussed to some extent in the previous section, however, due to the significance of winds within this body of work, further detailing of winds must be discussed to gain a better understanding of the dynamics of Colliding Wind Binary systems. This section will cover in brief the study of stellar winds, particularly driving mechanisms from low and high mass stars.
+Stellar winds have already been discussed to some extent in the previous section.
+However, due to the significance of winds within this body of work, this phenomena must be discussed in greater detail to understand the dynamics of Colliding Wind Binary systems.
+This section will cover in brief the study of stellar winds, particularly driving mechanisms from low and high mass stars.
 
 % Background of stellar winds, particularly history of the subject
 
@@ -219,7 +221,7 @@ The ion subsequently de-excites over a timescale of \SI{1e-8}{\second}, emitting
 where $v''_r$ is the radial velocity after the absorption and emission events, and $m$ is the ion mass.
 These ions are then propelled away from the star, along with the rest of the stellar wind, as it is coupled to the ions through Coulomb forces.
 The opacity of such resonance lines can be up to six orders of magnitude larger than the opacity of a Thomson scattering event \parencite{lamersIntroductionStellarWinds1999}, making it a markedly more efficient process.
-This effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (figure \ref{fig:planck-comp}).
+This effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (Fig. \ref{fig:planck-comp}).
 O-type and Wolf-Rayet stars, however, emit much of their radiation within the UV range, due to their higher temperatures.
 
 \begin{figure}
@@ -241,7 +243,7 @@ Further work allowed for more accurate computations of the line driving effect, 
 % Evolved OB stars, WR stars
 
 As previously mentioned, evolved massive stars progress into a helium burning WR phase, at this point, mass loss rates due to radiative line driving are extreme, in the order of $10^{-5}$ \si{\solarmass\per\year}.
-This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124 (figure \ref{fig:wr124}).
+This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124 (Fig. \ref{fig:wr124}).
 
 %//FIXME this is a placeholder, additionally how should I cite this?
 \begin{figure}[h]
@@ -282,50 +284,57 @@ This outsized influence on the local medium can be seen in the production of eje
 \section{Interstellar Dust}
 \label{sec:dust}
 
-% What is interstellar dust
-
 % Observational history
+For much of the history of astronomy, interstellar dust was not its own field, nor was it studied in significant detail - instead it was regarded as nothing but a \emph{nuisance}.
+Early astronomy, of course, was limited to the visible light spectra, at these wavelengths dust \emph{is} in fact a nuisance, contributing nothing and extincting stars and the innermost depths of the galaxy.
+The first population counts of stars at the turn of the \nth{20} century were hampered by this extinction, with \textcite{kapteynAbsorptionLightSpace1909} noting that:
 
-% Background in interstellar dust, growth and destruction processes
+\begin{quote}
+  \textit{
+    ``Undoubtedly one of the greatest difficulties, if not the greatest of all, in the way of obtaining an understanding of the real distribution of the stars in space, lies in our uncertainty about the amount of loss suffered by the light on its way to the observer.''
+  }
+\end{quote}
 
-% Growth processes
+\noindent
+The existence of dust grains was not considered until nearly a quarter of a century, with work by Robert J. Trumpler in 1930 concluding that the observed interstellar reddening effect could only be accounted for by small grains of cosmic dust.
+As technology progressed and non-visible astronomy became possible, we were for the first time able to peer past these obscuring clouds, bypassing them entirely.
+The scientific community also found that the interstellar dust itself was interesting on its own, leading to further categorisation and parametrisation of these dust grains in the 1960s and 1970s
+\parencite[4-13]{whittetDustGalacticEnvironment2002}.
 
-Dust, particularly in the case of small grains, is more of a loose collective of atoms and molecules held together by molecular bonds
-
-
-While the largest dust grains can be on the order of centimetres, in the case of protoplanetary disks, the typical grain size we will be 
-
-\parencite{krugel_physics_2002}
-
-Cores of dust grains typically condense rapidly, 
-
-these refractory cores are very small, on the order of \SI{50}{\angstrom}, around which dust grains can accrete material 
-
-Low velocity mergers of dust grains can also occur, below a critical velocity these grains
-
-the critical velocity is typically higher for smaller grains, 
-
-\parencite{chokshiDustCoagulation1993}
-
-At higher collision velocities these grains can simply bounce off of each other, doing no appreciable damage.
-At high energies still these grains can shatter and fragment each other, which in the case of high velocity shocks with large grains can result in the grains being completely pulverised, turning from an accretion process to the principle cause of dust destruction
+Interstellar dust, particularly in the case of small grains, is a loose collective of atoms and molecules held together by weak molecular bonds, typically only on the order of $10 \, \si{\angstrom}$ to $100 \, \si{\angstrom}$ in size.
+These grains are typically formed from small, refractory dust cores around $5\,\si{\angstrom}$ across, in high density regions such as stellar atmospheres and dark interstellar clouds \parencite{spitzerPhysicalProcessesInterstellar2008}.
+This initial accretion process can be quite rapid, as outflows from stars can be quite rapid, due to implantation of impinging carbon ions \parencite{zubkoPhysicalModelDust1998a}.
+While the largest dust grains can be on the order of centimetres (in the case of protoplanetary disks), the initial grain size in this project that we will consider is approximately $50 \, \si{\angstrom}$.
+There are a multitude of ways that these dust grains can grow and shrink, though only a few are considered in this work, due to either difficulty of implementation into our model or time constraints.
+The first such mechanism for growth and destruction that will be discussed is grain-grain collision.
+Grain-grain interactions are the most easily understood, in regions with sufficiently high dust grain number densities, collisions can occur between the grains.
+The result of this interaction is dependent on the collision velocity between the grains.
+Low velocity collisions result in grain mergers, where these grains will stick together.
+An initial attractive force through van der Waals interaction will occur, bringing the grains into contact, upon collision the contact area will deform and flatten, allowing for the grains to coagulate and merge.
+Grain-grain coagulation occurs at very low velocities, typically $<\SI{100}{\metre\per\second}$, but this threshold velocity is typically lower for smaller, more tightly bound grains
+\parencite{chokshiDustCoagulation1993}.
+At higher collision velocities these grains can simply bounce off of each other, doing very little damage outside of ablating some atoms off of the surfaces of the grains.
+At high velocities still these grains can shatter and fragment each other, which in the case of high velocity shocks with large grains can result in the grains being completely pulverised, turning from an accretion process to the principle cause of dust destruction
 \parencite{jonesGrainShatteringShocks1996,jonesDustDestructionProcesses2004}.
 
-The principle causes of puttering through grain-gas interactions can occur, 
-
-Grain destruction is dominated by gas-grain sputtering at all temperatures in shocks, with fast enough 
+The most important method of destruction of dust for this project is grain-gas sputtering, this thermal interaction dominates dust destruction at all temperatures in shocks.
+As an ion collides with a dust grain in a shock, the surface near the impact site is vaporised, this impact also drives a shock wave into the grain, which can melt and shatter parts of the grain.
+Over time material is ablated off of the dust grain, causing it to shrink in radius, and eventually completely shattered.
+In order to simulate this we must simplify and parametrise this into a model, we start by assuming that the dust grain is spherical.
+As the gas collides with the grain, small amounts of the grain are vaporised and ejected from the surface, causing a reduction in grain radius, $a$, with a corresponding rate of radius change $\dot a$.
+$\dot a$ can vary depending on the composition of the grain; for instance, grains composed of ice would be more readily vaporised by impacts than sturdier grains composed of carbon or iron.
+In this spherical case the dust destruction rate is inversely proportional to the number density of the gas, as the grain will be destroyed faster if there are more gas-grain interactions, and proportional to the grain radius.
+The dust destruction rate has a more complex dependency on the grain temperature, rapidly reducing below $10^6\, \si{\kelvin}$, and is found to be roughly flat above this temperature and to around \SI{3e8}{\kelvin} \parencite{tielens_physics_1994}.
+We can therefore adopt a normalised grain lifespan $\tau\rms{d}$, which we can use to calculate the dust destruction rate in our simulations:
 
 \begin{equation}
-  \frac{1}{n\rms{g}} \frac{da}{dt} = \tau 
+  \tau\rms{d} \equiv \frac{a}{\dot a} \approx \num{3e6} \frac{a}{n\rms{g}} \, \si{\year} , 
 \end{equation}
 
 \noindent
-where $n\rms{g}$ is the gas number density and $\tau$ is the normalised sputtering rate.
-$\tau$ is nearly constant at temperatures above \SI{3e6}{\kelvin}, and is found to be approximately \SI[print-unity-mantissa=true]{1e-6}{\centi\metre\cubed\micro\metre\per\year} for carbon grains and \SI{2e-6}{\centi\metre\cubed\micro\metre\per\year} for silicates
-\parencite{dwekCoolingSputteringInfrared1996}.
-In the case of a micron-sized carbon dust grain in a flow of density $n_\text{H} = \SI{1}{\gram\per\centi\metre\cubed}$ we find that the average grain lifespan is $\sim \SI{1}{\mega\year}$ (figure \ref{fig:grain-lifespan}).
-Below \SI{3e6}{\kelvin} we find that the sputtering rate tapers off drastically as the gas cools, reaching $\sim \SI{1}{\giga\year}$ below \SI{1e5}{\kelvin}
-\parencite{tielens_physics_1994}.
+where $n\rms{g}$ is the gas number density \parencite{drainePhysicsDustGrains1979,dwekCoolingSputteringInfrared1996}.
+The value of \SI{3e6}{\year} was chosen for this project as it is more typical of temperatures in the post-shock region of a WCR, between $10^6\,\si{\kelvin}$ and $10^7\,\si{\kelvin}$ (Fig. \ref{fig:grain-lifespan}).
+How this destruction rate is implemented into the simulations for this project is discussed in more detail in Section \ref{sec:bodmas}.
 
 \begin{figure}
   \centering
@@ -334,14 +343,35 @@ Below \SI{3e6}{\kelvin} we find that the sputtering rate tapers off drastically 
   \label{fig:grain-lifespan}
 \end{figure}
 
-% Collision/shattering
-Grain shattering through high velocity grain-grain collisions can also occur, though this is a less significant process in the case of small dust grains.
+% Dust-grain agglomeration 
+As with grain-grain interactions, at lower velocities grains can impact onto grains or their nuclei and stick to the surface.
+This steady accretion process be described in the form of a fairly simplistic model.
+By considering a spherical grain moving through a flow of atoms with a number density $n\rms{a}$, a certain number of these atoms would collide and stick to the dust grain, this sticking probability is defined as $\xi$.
+This sticking factor is found to be $\approx 1$ for neutral atoms\footnote{Though we adopt a more conservative value of $0.1$ due to the turbulent nature of the environments that are studied in this project.} \parencite{watsonAbundancesInterstellarMolecules1972}.
+Above a threshold velocity, atoms fail to adhere to the grain surface, and at higher velocities still contribute to the sputtering process instead \parencite{spitzerPhysicalProcessesInterstellar2008}.
+For this research, this threshold temperature was defined as \SI{14000}{\kelvin}.
+If we model a grain of radius $a$, the cross section, $\sigma$, of the grain moving through the gas would be $\sigma = \pi a^2$.
+In the case of a grain moving through a gas of composition $x$ and density $\rho_x$ where the grain is significantly larger than the atoms composing the gas, it is found that the rate of change in the grain mass, $dm\rms{gr}/dt$, is:
+
+\begin{equation}
+  \frac{dm\rms{gr}}{dt} = \sigma w_{x} \rho_{x} = \pi a^2 \rho_{x} w_{x} \xi_{x} ,
+\end{equation}
+
+\noindent
+where $w_x$ is the RMS velocity of the gas.
+The associated rate of change in grain radius, $da/dt$, is found to be:
+
+\begin{equation}
+  \frac{da}{dt} = \frac{w_x \rho_x \xi_x}{4 \rho\rms{gr}},
+\end{equation}
+
+\noindent
+where $\rho\rms{gr}$ is the bulk density of the dust grain.
+
 A myriad of other dust destruction processes exist, such as electron-grain and cosmic ray-grain interaction, but these are considered to be out of the scope of this project, and not influential in the case of a hot gas or dense post-shock environment
 \parencite{jonesDustDestructionProcesses2004}.
-
 Outside of shocks, dominant destruction processes include thermal and photo-dissociation methods.
-UV light emitted from stars emitted from 
-
+UV light emitted from stars can ionise atoms on the surface of the grain, ejecting them from the surface, slowly ``boiling'' material from the grain.
 This of course makes the premise of our project all the more curious, with so many mechanisms underpinning dust destruction, particularly in hot, dense environments, how come we observe significant dust production in Wolf-Rayet binary systems?
 
 \subsection{Dust composition}
@@ -393,17 +423,14 @@ Over 150 molecular species have been observed in the interstellar medium, with a
 Such complex organic molecules include benzene, acetone and ethanol, this degree of complexity should not necessarily be possible in interstellar gas-phase chemistry.
 Instead, these organic species form on the surface of interstellar dust grains, with gas-phase chemistry accounting for simple molecule formation such as $\text{H}_2$ and $\text{CO}$
 \parencite{herbstComplexOrganicInterstellar2009}.
-
 The role of dust as the chemical refineries of the interstellar medium has a number of effects when it comes to star and planetary formation, as well as organic and pre-biotic chemistry throughout the universe.
 It is no understatement to say that the universe would be remarkably different if interstellar dust was not so readily abundant.
-
 % Coolant in collapsing gas clouds, stellar cycle
 Dust grains are also vitally important in the star formation cycle.
 As a Giant Molecular Cloud (GMC) collapses following perturbation, heat is generated, in the adiabatic case the increased temperature would provide a counterbalancing pressure on the collapsing cloud, forming a hydrostatic equilibrium and preventing the cloud from collapsing any further.
 In the case of extremely massive clouds, this collapse can still occur as gravity will dominate, but this equilibrium dictates the minimum mass for a cloud to collapse into a protostar.
 As such, for all but the most massive stars to form, energy must be lost in the form of radiation
 \parencite{ward-thompsonIntroductionStarFormation2011}.
-
 As radiative cooling from dust grains is extremely efficient in cold, dense environments, this mechanism is well-suited for the environment of a GMC.
 In addition to cooling through rotational mechanisms of simple molecules in the gas-phase of the medium, these processes sufficiently cool the GMC, allowing for further collapse.
 In addition, dust grains would also provide a replenishing source of cooling molecules such as CO and OH through non-thermal grain desorption processes.
@@ -435,10 +462,10 @@ Early observations beyond visual spectrum led to the discovery of many new astro
 Many of these early galactic X-ray sources were found to be compact objects, and many more contained the characteristic spectral lines of a Wolf-Rayet star.
 While single Wolf-Rayet stars are capable of producing X-ray emission, this is typically much dimmer than what was being observed 
 \parencite{sewardXraysEtaCarinae1979}.
-
 The existence of CWB systems were independently proposed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, 
 they proposed that significant and variable X-ray flux would result from the collision between two stellar winds, as these winds collide the gas becomes shocked and heated to temperatures on the order of \SI{1e8}{\kelvin}, hot enough to emit an appreciable quantity of X-rays.
 The X-ray variability can also be explained as a result of the orbital properties of the systems, X-ray variability would result from the following effects:
+
 % This may need to be expanded on or changed
 \begin{itemize}
   \item Eccentricity in the orbits of the systems, leading to differing shock intensity and changing of the shock geometry, changing the fraction of the winds being shocked.
@@ -450,9 +477,7 @@ The X-ray variability can also be explained as a result of the orbital propertie
 Such effects could not be produced within a single star system \parencite{pittard_x-ray_1999}.
 Further research by \textcite{pollockEinsteinViewWolfRayet1987} also found that single WR stars were typically faint, with the brightest X-ray emitting WR stars being confirmed to within massive binaries.
 WR+OB systems were also found to be the brightest of such objects, while OB+OB binaries with significant X-ray flux were observed, these were typically less luminous.
-
 % Early work categorising, using gamma 2 vel and V444Cyg
-
 Early work was more concerned with X-ray observation, in particular the systems $\gamma^2$ Velorum and V444 Cygni, which were noted in particular as prototypical CWB systems by \textcite{prilutskii_x_1976}.
 % Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
 Later, infrared observations of these systems found another, more curious attribute, a significant excess correlating to dust formation around these systems \parencite{williamsInfraredPhotometryLatetype1987}.
@@ -480,7 +505,7 @@ Because of this, dust growth was speculated, and later confirmed, to occur withi
 The Wind Collision Region (WCR) is the most violent and turbulent region of a CWB system, a region of high densities and even higher temperatures.
 If the interacting stellar winds are dense as they begin to interact, a shocked region of plasma in excess of \SI{1e8}{\kelvin} is formed, the winds rapidly decelerate from hypersonic to subsonic, liberating an enormous amount of mechanical energy, on the order of \SI{1e3}{\solarluminosity}.
 As previously discussed, this is the engine that drives the significant X-ray flux observed by astronomers in the 1970s, as well as other thermal and non-thermal emissions from the UV up to gamma rays \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
-As wind enters from either side of the wind collision region, it passes through a shock wave, and flows towards the centre of the wind collision region at the contact discontinuity, $C$ (figure \ref{fig:wcr-diagram}).
+As wind enters from either side of the wind collision region, it passes through a shock wave, and flows towards the centre of the wind collision region at the contact discontinuity, $C$ (Fig. \ref{fig:wcr-diagram}).
 The wind behind the shock is driven by a combination of thermal pressure from the outflowing stellar wind, as well as the significant momentum the wind carried before being shocked \parencite{stevens_colliding_1992}.
 
 The geometry of the WCR is influenced strongly by the wind parameters of both stars, the most important of which is the wind momentum ratio, or $\eta$, which we define as:
@@ -493,7 +518,7 @@ The geometry of the WCR is influenced strongly by the wind parameters of both st
 where $\dot{\text{M}}_\text{WR}$ and $v^{\infty}_\text{WR}$ denotes the mass loss rate and wind terminal velocity of the primary, typically Wolf-Rayet star and $\dot{\text{M}}_\text{OB}$ and $v^{\infty}_\text{OB}$ denotes the mass loss rate and wind terminal velocity of the OB partner \parencite{usov_stellar_1991}.
 A lower value of $\eta$ indicates a more unbalanced wind, with wind momentum ratio of \num{0.01} or lower being common for a typical WR+OB system.
 Additionally, if $\eta = 1$, we observe a sheet of interacting plasma flowing away from the system perpendicular to the orbital plane.
-In the case of a system where one stars momentum is significantly larger than the other, we observe the WCR extend and envelop the OB star, forming an approximately conical surface extending away from the Wolf-Rayet star (figure \ref{fig:wcr-eta}).
+In the case of a system where one stars momentum is significantly larger than the other, we observe the WCR extend and envelop the OB star, forming an approximately conical surface extending away from the Wolf-Rayet star (Fig. \ref{fig:wcr-eta}).
 
 
 As the wind becomes more and more imbalanced, the contact discontinuity moves closer to the OB partner, this can be estimated with the equation:
@@ -542,13 +567,13 @@ From these estimations the fraction of each wind that is shocked, $f$, can be ca
 \end{subequations}
 
 \noindent
-\textcite{pittardCollidingStellarWinds2018} observed that the entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime $0.001 \leq \eta \leq 0.01$, only $\approx 10\%$ of the WR wind is shocked (figure \ref{fig:wind-shock-factor}).
+\textcite{pittardCollidingStellarWinds2018} observed that the entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime $0.001 \leq \eta \leq 0.01$, only $\approx 10\%$ of the WR wind is shocked (Fig. \ref{fig:wind-shock-factor}).
 These expressions, while useful for describing the geometry of WCR in broad strokes, are based on adiabatic simulations with instantaneous acceleration, and thus have their limitations.
 
 \begin{figure}
   \centering
   \includegraphics[]{assets/wind-shock-factor/shock-factor.pdf}
-  \caption[Wind shock fraction, as a function of $\eta$]{Comparison of the opening angle of $\widetilde{S_1}$ and $\widetilde{S_2}$ as a function of $\eta$. The wind shock fraction, $f$, is also plotted. $\approx 10\%$ of the primary wind is shocked under typical WR+OB conditions, while the entire secondary wind is typically shocked.}
+  \caption[Wind shock fraction, as a function of $\eta$]{Comparison of the opening angle of $\widetilde{S}_1$ and $\widetilde{S}_2$ as a function of $\eta$. The wind shock fraction, $f$, is also plotted. $\approx 10\%$ of the primary wind is shocked under typical WR+OB conditions, while the entire secondary wind is typically shocked.}
   \label{fig:wind-shock-factor}
 \end{figure}
 
@@ -579,7 +604,7 @@ In particular, the systems WR104 and WR98a produce easily observable pinwheel st
   $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Resonance lines & Far UV, soft X-ray \\
   $T \gtrsim \SI{1e8}{\kelvin} $ & Bremsstrahlung & Radio \\ \hline
   \end{tabular}
-  \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \cite{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in figure \ref{fig:wcsolcooling}.}
+  \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \cite{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in Fig. \ref{fig:wcsolcooling}.}
   \label{tab:coolprocess}
   \end{table}
 
@@ -606,7 +631,7 @@ As the plasma heats further resonance lines can
 
 % Section on braking radiation
 
-As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bremsstrahlung\footnote{Or braking radiation when you can't remember how to spell it.} becomes dominant (figure \ref{fig:wcsolcooling}). High velocity electrons are deflected by ions, emitting radiation in the process due to conservation of energy. 
+As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bremsstrahlung\footnote{Or braking radiation when you can't remember how to spell it.} becomes dominant (Fig. \ref{fig:wcsolcooling}). High velocity electrons are deflected by ions, emitting radiation in the process due to conservation of energy. 
 
 % \parencite{1993ApJS...88..253S}
 \parencite{schureNewRadiativeCooling2009}
@@ -687,13 +712,13 @@ The corresponding velocity shear between a WR and an OB wind also results in the
 
 % Dust cooling? Might need to move CWB dust formation up
 The presence of dust within the immediate post-shock environment significantly increases the cooling rate.
-Figure \ref{fig:dustplasmacomparison} compares rate of cooling due to dust emission of various types of grains to plasma cooling at solar abundances, 
+Fig. \ref{fig:dustplasmacomparison} compares rate of cooling due to dust emission of various types of grains to plasma cooling at solar abundances, 
 As $\Lambda_g$ and $\Lambda_D$ are both proportional to $\rho_g^2$, dust cooling will dominate at high temperatures so long as there is sufficient amounts of dust.
 %//TODO Lengthen paragraph, introduction to dust cooling
 
 As dust grains collide with ionised gas and electrons, this imparts kinetic energy into the grains, heating them and causing them to emit infrared radiation. Assuming that there is a net accretion of ions and electrons onto the dust grains and the gas is optically thin in the infrared regime, energy is efficiently removed from the gas.
-At particularly high temperatures this effect can dominate over high-temperature plasma cooling processes such as bremsstrahlung, as seen in figure \ref{fig:dustplasmacomparison}.
-Figure \ref{fig:collisionalheatingcomparison} compares dust grain heating rates due to electron and ion collisional excitation in a solar abundance and WC abundance flow.
+At particularly high temperatures this effect can dominate over high-temperature plasma cooling processes such as bremsstrahlung, as seen in Fig. \ref{fig:dustplasmacomparison}.
+Fig. \ref{fig:collisionalheatingcomparison} compares dust grain heating rates due to electron and ion collisional excitation in a solar abundance and WC abundance flow.
 At lower temperatures the dust grain cooling rate is dominated by electron excitation, especially in the WC case as the ratio of free electrons to ions is significantly higher, as the WC flow is enriched by heavier elements.
 However, as the grain temperature increases, collisional heating due to ions becomes more prevalent as the electrons are sufficiently energetic to pass through the grain without significant energy transfer; this is referred to as the electron transparency, $h_e$ \parencite{dwek_infrared_1981}.
 
@@ -761,13 +786,13 @@ Dust formation is also observed to form within the WCR, which can form quite bea
    WC9 & 45 & WR104 & 6 & WR98a & 1 & WR75-11 \\ \hline
    Total & 56 &  & 7 &  & 9 &  \\ \hline
   \end{tabular}
-  \caption[Numer of confirmed WCd systems]{Number of confirmed WCd systems with known spectral type and dust formation type from the Galactic Wolf Rayet Catalogue \parencite{rossloweSpatialDistributionGalactic2015}, systems with uncertain spectral types not included, while systems labelled ``d'' are included within the ``persistent'' category for their associated spectral type.}
+  \caption[Numer of confirmed WCd systems]{Number of confirmed WCd systems with known spectral type and dust formation type from the Galactic Wolf-Rayet Catalogue \parencite{rossloweSpatialDistributionGalactic2015}, systems with uncertain spectral types not included, while systems labelled ``d'' are included within the ``persistent'' category for their associated spectral type.}
   \label{tab:wc-summated-list}
 \end{table}
 
 % Rarity
-Whilst beautiful, they are sadly an elusively rare beauty...
-The Galactic Wolf Rayet Catalogue\footnote{The most recent version of this catalogue is available at \texttt{\href{http://pacrowther.staff.shef.ac.uk/WRcat}{http://pacrowther.staff.shef.ac.uk/WRcat}}} \parencite{rossloweSpatialDistributionGalactic2015} has a collection of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
+Whilst beautiful, Wolf-Rayet systems are elusively rare.
+The Galactic Wolf-Rayet Catalogue\footnote{The most recent version of this catalogue is available at \texttt{\href{http://pacrowther.staff.shef.ac.uk/WRcat}{http://pacrowther.staff.shef.ac.uk/WRcat}}} \parencite{rossloweSpatialDistributionGalactic2015} has a collection of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
 \textcite{rossloweSpatialDistributionGalactic2015} notes that there are a total of 42 confirmed WCd systems, approximately 35\% of all WC systems, though this value is somewhat out out date and includes single star systems.
 A more up-to-date estimate performed for this thesis using the updated dataset estimates a total of 80 WCd systems, of which 72 have well-determined spectral subtypes (table \ref{tab:wc-summated-list}).
 % Impact of systems 
@@ -798,7 +823,7 @@ As such, it is theorised in order to achieve a high rate of dust formation, a de
 %Observational data Link to Crowther papers in particular, dust formations only around WC
 % Discuss role of eccentricity
 Eccentricity appears to play an important factor in the production of dust, highly eccentric systems can vary their dust production rates significantly.
-Figure \ref{fig:periodicmags} shows the periodic change in mid-IR emission that can be explained as dust emission from small amorphous carbon grains, in the case of systems such as WR140 or WR125 dust production can be reduced to the point where associated emissions can drop by several magnitudes.
+Fig. \ref{fig:periodicmags} shows the periodic change in mid-IR emission that can be explained as dust emission from small amorphous carbon grains, in the case of systems such as WR140 or WR125 dust production can be reduced to the point where associated emissions can drop by several magnitudes.
 This relation is clearly periodic, with a peak in dust production production coinciding with the periastron passage of these systems.
 This implies that dust production is dependent on orbital separation, which will influence the degree of cooling occurring within the WCR, it could potentially also alter the wind velocity on collision, which will also influence dust production in the same manner.
 % Metastudy
@@ -833,13 +858,13 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccccc}
+  \begin{tabular}{ccccccccc}
   \hline
-  System & Period & Eccentricity & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
-   & (d) & ($e$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
-  WR98a & 556 & $\sim 0$ & 10.0 & 18.0 & 4.06 & 4.06 \\
-  WR104 & 245 & 0.0600 & 10.0 & 20.0 & 2.20 & 2.48 \\
-  WR140 & 2869 & 0.8993 & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
+  System & Classification & Period & Eccentricity & Inclination & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
+   & & (d) & ($e$) & ($i$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
+  WR98a & WC8-9+OB & 556 & $\sim 0$ & $35\pm6^\circ$ &10.0 & 18.0 & 4.06 & 4.06 \\
+  WR104 & WC9d+B0.5V & 245 & 0.0600 & $\lesssim 16^\circ$ & 10.0 & 20.0 & 2.20 & 2.48 \\
+  WR140 & WC7+O5 & 2869 & 0.8993 & $119.1\pm0.9^\circ$ & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
   \end{tabular}
   \caption[Orbital properties of systems considered for simulation]{Orbital properties of systems considered for simulation in this thesis.}
   \label{tab:systems-orbital-properties}
@@ -855,15 +880,34 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 % Physical properties
 
-WR98a is a  
+WR98a is a WC8-9+OB variable dust formation system.
+It is has an approximately circular orbit with a semi-major axis of \SI{4.06}{\au}, and is inclined at $\approx 35^\circ$ from Earth.
+
 
 % Historical observation 
 
+\parencite{monnierPinwheelNebulaWR1999}
+
+
 % Hendrix paper dust formation monnier 2002 radio domain
+
+% Ease of simulation, good starting point
+WR98a was chosen for simulation primarily due to its moderate rate of dust formation, and comparatively docile winds.
+With a a slow WC wind velocity of \SI{900}{\kilo\metre\per\second} and a WC mass loss rate of \SI{5e-6}{\solarmass\per\year}
+
+
+
+The dust formation rate is lower than many WC systems \parencite{lauRevisitingImpactDust2020}
+
+Due to these factors the system is markedly easier to simulate, and thus provided a good starting point for our work as we refined the model and implemented features into the hydrodynamical system.
+
+A comparatively wide orbit reduces the number of cells required to simulate the system, simplifying the simulation of the system further.
+
+Finally, WR98a has previously been simulated using a multi-fluid dust model in \textcite{hendrix_pinwheels_2016}, this allows us to provide a point of comparison between our work and already published work.
+This is especially useful as there are only a handful of papers that cover dust models in CWB systems.
 
 % Questions as to orbit shape, approximately circular
 
-% Ease of simulation, good starting point
 
 % Parameter space exploration
 Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in chapter \ref{chap:parameterspace}.
@@ -906,7 +950,7 @@ A more advanced model by \textcite{lauRevisitingImpactDust2020}, which is used t
 % Why is it archetypal 
 
 WR104 can be considered to be an ideal example of a continuous dust forming system, the system is relatively close, at a distance of \SI{2.5}{\kilo\parsec}, and is at an inclination that is almost face-on relative to Earth, at $i \lesssim 16^\circ$. 
-As such, the pinwheel outflow from the system can be clearly resolved, with infrared excess due to dust clearly observed within the pinwheel structure (\textcite{soulainSPHEREViewWolfRayet2018}, see figure \ref{fig:soulain-wr104}).
+As such, the pinwheel outflow from the system can be clearly resolved, with infrared excess due to dust clearly observed within the pinwheel structure (\textcite{soulainSPHEREViewWolfRayet2018}, see Fig. \ref{fig:soulain-wr104}).
 Due to the systems parameters and well defined observable dusty pinwheel structure, along with prior observations and simulations of the system, it is an ideal candidate for simulation 
 
 There are a number of reasons for this prodigious dust formation rate, as the systems orbit is comparatively close and circular with a very dense primary wind, the wind is expected to be highly radiative throughout the entire orbital period, this suggests a cool post-shock WCR that can continuously produce dust.
