@@ -1,5 +1,5 @@
 load "../turbo.pal"
-set terminal cairolatex standalone size 6in,2in
+set terminal cairolatex standalone size 5in,3in
 set output "shock-factor.tex"
 
 set format x  '$10^{%L}$'
@@ -13,7 +13,7 @@ set y2label "$f (\\eta)$"
 set ytics nomirror
 set y2tics
 
-set grid xtics mxtics
+set grid xtics ytics mxtics
 
 set logscale x
 
@@ -21,7 +21,7 @@ set xrange [1e-3:1]
 set yrange [0:120]
 set y2range [0:1]
 
-set key outside
+set key top left
 
 theta1(eta) = 2 * atan(eta**(0.33333)) + (3.14159/9.0)
 theta2(eta) = 0.658 * log10(71.7 * eta)

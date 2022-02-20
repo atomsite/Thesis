@@ -142,7 +142,14 @@
 \newcommand{\sob}{\ensuremath{_{\text{OB}}}}
 \newcommand{\rms}[1]{\ensuremath{_\text{#1}}}
 \newcommand{\mdot}{\ensuremath{\dot{\text{M}}}}
+\newcommand{\mass}{\ensuremath{\text{M}}}
+\newcommand{\lumin}{\ensuremath{\text{L}}}
+\newcommand{\vinf}{\ensuremath{v^\infty}}
 \newcommand{\dsep}{d\rms{sep}}
+
+\newcommand{\sol}{\ensuremath{_{\odot}}}
+
+\newcommand{\atom}[3]{\prescript{#2}{#3}{\text{#1}}}
 
 % Setup for BibLaTeX, used instead of BibTeX as it is more flexible
 \usepackage[
@@ -194,7 +201,7 @@
 {\text{as}}
 \DeclareSIUnit[]\angstrom{\textup{\AA}}
 
-
+\newlength\longest
 
 \begin{document}
 %\baselineskip=18pt plus1pt
@@ -210,6 +217,72 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{Dedication/dedication}
 % \include{IPStatement/ipstatement}
+
+\clearpage
+
+% \pagestyle{plain}
+% \null\vfill
+% \begin{center}
+%   \parbox{0.5\textwidth}{%
+%     \raggedright{\large\itshape%
+%     ``Space is \textbf{big}. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space.''
+%     \par%\bigskip
+%     }
+%     \rule{\linewidth}{0.4pt}
+%     \raggedleft{\Large\MakeUppercase{Douglas Adams}\\\large\itshape{The Hitchhiker's Guide to the Galaxy}\par}%
+%   }
+% \end{center}
+% \vfill\vfill
+
+\begin{dedication}
+  \begin{center}
+    \parbox{0.5\textwidth}{
+      \raggedright{
+        \emph{
+          ``Space is \textbf{big}. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space.''
+        }
+        \par
+      }
+      \raggedleft{
+        \rule{\linewidth}{0.5pt}
+        \Large
+        \MakeUppercase{Douglas Adams}
+        \\
+        \large
+        \emph{The Hitchhiker's Guide to the Galaxy}
+        \par
+      }
+    }
+    \vfill
+  \end{center}
+\end{dedication}
+
+\begin{dedication}
+  \begin{center}
+    \parbox{0.5\textwidth}{
+      \vspace{1em}
+      \raggedright{
+        \emph{
+          ``I am aware that quoting Douglas Adams in an astrophysics thesis is an absolutely enormous clich\'{e}, but I want to do it anyway.''
+        }
+        \par
+      }
+      \raggedleft{
+        \rule{\linewidth}{0.5pt}
+        \Large
+        \MakeUppercase{Me}
+        \\
+        \large
+        \emph{This Thesis}
+        \par
+      }
+    }
+  \end{center}
+  \vfill
+\end{dedication}
+
+\clearpage
+
 \include{Acknowledgement/acknowledgement}
 \include{Abstract/abstract}
 \newpage
@@ -219,6 +292,7 @@
 \newpage
 \listoftables
 \newpage
+
 \include{Abbreviations/Abbreviations}
 \include{Common_Symbols/Common_Symbols}
 

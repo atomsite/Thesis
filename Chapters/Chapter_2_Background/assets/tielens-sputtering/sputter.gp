@@ -1,7 +1,7 @@
 
 
 load "../turbo.pal"
-set terminal cairolatex standalone size 6in,2in
+set terminal cairolatex standalone size 5in,3in
 set output "sputter.tex"
 
 set logscale xy
@@ -10,11 +10,11 @@ set format xy '$10^{%L}$'
 set xlabel 'T (K)'
 set ylabel '$\tau$ (yr $\mu$m cm$^{-3}$)'
 
-set key outside
+set key top left
 
 set yrange [1e4:1e9]
 
-# set grid x y mx my
+set grid x y mx my
 
 plot "graphite.dat" u 1:3 w l ls 1 t "Carbon" ,\
      "SiC.dat" u 1:3 w l ls 2 t "SiC" ,\

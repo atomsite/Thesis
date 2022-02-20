@@ -21,6 +21,8 @@ set ylabel "$\\rho_w$ (g cm$^{-3}$)"
 set xlabel "$d$ (AU)"
 set xrange [0:1000]
 
+set grid xtics ytics mytics
+
 plot rho(x,1e-5,1500) ls 4 t "Wolf-Rayet" ,\
      rho(x,1e-7,30) ls 2 t "Red Giant" ,\
      rho(x,1e-7,2500) ls 3 t "OB" ,\

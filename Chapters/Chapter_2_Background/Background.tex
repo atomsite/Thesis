@@ -2,92 +2,288 @@
 
 \section{Early-Type Stars}
 \label{sec:earlytype}
+\label{sec:obtype}
 
 %//TODO I quite like this joke but it needs a bit of work
 The term Early-type stars is quite possibly the epitome of bad naming conventions in astrophysics, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
 The first generation of astrophysicists found themselves asking very important questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to burn for so long?'' Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
 
 Of course, like all pressing questions of the \nth{19} century, it fell to Lord Kelvin to provide a convincing but incorrect answer. Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest. Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass! However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
-
 %//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
-
 Instead, we now know that stars produce their energy through fusion. These reactions vary from sub-stellar deuterium and lithium burning, to main sequence p-p \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and other exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, allowing for more exotic fusion processes.
 The bigger a star, the greater the core pressure and temperature, as all fusion reactions are highly dependent on temperature, stars with only a few dozen solar masses are thousands of times more luminous than our sun, but only live a fraction of the time \parencite{carrollIntroductionModernAstrophysics2014}.
 
-\subsection{OB-type stars}
-\label{sec:obtype}
-
-And with that we shift our gaze to high-mass stars, with the most massive of all being the O and B type stars, these are extremely luminous ($\sim 10^4 \,\si{\solarluminosity}$), and relatively short lived ($\sim 10 \, \si{\mega\year}$) stars. The age-old adage of a candle burning twice as bright lasting half as long applies to our studies of the cosmos, but it is more apt to compare a candle and a stick of dynamite when considering stars on opposing ends of the Harvard classification system.
+High-mass stars, of course, are the most luminous and short lived of stars.
+These stars have luminosities in the range of \SI{1e4}{\solarluminosity} and lifespans on the order of \SI{10}{\mega\year}, less than 0.1\% of the lifespan of our sun.
+The adage of a candle burning twice as bright and lasting half as long doesn't quite express the differences between high-mass stars and low-mass stars, it would instead be better to compare a candle and a stick of dynamite.
+We define high-mass stars as stars that are sufficiently massive to undergo carbon fusion near the end of their lives.
+Defining high-mass as stars are predominantly driven by the CNO cycle or late-life helium burning can include intermediate mass stars, which form degenerate cores and evolve into white dwarfs.
+By this definition, a high-mass star has a mass $>\SI{8}{\solarmass}$, which includes stars in the O-type and some B-subtype (B0 and B1) classes in the Harvard classification system
+\parencite[143]{ward-thompsonIntroductionStarFormation2011}.
 
 % Formation of OB stars, note binary systems!
 
-The most common formation mechanism of stars is through the collapse of a giant molecular cloud\footnote{GMC}, an enormous cool cloud many parsecs across with a mass of around $10^4 \si{\solarmass}$.
-As this GMC collapses and radiates energy, lowering the radius of thermostatic equilibrium for the cloud, as collapsing progresses the cloud fragments into many smaller regions with a critical density, capable of collapsing further, forming a star.
-The collapse of a GMC can be described with a series of timescale.
-First, the Kelvin-Helmholtz timescale, $\tau_{KH}$, which describes the timescale required for the radiating cloud to collapse.
-The second important timescale is the free-fall timescale, $\tau_{ff}$, which is the time taken for a cloud to collapse. These timescales are described by the following equations:
+\subsection{Formation}
+\label{sec:starformation}
 
-\begin{subequations}
-  \begin{align}
-      \tau_{KH} & \approx \frac{GM_*^2}{R_*L_*} \label{eq:khtime} ,\\
-      \tau_{ff} & = \sqrt{\frac{3\pi}{32G\bar{\rho}}} \label{eq:fftime} ,
-  \end{align}
-  \label{eq:khfreefalltimes}
-\end{subequations}
+All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing truly staggering amounts of gas, the largest of which are on the order of a few parsecs across, and contain \SI{1e4}{\solarmass} of future star-stuff.
+In order to create a star from this cloud, you must first perturb it, which is easier said than done, but can be induced by stellar winds from nearby stars, and shock-waves from supernovae
+\parencite[Ch.~3]{bodenheimerPrinciplesStarFormation2011}.
+As the cloud collapses, energy is radiated through emission line processes, which lowers the radius of thermostatic equilibrium.
+As the GMC collapses further it begins to fragment, forming the molecular clumps and cloud cores that will eventually condense into protostars.
+As one of these fragments condenses, forming a protostellar core, it can be described in the form of a series of timescales.
+First, the Kelvin-Helmholtz (KH) timescale\footnote{The idea of gravitational contraction as expounded by Lord Kelvin does in fact apply to stars, just not with regards to how their energy is produced.}, $\tau\rms{KH}$, which is the time required for the protostellar core to radiate away its kinetic energy:
 
-where $M_*$ is the protostellar mass, $R_*$ is the protostellar radius, $L_*$ is the protostellar luminosity, and $\rho$ is the mean density of the collapsing cloud \parencite{ward-thompsonIntroductionStarFormation2011}.
+\begin{equation}
+  \label{eq:khtime}
+  \tau\rms{KH} \approx \frac{G M_\star^2}{R_\star L_\star},  
+\end{equation}
 
-%//TODO is the above section completely necessary? it might be better to just describe star formation.
+\noindent
+where $G$ is the gravitational constant, $R_\star$ is the protostellar core mass, $R_\star$ is the radius of the core and $L_\star$ is the core luminosity.
+The other timescale is the free-fall timescale, $\tau\rms{ff}$, which is the time taken for a molecular cloud to fully collapse onto the core, given by the equation:
 
-Perhaps the most important distinction between massive star formation and its better understood counterpart is as a young protostar approaches the main sequence, the KH timescale is less than the free-fall timescale, meaning the material at the center of the collapsing cloud begins fusion while the bulk of core has collapsed onto the site of the future star. This burgeoning star begins to drive the weakly gravitationally coupled collapsing material away due to its sheer luminosity, driving this material outwards, causing it to accrete and shock material within the GMC. 
+\begin{equation}
+  \label{eq:fftime}
+  \tau\rms{ff} \approx \sqrt{\frac{3\pi}{32 G \rho_\star}}
+\end{equation}
 
-Another important consideration is the role of angular momentum as the star collapses.
-The particularly massive cloud involved in massive star formation is more prone to fragmentation, meaning that massive stars typically form with an orbital partner, whilst approximately 2/3\textsuperscript{rds} of low-mass stars are part of a binary or multiple system, this value is near-total.
-As such, the environment within an OB association after star formation consists of numerous young stars in tightly-knit groups disrupting the entire local area.\footnote{This is a bit like living in Headingley, Hyde Park, or any other area with lots of Undergraduates.}
+\noindent
+where $\rho_\star$ is the mean density of the collapsing cloud.
+The equation of motion for this system is:
 
-%//TODO cite "near total" statistic, it's in one of the more recent papers you've had a look at, maybe a williams one?
+\begin{equation}
+  \frac{d^2r}{dt^2} = - \frac{GM_\star}{r^2} ,
+\end{equation}
 
-Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle, instead of the more direct p-p fusion process. 
+\noindent
+for any point with radius $r$ from the centre in the cloud, assuming spherical symmetry \parencite[96]{ward-thompsonIntroductionStarFormation2011}.
+In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse.
+This burgeoning star begins to drive the weakly gravitationally coupled collapsing material away due to its sheer luminosity, driving this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
 
-\begin{subequations}
-  \begin{align*}
-    \prescript{12}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{13}{7}{N} + \gamma \\ 
-    \prescript{13}{7}{N} & \rightarrow \prescript{13}{6}{C} + e^+ + \nu_e \\
-    \prescript{13}{6}{C} + \prescript{1}{1}{H} & \rightarrow \prescript{14}{7}{N} + \gamma \\
-    \prescript{14}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{15}{8}{O} + \gamma \\
-    \prescript{15}{8}{O} & \rightarrow \prescript{15}{7}{N} + e^+ + \nu_e \\
-    \prescript{15}{7}{N} + \prescript{1}{1}{H} & \rightarrow \prescript{12}{6}{C} + \prescript{4}{2}{He} 
-  \end{align*}
-\end{subequations}
-%//FIXME sort out italics, use regular fonts
-%//TODO add net energy gains losseslosses
-%//TODO Check to see if this is correct
+As more massive cores collapse, they are more prone to fragmentation, the angular velocity of the fragments can cause them to begin orbiting one another, eventually forming a binary of multiple star system.
+Close binary systems can also form by way of fragmentation in the protostellar disk.
+Due to this fragmentation it has been observed that roughly 2/3\ts{rds} of all main sequence stars are found to be in a multiple system \parencite[113]{ward-thompsonIntroductionStarFormation2011}, with approximately 20\% of stars in close binary orbits.
+However, in the case of massive stars, this value is significantly higher, with $>82\%$ of stars with masses $>\SI{16}{\solarmass}$ being found to be in a close binary system \parencite{chiniSpectroscopicSurveyMultiplicity2012}.
+As such, the environment within an OB association is one of many tight knit groups of young stars, which are disrupting the local area\footnote{This is similar to the environments around student areas, such as Hyde Park and Headingley.}.
+
+\subsection{The p-p \& CNO fusion cycles}
+
+\begin{table}
+  \centering
+  \begin{tabular}{llll}
+    \hline
+    Process & Reaction rate & Energy released per nucleon & Significant in \\
+    \hline
+    p-p & $\epsilon \propto T^{3.5}$ at \SI{5e6}{\kelvin} & \SI{6.54}{\mega\electronvolt} & Low-mass stars \\
+    CNO & $\epsilon \propto T^{18}$ at \SI{1e6}{\kelvin} & \SI{6.18}{\mega\electronvolt} & High-mass stars \\
+    $3\alpha$ & $\epsilon \propto T^{40}$ at \SI{1e8}{\kelvin}  & \SI{0.61}{\mega\electronvolt} & Post-main-sequence high-mass stars \\
+    \hline 
+  \end{tabular}
+  \caption[Comparison of fusion process reaction rates]{A comparison of reaction rates and released energy for the p-p chain reaction, CNO reaction and triple-alpha reaction. Whilst the $3\alpha$ reaction has a much higher temperature dependence for the reaction, it requires much higher pressures, and produces considerably less energy per nucleon. These factors contribute to the high luminosities and short lifespans of high-mass stars.}
+  \label{tab:reactionrates}
+\end{table}
+
+As we have previously discussed, the KH mechanism is not the driving force behind the generation of energy in a star.
+Instead, we must briefly discuss the various nuclear fusion processes, in order to understand why massive stars are so luminous, as well as how their lives end.
+Nucear fusion in stars was first proposed by \textcite{eddingtonInternalConstitutionStars1920}, though the exact process continued to be a mystery for nearly 2 decades, when \textcite{betheEnergyProductionStars1939} discovered the p-p fusion reaction chain that drives approximately 90\% of the energy generation of the sun.
+The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\solarmass} \lesssim \text{M}_\star \lesssim 1.3 \, \si{\solarmass}$, and releases energy by fusing protons into helium in a particularly direct manner: 
+
+\begin{equation}
+  \begin{alignedat}{3}
+    p + p & \rightarrow \atom{H}{2}{1} + e^+ + \nu_e && ~~ + \SI{1.44}{\mega\electronvolt} \\
+    p + \atom{H}{2}{1} & \rightarrow \atom{He}{3}{2} + \gamma && ~~ + \SI{5.49}{\mega\electronvolt} \\ 
+    \atom{He}{3}{2} + \atom{He}{3}{2} & \rightarrow \atom{He}{4}{2} + p + p && ~~ + \SI{12.86}{\mega\electronvolt}
+  \end{alignedat}
+\end{equation}
+
+\noindent
+However, whilst the reaction is particularly efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}), the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$.
+In more massive stars, with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not be present.
+As such, we can infer that the actual mechanisms underpinning fusion in intermediate and high-mass stars are much more energetic and temperature dependent.
+Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle, instead of the more direct p-p fusion process:
+
+\begin{equation}
+  \begin{alignedat}{3}
+    \prescript{12}{6}{\text C} + p & \rightarrow \prescript{13}{7}{\text N} && ~~ + \SI{1.95}{\mega\electronvolt} \\ 
+    \prescript{13}{7}{\text N} & \rightarrow \prescript{13}{6}{\text C} + e^+ + \nu_e && ~~ + \SI{1.20}{\mega\electronvolt} \\
+    \prescript{13}{6}{\text C} + p & \rightarrow \prescript{14}{7}{\text N} + \gamma && ~~ + \SI{7.54}{\mega\electronvolt} \\
+    \prescript{14}{7}{\text N} + p & \rightarrow \prescript{15}{8}{\text O} + \gamma && ~~ + \SI{7.35}{\mega\electronvolt} \\
+    \prescript{15}{8}{\text O} & \rightarrow \prescript{15}{7}{\text N} + e^+ + \nu_e && ~~ + \SI{1.73}{\mega\electronvolt} \\
+    \prescript{15}{7}{\text N} + p & \rightarrow \prescript{12}{6}{\text C} + \prescript{4}{2}{\text {He}} && ~~ + \SI{4.96}{\mega\electronvolt}
+  \end{alignedat}
+\end{equation}
+
+\noindent
+The CNO I cycle, as included, was also proposed by \textcite{betheEnergyProductionStars1939}, and has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{18}$
+\parencite[Ch.~10]{wongIntroductoryNuclearPhysics1998}.
+The incredible densities at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
+This results in a convective core surrounded by a radiative envelope, and is the driving force behind the incredible observed luminosities of high-mass stars as they convert hydrogen to helium at an astounding rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/reaction-rate/reaction-solar.pdf}
+  \caption[Reaction rates at the center of the sun]{Reaction rates from p-p, CNO and triple-$\alpha$ fusion processes at the centre of the sun. At the solar core temperature of \SI{1.5e7}{\kelvin} only 10\% of the energy produced from fusion is through the CNO cycle. At higher internal temperatures the CNO cycle rapidly becomes dominant due to its stronger temperature dependence. The $3\alpha$ process does not occur in the solar core, but becomes the dominant fusion process in high-mass stars leaving the main sequence. Solar abundances and a core density of \SI{150}{\gram\per\centi\metre\cubed} are assumed.}
+\end{figure}
 
 
-%//FIXME mechanism less efficient, 0.6MeV per nucleon, but reaction rate just quite a lot faster, temperature sensitivity, series of power laws, t^40 for 1e8k and t^20 for 2e8k
-The reaction rate of CNO rises much faster, resulting in a convective core, surrounded by a radiative envelope \parencite{salarisEvolutionStarsStellar2005}. This is the driving force behind the incredible luminosities of an OB star as it hurtles along the main sequence.
-
-%//TODO might be a good idea to include that one graph with fusion rates?
+\subsection{Stellar winds}
 
 % Influence of OB stars on surrounding environment, outsized influence etc.
+The luminosities and temperatures of high-mass stars also drive extremely fast stellar winds through radiative line driving.
+These winds are on the order of $10^{10}$ times stronger than winds from stellar-mass stars, and punch holes clean into the interstellar medium (ISM), forming wind-driven bubbles and champagne cork flows, as well as perturbing GMCs, allowing for further star formation.
 
-% Touch on stellar winds, expand in next section
+The study of stellar winds, of course, is quite hard from our vantage point on earth.
+Sampling the winds themselves is difficult due to the vast, inconvenient distances involved in sending a probe to collect the rarefied material from our stellar neighbourhood.
+Additionally, the bubble blown from our own suns stellar wind makes collection even more difficult, leaving the heliosphere is no easy feat either, just ask the Voyager probes.
+We instead derive the properties of these extrasolar winds from spectrography, with the adsorption and emission spectra of the winds betraying their composition.
+The velocity of these winds can be determined in much the same manner, through the Doppler shift of these emission lines.
+Early observations of stellar winds centred around the star P Cygni, the earliest known example of an evolved Luminous Blue Variable (LBV) star.
+the presence of peaks and throughs in the profile of a spectral line such as H-$\alpha$ was the cause of some scientific curiosity.
+This effect could only be explained by the presence of a shell rapidly expanding away from the star.
+The troughs of this emission line corresponded to a blue-shifted adsorption lobe, from radiation passing through this shell, while the emission line itself corresponded to the expanding shell itself \parencite{bealsNatureWolfRayetEmission1929,lamersIntroductionStellarWinds1999}.
+Observations of other stars typified this event, it was found that every star had a stellar wind, though the speed and quantity of the ejected material could vary by many orders of magnitude.
 
+% Very basic 
+In the simplest terms, we can describe a stellar wind as a spherical outflow from a star.
+We can describe this outflow in terms of its mass loss rate, $\mdot$, the amount of material ejected from the star, as well as its terminal velocity, $\vinf$, or the maximum velocity a wind can obtain from its driving mechanism.
+We can use these to determine a profile of the density of a stellar wind as a function of its distance, $\boldsymbol{r}$, from the star
+
+\begin{equation}
+  \rho_w = \frac{\dot{\text{M}}}{4 \pi v^\infty \boldsymbol{r}^2}, \label{eq:smoothwind}
+\end{equation}
+
+\noindent
+where the star is a point source.
+Whilst this barest description can give us some insight into how a wind behaves, we should discuss the driving mechanisms behind these winds, as well as the more complex models we use to describe them.
+
+\subsubsection{Driving mechanisms}
+
+\begin{table}[h]
+  \centering
+  % \resizebox{\textwidth}{!}{%
+  \begin{tabular}{llll}
+  \hline
+  \multicolumn{1}{l}{Classification} & \multicolumn{1}{l}{$\dot M$} & \multicolumn{1}{l}{$v_\infty$} & \multicolumn{1}{l}{Mechanism} \\
+  \multicolumn{1}{l}{}     & \multicolumn{1}{l}{\si{\solarmass\per\year}}         & \multicolumn{1}{l}{\si{\kilo\metre\per\second}}           & \multicolumn{1}{l}{}          \\ \hline
+  Sun            & $10^{-14}$        & 400  & Thermal heating \\
+  PMS & $10^{-4}-10^{-7}$ & 200-500 & Rotation \& magnetic fields \\
+  Red Giant      & $10^{-7}-10^{-9}$ & 30   & Radiation pressure on dust grains        \\
+  OB Star        & $10^{-7}-10^{-8}$ & \num{2500} & Radiation pressure \& line driving      \\
+  Wolf-Rayet     & $10^{-5}$         & \num{1500} & Radiation pressure \& line driving       \\ \hline
+  \end{tabular}%
+  % }
+  \caption[Stellar wind comparison]{Comparison of stellar winds emitted from various classification of star.}
+  \label{tab:windcomp}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{assets/wind-comparison/wind-comp.pdf}
+  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in equation \ref{eq:smoothwind}.}
+  \label{fig:windrhocomp}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/plancks-law/plancks-law.pdf}
+  \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in Table 1 of \textcite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
+  \label{fig:planck-comp}
+\end{figure}
+
+% Low mass stars
+
+Low-mass main sequence stars, compared to other classes of star, have supersonic ($\sim \SI{400}{\kilo\metre\per\second}$) winds that are relatively thin, with a mass loss rate of $10^{-14} \, \si{\solarmass\per\year}$.
+This results in a wind density profile orders of magnitude lower than other types of star, based on Eq. \ref{eq:smoothwind} (Fig. \ref{fig:windrhocomp}).
+The reason for this comparatively feeble outflow is the driving mechanism.
+The corona in stars with a convective envelope is approximately 3 orders of magnitude hotter than the stars photosphere, this hot corona exerts pressure on gas trapped within it, causing it to be expelled from the star.
+As this method is thermally driven, and does not expel gas from the envelope directly, this explains the comparative weakness.
+In fact, winds from red dwarfs are found to be markedly denser, but the mechanisms behind the driving force are less well understood.
+% Evolved low-mass stars
+As low-mass stars evolve and leave the main sequence, swelling into red giants, the surface gravity of the star decreases dramatically.
+Furthermore, as the star expands and cools, dust condenses and forms in the photosphere.
+These dust grains adsorb photons more readily than ions and atoms through Thompson scattering, and can adsorb a broad range of wavelengths due to their size.
+Radiation pressure then drives these dust grains away, if the gas is sufficiently coupled to the wind this is driven away too, in the form of a dense, optically thick, barely supersonic wind
+\parencite[Ch.~5]{lamersIntroductionStellarWinds1999}.
+The mass loss rates of these stars are extremely high, no lower than $10^{-7} \, \si{\solarmass\per\year}$ and as high as $10^{-5} \, \si{\solarmass\per\year}$ but have velocities on the order of $10-100 \, \si{\kilo\metre\per\second}$.
+
+% High mass stars
+
+By the 1970s the winds of early-type stars had been categorised, finding mass loss rates between $10^{-8}$ to $10^{-5} \, \si{\solarmass\per\year}$ and wind velocities of \num{600} to \SI{3500}{\kilo\metre\per\second}.
+Additionally, it was found that the mass loss rate of these stars was approximately proportional to the luminosity ($\mdot_\star \propto L_\star^{1.1}$) \parencite{cassinelliStellarWinds1979}.
+This strongly suggested that the driving mechanism of these winds was based on radiation pressure, though thompson scattering would not be a sufficiently efficient process to drive winds of this magnitude.
+Furthermore, coronal heating and dust driving mechanisms were not possible, due to a lack of a convective envelope and lack of significant dust build up in the envelope, respectively.
+
+\subsubsection{Line-driven wind theory}
+\label{sec:cak}
+
+% Line driven wind theory 
+Instead, wind driving through resonance lines was proposed.
+A photon with an energy equal to the excitation energy of an emission line of an ion in the wind is adsorbed, exciting the ion.
+This ion then de-excites over a timescale of $10^{-8} \, \si{\second}$, emitting a photon at a random angle relative to the radial direction relative to the star, $\alpha$.
+This emission of a photo produces a recoil force on the ion, resulting in a change in the radial velocity, $\Delta v\rms{r}$, such that:
+
+\begin{equation}
+  \Delta v\rms{r} = v\rms{r}'' + v\rms{r}' - v\rms{r} = \frac{h\nu_0}{mc} \left(1-\cos \alpha \right),
+\end{equation}
+
+\noindent
+where $v\rms{r}'$ is the ions radial velocity after the photon adsorption, $v\rms{r}''$ is the ions radial velocity after photon emission and $\nu_0$ is the frequency of the resonating photon.
+Compared to Thompson scattering, resonance lines are 6 orders of magnitude more opaque, making it a much more efficient process
+\parencite[Ch.~8]{lamersIntroductionStellarWinds1999}.
+This driving force occurs more readily with elements with a large number of resonant lines, heavier ions such as C, N, O and Fe group elements adsorb the photons.
+Lighter elements such as H and He are instead carried along via Coulomb forces, coupled to the heavier elements so long as the medium is sufficiently dense.
+
+But why is this effect not observed in lower mass stars?
+Firstly, resonance lines in heavier elements are comparatively high energy, requiring 
+For instance, the C III resonance line has an energy of \SI{12.69}{\electronvolt}, therefore a photon requires a wavelength of \SI{977}{\angstrom} in order to be adsorbed (Fig. {\ref{fig:planck-comp}}).
+Secondly, photons would only be adsorbed over a narrow range of frequencies.
+This would inhibit efficient momentum transfer from UV photons without Doppler shift, as the outflow from the star has a distribution of radial velocities this results in a greater chance of resonance line adsorption.
+If we were to observe the outflow of a massive wind we would therefore see a relatively low velocity component of the wind close to the star; once the wind reaches a certain critical velocity.
+At a certain point we would observe a significant and rapid increase in the velocity of the wind, as the influence on adsorption due to Doppler shift results in the wind becoming much more opaque to UV photons.
+Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \parencite[Ch.~10]{maciel_hydrodynamics_2014}.
+This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply at a distance $(R/R_\star) - 1 > 10^{-3}$ as the wind begins to rapidly accelerate away from the star as opacity increases - with a corresponding decrease in wind density.
+
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/cak/vel.pdf}
+  \caption[Radiative line driving velocity and density profile]{Velocity and density profiles of the WR and OB stars in the WR140 system. Acceleration is gradual until $(R/R_\star) - 1 > 10^{-3}$, where wind opacity drastically increases due to Doppler shift. The model uses the Castor, Abbott and Klein formalism, with the CAK parameters of the stars estimated to be $k = 0.37$, $\alpha = 0.60$ for the O4-5 star and $k = 0.48$, $\alpha = 0.57$ for the WC7 star.}
+  \label{fig:cak-vel}
+\end{figure}
+
+Theories of radiation pressure being the main driving force for massive stars was first considered by astronomers in the early \nth{20} century, and was first proposed by \textcite{sahaRadiationPressureQuantumTheory1919}.
+Later, \textcite{milnePossibilityEmissionHighspeed1926} who predicted that after an initial acceleration phase from an ions emission lines, Doppler shift would be sufficient for continuum photons frequencies to match the resonant lines - causing a much greater impulsive force.
+Early calculations of the force on stellar winds due to resonance lines by \textcite{lucy_mass_1970} found initial estimates for the mass loss rate based on a series of resonance line in the C, N, Si and S species of ions.
+However, these were found to underestimate the mass loss by approximately two orders of magnitude.
+This is in part due to the models simplicity, due to limitations in both computing power and available data, as the force due to interaction of resonance lines with continuum photons were considered.
+The first major breakthrough was with more complex models demonstrated by Castor, Abbott and Klein (\citeyear{castor_radiation-driven_1975}; CAK).
+The CAK model computed line forces from all emission lines in the C III ion, after estimating the line force from other ions by scaling the results of this calculation an estimate of mass loss rates for hot stars was calculated to within a factor of 3 of observational results.
+A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from a startling \num{250000} lines, however, this was found to be less accurate than the original CAK model!
+This led to improvements on the approximations and assumptions made by the CAK model, namely the finite disk correction factor
+\parencite{friend_theory_1986,pauldrachRadiationdrivenWindsHot1986}.
+% Sobolev approx
+
+% Finite disk correction factor
+
+
+
+
+\subsection{Evolved main sequence stars}
 % Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
 
 Unfortunately for massive stars, pesky fundamental laws such as the conservation of energy come into play. With only an order of magnitude or two of additional mass more than our sun and shining $10^4$ times as brightly, this curtails the life of the brightest stars to lifespans not much more than $10^7$ years.
 If we define a galactic year as the time it takes for a star to orbit the Milky Way, these poor stars don't even make it to their first birthdays, which is quite sad really.\footnote{Continuing this analogy our sun can drink, might have voted if they felt like it, and may be racking up vast quantities of student debt.}
 
-
 As the available hydrogen begins to become depleted, the lowering reaction rates force the star to shrink, this raises the internal temperature until the core begins to burn helium through the triple-$\alpha$ process:
 
-\begin{subequations}
-  \begin{align*}
-    \prescript{4}{2}{\text{He}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{8}{4}{\text{Be}} \\
-    \prescript{8}{4}{\text{Be}} + \prescript{4}{2}{\text{He}} & \rightarrow \prescript{12}{6}{\text{C}} + 2\gamma
-  \end{align*}
-\end{subequations}
+\begin{equation}
+  \begin{alignedat}{3}
+    \atom{He}{4}{2} + \atom{He}{4}{2} & \rightarrow \atom{Be}{8}{4} && ~~ - \SI{0.09}{\mega\electronvolt} \\
+    \atom{Be}{8}{4} + \atom{He}{4}{2} & \rightarrow \atom{C}{12}{6} + 2\gamma && ~~ + \SI{7.37}{\mega\electronvolt} 
+  \end{alignedat}
+\end{equation}
 
+\noindent
 The sudden spike in energy radiating from the core shifts the calculus of hydrostatic equilibrium in the favour of outward forces, causing the star to rapidly expand in the form of a Red Supergiant or Luminous Blue Variable \parencite{ryanStellarEvolutionNucleosynthesis2010a}.
 During this phase the energy output of the star is even greater, with a timescale of $\sim 10^6$ years, this is only temporarily prolonging the life of the star, which will inevitably begin burning heavier and heavier elements, faster and faster.
 Once the star starts producing iron its fate is sealed, the star stops fusing, and collapses, annihilating itself in the form of a supernova and leaving behind a remnant of its core in the form of a neutron star or black hole 
@@ -95,10 +291,15 @@ Once the star starts producing iron its fate is sealed, the star stops fusing, a
 
 Whilst the stars end is as inevitable as it is violent, the intermediate stage as the star leaves the main sequence is in itself extremely interesting, and for the context of this thesis, no product of this stage is more interesting than the Wolf-Rayet.
 
-
-
 \subsection{Wolf-Rayet stars}
 \label{sec:wrtype}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{assets/WR124.png}
+  \caption[\textit{M1-67 nebula around WR 124 \parencite{2010ApJ...724L..90M}}]{Reduced Hubble WFPC2 data of the WN star WR 124, its extreme mass loss is currently producing the ejecta nebula M1-67 \parencite{2010ApJ...724L..90M}.}
+  \label{fig:wr124}
+\end{figure}
 
 
 %Notes: Evolution type 
@@ -150,136 +351,6 @@ The WR component of a WR+OB binary has an outsized contribution in returning mat
 In some cases, the dense, fast wind from the WR can collide with the much more tenuous wind from its partner, forming a strong shock, and a variety of fascinating effects.
 However, I wouldn't want to spoil too much too soon, but you can skip ahead to section \ref{sec:cwb}, where this phenomena is covered in more detail.
 %//HMM This may be a bit too jovial!
-
-
-\section{Stellar Winds}
-\label{sec:winds}
-
-% Section covers wind driving mechanisms, while wind is touched on in the previous section, this covers the mechanisms more thoroughly
-
-Stellar winds have already been discussed to some extent in the previous section.
-However, due to the significance of winds within this body of work, this phenomena must be discussed in greater detail to understand the dynamics of Colliding Wind Binary systems.
-This section will cover in brief the study of stellar winds, particularly driving mechanisms from low and high mass stars.
-
-% Background of stellar winds, particularly history of the subject
-
-% Define the mass loss rate, mdot
-% Single wind estimates and densities
-
-%Define the terminal velocity, discuss why this may not be completely accurate
-
-The study of stellar winds is of course, rather hard from our vantage point on Earth, as direct observation of a non-stellar solar wind is difficult, and sampling of the winds themselves significantly more difficult than that due to the inconvenient distances involved in interstellar travel.
-Because of this, extrasolar wind properties are derived from spectrography, with velocities derived through Doppler shift.
-The important parameters to consider in a wind, especially for this thesis, is the mass loss rate, $\dot M$, the wind terminal velocity, $v^\infty$ and the abundances within the wind.
-
-%https://www.ifa.hawaii.edu/users/kud/windsfromhotstars/hotwinds.html
-
-\begin{equation}
-  \frac{dM}{dt} = 4 \pi \rho(\boldsymbol{r}) v(\boldsymbol{r}) \boldsymbol{r}^2, \label{eq:massloss}
-\end{equation}
-
-\begin{equation}
-  \rho_w = \frac{\dot{\text{M}}}{4 \pi v^\infty r^2}, \label{eq:smoothwind}
-\end{equation}
-
-This section will cover the different driving mechanisms winds from low and high mass stars, the typical wind parameters and driving mechanisms are broken down in table \ref{tab:windcomp}.
-
-
-\subsection{Stellar winds in low mass stars}
-\label{sec:lowmasswinds}
-% Introduction, refer to table
-
-
-% Low mass main sequence
-
-Low mass stellar main sequence stellar winds are quite paltry compared to their high-mass counterparts.
-The sun, for instance, drives thin, comparatively slow winds, with a mass loss rate of \SI{1e-14}{\solarmass\per\year} and a terminal velocity of \SI{400}{\kilo\metre\per\second}.
-The mechanism behind this is gas pressure from coronal heating, with outward pressure driving gas in the stellar atmosphere away from the star, this results in a transonic wind that quickly reaches its terminal velocity as the coronal temperature and subsequent pressure quickly tapers off \parencite{lamersIntroductionStellarWinds1999}.
-
-% Short section on red dwarf winds
-
-% Off the main sequence, dust driven winds
-As a low mass star exits the main sequence, ballooning in size to become a red giant, the density of the stellar wind increases dramatically. 
-As dust condenses in the upper atmosphere of the red giant, these grains can readily adsorb photons, utilising radiation pressure to be driven away from the more luminous giant star, easily achieving escape velocity against the low surface gravity of the red giant.
-Gas is also driven away, coupled to the dust, this provides an efficient form of momentum transfer, allowing for an extremely dense albeit slow stellar wind.
-
-\subsection{Stellar winds in high mass stars}
-\label{sec:radlinedriving}
-
-In the same way that high-mass stars are many orders of magnitude brighter than their low mass counterparts despite a comparatively low increase in mass, a similar correlation can be found in the density and velocity of a high-mass star's wind.
-A main sequence OB star typically has a mass loss rate of $10^{8}$ \si{\solarmass\per\year}, 6 orders of magnitude higher than a solar mass star.
-This discrepancy in wind density cannot be explained by stronger coronal heating, as the lack of a convective envelope ensures that coronal heating is not even feasible as a driving method.
-Radiation pressure alone would also not be enough to explain the observed dense, highly supersonic winds emanating from these massive stars.
-Resonance lines appeared to be a more feasible explanation, a photon with an energy equal to the excitation energy of an ion is scattered by the ion.
-The ion subsequently de-excites over a timescale of \SI{1e-8}{\second}, emitting a photon at a random angle relative to the radial direction, $\alpha$. The resultant change in radial velocity, $\Delta v_r$, for the adsorption of a photon at the resonance frequency $\nu_0$ is:
-
-\begin{equation}
-  \Delta v_r = v''_r - v_r = \frac{h\nu_0}{mc} (1-\cos\alpha),
-\end{equation}
-
-\noindent
-where $v''_r$ is the radial velocity after the absorption and emission events, and $m$ is the ion mass.
-These ions are then propelled away from the star, along with the rest of the stellar wind, as it is coupled to the ions through Coulomb forces.
-The opacity of such resonance lines can be up to six orders of magnitude larger than the opacity of a Thomson scattering event \parencite{lamersIntroductionStellarWinds1999}, making it a markedly more efficient process.
-This effect is not observed in low-mass stars, whose spectra typically peak in the visible light, while resonance lines typically have energies equivalent to UV photons (Fig. \ref{fig:planck-comp}).
-O-type and Wolf-Rayet stars, however, emit much of their radiation within the UV range, due to their higher temperatures.
-
-\begin{figure}
-  \centering
-  \includegraphics{assets/plancks-law/plancks-law.pdf}
-  \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in table 1 of \textcite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
-  \label{fig:planck-comp}
-\end{figure}
-
-% Need to briefly explain P-Cygni profiles as well
-
-% Radiative line driving, this section may need to be beefed up
-
-Early computations involving resonance lines from \textcite{lucy_mass_1970} provided a more reasonable mass loss rate calculation, but were still off by approximately two orders of magnitude.
-Building off of the work by Lucy \& Solomon, a vital paper in the solidification of radiative lines as the main driving mechanism behind massive star outflows was produced by Castor, Abbott and Klein\footnote{Hereafter abbreviated as CAK.}.
-The CAK formalism calculated reasonably close wind velocities, while being accurate to within a factor of 3 for mass loss rates \parencite{castor_radiation-driven_1975}.
-Further work allowed for more accurate computations of the line driving effect, such as the mCAK prescription, the Sobolev approximation and the finite disk correction factor \parencite{pauldrachRadiationdrivenWindsHot1986}.
-
-% Evolved OB stars, WR stars
-
-As previously mentioned, evolved massive stars progress into a helium burning WR phase, at this point, mass loss rates due to radiative line driving are extreme, in the order of $10^{-5}$ \si{\solarmass\per\year}.
-This outsized influence on the local medium can be seen in the production of ejecta nebula, such as M1-67 produced by WR 124 (Fig. \ref{fig:wr124}).
-
-%//FIXME this is a placeholder, additionally how should I cite this?
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=4in]{assets/WR124.png}
-  \caption[\textit{M1-67 nebula around WR 124 \parencite{2010ApJ...724L..90M}}]{Reduced Hubble WFPC2 data of the WN star WR 124, its extreme mass loss is currently producing the ejecta nebula M1-67 \parencite{2010ApJ...724L..90M}.}
-  \label{fig:wr124}
-\end{figure}
-
-\begin{table}[h]
-  \centering
-  % \resizebox{\textwidth}{!}{%
-  \begin{tabular}{cccc}
-  \hline
-  \multicolumn{1}{c}{Classification} & \multicolumn{1}{c}{$\dot M$} & \multicolumn{1}{c}{$v_\infty$} & \multicolumn{1}{c}{Mechanism} \\
-  \multicolumn{1}{c}{}     & \multicolumn{1}{c}{\si{\solarmass\per\year}}         & \multicolumn{1}{c}{\si{\kilo\metre\per\second}}           & \multicolumn{1}{c}{}          \\ \hline
-  Sun            & $10^{-14}$        & 400  & Thermal heating \\
-  PMS & $10^{-4}-10^{-7}$ & 200-500 & Rotation \& magnetic fields \\
-  Red Giant      & $10^{-7}-10^{-9}$ & 30   & Radiation pressure on dust grains        \\
-  OB Star        & $10^{-7}-10^{-8}$ & 2500 & Radiation pressure \& line driving      \\
-  Wolf-Rayet     & $10^{-5}$         & 1500 & Radiation pressure \& line driving       \\ \hline
-  \end{tabular}%
-  % }
-  \caption[Stellar wind comparison]{Comparison of stellar winds emitted from various classification of star.}
-  \label{tab:windcomp}
-\end{table}
-
-\begin{figure}
-  \centering
-  \includegraphics{assets/wind-comparison/wind-comp.pdf}
-  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in equation \ref{eq:smoothwind}.}
-  \label{fig:windrhocomp}
-\end{figure}
-
-\subsection{The CAK formalism}
-\label{sec:cak}
 
 \section{Interstellar Dust}
 \label{sec:dust}
@@ -677,6 +748,7 @@ where $\tau\rms{cool}$ is the cooling timescale and $\tau\rms{esc}$ is the escap
 The cooling timescale is the time required for the gas to radiate all of its energy at a rate $\dot{E}$, hence, $\tau\rms{cool} = E/\dot{E}$ or:
 
 \begin{equation}
+  \label{eq:taucool}
   \tau\rms{cool} = \frac{k\rms{B}T\rms{s}}{4n\rms{w}\Lambda(T\rms{s})},
 \end{equation}
 
@@ -685,6 +757,7 @@ where $k\rms{B}$ is the Boltzmann constant, $T\rms{s}$ is the shock temperature 
 The escape timescale represents the approximate time taken for the gas to escape the shock, corresponding to:
 
 \begin{equation}
+  \label{eq:tauesc}
   \tau\rms{esc} = \frac{d\rms{sep}}{c\rms{s}} , 
 \end{equation}
 
