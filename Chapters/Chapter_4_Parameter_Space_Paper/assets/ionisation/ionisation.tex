@@ -1,4 +1,3 @@
-% GNUPLOT: LaTeX picture with Postscript
 \begingroup%
 \makeatletter%
 \newcommand{\GNUPLOTspecial}{%
@@ -6,20 +5,8 @@
 \setlength{\unitlength}{0.0500bp}%
 \begin{picture}(7200,5040)(0,0)%
   {\GNUPLOTspecial{"
-%!PS-Adobe-2.0 EPSF-2.0
-%%Title: /home/joseph/Documents/writing/parameter-space/assets/ionisation/ionisation.tex
-%%Creator: gnuplot 5.2 patchlevel 8
-%%CreationDate: Wed May 19 17:28:21 2021
-%%DocumentFonts: 
-%%BoundingBox: 0 0 360 252
-%%EndComments
-%%BeginProlog
 /gnudict 256 dict def
 gnudict begin
-%
-% The following true/false flags may be edited by hand if desired.
-% The unit line width and grayscale image gamma correction may also be changed.
-%
 /Color false def
 /Blacktext true def
 /Solid false def
@@ -35,7 +22,6 @@ gnudict begin
 /userlinewidth gnulinewidth def
 /Gamma 1.0 def
 /BackgroundColor {-1.000 -1.000 -1.000} def
-%
 /vshift -93 def
 /dl1 {
   10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
@@ -55,11 +41,6 @@ gnudict begin
     clip
   } if
 } def
-%
-% Gnuplot Prolog Version 5.2 (Dec 2017)
-%
-%/SuppressPDFMark true def
-%
 /M {moveto} bind def
 /L {lineto} bind def
 /R {rmoveto} bind def
@@ -69,7 +50,7 @@ gnudict begin
 /C {setrgbcolor} bind def
 /f {rlineto fill} bind def
 /g {setgray} bind def
-/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/Gshow {show} def   %
 /vpt2 vpt 2 mul def
 /hpt2 hpt 2 mul def
 /Lshow {currentpoint stroke M 0 vshift R 
@@ -91,7 +72,6 @@ gnudict begin
 /PL {stroke userlinewidth setlinewidth
 	Rounded {1 setlinejoin 1 setlinecap} if} def
 3.8 setmiterlimit
-% Classic Line colors (version 5.0)
 /LCw {1 1 1} def
 /LCb {0 0 0} def
 /LCa {0 0 0} def
@@ -104,7 +84,6 @@ gnudict begin
 /LC6 {0 0 0} def
 /LC7 {1 0.3 0} def
 /LC8 {0.5 0.5 0.5} def
-% Default dash patterns (version 5.0)
 /LTB {BL [] LCb DL} def
 /LTw {PL [] 1 setgray} def
 /LTb {PL [] LCb DL} def
@@ -314,14 +293,6 @@ gnudict begin
 /BoxColFill {gsave Rec PolyFill} def
 /PolyFill {gsave Density fill grestore grestore} def
 /h {rlineto rlineto rlineto closepath gsave fill grestore stroke} bind def
-%
-% PostScript Level 1 Pattern Fill routine for rectangles
-% Usage: x y w h s a XX PatternFill
-%	x,y = lower left corner of box to be filled
-%	w,h = width and height of box
-%	  a = angle in degrees between lines and x-axis
-%	 XX = 0/1 for no/yes cross-hatch
-%
 /PatternFill {gsave /PFa [ 9 2 roll ] def
   PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
   PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
@@ -337,7 +308,6 @@ gnudict begin
 	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
  } if
   stroke grestore} def
-%
 /languagelevel where
  {pop languagelevel} {1} ifelse
 dup 2 lt
@@ -349,9 +319,6 @@ dup 2 lt
 	    {/InterpretLevel3 false def}
 	 ifelse }
  ifelse
-%
-% PostScript level 2 pattern fill definitions
-%
 /Level2PatternFill {
 /Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
 	bind def
@@ -408,17 +375,9 @@ dup 2 lt
 /Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
 /Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
 } def
-%
-%
-%End of PostScript Level 2 code
-%
 /PatternBgnd {
   TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
 } def
-%
-% Substitute for Level 2 pattern fill codes with
-% grayscale if Level 2 support is not selected.
-%
 /Level1PatternFill {
 /Pattern1 {0.250 Density} bind def
 /Pattern2 {0.500 Density} bind def
@@ -428,15 +387,10 @@ dup 2 lt
 /Pattern6 {0.625 Density} bind def
 /Pattern7 {0.875 Density} bind def
 } def
-%
-% Now test for support of Level 2 code
-%
 Level1 {Level1PatternFill} {Level2PatternFill} ifelse
-%
 /Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
 dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
 currentdict end definefont pop
-%
 Level1 SuppressPDFMark or 
 {} {
 /SDict 10 dict def
@@ -447,15 +401,10 @@ SDict begin [
   /Title (/home/joseph/Documents/writing/parameter-space/assets/ionisation/ionisation.tex)
   /Subject (gnuplot plot)
   /Creator (gnuplot 5.2 patchlevel 8)
-%  /Producer (gnuplot)
-%  /Keywords ()
   /CreationDate (Wed May 19 17:28:21 2021)
   /DOCINFO pdfmark
 end
 } ifelse
-%
-% Support for boxed text - Ethan A Merritt Sep 2016
-%
 /InitTextBox { userdict /TBy2 3 -1 roll put userdict /TBx2 3 -1 roll put
            userdict /TBy1 3 -1 roll put userdict /TBx1 3 -1 roll put
 	   /Boxing true def } def
@@ -478,10 +427,7 @@ end
 /TBymargin 20 def
 /Boxing false def
 /textshow { ExtendTextBox Gshow } def
-%
 end
-%%EndProlog
-%%Page: 1 1
 gnudict begin
 gsave
 doclip
