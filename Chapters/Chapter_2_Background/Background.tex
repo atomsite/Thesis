@@ -193,8 +193,8 @@ Whilst this barest description can give us some insight into how a wind behaves,
 
 % Low mass stars
 
-Low-mass main sequence stars, compared to other classes of star, have supersonic ($\sim \SI{400}{\kilo\metre\per\second}$) winds that are relatively thin, with a mass loss rate of $10^{-14} \, \si{\solarmass\per\year}$.
-This results in a wind density profile orders of magnitude lower than other types of star, based on Eq. \ref{eq:smoothwind} (Fig. \ref{fig:windrhocomp}).
+Low-mass main sequence stars, compared to other classes of star, have winds that are relatively thin, with a mass loss rate of $10^{-14} \, \si{\solarmass\per\year}$.
+Along with their middling velocity of \SI{400}{\kilo\metre\per\second} this results in a wind density many orders of magnitude lower than other types of star (Fig. \ref{fig:windrhocomp}).
 The reason for this comparatively feeble outflow is the driving mechanism.
 The corona in stars with a convective envelope is approximately 3 orders of magnitude hotter than the stars photosphere, this hot corona exerts pressure on gas trapped within it, causing it to be expelled from the star.
 As this method is thermally driven, and does not expel gas from the envelope directly, this explains the comparative weakness.
@@ -261,37 +261,89 @@ The CAK model computed line forces from all emission lines in the C III ion, aft
 A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from a startling \num{250000} lines, however, this was found to be less accurate than the original CAK model!
 This led to improvements on the approximations and assumptions made by the CAK model, namely the finite disk correction factor
 \parencite{friend_theory_1986,pauldrachRadiationdrivenWindsHot1986}.
-% Sobolev approx
 
-% Finite disk correction factor
-
-
-
-
-\subsection{Evolved main sequence stars}
+\subsection{Evolved early-type stars}
+\label{sec:evolvedstars}
 % Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
+Unfortunately for the most massive stars, pesky limitations such as the conservation of energy severely curtail their lifespans.
+Despite being anywhere from 3 to 5 orders of magnitude brighter, the most massive stars typically have between 1 and 2 orders of magnitude more fuel.
+As such, they simply cannot compete with the ten billion year lifespan of our sun, or red dwarfs, which can have lifespans in the \emph{trillions} of years!
+% Luminosity lifetime relation
+In order to approximate the main sequence lifespan of a massive, early-type star we must make some assumptions.
+We can assume the main sequence lifespan of a star is based on the amount of available hydrogen in the star and the fusion rte of the star, we can estimate that this lifespan, $\tau_\star$, through the equation:
 
-Unfortunately for massive stars, pesky fundamental laws such as the conservation of energy come into play. With only an order of magnitude or two of additional mass more than our sun and shining $10^4$ times as brightly, this curtails the life of the brightest stars to lifespans not much more than $10^7$ years.
-If we define a galactic year as the time it takes for a star to orbit the Milky Way, these poor stars don't even make it to their first birthdays, which is quite sad really.\footnote{Continuing this analogy our sun can drink, might have voted if they felt like it, and may be racking up vast quantities of student debt.}
+\begin{equation}
+  \tau_\star \approx \frac{\mass_\star}{\lumin_\star} ,
+\end{equation}
 
-As the available hydrogen begins to become depleted, the lowering reaction rates force the star to shrink, this raises the internal temperature until the core begins to burn helium through the triple-$\alpha$ process:
+\noindent
+where $\mass_\star$ is the mass of the star and $\lumin_\star$ is the luminosity of the star.
+Through observation we can determine an approximation of the mass-luminosity relation \parencite[139]{salarisEvolutionStarsStellar2005}, such that:
+
+\begin{equation}
+  \frac{\lumin_\star}{\lumin\sol} \propto
+  \begin{cases}
+    (\mass_\star/\mass\sol)^{2.6} , & \text{if } \SI{0.2}{\solarmass} \lesssim \mass_\star \lesssim \SI{0.5}{\solarmass} \\
+    (\mass_\star/\mass\sol)^{4.5} , & \text{if } \SI{0.5}{\solarmass} \lesssim \mass_\star \lesssim \SI{2}{\solarmass} \\
+    (\mass_\star/\mass\sol)^{3.6} , & \text{if } \SI{2}{\solarmass} \lesssim \mass_\star \lesssim \SI{20}{\solarmass} .
+  \end{cases}
+\end{equation}
+
+\noindent
+We can then make the following estimate for the main sequence lifespan of a massive star:
+
+\begin{equation}
+  \label{eq:mass-lifespan}
+  \tau_\star \approx \tau\sol \left(\frac{\mass_\star}{\mass\sol}\right)^{-2.6}.
+\end{equation}
+
+\noindent
+Assuming a solar lifespan of $\tau\sol = \SI{10}{\giga\year}$ we find through Eq. \ref{eq:mass-lifespan} that a typical O-type star with a mass of \SI{20}{\solarmass} is $\sim \SI{4.14}{\mega\year}$.
+It takes the sun approximately \SI{230}{\mega\year} to orbit the galaxy, making its ``age'' approximately 19 galactic ``years'' old. Continuing this train of thought, even the least luminous early type star does not make it to its first birthday!
+
+% == New para
+
+% Running out of fuel, schonberg
+Eventually, the hydrogen in the core is completely exhausted, leaving an inert helium core with a hydrogen envelope surrounding it.
+Near the edge of the core, the temperature is still sufficient for hydrogen to burn, with energy production in the star relegated to a shell surrounding the inert core.
+As the star transitions from core to shell H-burning \textcite{schonbergEvolutionMainSequenceStars1942} determined that the core and envelope temperature gradient is radiative, with an isothermal stratification.
+They went on propose tht there is a limiting factor on the stable core size of a star.
+Above this \emph{Sch{\"o}nberg-Chandrasekhar} limit ($q\rms{SC}$) the core contracts on the KH timescale (Eq. \ref{eq:khtime}), with the limit determined by a ratio the mean molecular mass, $\mu$, of the envelope and the core, such that:
+
+\begin{equation}
+  q\rms{SC} \equiv \left(\frac{\mass\rms{core}}{\mass\rms{tot}}\right)\rms{SC} = 0.37 \left(\frac{\mu\rms{env}}{\mu\rms{core}}\right)^2 .
+\end{equation}
+
+\noindent
+For a star of solar composition we find $q\rms{SC} \sim 0.08$
+\parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
+For low-mass stars, this collapse timescale is extremely slow, instead the star expands into an asymptotic giant branch (AGB) star, continuing shell burning until the material is exhausted
+\parencite{beechSchoenbergChandrasekharLimitPolytropic1988}.
+This leaves behind a degenerate helium core in the form of a white dwarf, which continues to contract and emit radiation through KH processes\footnote{Finally! Kelvin was right!}.
+For massive stars the ratio of core mass to total mass is significantly higher, exceeding the Sch{\"o}nberg-Chandrasekhar limit.
+Instead, the core collapses, compressing and heating rapidly, eventually reaching temperatures sufficient for the commencement of helium burning through the Triple-$\alpha$ (3$\alpha$) process:
 
 \begin{equation}
   \begin{alignedat}{3}
-    \atom{He}{4}{2} + \atom{He}{4}{2} & \rightarrow \atom{Be}{8}{4} && ~~ - \SI{0.09}{\mega\electronvolt} \\
+    \atom{He}{4}{2} + \atom{He}{4}{2} & \rightleftarrows \atom{Be}{8}{4} && ~~ - \SI{0.09}{\mega\electronvolt} \\
     \atom{Be}{8}{4} + \atom{He}{4}{2} & \rightarrow \atom{C}{12}{6} + 2\gamma && ~~ + \SI{7.37}{\mega\electronvolt} 
   \end{alignedat}
 \end{equation}
 
 \noindent
-The sudden spike in energy radiating from the core shifts the calculus of hydrostatic equilibrium in the favour of outward forces, causing the star to rapidly expand in the form of a Red Supergiant or Luminous Blue Variable \parencite{ryanStellarEvolutionNucleosynthesis2010a}.
-During this phase the energy output of the star is even greater, with a timescale of $\sim 10^6$ years, this is only temporarily prolonging the life of the star, which will inevitably begin burning heavier and heavier elements, faster and faster.
-Once the star starts producing iron its fate is sealed, the star stops fusing, and collapses, annihilating itself in the form of a supernova and leaving behind a remnant of its core in the form of a neutron star or black hole 
-\parencite{ward-thompsonIntroductionStarFormation2011}.
+Which can also produce a small amount of oxygen with an additional $\atom{C}{12}{6} + \atom{He}{4}{2}$ interaction.
+The endothermic component of the 3$\alpha$ process, as well as the short reaction time prevents it from occurring in any reasonable quantity until core temperatures are in the order of hundreds of millions of Kelvin
+\parencite[Pt.~6]{kippenhahnStellarStructureEvolution2012}.
+The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, a truly extreme dependence, which can result in truly \emph{staggering} rates of energy production.
+However, this process is far less energy efficient than hydrogen burning processes, releasing an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}).
+At this point, however, the fate of the star is already sealed, it hurtles off of the main sequence like a 1966 Ford Thunderbird from the edge of the Grand Canyon\footnote{See \emph{Thelma and Louise} (1991) dir. Ridley Scott.}.
 
-Whilst the stars end is as inevitable as it is violent, the intermediate stage as the star leaves the main sequence is in itself extremely interesting, and for the context of this thesis, no product of this stage is more interesting than the Wolf-Rayet.
+% Brief explanation of evolution track
+As this fusion process begins, it augments the rapidly thinning hydrogen burning shell.
+Enormous photon flux drives the the outer envelope away, shifting the calculus of hydrostatic equilibrium from contraction to expansion, and the star expands into a supergiant star or a luminous blue variable (LBV) star.
+Over the course of this giant phase, the most massive of early-type stars can enter a short lived, particularly violent stage of their lives, and transition into a Wolf-Rayet star - one of the cruces of this thesis.
 
-\subsection{Wolf-Rayet stars}
+\subsubsection{Wolf-Rayet stars}
 \label{sec:wrtype}
 
 \begin{figure}[h]
@@ -301,15 +353,32 @@ Whilst the stars end is as inevitable as it is violent, the intermediate stage a
   \label{fig:wr124}
 \end{figure}
 
+\textcite{crowther_physical_2007}
 
-%Notes: Evolution type 
-% Jumping off point, wiki wolf-rayet current models, research papers therein
-% For WC formation O->RSG->WNE->WC 20-45 msol
-% WR in general O->LBV->WR
+\begin{equation}
+  \begin{alignedat}{3}
+    \text{O} & \rightarrow \text{LBV/RSG} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1b} && \text{ for } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
+    \text{O} & \rightarrow \text{LBV} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} && \text{ for } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
+    \text{O} & \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} && \text{ for } \text{M}_{\text{WR}} > 75 \, \si{\solarmass} 
+  \end{alignedat}  
+\end{equation}
 
-% History and background of Wolf-Rayet stars
 
-% Description of Wolf-Rayet star, introducing concept of strong stellar wind
+
+
+% == New para
+
+% Wolf-Rayet stars
+
+% Brief background
+
+% Explanation, history
+
+% Brief explanation of wind driving, Eddington limit
+
+% WC/WN/WO stars
+
+% Why WC stars are only covered in this thesis, dust prod.
 
 As we now know, Wolf-Rayets\footnote{Abbreviated to WR.} are evolved forms of O-type stars, and are a short lived component of the life-cycle of massive stars, typically lasting for around \num{5e5} years \parencite{crowther_physical_2007}.
 Despite this relatively transient length of this stage, the influence of a WR star on its local medium is extremely outsized.
@@ -351,6 +420,41 @@ The WR component of a WR+OB binary has an outsized contribution in returning mat
 In some cases, the dense, fast wind from the WR can collide with the much more tenuous wind from its partner, forming a strong shock, and a variety of fascinating effects.
 However, I wouldn't want to spoil too much too soon, but you can skip ahead to section \ref{sec:cwb}, where this phenomena is covered in more detail.
 %//HMM This may be a bit too jovial!
+
+\subsubsection{The death of a star}
+
+% Continued evolution, carbon burning
+The star, unconcerned with shedding a significant portion of its mass, continues its death march\footnote{I understand that this section has taken a flair for the dramatic, but what \emph{isn't} dramatic about the death of a star?}.
+The core contracts further, heating to temperatures in the range of $10^9 \, \si{\kelvin}$, carbon atoms are smashed together and burned, producing even heavier elements:
+
+\begin{equation}
+  \begin{alignedat}{3}
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Ne}{20}{10} + \atom{He}{4}{2} && + \SI{4.62}{\mega\electronvolt} \\
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Na}{23}{11} + p && + \SI{2.24}{\mega\electronvolt} \\
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Mg}{23}{12} + n && + \SI{2.60}{\mega\electronvolt}
+  \end{alignedat}
+\end{equation}
+
+\noindent
+These reactions salvage miniscule amounts of energy per nucleon, burning through the carbon in the core in a year.
+% Neon burning, buildup of nuclear ash
+The core continues to contract, more vigorous and less efficient fusion processes begin to pile up on each other.
+The star burns its neon, then its oxygen, and then its silicon - the latter of which has a flurry of reaction modes that produce many different elements, burning through the entire reserves in about a day
+\parencite[Ch.~6]{ryanStellarEvolutionNucleosynthesis2010a}.
+
+% Iron
+Finally, iron begins to deposit in the core of the star, all fusion processes at this point are endothermic, without any more fuel sources, the star truly collapses.
+The core rushes inwards, accelerating to an appreciable fraction of the speed of light, with truly unimaginable densities and temperatures in excess of \SI{100}{\giga\kelvin}\footnote{I can state a temperature of \SI{100}{\giga\kelvin} but can you really \emph{imagine} it? Can anyone really comprehend that kind of temperature?} protons capture electrons, forming neutrons and emitting copious amounts of neutrinos.
+As the core tumbles inwards, neutron degeneracy suddenly halts the collapse, the near-relativistic core material suddenly forms a shock wave, jumping to more absurd temperatures and pressures.
+The rebounding material forms a Type II core-collapse supernova, ejecting heavy elements - formed through neutron capture - into an unsuspecting universe, leaving behind a neutron star, the remnant of the electron capture mechanism from the original inward dive\footnote{Randall Munroe of \href{https://what-if.xkcd.com/73/}{\texttt{XKCD}} has stated a good rule of thumb for supernovae that I tend to follow: ``However big you think supernovae are, they're \emph{bigger} than that.''}.
+
+In the case of collapsing Wolf-Rayet stars, however, this can go further.
+Neutron degeneracy is insufficient to halt the collapse and the core collapses into a black hole.
+The resultant jet of material from this hypernova\footnote{\emph{Bigger than bigger than that!}} makes up a gamma-ray burst (GRB), a phenomena that can threaten planets \emph{thousands} of light years from their point of origin.
+We should stop here, however, as this section is more to provide context as to what early-type stars fundamentally are: violent, destructive, and awe-inspiring.
+It seems absurd that these systems could produce anything as fragile as interstellar dust.
+
+And yet they \emph{do} - as we will later discuss.
 
 \section{Interstellar Dust}
 \label{sec:dust}
@@ -842,7 +946,7 @@ This can be simplified and expressed in the equation:
 
 %Intro to dust formation in said systems
 Despite the extremely violent conditions thus far described in CWB systems, these systems appear to be extremely prolific producers of interstellar dust.
-Whilst single star WC systems can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert up to $10^{-3}$ of their wind masses from ionised carbon into amorphous carbon dust grains, this results in a typical dust production rate of $10^{-8} \, \si{\solarmass\per\year}$, on part with a typical Asymptotic Giant Branch (AGB) star.
+Whilst single star WC systems can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert up to $10^{-3}$ of their wind masses from ionised carbon into amorphous carbon dust grains, this results in a typical dust production rate of $10^{-8} \, \si{\solarmass\per\year}$, on part with a typical AGB star.
 This dust forming behaviour has only been observed in particularly energetic WC stars (predominantly WC9, with some WC7-8 examples), WN and WO systems have not been observed producing dust, this is most likely due to amorphous grains being significantly more chemically stable and resilient to effects such as sublimation and photoevaporation than water ice or silicate grains \parencite{salpeter_formation_1977,draineDestructionMechanismsInterstellar1979}.
 Dust formation is also observed to form within the WCR, which can form quite beautiful pinwheel-shaped patterns, as dust streams away from the stars in the post-shock outflow.
 

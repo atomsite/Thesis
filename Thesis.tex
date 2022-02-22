@@ -138,19 +138,19 @@
 \newcommand{\footlink}[2]{\href{#2}{#1}\footnote{\texttt{\href{#2}{#2}}}}
 
 % Math macros 
-\newcommand{\swr}{\ensuremath{_{\text{WR}}}}
-\newcommand{\sob}{\ensuremath{_{\text{OB}}}}
-\newcommand{\rms}[1]{\ensuremath{_\text{#1}}}
-\newcommand{\mdot}{\ensuremath{\dot{\text{M}}}}
-\newcommand{\mass}{\ensuremath{\text{M}}}
-\newcommand{\lumin}{\ensuremath{\text{L}}}
-\newcommand{\vinf}{\ensuremath{v^\infty}}
+\newcommand{\swr}{_{\text{WR}}}
+\newcommand{\sob}{_{\text{OB}}}
+\newcommand{\rms}[1]{_\text{#1}}
+\newcommand{\mdot}{\dot{\text{M}}}
+\newcommand{\mass}{\text{M}}
+\newcommand{\lumin}{\text{L}}
+\newcommand{\vinf}{v^\infty}
 \newcommand{\dsep}{d\rms{sep}}
 
-\newcommand{\maxdust}{\ensuremath{\dot{\text{M}}_\text{d,max}}}
-\newcommand{\avgdust}{\ensuremath{\dot{\text{M}}_\text{d,avg}}}
+\newcommand{\maxdust}{\dot{\text{M}}_\text{d,max}}
+\newcommand{\avgdust}{\dot{\text{M}}_\text{d,avg}}
 
-\newcommand{\sol}{\ensuremath{_{\odot}}}
+\newcommand{\sol}{_{\odot}}
 
 \newcommand{\atom}[3]{\prescript{#2}{#3}{\text{#1}}}
 
@@ -168,8 +168,8 @@
 \addbibresource{References/library-biblatex.bib} 
 % Sylistic changes to bibliography 
 \DefineBibliographyStrings{english}{
-  backrefpage = {cit. p.},     % originally "cited on page"
-  backrefpages = {cit. p.},   % originally "cited on pages"
+  backrefpage = {Cited on p.},     % originally "cited on page"
+  backrefpages = {Cited on pp.},   % originally "cited on pages"
 }
 \DeclareFieldFormat{doi}{\\ \footnotesize{DOI: \texttt{\href{https://doi.org/#1}{#1}}}}
 % \DeclareFieldFormat{url}{\\ \footnotesize{URL: \texttt{\url{#1}}}}

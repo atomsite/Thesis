@@ -1863,6 +1863,7 @@ INPUT ./Chapters/Chapter_2_Background/assets/cak/vel.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/cak/vel.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/cak/vel.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/cak/vel.pdf
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT ./Chapters/Chapter_2_Background/assets/WR124.png
 INPUT ./Chapters/Chapter_2_Background/assets/WR124.png
 INPUT ./Chapters/Chapter_2_Background/assets/WR124.png
@@ -1948,7 +1949,6 @@ INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mergecellc.pdf
@@ -2241,9 +2241,9 @@ INPUT ./Thesis.out
 INPUT Thesis.run.xml
 OUTPUT Thesis.run.xml
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc

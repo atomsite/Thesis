@@ -21,7 +21,7 @@ set y2label "Words"
 set title "Thesis Word Count"
 
 set ytics 25
-set y2tics 2500
+set y2tics 5000
 
 set grid xtics ytics mxtics mytics
 
