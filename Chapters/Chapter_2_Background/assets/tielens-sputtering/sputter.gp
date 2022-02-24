@@ -10,7 +10,7 @@ set format xy '$10^{%L}$'
 set xlabel 'T (K)'
 set ylabel '$\tau$ (yr $\mu$m cm$^{-3}$)'
 
-set key top left
+set key top right`~
 
 set yrange [1e4:1e9]
 

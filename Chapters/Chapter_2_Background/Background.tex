@@ -69,7 +69,7 @@ As such, the environment within an OB association is one of many tight knit grou
 
 \subsection{The p-p \& CNO fusion cycles}
 
-\begin{table}
+\begin{table}[h]
   \centering
   \begin{tabular}{llll}
     \hline
@@ -120,7 +120,7 @@ The CNO I cycle, as included, was also proposed by \textcite{betheEnergyProducti
 The incredible densities at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
 This results in a convective core surrounded by a radiative envelope, and is the driving force behind the incredible observed luminosities of high-mass stars as they convert hydrogen to helium at an astounding rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/reaction-rate/reaction-solar.pdf}
   \caption[Reaction rates at the center of the sun]{Reaction rates from p-p, CNO and triple-$\alpha$ fusion processes at the centre of the sun. At the solar core temperature of \SI{1.5e7}{\kelvin} only 10\% of the energy produced from fusion is through the CNO cycle. At higher internal temperatures the CNO cycle rapidly becomes dominant due to its stronger temperature dependence. The $3\alpha$ process does not occur in the solar core, but becomes the dominant fusion process in high-mass stars leaving the main sequence. Solar abundances and a core density of \SI{150}{\gram\per\centi\metre\cubed} are assumed.}
@@ -184,7 +184,7 @@ Whilst this barest description can give us some insight into how a wind behaves,
   \label{fig:windrhocomp}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/plancks-law/plancks-law.pdf}
   \caption[Planck's law radiance comparison with resonance lines]{Spectral radiance against wavelength for black body objects at various effective temperatures, $T_{\text{eff}}$, a series of wavelengths corresponding with important resonance lines in Table 1 of \textcite{lucy_mass_1970} have been included. As temperature increases the spectral radiance at resonance line wavelengths dramatically increases, with a minimum of 6 orders of magnitude difference between the effective temperatures of a solar equivalent main sequence star and an O-type main sequence or Wolf-Rayet star.}
@@ -244,7 +244,7 @@ At a certain point we would observe a significant and rapid increase in the velo
 Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \parencite[Ch.~10]{maciel_hydrodynamics_2014}.
 This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply at a distance $(R/R_\star) - 1 > 10^{-3}$ as the wind begins to rapidly accelerate away from the star as opacity increases - with a corresponding decrease in wind density.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/cak/vel.pdf}
   \caption[Radiative line driving velocity and density profile]{Velocity and density profiles of the WR and OB stars in the WR140 system. Acceleration is gradual until $(R/R_\star) - 1 > 10^{-3}$, where wind opacity drastically increases due to Doppler shift. The model uses the Castor, Abbott and Klein formalism, with the CAK parameters of the stars estimated to be $k = 0.37$, $\alpha = 0.60$ for the O4-5 star and $k = 0.48$, $\alpha = 0.57$ for the WC7 star.}
@@ -321,7 +321,8 @@ For low-mass stars, this collapse timescale is extremely slow, instead the star 
 \parencite{beechSchoenbergChandrasekharLimitPolytropic1988}.
 This leaves behind a degenerate helium core in the form of a white dwarf, which continues to contract and emit radiation through KH processes\footnote{Finally! Kelvin was right!}.
 For massive stars the ratio of core mass to total mass is significantly higher, exceeding the Sch{\"o}nberg-Chandrasekhar limit.
-Instead, the core collapses, compressing and heating rapidly, eventually reaching temperatures sufficient for the commencement of helium burning through the Triple-$\alpha$ (3$\alpha$) process:
+Enormous photon flux drives the the outer envelope away, shifting the calculus of hydrostatic equilibrium from contraction to expansion, and the star expands into a red supergiant (RSG) star or a luminous blue variable (LBV) star.
+Inside this giant star the core continues to collapse, compressing and heating rapidly, eventually reaching temperatures sufficient for the commencement of helium burning through the Triple-$\alpha$ (3$\alpha$) process:
 
 \begin{equation}
   \begin{alignedat}{3}
@@ -337,11 +338,7 @@ The endothermic component of the 3$\alpha$ process, as well as the short reactio
 The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, a truly extreme dependence, which can result in truly \emph{staggering} rates of energy production.
 However, this process is far less energy efficient than hydrogen burning processes, releasing an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}).
 At this point, however, the fate of the star is already sealed, it hurtles off of the main sequence like a 1966 Ford Thunderbird from the edge of the Grand Canyon\footnote{See \emph{Thelma and Louise} (1991) dir. Ridley Scott.}.
-
-% Brief explanation of evolution track
-As this fusion process begins, it augments the rapidly thinning hydrogen burning shell.
-Enormous photon flux drives the the outer envelope away, shifting the calculus of hydrostatic equilibrium from contraction to expansion, and the star expands into a supergiant star or a luminous blue variable (LBV) star.
-Over the course of this giant phase, the most massive of early-type stars can enter a short lived, particularly violent stage of their lives, and transition into a Wolf-Rayet star - one of the cruces of this thesis.
+Due to this helium burning, the most massive of early-type stars can enter a short lived, particularly violent stage of their lives, and transition into a Wolf-Rayet (WR) star - one of the cruces of this thesis.
 
 \subsubsection{Wolf-Rayet stars}
 \label{sec:wrtype}
@@ -353,79 +350,83 @@ Over the course of this giant phase, the most massive of early-type stars can en
   \label{fig:wr124}
 \end{figure}
 
-\textcite{crowther_physical_2007}
+% History of observation
+
+Astronomers Charles Wolf and Georges Rayet noted a curious series of stars with exceptionally broad emission lines; considering that stars previously had only been observed with narrow adsorption lines, this was a particular scientific curiosity
+\parencite{crowther_physical_2007}.
+However, this was 1867, as such, the energy generation mechanisms of stars had not been fully established, the reason for these lines was not understood, the scientific community did understand that these winds were \emph{staggeringly} hot.
+After the initial theories of stellar fusion reactions were developed by \textcite{betheEnergyProductionStars1939}, however, the picture came into sharper focus.
+\textcite{gamowWCWNStars1943} proposed that these stars contained material produced in the central fusion reaction, which implied that the outer layers of the star had been completely stripped off.
+This was found to be the case, though categorical confirmation of this did not occur for several more decades.
+The thickness of these emission lines was easier to establish, they were moving \emph{fast}.
+As such, it was safe to assume that the emission lines were not coming from the stars themselves, but from the winds!
+
+% Evolution, include crowther table here
+
+Wolf-Rayets are produced when the largest early-type stars lose significant mass in the LBV stage, the internal core, however, has sufficient temperatures for helium burning.
+This drives the remnants of the outer envelope away, exposing more and more of the innards of the star, the inner envelope and core, still burning hydrogen and helium
+\parencite[Ch.~5]{contiLuminousHotStars2012}.
+% Mass loss rates, wind velocities
+Whilst in the LBV phase mass loss rates can be significantly higher, ejecting $10-20\,\si{\solarmass}$ of material over a period of years, these are short lived bursts, more akin to small supernovae than the continuous outburst of a typical stellar wind
+\parencite[Ch.~4]{vinkVeryMassiveStars2015}.
+WR stars, however, drive significant, continuous mass loss in the order of $10^{-5} \, \si{\solarmass\per\year}$, with wind velocities on the order of $10^3 \, \si{\kilo\metre\per\second}$. 
+% Wind temperatures adn composition, emission lines?
+The naked core has an extremely high surface temperature, between \SI{30000}{\kelvin} to \SI{100000}{\kelvin}, multiply ionising the outflowing hydrogen-deprived wind
+\parencite{crowther_physical_2007}.
+The temperature of this heat source also produces significant emissions in the far-UV, which drives the exceptional mass loss through radiative line driving.
+As the Wolf-Rayet evolves, layers of this burning region are stripped away from the surface of the star, contributing to the stellar wind.
+Because of this, the outflow becomes more hydrogen-depleted as the star ages, becoming more enriched with fusion by-products, helium, carbon, nitrogen and oxygen.
+
+% Subtypes
+Wolf-Rayets can also be subdivided into three distinct categories based on their prominent emission lines:
+
+\begin{itemize}
+  \item WN: WR stars with a strong nitrogen emission line sequence, some helium lines.
+  \item WC: WR stars with a strong carbon emission line sequence, some oxygen lines.
+  \item WO: WR stars with a strong oxygen emission line sequence, some carbon lines.
+\end{itemize}
+
+\noindent
+Further subdivision can be done by measuring the brightness of these emission lines, in the case of carbon sequence we find WC4 are the dimmest WC stars, with ascending values being brighter.
+Previously this measurement was more qualitative, and based on the relative ratio of line strengths, however more quantitative methodologies of categorising these stars have emerged
+\parencite{crowtherQuantitativeClassificationWC1998}.
+% Conti scenario
+\textcite{contiRelationshipWRStars1975} first proposed that massive stars would lose their outer envelopes in this manner, with the nitrogen sequence stars showing the emission lines from the exposed hydrogen shell burning and the more evolved WC and WO stars showing emission lines from the exposed helium core
+\parencite{neugentWolfRayetContent2019,oswaltPlanetsStarsStellar2013}.
+This ``Conti scenario'' forms the basis for stellar evolution models of main sequence O-type stars to Wolf-Rayet stars.
+Further work has refined this evolutionary chain, successive and intermediate stages occur depending on the initial mass of the O-type star, $\mass\rms{O}$.
+\textcite{crowther_physical_2007} details this series of evolution modes for O-type stars evolving into WR stars:
 
 \begin{equation}
-  \begin{alignedat}{3}
-    \text{O} & \rightarrow \text{LBV/RSG} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1b} && \text{ for } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
-    \text{O} & \rightarrow \text{LBV} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} && \text{ for } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
-    \text{O} & \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} && \text{ for } \text{M}_{\text{WR}} > 75 \, \si{\solarmass} 
-  \end{alignedat}  
+  \text{O} \rightarrow
+  \begin{cases}
+    \text{LBV/RSG} \rightarrow \text{WN} \rightarrow \text{SN 1b} & \text{ for } \SI{25}{\solarmass} < \mass\rms{O} < \SI{40}{\solarmass} \\
+    \text{LBV} \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} & \text{ for } \SI{40}{\solarmass} < \mass\rms{O} < \SI{75}{\solarmass} \\ 
+    \text{WN(H-rich)} \rightarrow LBV \rightarrow \text{WN} \rightarrow \text{WC} \rightarrow \text{SN 1c} & \text{ for } \mass\rms{O} > \SI{75}{\solarmass} .
+  \end{cases}
 \end{equation}
 
+% Discussion of 
+\noindent
+WC stars, the type of WR being discussed in this thesis, form from the most massive of O-type stars.
+% WC stars, in particular, why important
+The hydrogen in the envelope has been completely depleted, instead, the stellar wind is enriched with other elements, such as helium, carbon and oxygen.
+The presence of large quantities of carbon in the outflow is of particular interest, as interstellar dust can condense and form.
+Whilst dust formation has been observed in single WC stars, this is typically in very low amounts; however, certain binary systems can produce quantities of dust that can significantly impact their local environment.
+Within a binary system, it is typically paired with another massive star, such as an O-type or B-type.
+Whilst the RSG/LBV phases stars life stripped off the bulk of its outer envelope, resulting in the WR being significantly smaller and lighter than its partner, the strong winds produced completely dominate the winds of its larger compatriot.
+If these stars are sufficiently close, these winds can interact, driving extremely powerful shocks, extreme x-ray fluxes and the aforementioned dust formation.
+These binaries will be discussed in much more detail, of course, as this is the main point of this project (Section \ref{sec:cwb}).
 
-
-
-% == New para
-
-% Wolf-Rayet stars
-
-% Brief background
-
-% Explanation, history
-
-% Brief explanation of wind driving, Eddington limit
-
-% WC/WN/WO stars
-
-% Why WC stars are only covered in this thesis, dust prod.
-
-As we now know, Wolf-Rayets\footnote{Abbreviated to WR.} are evolved forms of O-type stars, and are a short lived component of the life-cycle of massive stars, typically lasting for around \num{5e5} years \parencite{crowther_physical_2007}.
-Despite this relatively transient length of this stage, the influence of a WR star on its local medium is extremely outsized.
-WR stars in particular are known for having dense, fast winds, typically between 2 and 3 orders of magnitude than their main sequence O-type progenitors, with mass loss rates on the order of $10^{-5} \, \si{\solarmass\per\year}$ and wind velocities of $\num{1.5e3} \, \si{\kilo\metre\per\second}$.
-This extremely dense wind is driven by the highly energetic helium burning core, which is luminous enough as to drive away the outer layers of the stars envelope, exposing the core.
-The observed spectroscopic lines are due to heating of the envelope from the core, which is enriched with by-products of hydrogen and helium burning, the lack of hydrogen lines is due to the stars evolved nature, as all the hydrogen has been burned, there is simply nothing left to observe!
-
-%Subcategorising wolf-rayets into WN, WC and WO
-
-Wolf-Rayet stars can be subcategorised through spectroscopic observation, which indicates enrichment in a particular element, the 3 major sub-types, WN, WC and WO are defined by their strong nitrogen, carbon and oxygen lines respectively.
-The important distinction between WN and WC/WO stars is that WN stars are enriched through hydrogen burning, whilst WC and WO are enriched through the by-products of helium burning \parencite{vinkVeryMassiveStars2015}.
-
-% WR star subcategorisation and evolution
-As a Wolf-Rayet continues to lose its envelope, additional products of fusion processes are dredged up from the centre of the star.
-In the case of the WN sub-type, the broad nitrogen lines correspond to the outer layer of the envelope, enriched through the CNO process; after this outer envelope is cast off, the remainder of the envelope exhibits carbon and oxygen lines, indicating enrichment from the triple-$\alpha$ process.
-Finally, the star evolves further and the innermost region of the envelope is revealed, observed as the strong oxygen lines of a WO sub-type \parencite{neugentWolfRayetContent2019,oswaltPlanetsStarsStellar2013}.
-
-%//TODO this needs rewriting
-
-As an O-type star transitions to a Wolf-Rayet, it typically undergoes an intermediary LBV or RSG stage as helium burning begins, this is mass dependent, with the various transitional states described by \cite{crowther_physical_2007}:
-
-\begin{subequations}
-  \begin{align*}
-    \text{O} \rightarrow \text{LBV/RSG} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1b} & ,~~ \text{for } 25 \, \si{\solarmass} < \text{M}_{\text{WR}} < 40 \, \si{\solarmass} \\
-    \text{O} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{for } 40 \, \si{\solarmass} < \text{M}_{\text{WR}} < 75 \, \si{\solarmass} \\
-    \text{O} \rightarrow \text{WN(H-rich)} \rightarrow \text{LBV} \rightarrow \text{WN(H-poor)} \rightarrow \text{WC} \rightarrow \text{SN 1c} & ,~~ \text{for } \text{M}_{\text{WR}} > 75 \si{\solarmass} 
-  \end{align*}  
-\end{subequations}
-
-%//TODO add binary formation mechanism paragraph
-
-% subcategorisation through numerical system
-
-%//TODO include table of approximate mass loss rates, numerical classification
-
-% Wolf-Rayets in a binary
-Wolf-Rayet stars are important in the context of this work due to their outsized influence within a WR+OB binary pair.
-The WR component of a WR+OB binary has an outsized contribution in returning material to the ISM, whilst also dominating the dynamics of the system, with their winds completely overpowering those of their O-type neighbours.
-In some cases, the dense, fast wind from the WR can collide with the much more tenuous wind from its partner, forming a strong shock, and a variety of fascinating effects.
-However, I wouldn't want to spoil too much too soon, but you can skip ahead to section \ref{sec:cwb}, where this phenomena is covered in more detail.
-%//HMM This may be a bit too jovial!
+% Lifespan 
+The Wolf-Rayet phase only takes up a brief period of a typical massive stars lifespan, typically \SI{5e5}{\year}, or $\lesssim 10\%$ of the main sequence lifespan of a representative O-type star.
+Despite this short lived phase, the Wolf-Rayet leaves a marked impact on the surrounding stellar environment through stellar feedback and in some cases interstellar dust production.
 
 \subsubsection{The death of a star}
 
 % Continued evolution, carbon burning
 The star, unconcerned with shedding a significant portion of its mass, continues its death march\footnote{I understand that this section has taken a flair for the dramatic, but what \emph{isn't} dramatic about the death of a star?}.
-The core contracts further, heating to temperatures in the range of $10^9 \, \si{\kelvin}$, carbon atoms are smashed together and burned, producing even heavier elements:
+The core contracts further, heating to temperatures in the range of $10^9 \, \si{\kelvin}$, carbon atoms are smashed together and burned, producing many heavier elements:
 
 \begin{equation}
   \begin{alignedat}{3}
@@ -446,7 +447,7 @@ The star burns its neon, then its oxygen, and then its silicon - the latter of w
 Finally, iron begins to deposit in the core of the star, all fusion processes at this point are endothermic, without any more fuel sources, the star truly collapses.
 The core rushes inwards, accelerating to an appreciable fraction of the speed of light, with truly unimaginable densities and temperatures in excess of \SI{100}{\giga\kelvin}\footnote{I can state a temperature of \SI{100}{\giga\kelvin} but can you really \emph{imagine} it? Can anyone really comprehend that kind of temperature?} protons capture electrons, forming neutrons and emitting copious amounts of neutrinos.
 As the core tumbles inwards, neutron degeneracy suddenly halts the collapse, the near-relativistic core material suddenly forms a shock wave, jumping to more absurd temperatures and pressures.
-The rebounding material forms a Type II core-collapse supernova, ejecting heavy elements - formed through neutron capture - into an unsuspecting universe, leaving behind a neutron star, the remnant of the electron capture mechanism from the original inward dive\footnote{Randall Munroe of \href{https://what-if.xkcd.com/73/}{\texttt{XKCD}} has stated a good rule of thumb for supernovae that I tend to follow: ``However big you think supernovae are, they're \emph{bigger} than that.''}.
+The rebounding material forms a core collapse supernova, ejecting heavy elements - formed through neutron capture - into an unsuspecting universe, leaving behind a neutron star, the remnant of the electron capture mechanism from the original inward dive\footnote{Randall Munroe of \href{https://what-if.xkcd.com/73/}{\texttt{XKCD}} has stated a good rule of thumb for supernovae that I tend to follow: ``However big you think supernovae are, they're \emph{bigger} than that.''} \parencite[Ch.~13]{longairHighEnergyAstrophysics2011}.
 
 In the case of collapsing Wolf-Rayet stars, however, this can go further.
 Neutron degeneracy is insufficient to halt the collapse and the core collapses into a black hole.
@@ -511,7 +512,7 @@ where $n\rms{g}$ is the gas number density \parencite{drainePhysicsDustGrains197
 The value of \SI{3e6}{\year} was chosen for this project as it is more typical of temperatures in the post-shock region of a WCR, between $10^6\,\si{\kelvin}$ and $10^7\,\si{\kelvin}$ (Fig. \ref{fig:grain-lifespan}).
 How this destruction rate is implemented into the simulations for this project is discussed in more detail in Section \ref{sec:bodmas}.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/tielens-sputtering/sputter.pdf}
   \caption[Grain lifetime comparison]{Comparison of grain lifetimes for various interstellar dust species undergoing thermal sputtering in a fast interstellar shock. Lifetime is normalised to a grain radius of \SI{1}{\micro\metre} and a flow of \SI{1}{\gram\per\centi\metre\cubed} in a shock of solar abundance. Data is derived from \nth{5} order polynomial fits calculated in \textcite[Table~4]{tielens_physics_1994}.}
@@ -633,13 +634,13 @@ Unfortunately, the simplicity of the systems ends here, CWB systems are very poo
 
 %History and classification, useful sources in Stevens & Pollock 1994 
 
-Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright and variable thermal X-ray sources.
-Many of these early galactic X-ray sources were found to be compact objects, and many more contained the characteristic spectral lines of a Wolf-Rayet star.
-While single Wolf-Rayet stars are capable of producing X-ray emission, this is typically much dimmer than what was being observed 
+Early observations beyond visual spectrum led to the discovery of many new astrophysical phenomena, one such discovery were extremely bright and variable thermal x-ray sources.
+Many of these early galactic x-ray sources were found to be compact objects, and many more contained the characteristic spectral lines of a Wolf-Rayet star.
+While single Wolf-Rayet stars are capable of producing x-ray emission, this is typically much dimmer than what was being observed 
 \parencite{sewardXraysEtaCarinae1979}.
 The existence of CWB systems were independently proposed by \textcite{prilutskii_x_1976} and \textcite{cherepashchukDetectabilityWolfRayetBinaries1976}, 
-they proposed that significant and variable X-ray flux would result from the collision between two stellar winds, as these winds collide the gas becomes shocked and heated to temperatures on the order of \SI{1e8}{\kelvin}, hot enough to emit an appreciable quantity of X-rays.
-The X-ray variability can also be explained as a result of the orbital properties of the systems, X-ray variability would result from the following effects:
+they proposed that significant and variable x-ray flux would result from the collision between two stellar winds, as these winds collide the gas becomes shocked and heated to temperatures on the order of \SI{1e8}{\kelvin}, hot enough to emit an appreciable quantity of x-rays.
+The x-ray variability can also be explained as a result of the orbital properties of the systems, x-ray variability would result from the following effects:
 
 % This may need to be expanded on or changed
 \begin{itemize}
@@ -650,10 +651,10 @@ The X-ray variability can also be explained as a result of the orbital propertie
 
 \noindent
 Such effects could not be produced within a single star system \parencite{pittard_x-ray_1999}.
-Further research by \textcite{pollockEinsteinViewWolfRayet1987} also found that single WR stars were typically faint, with the brightest X-ray emitting WR stars being confirmed to within massive binaries.
-WR+OB systems were also found to be the brightest of such objects, while OB+OB binaries with significant X-ray flux were observed, these were typically less luminous.
+Further research by \textcite{pollockEinsteinViewWolfRayet1987} also found that single WR stars were typically faint, with the brightest x-ray emitting WR stars being confirmed to within massive binaries.
+WR+OB systems were also found to be the brightest of such objects, while OB+OB binaries with significant x-ray flux were observed, these were typically less luminous.
 % Early work categorising, using gamma 2 vel and V444Cyg
-Early work was more concerned with X-ray observation, in particular the systems $\gamma^2$ Velorum and V444 Cygni, which were noted in particular as prototypical CWB systems by \textcite{prilutskii_x_1976}.
+Early work was more concerned with x-ray observation, in particular the systems $\gamma^2$ Velorum and V444 Cygni, which were noted in particular as prototypical CWB systems by \textcite{prilutskii_x_1976}.
 % Analysis pollock 1987 determined binary systems\cite{pollockEinsteinViewWolfRayet1987} 
 Later, infrared observations of these systems found another, more curious attribute, a significant excess correlating to dust formation around these systems \parencite{williamsInfraredPhotometryLatetype1987}.
 This will be discussed in more detail later in this section, but needless to say this phenomena is puzzling, as fragile grains of interstellar dust would not survive for long in the outflow of a WC star, due to the high wind temperatures and immense UV flux.
@@ -662,14 +663,14 @@ Because of this, dust growth was speculated, and later confirmed, to occur withi
 \subsection{The Wind Collision Region}
 \label{sec:wcr}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=3in]{assets/cwb-diagrams/eichler.png}
   \caption[\textit{A diagram of the Wind Collision Region \parencite{eichler_particle_1993}}]{A diagram of a typical Wind Collision Region inside a WR+OB CWB system. The $S_1$ and $S_2$ surfaces denote the shock waves from the primary and secondary winds respectively, and $C$ denotes the contact surface. The surfaces $\widetilde{S}_1$, $\widetilde{S}_2$ and $\widetilde{C}$ represent conic approximations of their corresponding surfaces at intermediate distances from the OB star. The region of stellar wind collision is hatched in the bottom diagram \parencite{eichler_particle_1993}.}
   \label{fig:wcr-diagram}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=6in]{assets/cwb-diagrams/eta.png}
   \caption[Comparison of wind momentum ratio, $\eta$, on WCR strtucture]{2D axisymmetric hydrodynamical simulations of CWB systems with wind momentum ratios of \num{1}, \num{0.1} and \num{0.001}. Momentum ratio is varied by changing the mass loss rate of the second star, $\dot{\text{M}}_2$. As $\eta$ decreases, the WCR begins to wrap itself around the secondary star.}
@@ -679,7 +680,7 @@ Because of this, dust growth was speculated, and later confirmed, to occur withi
 % What is this region
 The Wind Collision Region (WCR) is the most violent and turbulent region of a CWB system, a region of high densities and even higher temperatures.
 If the interacting stellar winds are dense as they begin to interact, a shocked region of plasma in excess of \SI{1e8}{\kelvin} is formed, the winds rapidly decelerate from hypersonic to subsonic, liberating an enormous amount of mechanical energy, on the order of \SI{1e3}{\solarluminosity}.
-As previously discussed, this is the engine that drives the significant X-ray flux observed by astronomers in the 1970s, as well as other thermal and non-thermal emissions from the UV up to gamma rays \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
+As previously discussed, this is the engine that drives the significant x-ray flux observed by astronomers in the 1970s, as well as other thermal and non-thermal emissions from the UV up to gamma rays \parencite{eichler_particle_1993,grimaldoProtonAccelerationColliding2019}.
 As wind enters from either side of the wind collision region, it passes through a shock wave, and flows towards the centre of the wind collision region at the contact discontinuity, $C$ (Fig. \ref{fig:wcr-diagram}).
 The wind behind the shock is driven by a combination of thermal pressure from the outflowing stellar wind, as well as the significant momentum the wind carried before being shocked \parencite{stevens_colliding_1992}.
 
@@ -745,7 +746,7 @@ From these estimations the fraction of each wind that is shocked, $f$, can be ca
 \textcite{pittardCollidingStellarWinds2018} observed that the entirety of the secondary wind was shocked if $\eta \lesssim 0.014$, while in the typical wind momentum ratio regime $0.001 \leq \eta \leq 0.01$, only $\approx 10\%$ of the WR wind is shocked (Fig. \ref{fig:wind-shock-factor}).
 These expressions, while useful for describing the geometry of WCR in broad strokes, are based on adiabatic simulations with instantaneous acceleration, and thus have their limitations.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/wind-shock-factor/shock-factor.pdf}
   \caption[Wind shock fraction, as a function of $\eta$]{Comparison of the opening angle of $\widetilde{S}_1$ and $\widetilde{S}_2$ as a function of $\eta$. The wind shock fraction, $f$, is also plotted. $\approx 10\%$ of the primary wind is shocked under typical WR+OB conditions, while the entire secondary wind is typically shocked.}
@@ -776,7 +777,7 @@ In particular, the systems WR104 and WR98a produce easily observable pinwheel st
   \textbf{Temperature range} & \textbf{Dominant process} & \textbf{Spectral region} \\ \hline
   $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Forbidden lines & IR, Optical \\
   $T \approx \SI{1e5}{\kelvin}$ & H excitation/ionisation & Optical, UV \\
-  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Resonance lines & Far UV, soft X-ray \\
+  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Resonance lines & Far UV, soft x-ray \\
   $T \gtrsim \SI{1e8}{\kelvin} $ & Bremsstrahlung & Radio \\ \hline
   \end{tabular}
   \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \cite{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in Fig. \ref{fig:wcsolcooling}.}
@@ -814,7 +815,7 @@ As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bre
 
 %//TODO clean up this caption
 %//FIXME use the new cooling code for this graph, early changes in ionisation fraction result in a different appearance from 1e4 to 1e6 kelvin!
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison.pdf}
   \caption[Dust cooling vs. plasma cooling]{Comparison of plasma cooling to dust cooling with different grain sizes in a solar abundance gas, with a gas density of \SI{1e-20}{\gram\per\centi\metre\cubed} and a dust-to-gas mass ratio of 0.01.}
@@ -950,7 +951,7 @@ Whilst single star WC systems can produce small amounts of dust in the form of a
 This dust forming behaviour has only been observed in particularly energetic WC stars (predominantly WC9, with some WC7-8 examples), WN and WO systems have not been observed producing dust, this is most likely due to amorphous grains being significantly more chemically stable and resilient to effects such as sublimation and photoevaporation than water ice or silicate grains \parencite{salpeter_formation_1977,draineDestructionMechanismsInterstellar1979}.
 Dust formation is also observed to form within the WCR, which can form quite beautiful pinwheel-shaped patterns, as dust streams away from the stars in the post-shock outflow.
 
-\begin{table}[]
+\begin{table}[h]
   \centering
   \begin{tabular}{ccccccc}
     & \multicolumn{2}{c}{Persistent} & \multicolumn{2}{c}{Variable} & \multicolumn{2}{c}{Episodic} \\ \cline{2-7} 
@@ -1006,7 +1007,7 @@ This implies that dust production is dependent on orbital separation, which will
 % Metastudy
 Further analysis of available dust producing CWB systems suggests that \textit{all} WCd systems with circular orbits produce dust either persistently or with a degree of variability, while eccentric WCd systems are solely produce dust episodically.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/magnitudes/magnitudes.pdf}
   \caption[L$^\prime$ photometry of episodic dust making stars]{L$^\prime$ photometry for episodic dust making stars, data derived from \textcite{crowther_dust_2003}, and provided by PM Williams in private correspondence. WR 140 and WR 137 in particular have extremely predictable dust forming events which correspond to periastron passage in both systems.}
@@ -1015,6 +1016,12 @@ Further analysis of available dust producing CWB systems suggests that \textit{a
 
 
 \subsection{Important WCd systems}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{assets/galactic.pdf}
+  \caption[Map of WR stars on the galactic plane]{Map of WR stars on the galactic plane. WCd systems have been highlighted, as well as the observed systems in this thesis, WR98a, WR104 and WR140.}
+\end{figure}
 
 The principle systems that are being observed in this thesis are the variable dust forming system, WR98a, and the episodic dust forming system WR140.
 The archetypal continuous dust forming system WR104 was also proposed for simulation, but had to be cut due to time constraints, this system will also be discussed to provide a point of comparison between the two systems.
@@ -1049,7 +1056,7 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 \subsubsection{WR98a}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/systems/wr98a-monnier2007.pdf}
   \caption[\textit{Multiwavelength image of WR98a \parencite{monnierKeckAperturemaskingExperiment2007}}]{Multiwavelength aperture synthesis images of WR98a taken on June \nth{24} 2000, at 1.65, 2.2, and \SI{3.08}{\micro\metre}. Plot sourced from \textcite{monnierKeckAperturemaskingExperiment2007}, the significant IR excess is a clear sign of ongoing dust production. The system also has a pronounced pinwheel structure most prominent at \SI{2.2}{\micro\metre}.}
@@ -1109,7 +1116,7 @@ As such, it was decided to only simulate the system as it undergoes closest appr
 
 \subsubsection{WR104}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/systems/soulain-2018-wr104.pdf}
   \caption[\textit{Spiral structure of WR104 \parencite{soulainSPHEREViewWolfRayet2018}}]{Deconvolution of J, H, K, and \SI{2.27}{\micro\metre} bands of WR104 sourced from \textcite{soulainSPHEREViewWolfRayet2018}. The spiral pattern and first revolution is visible in all images, in particular at \SI{2.27}{\micro\metre}.}
@@ -1161,7 +1168,7 @@ Whether this suppressed dust production rate is a common phenomena among WR+WR s
 
 \subsubsection{WR70-16 (``Apep'') -- a recently discovered WR+WR system}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/systems/apep-callingham-2019.pdf}
   \caption[\textit{VLT image of Apep \parencite{callinghamAnisotropicWindsWolf2019}}]{\textcite{callinghamAnisotropicWindsWolf2019}}

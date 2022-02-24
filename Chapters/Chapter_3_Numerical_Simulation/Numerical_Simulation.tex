@@ -17,7 +17,7 @@ The Euler equations are a specific case of the more general Navier-Stokes equati
 At vast length scales the aggregate properties of a collection of molecules in near vacuum are essentially in-line with what is predicted by inviscid fluid dynamical equations; while the general lack of physical contact, both rare and fleeting, rules out the influence of thermal conduction and convection on the fluid at large.
 Astrophysical fluids at first appear strange and unintuitive compared to the more familiar fluid dynamics we have an almost innate understanding of as human beings; but if one zooms out enough and starts thinking in terms of parsecs and astronomical units, similarities begin to appear. 
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[]{assets/riemann-interface/riemann.pdf}
   \caption[Initial conditions of a Riemann problem]{The initial conditions of a Riemann problem, where $\mathbf{U}$ is a conserved variable.}
@@ -29,9 +29,9 @@ In a one-dimensional adiabatic case, with a fluid of density $\rho$, a velocity 
 
 \begin{subequations}
   \begin{align}
-    \frac{\partial \rho}{\partial t} + \frac{\partial}{\partial x} (\rho u) & = 0 ,\\
-    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x} (\rho u^2 + P) & = 0 ,\\
-    \frac{\partial E}{\partial t} + \frac{\partial}{\partial x} \left[ u(E+P) \right] & = 0 .
+    \frac{\partial \rho}{\partial t} & + \frac{\partial}{\partial x} (\rho u) = 0 ,\\
+    \frac{\partial \rho u}{\partial t} & + \frac{\partial}{\partial x} (\rho u^2 + P) = 0 ,\\
+    \frac{\partial E}{\partial t} & + \frac{\partial}{\partial x} \left[ u(E+P) \right] = 0 .
   \end{align}
 \end{subequations}
 
@@ -183,7 +183,7 @@ In this project, either the \nth{3} order accurate strong stability preserving R
 The \texttt{rk3} method was found to be more than twice as fast as the \texttt{ssprk5\_4} method in the case of a CWB system, though could crash in the cases of rapid cooling and dust production, if a simulation crashed multiple times the simulation would be altered to use \texttt{ssprk5\_4}. 
 The Riemann solver can also be changed at compile-time, however this was left to the default solver, the Harten-Lax-van Leer-Contact (HLLC) solver \parencite{toroRestorationContactSurface1994}.
 
-\begin{table}[]
+\begin{table}[h]
   \centering
   \begin{tabular}{cccc}
   \hline
@@ -235,7 +235,7 @@ In the case of the more ambitious simulations in this project, a region approxim
 
 %//TODO include a diagram of 
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=5in]{assets/mergecellc.pdf}
   \caption[Adaptive mesh refinement comparison]{An example of adaptive mesh refinement in the \texttt{MG} hydrodynamical code around the OB star in a colliding wind binary problem using cylindrically symmetric co-ordinates. With AMR the WCR is properly resolved, while without the system cannot adequately resolve the WCR.}
@@ -529,7 +529,7 @@ Dust cooling
 In the case of the immediate post-shock environment where dust is present in the form of small, rarefied nascent grains, the cooling rate is greater than the plasma cooling rate due to bremsstrahlung, as seen in figure \ref{fig:postshockcoolcomparison-chapter3}.
 As such, it is assumed that dust cooling plays an initial role in the initial cooling of the post-shock flow in colliding wind binaries, and should ideally be included.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison-forpaper2.pdf}
   \caption[Comparison of dust and plasma cooling rates in post-shock environment]{Comparison of energy loss due to plasma \& dust cooling with varying grain sizes in a typical post-shock flow, where $\rho_g = 10^{-16} \, \si{\gram\per\centi\metre\cubed}$ and a dust-to-gas mass ratio of $10^{-4}$. Whilst less influential at lower temperatures, dust cooling can aid cooling in the immediate post-shock environment.}
@@ -538,7 +538,7 @@ As such, it is assumed that dust cooling plays an initial role in the initial co
 
 % Difficulties in dust cooling integral, faster method of doing this
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/he_accuracy/he_acc.pdf}
   \caption[$h_e$ integration accuracy comparison]{Comparison of $h_e$ as a function of temperature for dust grains with a radius of 0.005 \si{\micro\metre}, $h_e$ is calculated via the trapezium rule with a varying number of bins, bin counts below 400 bins result in wildly inaccurate or in some case negative values for $h_e$, while beyond 400 bins the result is accurate and converges slowly.}
@@ -593,7 +593,7 @@ As such, eliminating complexity from the binary search and reducing the number o
 These optimisations were made by simplifying the lookup table into a series of smaller lookup tables and relying on even logarithmic spacing of the lookup table to determine the parameter indices, rather than performing a binary search for them.
 Additionally, as $\rho$ and $a$ are invariant within the cooling loop, these parameter offsets are solved separately using a bilinear interpolation, while in the cooling sub-step loop, a separate linear offset is performed to find the temperature offset, solving to find $\Lambda_d$. These optimisations resulted in this method scaling significantly better, as there is a lower total number of calculations required as the number of sub-steps increases (figure \ref{fig:dust-opt-speedup}).
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/lambda-dust-speedup/lambda-dust-speedup.pdf}
   \caption[Dust lookup table methods comparison]{Comparison of execution time and speedup for lookup table methods.}
@@ -619,28 +619,28 @@ Figure \ref{fig:graintransacc} shows these discrepancies, in the case where elec
 As the grains grow hotter and the electron transparency reduces, the influence on the cooling rate due to incident electrons reduces quite drastically, meaning that extremely high accuracy is less important at these temperatures (figure \ref{fig:contribution-int-vs-est}).
 The accuracy of the approximation method is also shown in figure \ref{fig:lambda-comp-int-vs-est}, the estimated value for $\Lambda_d$ closely matches the integrated value aside from the smallest dust grains at very high temperatures $T>\SI{6e8}{\kelvin}$.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/grain-transparency/grain-trans.pdf}
   \caption[Electron transparency method accuracy - $h_e$]{Grain transparency as a function of temperature for the estimate method described in equation \ref{eq:electrontransparencyestimate} (solid lines) and a 400 bin integration method (dashed lines).}
   \label{fig:graintransacc}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/grain-transparency/contrib-comp.pdf}
   \caption[Electron transparency method accuracy - $H_{el}/H_{coll}$]{Comparison of the ratio heating rate of a dust grain due to incident electrons and incident atoms as a function of temperature for various grain sizes, whilst the result between the integration method and estimate method diverge, this is while the contribution of heating from electrons becomes less influential on the cooling rate of the grain.}
   \label{fig:contribution-int-vs-est}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/grain-transparency/lambda-comp.pdf}
   \caption[Electron transparency method accuracy - $\Lambda_d$]{$\Lambda_d$ as a function of temperature for various grain sizes, the estimate method is extremely close to the integral value aside from at the highest temperatures.}
   \label{fig:lambda-comp-int-vs-est}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
   \centering
   \begin{tabular}{llll}
     \hline
@@ -662,7 +662,7 @@ Further improvements were made to correctly determine the electron number, $n_e$
 the initial version of this code assumed that $n_e = 1.1 n_p$, an estimate based on solar abundances, however the electron-to-ion ratio varies significantly with temperature in a WC wind, which is hydrogen depleted and as such can vary from 0 to $\sim 4$ between \num{1e4} and \num{5e6} \si{\kelvin} (figure \ref{fig:electron-curve-no-elements}).
 In order to solve this problem quickly for each timestep, a lookup table similar to the plasma cooling curves was used, containing the electron-ion ratio at temperatures between $10^4$ and $10^8$ \si{\kelvin} for each wind abundance.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/ionisation-fraction/ionisation-fraction-no-elements.pdf}
   \caption[Ionisation fraction for OB and WC stars]{Ionisation fraction}
@@ -719,7 +719,7 @@ Instead, adaptive sub-stepping is used to iterate through the time-step, adjusti
 Figure \ref{fig:cooling-loop-evolution} shows the adaptive sub-stepping routine in operation, at the initial time, the cooling parameter $\Lambda$ is maximised, as such the time-step is significantly lower than when the gas has cooled as is less radiative.
 This compares favourably to a single sub-step example, which would cause the simulation to crash due to negative temperatures, and with linearly spaced steps, which either required many more steps or were potentially unstable.
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/plasma-cooling-benchmarks/evolution.pdf}
   \caption[Cooling sub-step method evolution comparison]{Comparison of the adaptive timestep method versus linearly spaced sub-steps for a solar abundance flow with a density of $10^{-16}$ \si{\gram\per\centi\metre\cubed} and an initial temperature of $10^5$ \si{\kelvin}. Cooling was artificially limited to prevent negative temperatures, which would have occurred in the case of the 1 sub-step method.}
@@ -756,7 +756,7 @@ Table \ref{tab:cooling-loop-speed-comp} shows that while an iteration of the log
 
 %//TODO plot to compare accuracy compared to single step, adaptive substep and arbitrarily large number of timesteps, temperature initial temperature 10^5K and density 10^-16g/cm^3, show tfloor as well
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/plasma-cooling-benchmarks/convergence.pdf}
   \caption[Cooling sub-step method accuracy comparison]{Comparison of estimated , points represent $\kappa$, in the low temperature case the answer is not particularly accurate, but with the adaptive method with $\kappa = 0.1$ the result is only out by a few percent for a small number of sub-steps.}
@@ -779,7 +779,7 @@ Table \ref{tab:cooling-loop-speed-comp} shows that while an iteration of the log
   \label{tab:cooling-loop-accuracy-comp}
 \end{table}
 
-\begin{table}
+\begin{table}[h]
   \centering
   \begin{tabular}{cccc}
   \hline
@@ -947,7 +947,7 @@ This was performed by \textcite{hendrix_pinwheels_2016}, with the resultant imag
 
 Radiative transfer models would be used to 
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics{assets/hendrix-synthetic-observation.jpeg}
   \caption[\textit{Radiative transfer images of WR98a \parencite{hendrix_pinwheels_2016}}]{Synthetic images of WR 98a emulating the capabilities of ALMA using a radiative transfer model, reproduced from \textcite{hendrix_pinwheels_2016}.}
