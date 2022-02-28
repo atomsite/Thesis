@@ -763,14 +763,13 @@ Table \ref{tab:cooling-loop-speed-comp} shows that while an iteration of the log
   \label{fig:cooling-loop-convergence}
 \end{figure}
 
-
-
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccccc}
+  \begin{tabular}{lllllll}
   \cline{2-7}
    & \multicolumn{2}{c}{$\kappa = 0.1$} & \multicolumn{2}{c}{$\kappa = 0.01$} & \multicolumn{2}{c}{$\kappa = 0.001$} \\ \hline
   $T_i$ & Steps & Error & Steps & Error & Steps & Error \\
+  \hline
   $\SI{1e5}{\kelvin}$ & 16 & \num{6.025e-02} & 159 & \num{1.282e-02} & 1585 & \num{7.637e-03} \\
   $\SI{1e6}{\kelvin}$ & 1 & \num{8.233e-04} & 6 & \num{1.012e-04} & 58 & \num{3.359e-05} \\
   $\SI{1e7}{\kelvin}$ & 1 & \num{1.577e-07} & 1 & \num{1.577e-07} & 2 & \num{1.411e-07} \\ \hline
@@ -781,9 +780,9 @@ Table \ref{tab:cooling-loop-speed-comp} shows that while an iteration of the log
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{cccc}
+  \begin{tabular}{llll}
   \hline
-  & \textbf{Search} & \textbf{Logarithmic} & \textbf{\cite{townsendExactIntegrationScheme2009}} \\ \hline
+  & Search & Logarithmic & \textcite{townsendExactIntegrationScheme2009} \\ \hline
   $\tau$ (\si{\nano\second}) & 146 & 134 & 151 \\
   $\Delta \tau$ (\si{\nano\second}) & 8.0 & 1.5 & 0.9 \\ \hline
   \end{tabular}

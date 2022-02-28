@@ -14,6 +14,7 @@ set xlabel ""
 set format x ""
 set xrange[1e4:1e9]
 
+set grid x y mx my
 
 set style fill transparent solid 0.5 noborder
 set key bottom right

@@ -29,6 +29,9 @@ theta2(eta) = 0.658 * log10(71.7 * eta)
 f1(eta) = (1 - cos(theta1(eta))) / 2
 f2(eta) = (1 + cos(theta2(eta))) / 2
 
+set ytics  24
+set y2tics 0.2
+
 plot theta1(x)*57.2958 w l ls 1 t "$\\theta_1 (\\eta)$" ,\
      [0.014:1] theta2(x)*57.2958 w l ls 2 t "$\\theta_2 (\\eta)$" ,\
      f1(x) w l ls 1 dashtype "--" axes x1y2 t "$f_1 (\\eta)$" ,\

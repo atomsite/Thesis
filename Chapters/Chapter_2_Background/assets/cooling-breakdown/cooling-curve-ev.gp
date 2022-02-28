@@ -5,9 +5,6 @@ set output "cooling-curve-solar-withev.tex"
 set logscale xy
 set logscale x2x
 
-
-
-
 set format xy '$10^{%L}$'
 set format x2 '$10^{%L}$'
 
@@ -22,6 +19,8 @@ set xrange[1e4:1e9]
 set yrange [1e-26:3e-20]
 
 set key top right
+
+set grid x y mx my 
 
 set style fill transparent solid 0.5 noborder
 set object 1 rect from 1e4,1e-26 to 1e5,1e-18 fc rgb "light-cyan" fillstyle transparent solid 0.25 noborder

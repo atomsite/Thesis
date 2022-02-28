@@ -241,7 +241,7 @@ Secondly, photons would only be adsorbed over a narrow range of frequencies.
 This would inhibit efficient momentum transfer from UV photons without Doppler shift, as the outflow from the star has a distribution of radial velocities this results in a greater chance of resonance line adsorption.
 If we were to observe the outflow of a massive wind we would therefore see a relatively low velocity component of the wind close to the star; once the wind reaches a certain critical velocity.
 At a certain point we would observe a significant and rapid increase in the velocity of the wind, as the influence on adsorption due to Doppler shift results in the wind becoming much more opaque to UV photons.
-Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \parencite[Ch.~10]{maciel_hydrodynamics_2014}.
+Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \parencite[Ch.~10]{macielHydrodynamicsStellarWinds2014}.
 This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply at a distance $(R/R_\star) - 1 > 10^{-3}$ as the wind begins to rapidly accelerate away from the star as opacity increases - with a corresponding decrease in wind density.
 
 \begin{figure}[h]
@@ -627,7 +627,7 @@ As the role of interstellar dust in star and planet formation, as well as the lo
 \section{Colliding Wind Binary Systems}
 \label{sec:cwb}
 
-Colliding Wind Binaries (abbreviated hereon to CWBs), in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
+Colliding Wind Binaries (CWBs), in opposition to all known laws of astrophysical nomenclature, is a easy to understand term - it is a binary system where stellar winds from the member stars undergoing collision.
 Unfortunately, the simplicity of the systems ends here, CWB systems are very poorly understood phenomena, due to a variety of factors that this section will discuss.
 
 \subsection{History of CWB observation}
@@ -672,8 +672,8 @@ Because of this, dust growth was speculated, and later confirmed, to occur withi
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=6in]{assets/cwb-diagrams/eta.png}
-  \caption[Comparison of wind momentum ratio, $\eta$, on WCR strtucture]{2D axisymmetric hydrodynamical simulations of CWB systems with wind momentum ratios of \num{1}, \num{0.1} and \num{0.001}. Momentum ratio is varied by changing the mass loss rate of the second star, $\dot{\text{M}}_2$. As $\eta$ decreases, the WCR begins to wrap itself around the secondary star.}
+  \includegraphics{assets/cwb-structure/ch1-eta-rho.pdf}
+  \caption[Comparison of wind momentum ratio, $\eta$, on WCR structure]{Comparison of the WCR structure of CWB systems with wind momentum ratios of \num{1}, \num{0.1} and \num{0.001}. Momentum ratio is varied by changing the mass loss rate of the second star, $\dot{\text{M}}_2$. As $\eta$ decreases, the WCR begins to wrap itself around the secondary star.}
   \label{fig:wcr-eta}
 \end{figure}
 
@@ -773,41 +773,147 @@ In particular, the systems WR104 and WR98a produce easily observable pinwheel st
 \begin{table}[h]
   \centering
   \begin{tabular}{lll}
-  \\ \hline 
-  \textbf{Temperature range} & \textbf{Dominant process} & \textbf{Spectral region} \\ \hline
-  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Forbidden lines & IR, Optical \\
+  \hline 
+  Temperature range & Dominant process & Spectral region \\
+  \hline
+  $T < 10^3 \, \si{\kelvin}$ & Molecular cooling & IR \\
+  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Forbidden lines & \SI{21}{cm}, IR, Optical \\
   $T \approx \SI{1e5}{\kelvin}$ & H excitation/ionisation & Optical, UV \\
-  $\SI{5e3}{\kelvin} \lesssim T \lesssim \SI{1e5}{\kelvin} $ & Resonance lines & Far UV, soft x-ray \\
+  $\SI{5e5}{\kelvin} \lesssim T \lesssim \SI{1e8}{\kelvin} $ & Resonance lines & Far UV, soft x-ray \\
   $T \gtrsim \SI{1e8}{\kelvin} $ & Bremsstrahlung & Radio \\ \hline
   \end{tabular}
-  \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \cite{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in Fig. \ref{fig:wcsolcooling}.}
+  \caption[Cooling processes at various temperature ranges]{Breakdown of dominant cooling processes at various temperature ranges from \textcite[Ch.~6]{dysonPhysicsInterstellarMedium2021}, whilst H excitation/ionisation occurs over a very short temperature range, it is extremely influential, causing a global peak in the cooling rate at $\approx 10^5$ \si{\kelvin}. These temperature ranges are depicted in Fig. \ref{fig:wcsolcooling}.}
   \label{tab:coolprocess}
-  \end{table}
+\end{table}
 
-% Radiative cooling, include graphs, mechanisms
+Whilst we have described the dynamics and structure of the post-shock WCR, we have not described the temperatures.
+Unsurprisingly, such violent regions of space are \emph{exceedingly} hot.
+In a fixed frame of reference, the immediate post-shock temperature, $T\rms{s}$, is calculated via the formulae:
 
-Cooling due to radiation emission in a hot plasma can be broken down into a variety of processes that occur over series of temperature ranges.
-Ions inside a plasma can become excited through collisions or photon absorption resulting in emission of photons as the ions de-excited. 
-Mechanisms that are significant within the warm\footnote{See what I mean about the phrase ``warm''?} and hot gas phases include forbidden line emission, hydrogen excitation and ionisation, resonance lines and bremsstrahlung \parencite{dysonPhysicsInterstellarMedium2021}.
-The influence of each mechanism varies over a particular temperature range, with each mechanism dominant over a certain temperature range (Table \ref{tab:coolprocess} and Fig. \ref{fig:wcsolcooling}).
+\begin{equation}
+  T\rms{s} = \frac{3\mu m\rms{H}}{16 k\rms{B}} V\rms{s}^2
+\end{equation}
+
+\noindent
+where $\mu$ is the mean molecular mass, $k\rms{B}$ is the Boltzmann constant, and $V\rms{s}$ is the shock velocity
+\parencite[Ch.~9]{macielHydrodynamicsStellarWinds2014}.
+For stellar winds colliding with a relative velocity of \SI{2000}{\kilo\metre\per\second} we find that the immediate post-shock temperature is of the order $10^8\,\si{K}$.
+
+
+After being shocked to temperatures in the order of $10^8\,\si{\kelvin}$ we must ask, how do we we cool the post-shock WCR down to temperatures suitable for dust formation?
+Dust destruction occurs readily at temperatures $>10^6\, \si{\kelvin}$, with temperatures $<10^4\,\si{\kelvin}$ being conducive to dust formation.
+Furthermore, this cooling has to be very rapid, as observations have shown that the bulk of dust formation occurs $\lesssim \SI{100}{\au}$ from the point of initial shock - winds moving at velocities in excess of \SI{1000}{\kilo\metre\per\second} would clear this distance in less than half a year!
+In an adiabatic shock, we would find that the gas cools purely through expansion in accordance with the ideal gas law; as the flow from the WCR begins to spread away, it cools on an extremely slow timescale.
+Gas and plasma within the gas are subject to a variety of cooling mechanisms, which contribute to removing energy from the medium.
+As atoms and ions are excited by collisions or photons, the particles are excited to higher energy levels, and release photons in order to de-excite to their original ground state.
+These photons can leave the medium, in dense mediums this can occur over multiple adsorption/re-emission events, causing the photon to leave the gas through a ``random walk'', which is dependent on the wavelength of the photon and the density of the gas.
+If the gas is sufficiently dense, the energy can be removed quite rapidly, with collisional energy effectively coupled to this photon emission, this results in a drop in temperature.
+Inversely, if the post-shock WCR is sufficiently dense, ionising radiation from the parent stars cannot penetrate deep into the WCR, protecting dust grains and only preventing further heating, aside from a small heating contribution due to galactic cosmic rays (GCRs).
+Furthermore, strong radiative cooling results in much higher compression levels of the post-shock gas than the adiabatic limit of $\rho\rms{post-shock} = 4\rho\rms{pre-shock}$.
+This is crucial to the formation of dust in the post-shock region, which relies on high densities as well as cool temperatures (this is explored further in Section \ref{sec:cwbdust}).
+The influence of each mechanism varies over a particular temperature range, due to collision energy of atoms and ions.
+While there is some overlap, these mechanisms are clearly dominant over specific temperature ranges, as can be seen in Table \ref{tab:coolprocess} and Fig. \ref{fig:wcsolcooling}.
+In the ``warm''\footnote{See what I mean about the phrase ``warm''?} phase we find that forbidden line emission through atomic hydrogen or metallic ions is dominant, while at higher temperatures higher energy processes such as H recombination and resonance line emission.
+At extremely high, immediate post-shock WCR, free-free processes such as bremsstrahlung dominate
+\parencite[Ch.~6]{dysonPhysicsInterstellarMedium2021}.
+In this section we will discuss these primary mechanisms of cooling.
+
+\subsubsection{``Cool'' medium}
+
+At temperatures from 10 to $10^3 \, \si{\kelvin}$, such as in cold molecular clouds, atomic excitation is extremely unlikely, other than heating events from adsorption of cosmic rays.
+Instead, spontaneous rotational and vibrational transitions in molecules can shed what little thermal energy remains in these clouds.
+The most influential molecules on the temperature of these gas clouds are $\text{H}_2 \text{O}$, $\text{H}_2$ and $\text{CO}$
+\parencite{neufeldRadiativeCoolingWarm1993,neufeldThermalBalanceDense1995}.
+Through molecular transitions for cooling and heating through cosmic rays, a stable temperature in the order of \SI{10}{\kelvin} is maintained in these cold, dense clouds.
+While this mechanism is essential for the understanding of how molecular clouds radiate - and is fundamental for keeping collapsing clouds cool - heating from the parent stars will prevent the WCR from getting this cold.
+
+\subsubsection{``Warm'' medium}
 
 % Section on forbidden line emission
+Between $10^4$ and $10^5 \, \si{\kelvin}$, radiative cooling is dominated by forbidden line transitions\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer. This transition was initially believed to be prohibited under contemporary models of atomic physics. This is in fact just astrophysicists jumping the gun again!}.
+This mechanism releases energy through a hyperfine splitting of the $1s$ ground state of hydrogen, where the hydrogen atom spontaneously emits photons de-excite to a more stable spin state.
+Transition between a proton/electron parallel ($\uparrow\uparrow$) to antiparallel ($\uparrow\downarrow$) spin state emits a photon of energy \SI{5.86}{\micro\electronvolt}:
 
-The first mechanism to be discussed is forbidden line emission\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer, while initially assumed to be prohibited under the contemporary understanding of atomic physics, it is in fact just astrophysicists jumping the gun again.}.
-This process dominates the cooling process of cooler gas that is not fully ionised, where collisions with free electrons excite metallic elements within the gas, which de-excite through magnetic dipole and quadrupole fine structure state transitions.
-This process dominates at these temperatures as the transition energies are significantly lower, on the order of \SI{1}{\electronvolt}, as the photon is also of a comparatively long wavelength, it can more easily escape from the surrounding gas.
+\begin{figure}[H]
+  \adjustbox{scale=0.6,center}{%
+    \begin{tikzcd}
+      {\text{p}^\uparrow \text{e}^\uparrow} &&& {} & {S=1,~g_u=3} \\
+      &&& {} && {\lambda=21\, \text{cm}} \\
+      {\text{p}^\uparrow \text{e}^\downarrow} &&& {} & {S=0, ~ g_u = 1} \\
+      &&& {}
+      \arrow[no head, from=1-1, to=1-5]
+      \arrow[shorten >=3pt, from=1-4, to=3-4]
+      \arrow[no head, from=3-1, to=3-5]
+      \arrow[color={rgb,255:red,214;green,92;blue,92}, squiggly, from=2-4, to=2-6]
+    \end{tikzcd}
+  }
+  \caption[The \SI{21}{cm} spectral line]{Energy level diagram of the \SI{21}{cm} spectral line - an all-in-one galactic yard stick, stopwatch and cooling mechanism.}
+  \label{fig:quiver-h}
+\end{figure}
 
-% Section on ionisation/recombination
+\noindent
+Despite the parallel spin state being metastable, with a very long lifetime of \SI{11}{\mega\year}, it occurs extremely readily in a large volume of gas in the ISM.
+Gas at this temperature is relatively transparent to radio waves, and as such the \SI{21}{cm} line can steadily remove energy through cooling\footnote{In the fighting game community (FGC), this is referred to as ``chip damage''.}.
+Due to the presence of enormous quantities of atomic hydrogen, the \SI{21}{\centi\metre} line is one of the most prevalent type of radio emission in the galaxy\footnote{in fact, the wavelength and parallel spin state actually make up a set of fundamental units used in messages such as the \textit{Voyager} and \textit{Pioneer} messages due to its ubiquity.}
+\parencite[Ch.~8]{drainePhysicsInterstellarIntergalactic2011}.
+In winds with a higher metallicity, forbidden line transitions from ions with more electron orbitals, can become dominant, especially as hydrogen begins to ionise.
+Such ions include $\text{O}^+$ and $\text{O}^{++}$:
 
-As the temperature increases there is a spike in the cooling rate of the gas as the hydrogen present begins to fully ionise, at this temperature a hydrogen ion and an electron may recombine, releasing a cascade of photons as the electron de-excites.
+\begin{figure}[H]
+  \adjustbox{scale=0.6,center}{%
+    \begin{tikzcd}
+      {} &&&&& {^2 \text P_{1/2}} &&&& {} & {} &&&& {^1 \text S_0} \\
+      {} &&&&& {^2 \text P_{3/2}} &&&&& {} &&&&&& {\lambda = 436.3 \, \text{nm}} \\
+      &&&&&&&&& {} & {} & {} & {} && {^1 \text D_2} \\
+      {} && {} &&& {^2 \text D_{3/2}} &&&&&& {} &&&&& {\lambda = 500.7 \, \text{nm}} \\
+      {} &&& {} && {^2 \text D_{5/2}} &&&&&& {} & {} &&&& {\lambda = 495.9 \, \text{nm}} \\
+      && {} &&&&& {\lambda = 372.6 \, \text{nm}} && {} && {} &&& {^3 \text P_2} \\
+      &&& {} &&&& {\lambda = 372.9 \, \text{nm}} && {} &&& {} && {^3 \text P_1} \\
+      {} && {} & {} && {^4 \text S_{3/2}} &&&& {} &&&&& {^3 \text P_0}
+      \arrow[no head, from=4-1, to=4-6]
+      \arrow[no head, from=5-1, to=5-6]
+      \arrow[no head, from=8-1, to=8-6]
+      \arrow[from=4-3, to=8-3]
+      \arrow[from=5-4, to=8-4]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, squiggly, from=6-3, to=6-8]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, squiggly, from=7-4, to=7-8]
+      \arrow[no head, from=8-10, to=8-15]
+      \arrow[no head, from=7-10, to=7-15]
+      \arrow[no head, from=6-10, to=6-15]
+      \arrow[no head, from=1-10, to=1-15]
+      \arrow[from=1-11, to=3-11]
+      \arrow[from=3-12, to=6-12]
+      \arrow[from=3-13, to=7-13]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, squiggly, from=4-12, to=4-17]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, squiggly, from=2-11, to=2-17]
+      \arrow[no head, from=3-10, to=3-15]
+      \arrow[no head, from=2-1, to=2-6]
+      \arrow[no head, from=1-1, to=1-6]
+      \arrow[draw={rgb,255:red,214;green,92;blue,92}, squiggly, from=5-13, to=5-17]
+    \end{tikzcd}
+  }
+  \caption[$\text{O}^{+}$ and $\text{O}^{++}$ spectral line transitions]{Forbidden line transitions in the $\text{O}^{+}$ (left) and $\text{O}^{++}$ (right) ground states.}
+  \label{fig:quiver-oplus}
+\end{figure}
 
-% Section on resonance line emission
+\noindent
+These transitions release significantly more energy per transition, and as such are a more efficient way of removing energy from metal enriched winds, explaining the increase in cooling rate in the WC abundance wind in Fig. \ref{fig:wcsolcooling}
+\parencite[Ch.~5]{dysonPhysicsInterstellarMedium2021}.
+As the temperature increases, the rate of cooling peaks, in WCRs containing hydrogen this is consistent with recombination of electrons and ions, releasing photons of energy $13.6\,\si{\electronvolt}$.
 
-As the plasma heats further resonance lines can
+\subsubsection{``Hot'' medium}
 
-% Section on braking radiation
+Beyond $10^6\,\si{\kelvin}$\footnote{Which we have arbitrarily defined as ``hot''.} forbidden line transitions are no longer dominant as metastable levels in the ground state of ions become increasingly rare as the species become more and more ionised ($\text{C}^{3+}$, $\text{O}^{4+}$ etc.).
+Instead, resonance line transitions in metals, the driving force behind the stellar winds, begin to take over the role of cooling.
+These lines are not metastable like forbidden lines, and have much higher transition probabilities, as such emission rate is still quite high, but is constantly decreasing as temperature increases, as the probability for an ion being completely ionised increases.
+This mechanism begins  temperatures of $10^8\,\si{\kelvin}$, even these heavier ions are completely ionised, with their electrons stripped bare they simply do not have any resonance lines left!
+However, at these extreme temperatures, the WCR is cooled through radiation emitted via the bremsstrahlung\footnote{Or ``braking radiation'' if you have forgotten how to spell bremsstrahlung.} mechanism.
+This mechanism is comparatively simple, as the path of a high velocity charged particle is changed, it emits radiation equivalent to the change in velocity, in accordance with the conservation of energy.
+As this process is not determined by emission lines or energy levels, it increases with temperature, as higher energy deflections release higher energy photons.
+Therefore, this process acts as the dominant cooling process in the universe at temperatures beyond $10^9 \, \si{\kelvin}$
+\parencite[Ch.~6]{longairHighEnergyAstrophysics2011}.
 
-As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bremsstrahlung\footnote{Or braking radiation when you can't remember how to spell it.} becomes dominant (Fig. \ref{fig:wcsolcooling}). High velocity electrons are deflected by ions, emitting radiation in the process due to conservation of energy. 
+\subsubsection{Radiative effects in WCRs}
 
 % \parencite{1993ApJS...88..253S}
 \parencite{schureNewRadiativeCooling2009}
@@ -822,69 +928,88 @@ As the particle energy reaches the range of tens of \si{\kilo\electronvolt}, bre
   \label{fig:dustplasmacomparison}
 \end{figure}
 
+% Temperature range, temperature importance
+CWB systems are interesting interstellar phenomena, there are only a few structures in space that operate on such a large temperature range over such a short timespan.
+These are also systems that are highly dependent on the temperature, and therefore very dependent on the level of cooling occurring in the system.
+% Slight discussion on difficulty of simulation
+This can present tremendous challenges trying to simulate them of course, due to the difficulty of calculating contributions to cooling
+This can also significantly impact the stability of the simulations, which are already hard enough to perform on their own.
+% Quick discussion on how we do it in the simulation, but nothing to extreme, link to appropriate section
+The first problem is solved by pre-calculating the emission rate of gas with a specific metallicity over a range of temperatures.
+This is accomplished using models such as the Mewe-Gronenschild-Kaastra (\texttt{MEKAL}) model, and incorporating the output of these models into the simulation in the form of a lookup table
+\parencite{meweCalculatedXradiationOptically1985,kaastraSPEXHighresolutionCosmic2013}.
 
-We define an energy loss rate of a volume of gas, $\dot{E}$, which in the case of plasma cooling is calculated by the equation:
-
-\begin{equation}
-  \frac{dE}{dt} = \left(\frac{\rho}{m\rms{H}}\right)^2 \Lambda(T) = n\rms{g}^2 \Lambda(T)
-\end{equation}
-\noindent
-where $n\rms{g}$ is the number density of the gas and $\Lambda(T)$ is the emissivity of the gas.
-The gas is assumed to be optically thin.
-
-% Needs to be spun off into a subsection
-
-Radiative cooling through plasma and dust cooling can play an extremely important role in the dynamics of the WCR.
-A more radiative WCR will typically be dominated structurally by thermal and thin-shell instabilities, leading to regions with markedly higher local gas densities.
-In addition to these instabilities, the region will overall be significantly more dense, as a radiative shock is capable of compressing gas beyond the adiabatic limit of $\rho\rms{post-shock} = 4 \rho\rms{pre-shock}$. 
-The post-shock region will also be much cooler, as gas can cool back to the initial wind temperature.
-This allows dust to form, and is perhaps the most important factor for explaining dust formation in a CWB system.
-The influence on radiative cooling varies from system to system, but the influence is determined exclusively by the wind properties and orbital separation of the system, leading to it being consistent in systems with circular orbits, and can vary significantly in the case of systems with highly elliptical orbits.
-This provides further clues for the mechanisms behind the formation of dust in the WCR, as we shall see later.
-The extent to which the WCR is affected by cooling is dependent on similar parameters that govern the shape and structure of the WCR itself.
-Cooling becomes influential on the structure of the WCR if the immediate post-shock gas is able to cool to the post shock temperature shortly after escaping from the shock, this is described in this thesis as:
+% Introduce Lambda, fundamental value for cooling
+In order to explore the contribution of cooling to the structure of the WCR, we must do what astrophysicists as a whole despise the most - describe something mathematically.
+First, in order to determine the amount of cooling occurring at a particular temperature, we summate the contributions of all energy loss mechanisms - from forbidden lines to bremsstrahlung - into a single value.
+As such, we first define the energy loss rate of a volume of gas, $\mathcal{L}(T)$, which in the case of plasma cooling is calculated by the equation:
 
 \begin{equation}
-  \chi = \frac{\tau\rms{cool}}{\tau\rms{esc}} ,
+  \label{eq:energylossrate}
+  \mathcal{L}(T) = \left(\frac{\rho}{m\rms{H}}\right)^2 \Lambda(T) = n\rms{g}^2 \Lambda(T)
+\end{equation}
+\noindent
+where $n\rms{g}$ is the number density of the gas and $\Lambda(T)$ is the emissivity of the gas \parencite{stevens_colliding_1992}.
+This assumes that the energy, in the form of photons, can eventually leave the gas - though in simulations that do not consider radiative transfer this is assumed to be instantaneous.
+As we can see, the rate of cooling in a gas is highly dependent on the number density, $\mathcal{L} \propto n\rms{g}^2$. 
+It is therefore easy to grasp that as the density of the post-shock flow increases, it cools faster, despite having more internal energy.
+Other methods of cooling and heating are not as strongly dependent on the number density density of the gas.
+For instance, dust cooling, which we will discuss later, has a dependence of $\mathcal{L}\rms{d} \propto n\rms{g}$, while cosmic ray heating has a dependence of $\mathcal{L}\rms{CR} \propto n\rms{g}^{-1/2}$ \parencite{wienerCosmicRayHeating2013}.
+
+Cooling becomes influential on the system if gas in the WCR is able to sufficiently cool before it can leave the shock region.
+We can therefore introduce another parameter, $\chi$, which is the ratio of the cooling time, $t\rms{cool}$, and this escape time, $t\rms{esc}$:
+
+\begin{equation}
+  \chi = \frac{t\rms{cool}}{t\rms{esc}}.
 \end{equation}
 
 \noindent
-where $\tau\rms{cool}$ is the cooling timescale and $\tau\rms{esc}$ is the escape timescale.
-The cooling timescale is the time required for the gas to radiate all of its energy at a rate $\dot{E}$, hence, $\tau\rms{cool} = E/\dot{E}$ or:
+If we determine the cooling time as the amount of time required for the gas to radiate \emph{all} of its energy, we can define the cooling time as:
 
 \begin{equation}
   \label{eq:taucool}
-  \tau\rms{cool} = \frac{k\rms{B}T\rms{s}}{4n\rms{w}\Lambda(T\rms{s})},
+  t\rms{cool} = \frac{U}{\mathcal{L}(T)} = \frac{3}{8} \frac{k\rms{B} T}{n\rms{g} \Lambda(T)},
 \end{equation}
 
 \noindent
-where $k\rms{B}$ is the Boltzmann constant, $T\rms{s}$ is the shock temperature and $n\rms{w}$ is the post-shock wind number density.
-The escape timescale represents the approximate time taken for the gas to escape the shock, corresponding to:
+where $U$ is the internal energy per unit volume of the gas ($U = E n\rms{g}$), in the case of a strong shock with a ratio of specific heats, $\gamma$, of $5/3$.
+The escape timescale can be approximated with the equation:
 
 \begin{equation}
   \label{eq:tauesc}
-  \tau\rms{esc} = \frac{d\rms{sep}}{c\rms{s}} , 
+  t\rms{esc} = \frac{d\rms{sep}}{c\rms{s}},
 \end{equation}
 
 \noindent
-where $c\rms{s}$ is the post-shock sound speed.
-As the expected shock temperatures of a CWB align closely with a local minima in $\Lambda(T)$, $\chi$ can be approximated with the equation:
+where $c\rms{s}$ is the sound speed.
+\textcite{stevens_colliding_1992} describes an equation to approximate $\chi$ for each wind, which is used throughout this thesis:
 
 \begin{equation}
-  \label{eq:coolingparameter} 
-  \chi \approx \frac{v^4_{\infty,8} d_\text{sep,12}}{\mdot_{-7}},
+  \label{eq:coolingparameter}
+  \chi \approx \frac{v_{\infty,8}^4 d\rms{sep,12}}{\dot{\text{M}}_{-7}},
 \end{equation}
 
 \noindent
-where $v_{\infty,8}$ is the wind terminal velocity in units of \SI{1e8}{\centi\metre\per\second}, $d_\text{sep,12}$ is the separation distance in units of \SI{1e12}{\centi\metre} and $\mdot_{-7}$ is the mass loss rate in units of \SI{1e-7}{\solarmass\per\year}
-\parencite{stevens_colliding_1992}.
-In the case of a CWB system with a cooling parameter $\chi \gg 1$, the system is adiabatic, leading to smooth winds and gas remaining at high temperatures, at it can only cool through expansion.
-In the case of $\chi \leq 1$, the system is strongly radiative, the gas rapidly cools after being shocked, leading to a very dense post-shock region with a structure strongly influenced by thermal instabilities.
+where $v_{\infty,8}^4$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{sep,12}$ is the separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
+In the case of a star where $\chi\rms{star} \gg 1$, the stars wind behaves adiabatically in the post-shock environment, producing a smooth wind.
+As $\chi$ decreases and approaches 1, the star is increasingly influenced by its radiative processes.
+The stars post-shock wind is assumed to be dominated by radiative processes if $\chi \leq 1$.
+In this case the gas cools rapidly after being shocked, leading to the formation of thermal instabilities.
+This is seen in Fig. \ref{fig:chicomparison}, which compares a series of simulations with identical wind parameters and an increasing separation distance.
+As $\chi$ decreases we see that the WCR shows clear signs of thermal instability, and an increasingly turbulent wind, in line with the predictions made in the equation.
+Instabilities can also be produced by other mechanisms, such as KH instabilities, through imbalanced wind velocities.
 
-As we can see from Eq. \ref{eq:coolingparameter}, we find that strongly radiative WCRs are favoured in stars with stars with slow, dense winds and close orbits.
-Wind velocity in particular is highly influential on the radiative dynamics of the WCR, and could be one of the driving reasons for a lack of dust formation in certain WC sub-types.
-Systems with high eccentricities can also vary their orbit significantly, leading to fluctuations in $\chi$ by 2 orders of magnitude.
-The corresponding velocity shear between a WR and an OB wind also results in the formation of Kelvin-Helmholtz instabilities.
+Based on this equation we can now infer that winds that are strongly radiative in the post-shock WCR environment are both slow\footnote{Comparatively, of course, we still observe winds travelling at almost 1\% of $c$!} and dense.
+Therefore, we can infer that typically the WR stars wind behaves radiatively, while the OB star in a CWB system behaves adiabatically.
+Variability of $\chi$ can occur over a comparatively short timescale to the lifespan of the star due to the $\chi \propto d\rms{sep}^{-1}$ dependency.
+Whilst variation of $\vinf$ and $\mdot$ for each wind will not vary significantly over the timescale of a single orbit,in the case of CWB systems with a highly eccentric orbit, the change in separation distance can cause $\chi$ to vary by up to two orders of magnitude.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{assets/cwb-structure/ch1-chi-rho.pdf}
+  \caption{A comparison of the influence of radiative cooling on the structure of a CWB system. A system with a momentum ratio of $\eta = 0.02$ is simulated with an increasing orbital separation, such that $\chi$ increases. As can be seen the WCR becomes adiabatic and smooth the more $\chi$ increases.}
+  \label{fig:chicomparison}
+\end{figure}
 
 \subsubsection{Dust cooling}
 
@@ -953,24 +1078,26 @@ Dust formation is also observed to form within the WCR, which can form quite bea
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccccc}
-    & \multicolumn{2}{c}{Persistent} & \multicolumn{2}{c}{Variable} & \multicolumn{2}{c}{Episodic} \\ \cline{2-7} 
-    & Total & Example & Total & Example & Total & Example \\ \hline
-   WC4 & 1 & WR19 & 0 & --- & 0 & --- \\
-   WC5 & 0 & --- & 0 & --- & 1 & WR47C \\
-   WC6 & 1 & WR124-10 & 0 & --- & 0 & --- \\
-   WC7 & 3 & WR102-22 & 0 & --- & 4 & WR140 \\
-   WC8 & 6 & WR13 & 1 & WR48a & 3 & WR122-14 \\
-   WC9 & 45 & WR104 & 6 & WR98a & 1 & WR75-11 \\ \hline
-   Total & 56 &  & 7 &  & 9 &  \\ \hline
+  \begin{tabular}{lllllll}
+    \hline
+    & \multicolumn{2}{l}{Persistent} & \multicolumn{2}{l}{Variable} & \multicolumn{2}{l}{Episodic} \\ \cline{2-7} 
+    & Total & Example & Total & Example & Total & Example \\
+    \hline
+    WC4 & 1 & WR19 & 0 & --- & 0 & --- \\
+    WC5 & 0 & --- & 0 & --- & 1 & WR47C \\
+    WC6 & 1 & WR124-10 & 0 & --- & 0 & --- \\
+    WC7 & 3 & WR102-22 & 0 & --- & 4 & WR140 \\
+    WC8 & 6 & WR13 & 1 & WR48a & 3 & WR122-14 \\
+    WC9 & 45 & WR104 & 6 & WR98a & 1 & WR75-11 \\ \hline
+    Total & 56 &  & 7 &  & 9 &  \\ \hline
   \end{tabular}
-  \caption[Numer of confirmed WCd systems]{Number of confirmed WCd systems with known spectral type and dust formation type from the Galactic Wolf-Rayet Catalogue \parencite{rossloweSpatialDistributionGalactic2015}, systems with uncertain spectral types not included, while systems labelled ``d'' are included within the ``persistent'' category for their associated spectral type.}
+  \caption[Number of confirmed WCd systems]{Number of confirmed WCd systems with known spectral type and dust formation type from the Galactic Wolf-Rayet Catalogue \parencite{rossloweSpatialDistributionGalactic2015}, systems with uncertain spectral types not included, while systems labelled ``d'' are included within the ``persistent'' category for their associated spectral type.}
   \label{tab:wc-summated-list}
 \end{table}
 
 % Rarity
 Whilst beautiful, Wolf-Rayet systems are elusively rare.
-The Galactic Wolf-Rayet Catalogue\footnote{The most recent version of this catalogue is available at \texttt{\href{http://pacrowther.staff.shef.ac.uk/WRcat}{http://pacrowther.staff.shef.ac.uk/WRcat}}} \parencite{rossloweSpatialDistributionGalactic2015} has a collection of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
+The \footlink{Galactic Wolf-Rayet Catalogue}{http://pacrowther.staff.shef.ac.uk/WRcat} \parencite{rossloweSpatialDistributionGalactic2015} has a collection of 667\footnote{At time of time of writing, with the last update being August 2020.} known galactic WR stars, 106 of such stars are contained within a binary system, with 41 such binaries containing WC stars.
 \textcite{rossloweSpatialDistributionGalactic2015} notes that there are a total of 42 confirmed WCd systems, approximately 35\% of all WC systems, though this value is somewhat out out date and includes single star systems.
 A more up-to-date estimate performed for this thesis using the updated dataset estimates a total of 80 WCd systems, of which 72 have well-determined spectral subtypes (table \ref{tab:wc-summated-list}).
 % Impact of systems 
@@ -1028,7 +1155,7 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{cccccccc}
+  \begin{tabular}{llllllll}
   \hline
   System & $\dot{\text M}_{\text{WR}}$ & $\dot{\text M}_{\text{OB}}$ & $v_{\text{WR}}^\infty$ & $v_{\text{OB}}^\infty$ & $\eta$ & $\chi_\text{min}$ & $\dot{\text M}_\text{D}$ \\
    & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & (AU) & & (\si{\solarmass\per\year}) \\ \hline
@@ -1042,7 +1169,7 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{ccccccccc}
+  \begin{tabular}{lllllllll}
   \hline
   System & Classification & Period & Eccentricity & Inclination & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
    & & (d) & ($e$) & ($i$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline

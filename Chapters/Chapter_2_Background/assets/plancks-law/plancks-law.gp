@@ -39,6 +39,10 @@ set object 1 rect from 933,1e0 to 1550,1e19 fc rgb "light-green" fillstyle trans
 
 set key bottom right
 
+set xtics 250
+
+set grid x y mx my 
+
 plot Planck(x*1e-10,5000)  ls 2 t "5,000K",\
      Planck(x*1e-10,10000) ls 3 t "10,000K",\
      Planck(x*1e-10,25000) ls 4 t "25,000K",\

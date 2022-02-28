@@ -22,6 +22,8 @@ calcnd(z,mD) = rho*z/mD
 set style fill transparent solid 0.5 noborder
 set key bottom right
 
+set grid x y mx my 
+
 
 plot "cooling_curve_solar.dat" u (10**$1):($2*(rho/mH)**2) t "Solar plasma" w l ls 1 ,\
   "dust_cool_0.01micron.dat" u (10**$1):($2*calcnd(z,calcmD(0.01*1e-4))*np) t "Dust a = 0.01 $\\mu$m" w l ls 2,\
