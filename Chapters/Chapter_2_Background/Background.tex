@@ -1,19 +1,23 @@
 \chapter{Background}
 
-\section{Early-Type Stars}
-\label{sec:earlytype}
-\label{sec:obtype}
-
 %//TODO I quite like this joke but it needs a bit of work
 The term Early-type stars is quite possibly the epitome of bad naming conventions in astrophysics, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
 The first generation of astrophysicists found themselves asking very important questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to burn for so long?'' Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
 
-Of course, like all pressing questions of the \nth{19} century, it fell to Lord Kelvin to provide a convincing but incorrect answer. Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest. Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass! However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
+Of course, like all pressing questions of the \nth{19} century, it fell to Lord Kelvin to provide a convincing - albiet incorrect - answer.
+Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' type stars shining the brightest.
+Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass!
+However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
 %//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
-Instead, we now know that stars produce their energy through fusion. These reactions vary from sub-stellar deuterium and lithium burning, to main sequence p-p \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and other exotic fusion processes for evolved massive stars. The more massive the star the greater the internal pressure, allowing for more exotic fusion processes.
-The bigger a star, the greater the core pressure and temperature, as all fusion reactions are highly dependent on temperature, stars with only a few dozen solar masses are thousands of times more luminous than our sun, but only live a fraction of the time \parencite{carrollIntroductionModernAstrophysics2014}.
+Instead, we now know that stars produce their energy through fusion.
+These reactions vary from sub-stellar deuterium and lithium burning, to main sequence p-p \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and other exotic fusion processes for evolved massive stars.
+The more massive the star the greater the internal pressure, allowing for more exotic fusion processes.
 
-High-mass stars, of course, are the most luminous and short lived of stars.
+\section{Early-Type Stars}
+\label{sec:earlytype}
+\label{sec:obtype}
+
+The bigger a star, the greater the core pressure and temperature, as all fusion reactions are highly dependent on temperature, stars with only a few dozen solar masses are thousands of times more luminous than our sun, but only live a fraction of the time \parencite{carrollIntroductionModernAstrophysics2014}.
 These stars have luminosities in the range of \SI{1e4}{\solarluminosity} and lifespans on the order of \SI{10}{\mega\year}, less than 0.1\% of the lifespan of our sun.
 The adage of a candle burning twice as bright and lasting half as long doesn't quite express the differences between high-mass stars and low-mass stars, it would instead be better to compare a candle and a stick of dynamite.
 We define high-mass stars as stars that are sufficiently massive to undergo carbon fusion near the end of their lives.
@@ -500,7 +504,19 @@ In order to simulate this we must simplify and parametrise this into a model, we
 As the gas collides with the grain, small amounts of the grain are vaporised and ejected from the surface, causing a reduction in grain radius, $a$, with a corresponding rate of radius change $\dot a$.
 $\dot a$ can vary depending on the composition of the grain; for instance, grains composed of ice would be more readily vaporised by impacts than sturdier grains composed of carbon or iron.
 In this spherical case the dust destruction rate is inversely proportional to the number density of the gas, as the grain will be destroyed faster if there are more gas-grain interactions, and proportional to the grain radius.
-The dust destruction rate has a more complex dependency on the grain temperature, rapidly reducing below $10^6\, \si{\kelvin}$, and is found to be roughly flat above this temperature and to around \SI{3e8}{\kelvin} \parencite{tielens_physics_1994}.
+
+Calculating the exact dust sputtering yield incurred on a grain is a very complex process, requiring a summation of sputtering yields across all projectile ion species (H\ts{+}, H\ts{++} etc.).
+Instead, we use an approximation described by \textcite[Ch.~25]{drainePhysicsInterstellarIntergalactic2011} which significantly simplifies the process and does not require simulation of the dynamics of ions.
+Between $10^5$ and $10^9$ kelvin the following approximation is valid:
+
+
+\begin{equation}
+  \dot{a} \approx - \frac{1\times 10^{-6}}{1 + T_6^{-3}} \left(\frac{n\rms{H}}{\si{cm^{-3}}}\right) \si{\micro\metre\per\year},
+\end{equation}
+
+\noindent
+where $T_6$ is the gas temperature in units of $10^6 \, \si{K}$.
+The dust destruction rate has a particular dependency on the grain temperature, rapidly reducing below $10^6\, \si{\kelvin}$, and is found to be roughly flat above this temperature and to around \SI{3e8}{\kelvin} \parencite{tielens_physics_1994}.
 We can therefore adopt a normalised grain lifespan $\tau\rms{d}$, which we can use to calculate the dust destruction rate in our simulations:
 
 \begin{equation}
@@ -558,34 +574,13 @@ $sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been detected fr
 Complex organic molecules have also also been detected in dusty environments, they are believed to have formed in the surface of dust grains, instead of forming within the ISM itself
 \parencite{herbstComplexOrganicInterstellar2009}.
 The primary dust detected in CWB systems is amorphous carbon grains, which are defined as grains with a mixture of $sp^2$- and $sp^3$-bonded carbon, with no structural order or polymerisation
-\parencite{draine_interstellar_2003}.
+\parencite{draineInterstellarDustGrains2003}.
 % Other grain types, PAHs, ice and silicates
 Other species of interstellar dust are abundant throughout the ISM; these species include water ice, silicate grains and Polycyclic Aromatic Hydrocarbons (PAHs).
 However, these grain species have not been detected in dust producing CWB systems, in part due to element depletion, as WC stars are hydrogen-depleted.
 Amorphous carbon grains are also markedly more resistant to erosion and fragmentation due to shocks than other grain types.
 They are also more resistant to thermal sputtering as well, due to their higher sublimation temperature, this resilience is vital if they are to survive in the extreme conditions of a CWB system
 \parencite{draineDestructionMechanismsInterstellar1979}.
-
-\subsection{Radiation processes in interstellar dust}
-\label{sec:dustcooling-background}
-
-% Diffuse emission
-Interstellar dust can be a significant factor in the cooling of its local interstellar medium through a series of continuum and line emission processes.
-Collisional excitation and adsorption of photons can stochastically heat dust grains, this excess energy is then emitted in the form of near-infrared radiation \parencite{dwekCoolingSputteringInfrared1996}.
-The radiative emittance of a dust grain can be approximated as a black body, and hence radiates in accordance with the Stefan-Boltzmann law:
-
-\begin{equation}
-  L = 4\pi r^2 \sigma T^4 , 
-\end{equation}
-
-\noindent
-where $L$ is the grain luminance, $r$ is the grain radius, $\sigma$ is the Stefan-Boltzmann constant and $T$ is the grain temperature.
-At sufficiently high gas densities this radiative process can become the dominant dominant cooling method in the ISM \parencite{wolfireNeutralAtomicPhases1995}.
-In addition to this continuum emission, emission lines can also occur if characteristic vibrational modes in a grain lattice are excited, such as the silicate grain stretching and bending vibrational modes at \SI{9.7}{\micro\metre} and \SI{18.5}{\micro\metre} \parencite[212]{whittetDustGalacticEnvironment2002}.
-
-\textit{Discuss the mathematics of this in more detail.}
-
-% General cooling laws
 
 \subsection{The importance of interstellar dust}
 \label{sec:dustimportance}
@@ -795,7 +790,7 @@ In a fixed frame of reference, the immediate post-shock temperature, $T\rms{s}$,
 \end{equation}
 
 \noindent
-where $\mu$ is the mean molecular mass, $k\rms{B}$ is the Boltzmann constant, and $V\rms{s}$ is the shock velocity
+where $\mu$ is the mean molecular mass, $k\rms{B}$ is the Boltzmann constant\footnote{\SI{1.381e-16}{erg.K^{-1}}}, and $V\rms{s}$ is the shock velocity
 \parencite[Ch.~9]{macielHydrodynamicsStellarWinds2014}.
 For stellar winds colliding with a relative velocity of \SI{2000}{\kilo\metre\per\second} we find that the immediate post-shock temperature is of the order $10^8\,\si{K}$.
 
@@ -915,19 +910,6 @@ Therefore, this process acts as the dominant cooling process in the universe at 
 
 \subsubsection{Radiative effects in WCRs}
 
-% \parencite{1993ApJS...88..253S}
-\parencite{schureNewRadiativeCooling2009}
-\parencite{rybickiRadiativeProcessesAstrophysics2004}
-
-%//TODO clean up this caption
-%//FIXME use the new cooling code for this graph, early changes in ionisation fraction result in a different appearance from 1e4 to 1e6 kelvin!
-\begin{figure}[h]
-  \centering
-  \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison.pdf}
-  \caption[Dust cooling vs. plasma cooling]{Comparison of plasma cooling to dust cooling with different grain sizes in a solar abundance gas, with a gas density of \SI{1e-20}{\gram\per\centi\metre\cubed} and a dust-to-gas mass ratio of 0.01.}
-  \label{fig:dustplasmacomparison}
-\end{figure}
-
 % Temperature range, temperature importance
 CWB systems are interesting interstellar phenomena, there are only a few structures in space that operate on such a large temperature range over such a short timespan.
 These are also systems that are highly dependent on the temperature, and therefore very dependent on the level of cooling occurring in the system.
@@ -991,7 +973,8 @@ where $c\rms{s}$ is the sound speed.
 
 \noindent
 where $v_{\infty,8}^4$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{sep,12}$ is the separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
-In the case of a star where $\chi\rms{star} \gg 1$, the stars wind behaves adiabatically in the post-shock environment, producing a smooth wind.
+
+In the case of a star with a cooling parameter of $\chi \gg 1$, its wind behaves adiabatically in the post-shock environment, producing a smooth wind.
 As $\chi$ decreases and approaches 1, the star is increasingly influenced by its radiative processes.
 The stars post-shock wind is assumed to be dominated by radiative processes if $\chi \leq 1$.
 In this case the gas cools rapidly after being shocked, leading to the formation of thermal instabilities.
@@ -1012,18 +995,72 @@ Whilst variation of $\vinf$ and $\mdot$ for each wind will not vary significantl
 \end{figure}
 
 \subsubsection{Dust cooling}
+\label{sec:dustcooling-background}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics{assets/dust-plasma-cooling-comparison/cooling-comparison.pdf}
+  \caption[Dust cooling vs. plasma cooling]{Comparison of plasma cooling to dust cooling with different grain sizes in a solar abundance gas, with a gas density of \SI{1e-20}{\gram\per\centi\metre\cubed} and a dust-to-gas mass ratio of 0.01.}
+  \label{fig:dustplasmacomparison}
+\end{figure}
+
+Other radiative processes outside of gas/plasma cooling can influence the WCR.
+Interstellar dust can have a significant impact on cooling in dust producing CWB (WCd) systems.
+Collisional excitation and adsorption of photons can stochastically heat dust grains, this excess energy is then emitted in the form of infrared radiation \parencite{dwekCoolingSputteringInfrared1996}.
+The radiative emittance of a dust grain can be approximated as a black body, and hence radiates in accordance with the Stefan-Boltzmann law:
+
+\begin{equation}
+  L = 4\pi r^2 \sigma T^4 , 
+\end{equation}
+
+\noindent
+where $L$ is the grain luminance, $r$ is the grain radius, $\sigma$ is the Stefan-Boltzmann constant\footnote{\SI{5.670e-5}{erg.cm^{-2}.s^{-1}.K^{-4}}.} and $T$ is the grain temperature.
+At sufficiently high gas densities this radiative process can become the dominant dominant cooling method in the ISM \parencite{wolfireNeutralAtomicPhases1995}.
+In addition to this continuum emission, emission lines can also occur if characteristic vibrational modes in a grain lattice are excited, such as the silicate grain stretching and bending vibrational modes at \SI{9.7}{\micro\metre} and \SI{18.5}{\micro\metre} \parencite[212]{whittetDustGalacticEnvironment2002}, as well as the \SI{2175}{\angstrom} feature associated with PAHs \parencite{draineInterstellarDustGrains2003}.
 % Dust cooling? Might need to move CWB dust formation up
-The presence of dust within the immediate post-shock environment significantly increases the cooling rate.
-Fig. \ref{fig:dustplasmacomparison} compares rate of cooling due to dust emission of various types of grains to plasma cooling at solar abundances, 
-As $\Lambda_g$ and $\Lambda_D$ are both proportional to $\rho_g^2$, dust cooling will dominate at high temperatures so long as there is sufficient amounts of dust.
-%//TODO Lengthen paragraph, introduction to dust cooling
+The presence of dust within the immediate post-shock environment significantly increases the cooling rate, but is dependent on more than just the number density of the gas and the temperature.
+In order to parametrise this, an energy loss rate (as formulated in Eq. \ref{eq:energylossrate}) but for a volume of dust, $\mathcal{L}\rms{d}$ is used:
 
-As dust grains collide with ionised gas and electrons, this imparts kinetic energy into the grains, heating them and causing them to emit infrared radiation. Assuming that there is a net accretion of ions and electrons onto the dust grains and the gas is optically thin in the infrared regime, energy is efficiently removed from the gas.
-At particularly high temperatures this effect can dominate over high-temperature plasma cooling processes such as bremsstrahlung, as seen in Fig. \ref{fig:dustplasmacomparison}.
-Fig. \ref{fig:collisionalheatingcomparison} compares dust grain heating rates due to electron and ion collisional excitation in a solar abundance and WC abundance flow.
-At lower temperatures the dust grain cooling rate is dominated by electron excitation, especially in the WC case as the ratio of free electrons to ions is significantly higher, as the WC flow is enriched by heavier elements.
-However, as the grain temperature increases, collisional heating due to ions becomes more prevalent as the electrons are sufficiently energetic to pass through the grain without significant energy transfer; this is referred to as the electron transparency, $h_e$ \parencite{dwek_infrared_1981}.
+\begin{equation}
+  \mathcal{L}\rms{d} (a,T) = n\rms{d} n\rms{g} \Lambda\rms{d} (a,T)
+\end{equation}
+
+\noindent
+where $n\rms{d}$ is the number density of dust grains in the region and $a$ is the grain radius.
+Fig. \ref{fig:dustplasmacomparison} compares $\mathcal{L}\rms{g}$ for a solar abundance plasma and $\mathcal{L}\rms{d}$ for dust within this plasma at varying grain sizes.
+As we can see, small grain sizes, with the same dust-to-gas mass ratio, dust cooling dominates at high temperatures, before reaching a peak emission rate.
+
+Work by \textcite{dwek_infrared_1981} is used throughout this thesis to determine the rate of heating.
+Collisional heating of dust grains from either gas, plasma or free electrons is assumed to be the primary mechanism of heating, with dust grains radiating this collisional energy on timescales much shorter than the collisional timescale.
+It is found that the grain heating rate, $H$, can be calculated with the formulae:
+
+\begin{equation}
+  \begin{split}
+    H & = \left(\frac{32}{\pi m}\right)^{1/2} n\pi a^2 (k_B T)^{3/2} h(a,T) \\
+    & = \num{1.26e-19} \frac{n}{A^{1/2}} a^2 (\si{\micro\metre}) T^{3/2} h(a,T) \, \si{\erg\per\second}
+  \end{split}
+\end{equation}
+
+\noindent
+where $m$ is the grain mass, $a$ is the grain radius, $A$ is the mass of the incident gas particle in \si{\atomicmassunit}, and $n$ is the gas number density.
+$h(a,T)$ is the effective grain ``heating factor'', or the fraction of the energy deposited into the grain through collision.
+The calculation of $h(a,T)$ was found to be a significant difficulty when simulation CWB systems, and as such is discussed in more detail in Section \ref{sec:dustcoolingmodel}. 
+Radiative heating is not calculated, as it is assumed that the dust grains are well shielded in the WCR from the UV emission of the parent stars.
+The contribution of heating due to each ion species and electron is individually calculated, and combined to find the total grain heating rate:
+
+\begin{equation}
+  H = H\rms{el} + \sum_i H_i , 
+\end{equation}
+
+\noindent
+where $H_i$ is grain heating due to collisions from an element, $i$.
+Whilst collision from atoms and ions is a somewhat important factor in grain heating, we find the at the primary contribution of grain heating is due to electron-grain collisions.
+As can be seen in \ref{fig:collisionalheatingcomparison}, heating due to electrons peaks between $10^5$ and $10^6 \, \si{K}$, with a ratio of contributions from electrons to ions of $\sim 100 : 1$.
+This is partially due to the increased electron number density, as as the plasma can be multiply or completely ionised at higher temperatures.
+This is especially relevant in the case of high-metallicity winds.
+However, above $10^6\,\si{K}$ the grain heating factor begins to rapidly decrease, resulting in the contribution of electron-grain collisions on the cooling decreasing.
+The heating factor decreases as the electrons become too energetic, and can pass through the grain without significant energy transfer.
+This impact is especially important on small grains, as there is less material for the electrons to pass through.
 
 \begin{figure}[h]
   \centering
@@ -1031,41 +1068,6 @@ However, as the grain temperature increases, collisional heating due to ions bec
   \caption[$H_{el}$ and $H_{coll}$ comparison]{Comparison of grain heating rate due to ion collisional excitation, $H_{coll}$, and electron excitation, $H_{el}$. The dust grain has a grain radius of \SI{5e-3}{\micro\metre} and is travelling through a gas with a density of $10^{-20}$ \si{\gram\per\centi\metre\cubed} with solar and WC abundances.}
   \label{fig:collisionalheatingcomparison}
 \end{figure}
-
-Work by \cite{dwek_infrared_1981} is used predominantly in this project to simulate cooling due to dust, a fast method for calculating the cooling rate due to dust was integrated into the numerical code for this project, which is elaborated on in section \ref{sec:dustcoolingmodel}.
-% Finish and link to below paragraph
-
-%Find citation for spitzer 1978
-
-The heating rate of a dust grain due to collisions 
-
-\begin{equation}
-  \begin{split} 
-      H_\text{coll} = & n \pi a^2 \langle Q(E,q,U) \rangle \\
-      & \times \langle v (E-qU) f(a,E-qU) f(a,E-qU) \rangle \, \si{\erg\per\second}
-  \end{split}
-\end{equation}
-
-%Explain constants
-This can be simplified and expressed in the equation:
-
-\begin{equation}
-  \begin{split}
-    H_\text{coll} & = \left(\frac{32}{\pi m}\right)^{1/2} n\pi a^2 (k_B T)^{3/2} h(a,T) \\
-    & = \num{1.26e-19} \frac{n}{A^{1/2}} a^2 (\si{\micro\metre}) T^{3/2} h(a,T) \, \si{\erg\per\second}
-  \end{split}
-\end{equation}
-
-% This part is very dry and is going to explain the equations more in depth
-% Main source will be dwek 1981 appendix 2
-
-
-
-% Instabilities due to cooling, might spin off into it's own appendix chapter?
-% Theres a particular paper that covers this 
-% Mainly need to discuss KH instabilities, and how they relate to cooling
-
-
 
 \subsection{Dust formation in CWB systems}
 \label{sec:cwbdust}
@@ -1189,57 +1191,37 @@ The archetypal continuous dust forming system WR104 was also proposed for simula
   \caption[\textit{Multiwavelength image of WR98a \parencite{monnierKeckAperturemaskingExperiment2007}}]{Multiwavelength aperture synthesis images of WR98a taken on June \nth{24} 2000, at 1.65, 2.2, and \SI{3.08}{\micro\metre}. Plot sourced from \textcite{monnierKeckAperturemaskingExperiment2007}, the significant IR excess is a clear sign of ongoing dust production. The system also has a pronounced pinwheel structure most prominent at \SI{2.2}{\micro\metre}.}
 \end{figure}
 
-% Physical properties
-
-WR98a is a WC8-9+OB variable dust formation system.
-It is has an approximately circular orbit with a semi-major axis of \SI{4.06}{\au}, and is inclined at $\approx 35^\circ$ from Earth.
-
-
 % Historical observation 
 
-\parencite{monnierPinwheelNebulaWR1999}
-
-
-% Hendrix paper dust formation monnier 2002 radio domain
-
+WR98a was first found to be a WCd system by \textcite{monnierPinwheelNebulaWR1999}, and for a number of reasons was found to be an ideal candidate for simulation.
 % Ease of simulation, good starting point
 WR98a was chosen for simulation primarily due to its moderate rate of dust formation, and comparatively docile winds.
-With a a slow WC wind velocity of \SI{900}{\kilo\metre\per\second} and a WC mass loss rate of \SI{5e-6}{\solarmass\per\year}
-
-
-
-The dust formation rate is lower than many WC systems \parencite{lauRevisitingImpactDust2020}
-
+With a a slow WC wind velocity of \SI{900}{\kilo\metre\per\second} and a WC mass loss rate of \SI{5e-6}{\solarmass\per\year}, it has an overall WC wind momentum far lower than the other candidate systems.
+Because of this, the system has a far lower dust production rates, and also exhibits some dust variability \parencite{lauRevisitingImpactDust2020}.
 Due to these factors the system is markedly easier to simulate, and thus provided a good starting point for our work as we refined the model and implemented features into the hydrodynamical system.
-
 A comparatively wide orbit reduces the number of cells required to simulate the system, simplifying the simulation of the system further.
-
 Finally, WR98a has previously been simulated using a multi-fluid dust model in \textcite{hendrix_pinwheels_2016}, this allows us to provide a point of comparison between our work and already published work.
 This is especially useful as there are only a handful of papers that cover dust models in CWB systems.
-
-% Questions as to orbit shape, approximately circular
-
-
 % Parameter space exploration
 Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in chapter \ref{chap:parameterspace}.
 
 \subsubsection{WR140}
 
-% Physical properties
-
 % Historical observation
 WR140 is significant in that it is the first system to be observed with episodic dust forming CWB properties, \textcite{williamsCondensationShellHD1978} notes a rapid brightening in the infrared, suggesting the formation of a new shell of dust around the system.
-WR140 has undergone frequent observations, with spectroscopic data going back to 1972, and is perhaps the most well-observed episodic WCd system, for this it was immediately considered for 
-
+WR140 has undergone frequent observations, with spectroscopic data going back to 1972, and is perhaps the most well-observed episodic WCd system, for this it was immediately considered for simulation.
 % Eccentric orbit, variable dust formation
+With its eccentricity of $e=0.8993$, the separation between the stars - and therefore $\chi$ - vary by a factor of 17.6 from apastron to periastron.
+Therefore it an ideal system to verify that our dust model can naturally handle episodic dust forming systems, as well as to determine which parameters affect a episodic system.
 
 % Difficulty of simulation
-As it is a highly eccentric system with a particularly long period orbit, a number of difficulties 
-
-with the constraints of only having SMR available throughout this project, with AMR not currently being stable in this particular hydrodynamical code, 
+As it is a highly eccentric system with a particularly long period orbit, a number of difficulties present themselves.
+Firstly, the system has an extremely long orbital period, resulting in a complete orbit of WR140 would generally take a long time to simulate as well.
+Secondly, this requires a corresponding increase in resolution, as the WCR needs to be sufficiently resolved at periastron.
+Whilst refinement methods such as Adaptive Mesh Refinement (AMR) would alleviate these issues somewhat, we found that the current version of the \athena{} hydrodynamical code lacked stability with passive scalars in AMR.
+This issue was deeply embedded in \athena{}, and as such could not be fixed by the end of this PhD.
 % Snippet
-As such, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$, as a full orbit of the system would require AMR to undertake within the time constraints remaining in this project. 
-
+Instead, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$, as a full orbit of the system would require AMR to undertake within the time constraints remaining in this project. 
 
 \subsubsection{WR104}
 
@@ -1255,17 +1237,14 @@ WR104 is an archetypal example of a continuous WCd system, it is a comparatively
 The system consists of a WC9 star with a B0.5V partner \parencite{williamsSpectroscopyWC9WolfRayet2000}, this combination of a WC star and a comparatively weak B partner results in a severely imbalanced wind, with a momentum ratio of $0.003$, an order of magnitude lower than WR98a.
 This imbalanced wind, combined with the tight orbit, results in an extremely strong WCR that is constantly churning out dust.
 % Mass loss rate
-Using radiative transfer models, \textcite{harries_three-dimensional_2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the carbon mass loss rate of 
+Using radiative transfer models, \textcite{harries_three-dimensional_2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the total mass loss rate of the system.
 A more advanced model by \textcite{lauRevisitingImpactDust2020}, which is used to assess the dust formation rates of systems in this thesis, calculated the dust formation rate to be $\left(4.39^{+1.27}_{-0.97}\right) \times 10^{-6}\, \si{\solarmass\per\year}$.
+This is one of the most prolific dust forming systems found by \textcite{lauRevealingEfficientDust2021}, and as such is an ideal example of a continuous dust forming system.
+There are a number of reasons for this prodigious dust formation rate, as the systems orbit is comparatively close and circular with a very dense primary wind, the wind is expected to be highly radiative throughout the entire orbital period, this suggests a cool post-shock WCR, which is fraught with instability and can continuously produce dust.
 
 % Why is it archetypal 
-
-WR104 can be considered to be an ideal example of a continuous dust forming system, the system is relatively close, at a distance of \SI{2.5}{\kilo\parsec}, and is at an inclination that is almost face-on relative to Earth, at $i \lesssim 16^\circ$. 
-As such, the pinwheel outflow from the system can be clearly resolved, with infrared excess due to dust clearly observed within the pinwheel structure (\textcite{soulainSPHEREViewWolfRayet2018}, see Fig. \ref{fig:soulain-wr104}).
-Due to the systems parameters and well defined observable dusty pinwheel structure, along with prior observations and simulations of the system, it is an ideal candidate for simulation 
-
-There are a number of reasons for this prodigious dust formation rate, as the systems orbit is comparatively close and circular with a very dense primary wind, the wind is expected to be highly radiative throughout the entire orbital period, this suggests a cool post-shock WCR that can continuously produce dust.
-The estimated cooling parameter is more than an order of magnitude lower than the other systems considered for simulation, leading to a
+Additionally, The system is relatively close, at a distance of \SI{2.5}{\kilo\parsec}, and is almost face-on relative to earth, meaning that the pinwheel structure is clearly observed (\cite{soulainSPHEREViewWolfRayet2018}, Fig. \ref{fig:soulain-wr104}).
+Due to the systems parameters and well defined observable dusty pinwheel structure, along with prior observations and simulations of the system, it was found to be an ideal candidate for simulation.
 
 % Why it wasn't assessed, difficulty of simulation, needed AMR
 Unfortunately, despite being a very strong candidate for simulation, attempting to simulate the system proved to be exceptionally difficult.
