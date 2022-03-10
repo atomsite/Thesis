@@ -11,6 +11,8 @@ set xlabel 'T (K)'
 set ylabel '$\Lambda_d$ (erg cm$^3$ s$^{-1}$)'
 set xrange [1e6:1e9]
 
+set grid x y mx my
+
 plot "dc_a0005.dat" u 1:5 w l t "$5\\times 10^{-3} \\, \\mu$m" ls 1,\
      "dc_a0010.dat" u 1:5 w l t "$1\\times 10^{-2} \\, \\mu$m" ls 2,\
      "dc_a0050.dat" u 1:5 w l t "$5\\times 10^{-2} \\, \\mu$m" ls 3,\

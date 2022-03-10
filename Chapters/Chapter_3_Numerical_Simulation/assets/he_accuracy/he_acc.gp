@@ -16,6 +16,8 @@ set yrange[1e-5:1e0]
 
 set datafile separator ','
 
+set grid x y mx my
+
 plot  "< gzip -dc h_e-1.csv"    u (10**$1):2 every 10 w l ls 1 title "1 bin" ,\
       "< gzip -dc h_e-5.csv"    u (10**$1):2 every 10  w l ls 2 title "5 bins" ,\
       "< gzip -dc h_e-10.csv"   u (10**$1):2 every 10  w l ls 3 title "10 bins" ,\

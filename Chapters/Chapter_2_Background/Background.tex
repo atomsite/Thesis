@@ -1,4 +1,5 @@
 \chapter{Background}
+\label{ch:background}
 
 %//TODO I quite like this joke but it needs a bit of work
 The term Early-type stars is quite possibly the epitome of bad naming conventions in astrophysics, it's a very old term, coming from the dawn of astrophysics itself, quite opaque as to what it means, and also by definition \textit{completely wrong}. In fact it is one of the most wrong pieces of terminology I can think of.\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 10,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}
@@ -526,7 +527,7 @@ We can therefore adopt a normalised grain lifespan $\tau\rms{d}$, which we can u
 \noindent
 where $n\rms{g}$ is the gas number density \parencite{drainePhysicsDustGrains1979,dwekCoolingSputteringInfrared1996}.
 The value of \SI{3e6}{\year} was chosen for this project as it is more typical of temperatures in the post-shock region of a WCR, between $10^6\,\si{\kelvin}$ and $10^7\,\si{\kelvin}$ (Fig. \ref{fig:grain-lifespan}).
-How this destruction rate is implemented into the simulations for this project is discussed in more detail in Section \ref{sec:bodmas}.
+How this destruction rate is implemented into the simulations for this project is discussed in more detail in Section \ref{sec:bidmas}.
 
 \begin{figure}[h]
   \centering
@@ -1035,6 +1036,7 @@ Collisional heating of dust grains from either gas, plasma or free electrons is 
 It is found that the grain heating rate, $H$, can be calculated with the formulae:
 
 \begin{equation}
+  \label{eq:grainheatingrate}
   \begin{split}
     H & = \left(\frac{32}{\pi m}\right)^{1/2} n\pi a^2 (k_B T)^{3/2} h(a,T) \\
     & = \num{1.26e-19} \frac{n}{A^{1/2}} a^2 (\si{\micro\metre}) T^{3/2} h(a,T) \, \si{\erg\per\second}
@@ -1075,6 +1077,7 @@ This impact is especially important on small grains, as there is less material f
 %Intro to dust formation in said systems
 Despite the extremely violent conditions thus far described in CWB systems, these systems appear to be extremely prolific producers of interstellar dust.
 Whilst single star WC systems can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert up to $10^{-3}$ of their wind masses from ionised carbon into amorphous carbon dust grains, this results in a typical dust production rate of $10^{-8} \, \si{\solarmass\per\year}$, on part with a typical AGB star.
+Research by \textcite{zubkoPhysicalModelDust1998a} details dust growth around these regions, grains were found to rapidly form from impinging carbon ions, up to grain sizes of approximately $100-200 \, \si{\angstrom}$.
 This dust forming behaviour has only been observed in particularly energetic WC stars (predominantly WC9, with some WC7-8 examples), WN and WO systems have not been observed producing dust, this is most likely due to amorphous grains being significantly more chemically stable and resilient to effects such as sublimation and photoevaporation than water ice or silicate grains \parencite{salpeter_formation_1977,draineDestructionMechanismsInterstellar1979}.
 Dust formation is also observed to form within the WCR, which can form quite beautiful pinwheel-shaped patterns, as dust streams away from the stars in the post-shock outflow.
 
@@ -1237,7 +1240,7 @@ WR104 is an archetypal example of a continuous WCd system, it is a comparatively
 The system consists of a WC9 star with a B0.5V partner \parencite{williamsSpectroscopyWC9WolfRayet2000}, this combination of a WC star and a comparatively weak B partner results in a severely imbalanced wind, with a momentum ratio of $0.003$, an order of magnitude lower than WR98a.
 This imbalanced wind, combined with the tight orbit, results in an extremely strong WCR that is constantly churning out dust.
 % Mass loss rate
-Using radiative transfer models, \textcite{harries_three-dimensional_2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the total mass loss rate of the system.
+Using radiative transfer models, \textcite{harriesThreedimensionalDustRadiativetransfer2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the total mass loss rate of the system.
 A more advanced model by \textcite{lauRevisitingImpactDust2020}, which is used to assess the dust formation rates of systems in this thesis, calculated the dust formation rate to be $\left(4.39^{+1.27}_{-0.97}\right) \times 10^{-6}\, \si{\solarmass\per\year}$.
 This is one of the most prolific dust forming systems found by \textcite{lauRevealingEfficientDust2021}, and as such is an ideal example of a continuous dust forming system.
 There are a number of reasons for this prodigious dust formation rate, as the systems orbit is comparatively close and circular with a very dense primary wind, the wind is expected to be highly radiative throughout the entire orbital period, this suggests a cool post-shock WCR, which is fraught with instability and can continuously produce dust.

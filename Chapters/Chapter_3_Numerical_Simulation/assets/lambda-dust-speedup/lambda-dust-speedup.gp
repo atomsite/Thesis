@@ -21,6 +21,8 @@ set ylabel "Execution time (s)"
 set logscale y
 set format y '$10^{%L}$'
 
+set grid x y mx my
+
 plot "comparison.csv" using 1:3 t "   Calculation" w l ls 1, \
    "" using 1:4 t "   Search+TL" w l ls 2, \
    "" using 1:5 t "   Index+BL+L" w l ls 3

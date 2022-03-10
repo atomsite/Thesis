@@ -22,9 +22,11 @@ calcnd(z,mD) = rho*z/mD
 set style fill transparent solid 0.5 noborder
 set key bottom right
 
+set grid x y mx my
+
 
 plot "cooling_curve_WC.dat" u (10**$1):($2*(rho/mH)**2) t "WC plasma" w l ls 1 ,\
   "cooling_curve_solar.dat" u (10**$1):($2*(rho/mH)**2) t "Solar plasma" w l ls 1 dashtype "." ,\
-  "dust_cool_0.01micron.dat" u (10**$1):($2*calcnd(z,calcmD(0.01*1e-4))*np) t "Dust a = 0.01 $\\mu$m" w l ls 2,\
-  "dust_cool_0.1micron.dat"  u (10**$1):($2*calcnd(z,calcmD(0.10*1e-4))*np) t "Dust a = 0.10 $\\mu$m" w l ls 3,\
-  "dust_cool_1.0micron.dat"  u (10**$1):($2*calcnd(z,calcmD(1.00*1e-4))*np) t "Dust a = 1.00 $\\mu$m" w l ls 4
+  "dust_cool_0.01micron.dat" u (10**$1):($2*calcnd(z,calcmD(0.01*1e-4))*np) t "$a = 0.01 \\, \\mu$m" w l ls 2,\
+  "dust_cool_0.1micron.dat"  u (10**$1):($2*calcnd(z,calcmD(0.10*1e-4))*np) t "$a = 0.10 \\, \\mu$m" w l ls 3,\
+  "dust_cool_1.0micron.dat"  u (10**$1):($2*calcnd(z,calcmD(1.00*1e-4))*np) t "$a = 1.00 \\, \\mu$m" w l ls 4

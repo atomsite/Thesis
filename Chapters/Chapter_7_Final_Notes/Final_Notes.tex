@@ -29,26 +29,3 @@
 \subsection{Carinae Strain: PhD research in a time of pandemic}
 
 \subsection{WR 104 as a local GRB candidate}
-
-\section{Software acknowledgements}
-
-This work was undertaken on ARC4 and ARC3, part of the High Performance Computing facilities at the University of Leeds, UK.
-
-A good deal of the data reduction of this thesis was conducted using the Python 3 programming language \parencite{10.5555/1593511}, in particular, the following open source modules were used extensively:
-
-\begin{itemize}
-  \item \footlink{\texttt{NumPy}}{https://numpy.org/} \parencite{harris2020array}
-  \item \footlink{\texttt{Astropy}}{https://www.astropy.org/} \parencite{astropy:2013,astropy:2018}
-  \item \footlink{\texttt{Matplotlib}}{https://matplotlib.org/} \parencite{Hunter:2007}
-\end{itemize}
-
-\athena{} \parencite{athena} was also used extensively throughout the work in this thesis.
-
-Some diagrams in this work, specifically Fig. \ref{fig:quiver-h} and Fig. \ref{fig:quiver-oplus} use the \footlink{Quiver}{https://q.uiver.app/} communicative diagram editor.
-GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project, if parallel programming is difficult, sometimes the only option is to run many, \textit{many} serial programmes at once.
-The \footlink{\texttt{Hyperfine}}{https://github.com/sharkdp/hyperfine} command line benchmarking tool was used to benchmark \athena{} throughout the project, in order to find ideal configuration parameters such as numerical integrators, core counts and meshblock sizes.
-
-Finally, this thesis was typeset with \LaTeX{}, using the {\TeX}live distribution and \texttt{latexmk} for compilation.
-It is abundantly clear that scientists the world over owe an enormous debt of gratitude to Donald Knuth and Leslie Lamport for their work on the \TeX{} and \LaTeX{} projects.
-Let's hope that the version $\pi$ update isn't coming too soon.
-The thesis template is a modified version of the \footlink{Leeds Condensed Matter Physics Group \LaTeX{} template}{https://github.com/stonerlab/Thesis-template} which suited the needs of this thesis extremely well.

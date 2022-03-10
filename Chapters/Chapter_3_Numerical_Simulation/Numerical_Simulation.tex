@@ -135,6 +135,7 @@ Fortunately, mesh refinement techniques can improve this situation by drasticall
 % This section will cover hydrodynamical solvers, a brief history of the problem, cover the lineage of 
 
 \subsection{The \mg{} hydrodynamical code}
+\label{sec:mgcode}
 
 % briefly cover MG hydrodynamical code, since this was used for the first half of this work before adopting a more modern hydro code
 
@@ -464,7 +465,7 @@ In order to simplify the radiation calculations, radiation does not re-interact 
 Due to this, scattering, re-adsorption and radiative transfer are not simulated at all.\footnote{If these are considered, your programme is now a ray-tracing programme as well as a hydrodynamical code, which is its own, even more complicated field.}.
 Other methods of reducing computational cost and optimising the code are used in this project, and will be described in detail in this section.
 
-\subsubsection{Plasma cooling}
+\subsection{Plasma cooling}
 
 % This isn't a section on the radiative processeses themselves, but more to do with how plasma cooling is simulated 
 
@@ -517,12 +518,13 @@ First, this method would not have been able to accurately model mixed wind situa
 %//TODO check this one with Julian
 Second, and most importantly, dust cooling could not have been modelled with this single parameter TEF method, which would have required using a two stage cooling method, as the gas temperature would not be synchronised between stages, this would have resulted in a highly inaccurate cooling solution, obviating the advantages of the exact cooling method.
 
-\subsubsection{Dust cooling}
+\subsection{Dust cooling}
 \label{sec:dustcoolingmodel}
 
 % Discuss dust cooling in brief, link to section in background, touch on lambda being dependent on 3 rather than 1 value
 
-Dust cooling 
+We have previously discussed the underlying physics of dust cooling in Section \ref{sec:dustcooling-background}.
+In particular, we discussed that 
 
 % Why so significant?
 
@@ -664,8 +666,8 @@ In order to solve this problem quickly for each timestep, a lookup table similar
 
 \begin{figure}[h]
   \centering
-  \includegraphics{assets/ionisation-fraction/ionisation-fraction-no-elements.pdf}
-  \caption[Ionisation fraction for OB and WC stars]{Ionisation fraction}
+  \includegraphics{assets/ionisation-fraction/ionisation-fraction.pdf}
+  \caption[OB and WR electron-ion ratios]{A comparison of the electron-ion ratio in both winds as as a function of temperature. Also shown are the electron-to-ion ratios for the individual elements.}
   \label{fig:electron-curve-no-elements}
 \end{figure}
 
@@ -800,38 +802,196 @@ Care is made to correctly calculate energy loss around unresolved interfaces. \t
 
 % Wrap up, how can this method be improved in general, more exact solvers, what would be the ideal?
 
-\section{The BODMAS Advected Scalar Dust Model}
-\label{sec:bodmas}
+\section{The \bidmas{} Advected Scalar Dust Model}
+\label{sec:bidmas}
 
-Binary Orbit Dust Model with Accretion and Sputtering\footnote{All good theses have a laboured acronym!}
+For this thesis, it was decided from the beginning to implement a dust model within a numerical simulation.
+This dust model would operate first with advected scalars, before moving on to a more complex multi-fluid model.
+Additionally, this model was designed be extensible, implementing grain destruction and accretion mechanisms that were the most influential first.
+The Binary Interaction Dust Model with Accretion and Sputtering (\bidmas{})\footnote{Any good thesis (though this one, again, is of debatable quality) has an incredibly laboured acronym!} model is the result of this work, and while in a relatively simple state due to the previously stated time restrictions, is a good first step towards modelling WCd systems.
 
-The primary focus of this project was to implement a dust model within a numerical simulation, in order to determine the growth of dust grains within the 
+\subsection{\bidmas{} features}
 
-\subsection{BODMAS features}
+% Broad featureset
+Currently the \bidmas{} model supports grain advection and destruction, as well as the dust cooling model discussed in Section \ref{sec:dustcoolingmodel}.
+The main mechanisms changing the quantity of dust in the system are gas-grain accretion, gas-grain sputtering and collisional radiative cooling.
+% Species
+Furthermore, amorphous carbon is the only species of dust grain considered in this simulation, as it is observed to consist of an overwhelming, if not total, fraction of dust in WCd systems.
+% Dust accretion mechanism
+Gas-grain accretion occurs with low-velocity collisions between carbon atoms and dust grains.
+Grain-grain collision is not simulated as it was determined to occur with significantly less frequency than gas-grain collisions, whilst also being difficult to implement without a grain size distribution.
+% Dust destruction mechanism
+Dust destruction via gas-grain sputtering occurs when ions with a high thermal velocity collide with the dust grains.
+A small amount of material is ablated from the surface of the grain, shattering is not simulated for similar reasons to grain-grain collisions.
+% Deciding
+The decision of which mechanisms to simulate for each cell are based on the cell temperature, growth mechanisms occur at lower temperatures while destruction mechanisms occur at higher temperatures.
+% Conservation
+The \bidmas{} model assumes that all gas accreted from dust comes from the stellar wind, therefore any accreted material is subtracted from the gas density of the cell.
+% Some issues with numerical instability 
+This did present issues initially when developing the model, as on occasion this would result in runaway dust accretion.
+% Dust cooling
+Finally, dust cooling utilises the model described in Section \ref{sec:dustcoolingmodel}. 
+
+% Lack of a reliance on ``magic numbers''
+Another important consideration for this work was a lack of reliance on ``magic numbers'', and for the code to be as well documented as possible.
+The initial conditions of the model were based on sensible values for the initial size of grain nuclei and dust mass fractions, as we will discuss in the next section.
+Whilst much of the work in this thesis was accomplished on a slightly earlier build of this model, a more advanced, cleaned up version of the model has been implemented.
+This improved model is ready for when the AMR stability issues of \athena{} have been solved by the developers.
 
 \subsection{Implementation}
 
-% Initial grain size 50 angstrom
-\parencite{dwekCoolingSputteringInfrared1996}
-
-% Advected grain method
-
-The most processing efficient method of 
 
 
-The dust content of the system can be defined in the form of 
+% Passive scalar 
+At its most fundamental level, \bidmas{} uses advected scalars\footnote{At times called passive scalars, particularly in the \athena{} documentation. These terms are considered to be interchangeable.} to model dust.
+An advected scalar behaves like a tracer or dye in a physical fluid, and for a particular scalar of species $i$, evolves through the simulation with the equation:
 
-$a$ and $z$
+\begin{equation}
+  \label{eq:advection}
+  \rho \frac{dC_i}{dt} = \frac{\partial}{\partial t} \left( \rho C_i \right) + \nabla \cdot \left( C_i \rho \mathbf{u} \right) = -\nabla \cdot \mathbf{Q}_i ,  
+\end{equation}
 
-% Co-moving, drawbacks in general
+\noindent
+where $\mathbf{Q}_i$ is the diffusive flux density of the species:
 
-This method does have its drawbacks, principally, the advected scalar method cannot simulate grain-grain or grain-gas interactions with high relative velocities, such as interactions within the wind collision region, where 
+\begin{equation}
+  \mathbf{Q}_i = - \nu\rms{AS} \rho \nabla C_i
+\end{equation}
+
+\noindent
+and $\nu\rms{AS}$ is the advected scalar diffusion coefficient \parencite{stoneAthenaAdaptiveMesh2020}.
+For this work a value of $\nu\rms{AS} = 0$ was used.
+As there is no diffusion Eq. \ref{eq:advection} takes the form of the momentum conservation equation, and as such all scalars are co-moving with the gas \parencite[Ch.~10]{toro_riemann_2013}.
+Multiple scalars are used to describe the wind and dust parameters within each cell of a simulation:
+
+\begin{itemize}
+  \item \texttt{scal\_0}: The wind ``colour'', $C$, or mass fraction of each wind. 
+  \item \texttt{scal\_1}: The dust-to-gas mass ratio, $z = \rho\rms{d}/\rho\rms{g}$.
+  \item \texttt{scal\_2}: The average grain radius, $\bar{a}$, in microns.
+\end{itemize}
+
+\noindent
+This method is markedly simpler to implement and faster  to computer, as the dust can be described on a per-cell basis in a series of simple calculations, this allows dust evolution mechanisms to be implemented easily, as long as they can be defined by these parameters either directly or through a derivative, such as the grain number desnity.
+
+\subsubsection{Dust injection}
+\label{sec:injection}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics{assets/a_z_tweaking/wcrratio.pdf}
+  \caption[WCR dust fraction testing comparison]{A comparison of the WCR dust fraction ($\mass\rms{WCR}/\mass\rms{tot}$) over the course of a simulation with WR98a properties. As $z_i$ deceases the amount of dust produced outside of the WCR decreases significantly. This is consistent across all grain sizes, and does not result in a significantly increased amount of dust.}
+  \label{fig:aztwek_wcrrat}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{assets/a_z_tweaking/zconcat.png}
+  \caption[$z_i$ testing]{A comparison of WCR dust distribution when $a_i$ is varied in a system with WR98a parameters. Dust yield increases significantly if a smaller, realistic initial grain size is chosen.}
+  \label{fig:azweak_img}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics{assets/a_z_tweaking/z.pdf}
+  \caption[$z_i$ and $a_i$ parameter tweaking]{A comparison of $z$ over the course of a simulation with WR98a properties, $z_i$ and $a_i$ are varied for each simulation. We find that dust yield increases significantly if a smaller, realistic initial grain size is chosen. Varying $z_i$ does not result in a corresponding change in dust yield.}
+  \label{fig:azweak_z}
+\end{figure}
+
+Dust is injected into the system in small quantities from the wind remap zone of the WC star.
+If we were to describe this mechanism in physical terms, this would be as if refractory carbon grain cores condensed from the WC wind.
+Whilst the exact mechanism for initial grain nucleation is not known, this is an ideal first step as it assures that dust grains are present in the post-shock WCR wind.
+Another important consideration of this model was for it to be fairly general purpose, and not require significant degrees of initial parameter ``hunting'' in order to simulate a new system.
+As such it was decided that the model would operate on as few initial parameters as possible.
+% INitial comparisons
+Determining the injected scalar values at this remap zone was an important first step, as it was not known how these initial parameters would impact the final dust yield, $\mass\rms{d,f}$, or the dust formation rate, $\mdot\rms{d}$. 
+In order to determine the ideal initial parameters, and to determine the sensitivity of the model to it's initial conditions, a series of simulations were conducted using the orbital and wind parameters of WR98a.
+The initial grain radius, $a_i$ was varied from \SI{0.01}{\micro\metre} to \SI{1}{\micro\metre}, while the initial dust-to-gas mass ratio, $z_i$ was varied from $10^{-6}$ to $10^{-4}$.
+These simulations were run over the course of a week on the ARC4 HPC cluster over 128 cores.
+The total elapsed time within the simulation was one year, with the simulation advecting fully to the simulation extent of $100\times 100 \times 10 \, \si{\au}$ in around \SI{0.1}{\year}.
+Whilst the results of \textcite{lauRevealingEfficientDust2021} had not been published at this time, a final dust-to-gas mass fraction of $\sim 1\%$ was assumed to be an ideal starting point for a model of WR98a.
 
 
+As can be seen in Fig. \ref{fig:azweak_img}, we find that decreasing $a_i$ creates a much defined WCR, at the cost of increasing dust outside of the WCR.
+Dust formation occurs where expected, on the WC edge of the WCR, with the bulk of dust formation occurring within a short distance from the apex of the WCR shock.
+Therefore, we must aim for a small grain radius, and not start with large grains.
+Additionally, \textcite{zubkoPhysicalModelDust1998a} notes that the initial dust grain nuclei are expected to be extremely small, on the order of \SI{5}{\angstrom}, and rapidly grow to \SI{100}{\angstrom} through interactions of small, charged grains with impinging carbon ions.
+This is expanded on in Fig. \ref{fig:aztwek_wcrrat}, where we find that changing $z_i$ significantly affects the amount of dust produced in the WCR compared to the total dust yield.
+As we do not observe significant quantities of dust being produced outside of the WCR, we prioritised a small value of $z_i$, so long that it does not influence dust yields.
+Finally, Fig. \ref{fig:azweak_z} shows that changing $z_i$ does not affect the total dust yield significantly, and is far more sensitive to changes in $a_i$.
+We can therefore discern from these previous two results that $z_i$ should be kept to a fairly small value.
 
-% Calculations
+The other parameter, $z_i$, was found to not effect
+Overall, it was found that we could reduce the effective initial parameter space of dust in the wind to a single value, $a_i$, which was found to operate best when kept at realistic values.
+After this preliminary parameter space exploration, an $a_i$ of \SI{50}{\angstrom} and a $z_i$ value of $10^{-8}$ were settled on.
+Whilst these initial parameters were based on an extrapolation of our test data, these initial values were found to be more than adequate.
+Other dust injection mechanisms were considered for this project, such as injecting dust into the apex of the WCR.
+However, these were found to give inconsistent results when initially tested in the \mg{} hydrodynamical code.
 
-Dust grains are assumed to be spherical, as atoms accrete or sputter from the surface of the grain, this corresponds to a change in grain radius, $da/dt$, this can be extrapolated to find the change in grain density with the formulae:
+\subsubsection{Assumptions \& limitations}
+\label{sec:bidmasassumptions}
+\label{sec:bidmaslimitations}
+
+From this we can determine further assumptions for our dust model.
+% Number density
+We assume that the number density, $n\rms{d}$, is constant throughout the simulation, which is calculated based on the initial grain radius, $a_i$, and initial dust-to-gas mass ratio, $z_i$, injected into the simulation from the primary star.
+% Limitations due to this
+Because of this, we therefore assume that the net rate of grain shattering and grain agglomeration is zero.
+Additionally, the dust number density may not be correctly calculated, which can affect the rate of cooling.
+% Multiple grain sizes and coupling
+Additionally, we also assume that there is little variation between grain size within the numerical cell.
+% Limitations due to this
+Whilst other models assume that dust grains are coupled through a drag force, it was found that the dust was effectively coupled to the wind as if it was co-moving (Section \ref{sec:hendrixmodel}).
+This may however prevent significant dust mixing in the immediate post-shock region, due to the increased inertia of the dust grains compared to the gas.
+% Grain-grain collision
+As a single grain size is assumed, dynamics between grains of different sizes, such as grain agglomeration cannot be accurately simulated.
+% Fixes
+These issues could be addressed with a multi-scalar or multi-fluid model, which is a potential future feature of this project.
+
+All grains in the simulation are assumed to be circular, with a volume, $V\rms{gr}$, of $4/3 \pi a^3$ and a mass, $m\rms{gr} = V\rms{gr} \rho\rms{gr}$, where $\rho\rms{gr}$ is the grain bulk density.
+As we assume all dust grains in the simulation are composed of amorphous carbon, we assume a grain density of \SI{3}{g.cm^{-3}}, which is on the upper end of densities expected for amorphous carbon
+\parencite{bhattaraiEvolutionAmorphousCarbon2018}.
+
+\subsubsection{Dust cooling}
+
+Dust cooling is handled within the cooling loop, and functions by removing energy from a cell of the simulation.
+The gas is assumed to be optically thin to infrared, and is therefore removed from the simulation without re-adsorption.
+The emissivity of the grains at the current temperature and radius, $\Lambda(a,T)$, is calculated for each cell, and the rate of energy loss due to dust emission is calculated such that:
+
+\begin{equation}
+  \frac{dE}{dt} = n\rms{T} n\rms{d} \Lambda\rms{d}(T,a),
+\end{equation}
+
+\noindent
+Where $n\rms{T}$ is the total gas number density and $n\rms{d}$ is the dust number density.
+Dust cooling, as well as the optimisations needed to run quickly in a numerical simulation, is discussed in significantly more detail in Section \ref{sec:dustcoolingmodel}.
+
+\subsubsection{Dust evolution}
+
+Once the energy loss due to dust emission has been calculated, the growth rate and destruction rate for dust grains in each cell is calculated.
+The code loops through every cell in the simulation, first calculating the average mass of the wind in the cell, $\mu$:
+
+\begin{equation}
+  \mu = C \left(2 X\rms{WR} + \frac{3}{4} Y\rms{WR} + \frac{1}{2} Z\rms{WR} \right)^{-1} + (C-1) \left(2 X\rms{OB} + \frac{3}{4} Y\rms{OB} + \frac{1}{2} Z\rms{OB} \right)^{-1} ,
+\end{equation}
+
+
+\noindent
+where $C$ is the wind ``colour'', and $X,Y,Z$ are the individual wind hydrogen, helium and metal mass fractions, respectively
+\parencite{mihalasStellarAtmospheres1978}.
+The cell temperature is then calculated using the ideal gas law:
+
+\begin{equation}
+  T = \frac{\mu P\rms{g}}{\rho\rms{g} k\rms{B}},
+\end{equation}
+
+\noindent
+where $P\rms{g}$ is the gas pressure and $\rho\rms{g}$ is the gas density.
+Based on the gas temperature, we determine which dust processes occur.
+For temperatures above $10^6 \, \si{K}$, dust destruction occurs, while at temperatures below \SI{1.4e4}{K} dust growth occurs instead.
+As the dust grains are assumed to be spherical, we can model dust growth and destruction in a unified manner, corresponding to a change in grain radius.
+In the case of dust destruction, ions sputter off atoms from the surface of the dust grain, wearing the grain evenly over time, while in the case of accretion, low velocity collisions cause atoms to stick, growing the grain evenly.
+
+For both processes we find a change in the grain radius of $da/dt$, which can be extrapolated to find the rate of change in dust density with the formulae:
 
 \begin{subequations}
   \begin{align}
@@ -841,59 +1001,122 @@ Dust grains are assumed to be spherical, as atoms accrete or sputter from the su
   \end{align}
 \end{subequations}
 
-where $dV\rms{gr}/dt$ and $dm\rms{gr}/dt$ are the change in grain volume 
-
-at the end of every time step, 
-
-
-% Sputtering rate
-
-
-% Grain destruction rate
-
-
-% What occurs at what temperature
-
-Grain accretion in this model occurs at temperatures from \SI{1e4}{\kelvin} to \SI{1.4e4}{\kelvin},
-
-
-% Integration and changing of values
-
-
-$da/dt$ and $d\rho\rms{d}/dt$ are then integrated across the simulation time-step using the Euler method, as the time-scale of dust accreting in significant quantities is much smaller than the time-scale of a single step.
-
-
-The grain radius scalar is recalculated using following formula:
+\noindent
+where $dV\rms{gr}/dt$ is the rate of change in the dust grain volume and $dm\rms{gr}/dt$ is the associated change in dust grain mass.
+To simulate dust growth due to grain-gas accretion we use a method from \textcite[Ch.~9]{spitzerPhysicalProcessesInterstellar2008}.
+Carbon atoms accrete onto a dust grain at a constant rate, resulting in a change in radius such that:
 
 \begin{equation}
-  a\rms{new} = a\rms{old} + \Delta a\rms{accretion} - a\rms{sputter},
-\end{equation}
-where $a\rms{old}$ is the pre-timestep grain radius, 
-
-
-
-The new gas density in the cell is then recalculated using the formulae:
-
-\begin{equation}
-  \rho\rms{g,new} = \rho\rms{g,old} + \Delta\rho\rms{d,sputter} - \Delta\rho\rms{d,accretion},
+  \label{eq:dustgrowthradiuschange}
+  \frac{da}{dt} = \frac{\xi \rho\rms{C} w\rms{C}}{4\rho\rms{gr}} ,
 \end{equation}
 
 \noindent
-$\Delta\rho\rms{d,sputter}$ and $\Delta\rho\rms{d,accretion}$ are the changes in dust density due to sputtering and grain-gas accretion respectively.
-Finally, the scalars $z$ is recalculated for the new dust and gas densities.
+where $\xi$ is the grain sticking factor, $\rho\rms{C}$ is the density of carbon in the wind ($\rho\rms{C} = \rho\rms{g} X(C)$, where $X(C)$ is the carbon mass fraction), and $w\rms{C}$ is the RMS velocity of ($w\rms{C} = \sqrt{3k\rms{B}T / 12 m\rms{H}}$).
+Throughout this thesis we use a grain sticking factor of 0.1, though in the case of ionised gas, this value can be as high as 1.
+From Eq. \ref{eq:dustgrowthradiuschange} we can derive a corresponding rate of change in the dust density:
 
+\begin{equation}
+  \frac{d \rho\rms{d,acc}}{dt} = \pi \xi \rho\rms{C} w\rms{C} n\rms{d} a^2.
+\end{equation}
+
+\noindent
+Dust destruction is carried out through the \textcite{draineDestructionMechanismsInterstellar1979} prescription.
+We estimate an amorphous carbon grain \SI{1}{\micro\metre} to have a lifespan, $\tau\rms{d}$, of \SI{3e6}{\year}.
+As described in \textcite{draineDestructionMechanismsInterstellar1979}, with additional work by \textcite{tielens_physics_1994} and \textcite{dwekCoolingSputteringInfrared1996}, this grain lifespan is dependent on the gas density, $n\rms{g}$, as well as the grain radius, taking the form:
+
+\begin{equation}
+  \tau\rms{d} = \frac{a}{da/dt} \approx \num{3e6} \frac{a}{n\rms{g}} \, \si{\year} .
+\end{equation}
+
+\noindent
+We can rearrange this equation to find a rate of change in grain radius of $da/dt = a / \tau\rms{d}$.
+Finally, we find an associated rate of change in the dust density of:
+
+\begin{equation}
+  \frac{d \rho\rms{d,sput}}{dt} = - 4 \pi \tau\rms{d} \rho\rms{gr} n\rms{g} n\rms{d} a^2.
+\end{equation}
+
+\noindent
+In order to find the total change in the dust density, $\Delta \rho\rms{g}$, and the grain radius, $\Delta a$, we perform a Euler integration over the simulation timestep, $\Delta t$:
+
+\begin{equation}
+  \Delta x = \int^{t+\Delta t}_{t} \frac{dx}{dt} dt \approx \frac{dx}{dt} \Delta t ,
+\end{equation}
+
+\noindent
+where $x$ is the quantity being integrated and $t$ is the simulation time.
+Whilst a Euler method integration is less accurate than a sub-stepping method or higher-order integration method, this was found to be adequate, as the growth rate of the dust grain was found to be small over a single time step.
+After the total change for $\rho\rms{d}$ and $a$ are calculated, the post-step grain radius, $a\rms{new}$, is calculated:
+
+\begin{equation}
+  a\rms{new} = a\rms{old} + \Delta a .
+\end{equation}
+
+\noindent
+Then the post-step dust and gas densities are calculated, with the new dust being subtracted from the fluid:
+
+\begin{subequations}
+  \begin{align}
+    \rho\rms{d,new} & = \rho\rms{d,old} + \Delta \rho\rms{d} , \\
+    \rho\rms{g,new} & = \rho\rms{g,old} - \Delta \rho\rms{d} . 
+  \end{align}
+\end{subequations}
+
+\noindent
+Finally, the new dust-to-gas mass ratio can be calculated from the new dust and gas densities:
+
+\begin{equation}
+  z\rms{new} = \frac{\rho\rms{d,new}}{\rho\rms{g,new}} . 
+\end{equation}
+
+\noindent
+These new scalar values then overwrite the previous scalar values.
+Passive scalars in \athena{} are stored in the following arrays for a scalar species \texttt{N} in a meshblock with indices \texttt{i,j,k}:
+
+\begin{itemize}
+  \item \texttt{pmb->pscalars->r(N,i,j,k)}: Primitive variables between \texttt{0.0} and \texttt{1.0}.
+  \item \texttt{pmb->pscalars->s(N,i,j,k)}: Conserved variables between \texttt{0.0} and \texttt{rho}, the conserved cell density.
+\end{itemize}
+
+\noindent
+These values have to be updated simultaneously, and occurs at the end of each iteration of the main processing loop such that:
+
+\begin{lstlisting}[language=c++]
+  // Update primitive scalars
+  pmb->pscalars->r(1,k,j,i) = z_new;  // Update z primitive
+  pmb->pscalars->r(2,k,j,i) = a_new;  // Update a primitive
+  // Update conserved scalars 
+  pmb->pscalars->s(0,k,j,i) = col   * rho_new;  // Update colour conserved
+  pmb->pscalars->s(1,k,j,i) = z_new * rho_new;  // Update z conserved
+  pmb->pscalars->s(2,k,j,i) = a_new * rho_new;  // Update a conserved
+\end{lstlisting}
+
+\noindent
+\athena{} automatically re-scales scalar values lower than \texttt{0.0} or greater than \texttt{1.0} or \texttt{rho} (depending on the variable type) at the end of each time-step\footnote{This method also limits the grain size to a maximum radius of \SI{1}{\micro\metre}, but growth of this level outside of testing - where the grain radius was stored in centimetres - was never observed.}.
 
 \subsection{Contemporary dust Models}
 
-% Ballistic dust model
+At the time of writing, there has been no research conducted that has accomplished all three of the following criteria:
 
-% Numerical dust models in non-cwb systems?
+\begin{enumerate}
+  \item Models a CWB system using a numerical simulation.
+  \item Implements a dust model inside this numerical simulation.
+  \item Simulates multiple features such as dust accretion, sputtering and radiative cooling.
+\end{enumerate}
+
+\noindent
+There are two dust models in particular, however, that should be discussed, as they fulfil some of these conditions.
+These are the \textcite{harriesThreedimensionalDustRadiativetransfer2004} and \textcite{hendrix_pinwheels_2016} dust models.
+% Ballistic dust model
+Research conducted by \textcite{harriesThreedimensionalDustRadiativetransfer2004} involved the simulation of dust emission through a ballistic particle model, with the CWB simulated as a conical region.
+Dust of a uniform size of \SI{0.01}{\micro\metre} was used, with the cone being simulated with a radiative transfer model, in order to constrain the dust production rate of the WR104 system through comparison to observations.
 
 \subsubsection{The Hendrix dust model}
+\label{sec:hendrixmodel}
 
 Perhaps the most similar contemporary dust model is the model described in \textcite{hendrix_pinwheels_2016} - as this model is concerned with simulating the dynamics of dust within a CWB.
 This is not to say that these models are identical, of course, as the Hendrix model explores how dust spreads throughout the WCR of WR 98a, in order to compare with observational data using radiative transfer code.
-%//FIXME double check that one king 
 
 % Differences between models 
 
@@ -905,48 +1128,50 @@ At the start of this PhD this was considered but eventually rejected due to time
 However, the Hendrix model has limitations that this model does not have, this is because the purpose of the Hendrix model is to analyse the distribution of dust within a CWB system, rather than to model the evolution of the dust itself.
 To this end, the Hendrix model does not calculate dust growth or destruction, and only uses a single small grain size, with the dust-to-gas mass ratio calculated based on observations of the target system, WR98a.
 
-
-
 \subsection{Future dust models}
 
 % Future work, adopt multi-fluid model?
 
 Due to time constraints and limitations in the code in use, only a limited set of mechanisms for dust evolution were included in this projects simulations.
-While the BODMAS model represents an interesting start for the modelling of dust grains in colliding wind binaries, future models could implement more complex models which incorporate additional destruction and growth mechanisms as well as 
+While the \bidmas{} model represents an interesting start for the modelling of dust grains in colliding wind binaries, future models could implement more complex models which incorporate additional destruction and growth mechanisms, as well as a multiple dust grain sizes.
 
-A multi-scalar model could be used to more accurately measure the growth of dust grains, rather than a single average grain size and 
-This would be more difficult to implement than a single model but would be able to simulate the growth of grains with a large number 
+A multiple grain size scalar model could be used to more accurately measure the growth of dust grains, rather than a single average grain size.
+This would be more difficult to implement than a single model but would be able to estimate grain-grain collision, and better estimate dust growth and destruction rates.
 \athena{} and MG both have issues with a large number of scalars, as such both numerical codes may require significant modification to cope with this.
 A multi-fluid model with dust being physically simulated rather than assumed to be perfectly co-moving would be an ideal next step.
 Multiple grain size distributions could also be modelled in a similar way to the proposed multi-scalar model, however the kinematics of the dust grains could also be simulated separately.
 % Mixing factors
 The increased inertia of more massive dust grains could result in the kinematics of the dust flow diverging from the co-moving assumption.
 To that end, a successor dust model would adopt a multi-fluid and drag function method, which was considered but not included for the sake of time.
-This multi-fluid model would also allow for more physically accurate simulation of grain-gas and grain-grain interactions, as the collision velocities would be exactly calculated rather than estimated through bulk motion properties, high speed collision of gas on dust grains in the immediate post-shock environment could also shatter grains, though modelling this as well as spalling of particles in the wind through the dust grains would be complex to simulate. 
+This multi-fluid model would also allow for more physically accurate simulation of grain-gas and grain-grain interactions, as the collision velocities would be exactly calculated rather than estimated through bulk motion properties.
+High speed collision of gas on dust grains in the immediate post-shock environment could also shatter grains, though modelling this as well as spalling of particles in the wind through the dust grains would be complex to simulate. 
 
 Furthermore, additional mechanisms for dust destruction, such as through photodissociation and sublimation could also be implemented, the implementation of these could be used to determine the effectiveness of the WCR in protecting nascent, still forming dust grains.
 
 % Better dust nucleation model
-% //TODO this section needs work
 
 The initial grain nucleation model could also be improved, injection of extremely small grains into the simulation through the stellar remap zones was chosen as the underlying chemical process for formulation of these dust grains is poorly understood at the time of writing.
 % Current model not too bad, strong dependence on a but z does not change much, being dependent on a single parameter not too bad
 The small grain nucleation model was also found to be only dependent on the initial grain radius, $a_i$, whilst changing the amount of grain nuclei in the WR wind does not change the amount of dust produced.
 As such the simulations are currently bound by a single input parameter, which can be constrained based on what is currently understood about dust grain accretion.
 % Difficulty in picking initial parameters for more complex model
-A more complex model may require additional parameters, and as such would be highly dependent on them.
+A more complex model may require additional parameters, and as such could be highly dependent on these initial parameters, as such, another round of initial parameter hunting would be required.
 
 % Comparison with observational results
 
-Another avenue of future research would be performing a radiative transfer simulation upon a fully advected system, in order to compare with 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4in]{assets/ray/cwb-raytrace-045.0.png}
+  \caption{X-ray radiative transfer image from \SI{0.1}{\kilo\electronvolt} to \SI{10.0}{\kilo\electronvolt} of a test CWB system with a momentum ratio of $\eta = 0.01$ inclined at $\phi = 45^\circ$ from the obesrver at a distance of \SI{1}{\kilo\parsec}. Radiative transfer was performed on an in-house code, which was to be modified to support dust emission.}
+  \label{fig:inhousert}
+\end{figure}
 
-This was initially considered at the start of the project, but was not performed due to the limited amount of time remaining at the end of the PhD.
+Another avenue of future research would be performing a radiative transfer simulation upon a fully advected system, in order to compare with observational results.
+Whilst some initial tests were performed with in-house x-ray emission code that was to be modified to support dust emission (Fig. \ref{fig:inhousert}).
+Using other radiative transfer codes such as \texttt{HYPERION} were also considered \parencite{robitailleHYPERIONOpensourceParallelized2011}, but this was abandoned due to time constraints from changing hydrodynamical codes from \mg{} to \athena{}.
+Radiative transfer modelling was performed by \textcite{hendrix_pinwheels_2016}, with the resultant images emulating the sensitivity and angular resolution characteristics of UKIRT, Keck and ALMA (figure \ref{fig:hendrix-synthetic}).
 
-This was performed by \textcite{hendrix_pinwheels_2016}, with the resultant images emulating the sensitivity and angular resolution characteristics of UKIRT, Keck and ALMA (figure \ref{fig:hendrix-synthetic}).
-
-Radiative transfer models would be used to 
-
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics{assets/hendrix-synthetic-observation.jpeg}
   \caption[\textit{Radiative transfer images of WR98a \parencite{hendrix_pinwheels_2016}}]{Synthetic images of WR 98a emulating the capabilities of ALMA using a radiative transfer model, reproduced from \textcite{hendrix_pinwheels_2016}.}

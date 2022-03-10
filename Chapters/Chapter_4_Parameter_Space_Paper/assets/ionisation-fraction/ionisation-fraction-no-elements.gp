@@ -13,6 +13,8 @@ set style fill transparent solid 0.5 noborder
 
 set key top left
 
+set grid x y mx my
+
 plot "electron_WC" u (10**$1):2 t "WC" w l ls 1,\
      "electron_solar" u (10**$1):2 t "Solar" w l ls 2
      
