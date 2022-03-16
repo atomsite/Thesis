@@ -11,6 +11,7 @@
               {./Chapters/Chapter_5_Real_Systems_Paper}
               {./Chapters/Chapter_6_Terminal_Velocity_Paper}
               {./Chapters/Chapter_7_Final_Notes}
+              {./Appendix}
               {./ThesisFigs/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,8 +174,8 @@
 \addbibresource{References/library-biblatex.bib} 
 % Sylistic changes to bibliography 
 \DefineBibliographyStrings{english}{
-  backrefpage = {Cited on p.},     % originally "cited on page"
-  backrefpages = {Cited on pp.},   % originally "cited on pages"
+  backrefpage = {Cited on page},     % originally "cited on page"
+  backrefpages = {Cited on pages},   % originally "cited on pages"
 }
 \DeclareFieldFormat{doi}{\\ \footnotesize{DOI: \texttt{\href{https://doi.org/#1}{#1}}}}
 % \DeclareFieldFormat{url}{\\ \footnotesize{URL: \texttt{\url{#1}}}}
@@ -307,7 +308,7 @@
 %\appendix
 \appendix
 % Each appendix section has its own individual folder, containing a tex file and figures folder
-\include{Appendix/Appendix_1_Astrophysical_Shocks/Astrophysical_Shocks.tex}
+\include{Appendix/Appendix.tex}
 
 % References separate from main matter or appendix
 \addcontentsline{toc}{chapter}{References} % Adds References to contents page
