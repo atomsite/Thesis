@@ -144,6 +144,41 @@ In testing \athena{} we found that the communication overhead became significant
 There was also an observed increase in communication overhead with \mg{} as well, as the programme handles parallelism by slicing the problem along the $y$ axis, resulting in a very large number of ``ghost'' cells that require communication.
 
 
+\section{Datatypes \& visualisation}
+\label{sec:visualisation}
+
+Output data from \athena{} was exported at regular time-elapse intervals in the form of 3-D HDF5 files \parencite{hdf5} and 2-D slices at $z=0$ HDF5 files.
+A separate, comma-delimited ``history'' filetype was written to regularly to store summated values of conserved variables and advected scalars.
+This was used primarily to determine simulation-wide dust production rates and average grain sizes as the simulation evolved.
+Checkpoint files were also written at regular intervals to ensure a restart in the event of a simulation crash or process kill by the ARC4 job-sharing queue system.
+For most simulations 3-D data and checkpoints were saved every 1/\nth{100} of an orbital period, while 2-D data and ``history'' data was written every 1/\nth{1000} of an orbital period.
+
+%//TODO section might not be necessary
+Data was plotted using a series of custom programmes designed to parse data as quickly as possible, 
+the \texttt{Python 3.8} \parencite{10.5555/1593511} plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating static meshes to the finest level in order to operate correctly with \texttt{Matplotlib} \parencite{Hunter:2007}, data-points are triangulated with each other.
+This is a markedly more memory and processing efficient method, as data is not duplicated or smoothed at the interpolation step, and was found to be approximately 2000\% faster.
+Whilst this can result in artefacts at low resolutions, the resolution of the simulation was sufficient such that these artefacts were not observed.
+The GNU Parallel library was used to batch-process 2D exports \parencite{tange_2021_5523272}, as \texttt{Python} is for the most part single threaded and interpreted it was found to be more effective use Parallel to run multiple python instances at once, each processing a single data file using the command:
+
+\begin{lstlisting}[language=bash]
+seq 0 <max> | parallel -j44  "athena_plot.py plot-config.yaml -n {}"
+\end{lstlisting}
+
+\noindent
+where \texttt{<max>} is the number of simulation files.
+The \texttt{Numba} library \parencite{lam2015numba} was also used to improve performance by  JIT\footnote{Just In Time.} compiling, parallelising and vectorising certain steps that were not performant in either \texttt{Python} or \texttt{Numpy} \parencite{harris2020array}.
+In this case, \texttt{Numba} was used to restructure numerical array data into a linear series of arrays, performing derived parameter such as dust density and temperature calculations, and matrix co-ordinate transforms.
+While this is less straightforward to implement, as many of \texttt{Pythons} data-types cannot be used, this offered a 2 order of magnitude processing speed increase in the case of an 8-core workstation.
+
+For 3D visualisation the \texttt{VisIt} application is used \parencite{HPV:VisIt}.
+However for print 2D slices generated using \texttt{Matplotlib} were used. 
+The \texttt{Gnuplot} utility \parencite{gnuplot} was used for generating line and scatter plots throughout this thesis, in particular history outputs from \athena{}.
+Occasionally, rendering video of the batch processes 2D exports was performed in order to better understand how the systems propagated over time, in order to do this \texttt{ffmpeg} library \parencite{tomar2006converting} was used to render the videos.
+For this, the following command was used:
+
+\begin{lstlisting}[language=bash]
+cat /*.png | ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -vf format=yuv420p output.mp4
+\end{lstlisting}
 
 \section{Version Control}
 
