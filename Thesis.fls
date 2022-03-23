@@ -2367,6 +2367,11 @@ INPUT Chapters/Chapter_7_Final_Notes/Final_Notes.tex
 INPUT ./Chapters/Chapter_7_Final_Notes/Final_Notes.tex
 INPUT Chapters/Chapter_7_Final_Notes/Final_Notes.tex
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbxi10.tfm
+INPUT ./Chapters/Chapter_7_Final_Notes/assets/jwst.jpg
+INPUT ./Chapters/Chapter_7_Final_Notes/assets/jwst.jpg
+INPUT ./Chapters/Chapter_7_Final_Notes/assets/jwst.jpg
+INPUT ./Chapters/Chapter_7_Final_Notes/assets/jwst.jpg
+INPUT ./Chapters/Chapter_7_Final_Notes/assets/jwst.jpg
 INPUT ./Appendix/Appendix.tex
 OUTPUT Appendix/Appendix.aux
 INPUT ./Appendix/Appendix.tex
@@ -2481,6 +2486,7 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtko10.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt8.pfb
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt9.pfb
