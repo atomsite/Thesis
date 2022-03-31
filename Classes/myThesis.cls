@@ -274,8 +274,8 @@
     \fi
     
     \interlinepenalty\@M
-    \vspace{5pt}%                                 % add vertical space
-    \hrule                                   % horizontal rule
+    \vspace{5.25pt}%                                 % add vertical space
+    \hrule height 0.5mm                               % horizontal rule
     \rule{\textwidth}{0.0mm} \\
     \vspace{40pt}
     \huge #1\par                         % chapter title

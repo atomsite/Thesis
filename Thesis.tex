@@ -69,6 +69,7 @@
 
 \usepackage{siunitx} % Better units, especially SI
 \sisetup{separate-uncertainty=true,   % Allow uncertainties
+         group-digits=integer,
          print-unity-mantissa=false,  % If 1e2, write as 10^2 not 1x10^2
          group-minimum-digits=4,      % Start separating > 999, not > 9,999
          group-separator = {,}}       % Unit now 1,000 instead of 1000
@@ -272,10 +273,10 @@
         \rule{\linewidth}{0.5pt}
         \Large
         \MakeUppercase{Me}
-        \\
-        \large
-        \emph{This Thesis}
-        \par
+        % \\
+        % \large
+        % \emph{This Thesis}
+        % \par
       }
     }
   \end{center}

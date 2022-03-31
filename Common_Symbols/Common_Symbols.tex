@@ -1,6 +1,6 @@
 \begin{Common_Symbols}
 
-List of common symbols, if symbol requires a derivation, the appropriate equation within this thesis will be referenced. If the symbol is a unit, the value in CGS units will be provided instead. 
+List of common symbols, if symbol requires a derivation, the appropriate equation within this thesis will be referenced. If the symbol is a constant, the value in CGS units will be provided. 
 
 \begin{longtable}[c]{lll}
   \hline
@@ -14,19 +14,22 @@ List of common symbols, if symbol requires a derivation, the appropriate equatio
 
   % Alphabetical symbols
 
+  \multicolumn{3}{c}{\textbf{Variables}} \\
+  \hline
+
   $a$ & Grain radius & Section \ref{sec:dust} \\
-  $C$ & Courant-Friedrichs-Lewy condition & \\
+  $C$ & Courant-Friedrichs-Lewy condition & Eq. \ref{eq:cfl} \\ 
   $f$ & Wind shock fraction & Eq. \ref{eq:windshockfraction} \\
   $h_e$ & Electron transparency & Section \ref{sec:wcrcooling} \\
-  $H_{coll}$ & Grain heating rate due to ions & \\
-  $H_{el}$ & Grain heating rate due to electrons & \\
+  $H\rms{coll}$ & Grain heating rate due to ions & \\
+  $H\rms{el}$ & Grain heating rate due to electrons & \\
   $i$ & Inclination & \\
   $\mathcal{L}$ & Cooling rate per unit volume & Eq. \ref{eq:energylossrate} \\ 
   $\lumin_\star$ & Stellar luminosity & \\
   $\mass_\star$ & Stellar mass & \\
   $\mdot$ & Mass loss rate & \\
-  $t_\text{cool}$ & Cooling timescale & Eq. \ref{eq:taucool} \\
-  $t_\text{esc}$ & Escape timescale & Eq. \ref{eq:tauesc} \\
+  $t\rms{cool}$ & Cooling timescale & Eq. \ref{eq:taucool} \\
+  $t\rms{esc}$ & Escape timescale & Eq. \ref{eq:tauesc} \\
   $v_\infty$ & Wind terminal velocity & \\
   $z$ & Dust-to-gas mass ratio  & \\
 
@@ -49,15 +52,37 @@ List of common symbols, if symbol requires a derivation, the appropriate equatio
 
   $\kappa$ & Sub-timestep fraction & Section \ref{sec:cooling-implementation} \\
 
+  $\Phi$ & Orbital phase & \\
+
   $\chi$ & Cooling parameter  & Eq. \ref{eq:coolingparameter} \\
 
   $\gamma$ & Ratio of specific heats & \\
 
   % Include Units from here
+  \hline
+  \multicolumn{3}{c}{\textbf{Subscripts \& Superscripts}} \\
+  \hline
 
+  $x\rms{WR}$   & Wolf-Rayet, synonymous with primary star & \\
+  $x\rms{OB}$   & OB type, synonymous with secondary star & \\
+  $x\rms{w}$    & Either wind & \\
+  $x\rms{g}$    & Gas, typically refers to stellar wind & \\
+  $x\rms{d}$    & Aggregate dust fluid & \\
+  $x\rms{gr}$   & Single dust grain & \\
+  $x\rms{H}$    & Hydrogen & \\
+  $x_e$         & Electron & \\
+  $x\rms{u}$    & Upper, typically the closest bin $>$ value in a lookup table & \\
+  $x\rms{l}$    & Lower, typically the closest bin $<$ value in a lookup table & \\
+  $x^\infty$    & Terminal, such as terminal velocity, $v^\infty$ & \\
+
+  \hline
+  \multicolumn{3}{c}{\textbf{Constants}} \\
   \hline
 
   \si{\atomicmassunit} & Atomic Mass Unit & \SI{1.661e-24}{\gram} \\
+
+  $m\rms{H}$ & Hydrogen mass & \SI{1.00784}{\atomicmassunit} \\
+  $m_e$      & Electron mass & \SI{0.00055}{\atomicmassunit} \\
 
   $k\rms{B}$ & Boltzmann Constant & \SI{1.381e-16}{erg.K^{-1}} \\
 
@@ -70,7 +95,7 @@ List of common symbols, if symbol requires a derivation, the appropriate equatio
   \si{\solarradius} & Solar radius & \SI{6.957e+10}{\centi\metre} \\
   \si{\au} & Astronomical Unit & \SI{1.496e+13}{\centi\metre} \\
   \si{\parsec} & Parsec & \SI{3.086e+18}{\centi\metre} \\
-  ``Warm'' & Warm temperature regime & \num{1e4}-\SI{1e5}{\kelvin}\footnote{Personal preference} \\
+  ``Warm'' & Warm temperature regime & \num{1e4} -- \SI{1e5}{\kelvin}\footnote{Personal preference} \\
 
 \end{longtable}
 

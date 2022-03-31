@@ -1930,8 +1930,10 @@ INPUT ./Abbreviations/Abbreviations.tex
 INPUT Abbreviations/Abbreviations.tex
 INPUT ./Abbreviations/Abbreviations.tex
 INPUT Abbreviations/Abbreviations.tex
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm5.tfm
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm5.tfm
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT ./Common_Symbols/Common_Symbols.tex
 INPUT ./Common_Symbols/Common_Symbols.tex
 INPUT ./Common_Symbols/Common_Symbols.tex
@@ -1942,7 +1944,6 @@ INPUT ./Common_Symbols/Common_Symbols.tex
 INPUT Common_Symbols/Common_Symbols.tex
 INPUT ./Common_Symbols/Common_Symbols.tex
 INPUT Common_Symbols/Common_Symbols.tex
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
 INPUT ./Chapters/Chapter_1_Introduction/Introduction.tex
 OUTPUT Chapters/Chapter_1_Introduction/Introduction.aux
 INPUT ./Chapters/Chapter_1_Introduction/Introduction.tex
@@ -1960,7 +1961,6 @@ INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/wolf-rayets.png
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/wolf-rayets.png
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/wolf-rayets.png
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/wolf-rayets.png
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/x-ray.png
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/x-ray.png
 INPUT ./Chapters/Chapter_1_Introduction/assets/wolf-rayets/x-ray.png
