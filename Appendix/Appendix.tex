@@ -31,15 +31,15 @@ A good deal of the data reduction of this thesis was conducted using the Python 
 \athena{} \parencite{athena} was also used extensively throughout the work in this thesis.
 Whilst there are some aspects of this that need further development - in particular, passive scalars in AMR problems - it was found to be extremely robust, and easy to develop for.
 Some diagrams in this work, specifically Fig. \ref{fig:quiver-h} and Fig. \ref{fig:quiver-oplus} use the \footlink{Quiver}{https://q.uiver.app/} communicative diagram editor.
-GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project, if parallel programming is difficult, sometimes the only option is to run many, \textit{many} serial programmes at once.
+GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project.
+If parallelism is difficult to implement for a problem, sometimes the only option is to run many, \textit{many} serial programmes at once.
 The \footlink{\texttt{Hyperfine}}{https://github.com/sharkdp/hyperfine} command line benchmarking tool was used to benchmark \athena{} throughout the project, in order to find ideal configuration parameters such as numerical integrators, core counts and meshblock sizes.
-Most of the line plots in this project were produced by the 
-The \footlink{\texttt{turbo}}{https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html} palette is used for
+Most of the line plots in this project were produced by the \texttt{Gnuplot} graphing tool, whilst the \footlink{\texttt{turbo}}{https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html} palette was used to generate readable and accessible colour schemes for our plots.
 A modified version of the \texttt{turbo.pal} palette file from the \footlink{\texttt{gnuplotting.org} GitHub repo}{https://github.com/Gnuplotting/gnuplot-palettes/blob/master/turbo.pal} was used to import the colour scheme into \texttt{gnuplot}.
 
 Finally, this thesis was typeset with \LaTeX{}, using the {\TeX}live distribution and \texttt{latexmk} for compilation.
 It is abundantly clear that scientists the world over owe an enormous debt of gratitude to Donald Knuth and Leslie Lamport for their work on the \TeX{} and \LaTeX{} projects.
-Let's hope that the version $\pi$ update isn't coming too soon.
+% Let's hope that the version $\pi$ update isn't coming too soon.
 The thesis template is a modified version of the \footlink{Leeds Condensed Matter Physics Group \LaTeX{} template}{https://github.com/stonerlab/Thesis-template}, which suited the needs of this thesis extremely well.
 
 \section{Parallelism \& Amdahl's Law}
@@ -47,12 +47,12 @@ The thesis template is a modified version of the \footlink{Leeds Condensed Matte
 
 % Single threaded 
 One of the more prominent mistaken expectations of computing in the last few decades was the idea of extreme scaling of processors.
-Early in the lifecycle of the NetBurst architecture, Intel predicted the Pentium 4 and the subsequent generations of processor would scale up to \SI{10}{\giga\hertz}.
-This of course, never panned out, only a handful of processors can reliably scale to \SI{5}{\giga\hertz} at a comparatively large thermal penalty, with contemporary high-end desktop processors drawing as much as twice the power of the hottest running NetBurst designs.
-Instead, processors, while significantly faster in single threaded applications, have more than one processing core.
-In most cases in scientific computing, single-threaded performance has been entirely supplanted by multi-threaded performance, and the paradigm of parallel programming.
+Early in the lifecycle of the NetBurst architecture, Intel predicted the Pentium 4 and the subsequent generations of their flagship processors would scale up to \SI{10}{\giga\hertz} -- or even beyond!
+This of course, never panned out, only a handful of processors can reliably scale to \SI{5}{\giga\hertz} -- albeit with an enormous thermal penalty -- with contemporary high-end desktop processors drawing as much as twice the power of the hottest running NetBurst designs.
+Instead, processors, while significantly faster in single threaded applications due to improvements to branch prediction, and cache speed, now have more than one processing core.
+In most cases in scientific computing, single-threaded performance has been entirely supplanted by multi-threaded performance and parallel programming.
 % Role of parallelism
-If a large problem can be divided into a series of smaller problems, with little to or no dependence on the other problems, it is ripe for parallelisation.
+If a large problem can be divided into a series of smaller problems, with little to or no dependence between the smaller problems, it is ripe for parallelisation.
 A good example of this would be performing the dot product of two matrices together, each element of the resultant matrix can be calculated individually.
 For extremely large matrices, this speedup would eclipse any gains of using a more efficient single-threaded method.
 % Limits of parallelism
@@ -94,7 +94,7 @@ Strong scaling is governed by Amdahl's law, which shows that for a given problem
 
 \noindent
 where $S$ is the speedup of the task, $p$ is the fraction of the code that can be effectively parallelised, and $N$ is the number of processing cores \parencite{amdahlValiditySingleProcessor1967}.
-This imposes a limit on the theoretical maximum speedup given an arbitrary number of cores, calculated with the formulae:
+This imposes a limit on the theoretical maximum speedup given an arbitrary number of cores, calculated with the formula
 
 \begin{equation}
   \lim_{N \rightarrow \infty} S\rms{s} = \frac{1}{1-p} .
@@ -106,6 +106,7 @@ This suggests that throwing cores at a problem will not solve it faster beyond a
 
 In order to test the parallel performance of \athena{}, hydrodynamical problems in this thesis were run for a specific number of simulation steps.
 In the case of a single processor with 22 cores in Fig. \ref{fig:amdahl-athena}, we find a parallelisation fraction of $p=0.987$.
+This is extremely large, but could be even higher, due to overhead issues and the size of the problem.
 
 \begin{figure}[ht]
   \centering
@@ -121,7 +122,7 @@ In the case of a single processor with 22 cores in Fig. \ref{fig:amdahl-athena},
   \label{fig:amdahl-athena}
 \end{figure}
 
-Weak scaling is determined through Gustafson's law, which shows that as a problem increases in size to scale with the number of cores available, the theoretical speedup is linear
+Weak scaling is determined through Gustafson's law, which shows that as a problem increases in size to scale with the number of cores available, the theoretical speedup is linear, such that:
 
 \begin{equation}
   S\rms{w}(N) = (1-p) + pN.
@@ -155,7 +156,7 @@ For most simulations 3-D data and checkpoints were saved every 1/\nth{100} of an
 
 %//TODO section might not be necessary
 Data was plotted using a series of custom programmes designed to parse data as quickly as possible, 
-the \texttt{Python 3.8} \parencite{10.5555/1593511} plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating static meshes to the finest level in order to operate correctly with \texttt{Matplotlib} \parencite{Hunter:2007}, data-points are triangulated with each other.
+the \texttt{Python} plotting library provided in the \athena{} repository was modified to incorporate Delaunay triangulation, instead of interpolating static meshes to the finest level in order to operate correctly with \texttt{Matplotlib imshow} routine \parencite{Hunter:2007}, data-points are triangulated with each other.
 This is a markedly more memory and processing efficient method, as data is not duplicated or smoothed at the interpolation step, and was found to be approximately 2000\% faster.
 Whilst this can result in artefacts at low resolutions, the resolution of the simulation was sufficient such that these artefacts were not observed.
 The GNU Parallel library was used to batch-process 2D exports \parencite{tange_2021_5523272}, as \texttt{Python} is for the most part single threaded and interpreted it was found to be more effective use Parallel to run multiple python instances at once, each processing a single data file using the command:

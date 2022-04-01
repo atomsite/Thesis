@@ -3252,14 +3252,13 @@
     <bcf:citekey order="414">gustafsonReevaluatingAmdahlLaw1988</bcf:citekey>
     <bcf:citekey order="415">pachecoIntroductionParallelProgramming2022</bcf:citekey>
     <bcf:citekey order="416">hdf5</bcf:citekey>
-    <bcf:citekey order="417">10.5555/1593511</bcf:citekey>
-    <bcf:citekey order="418">Hunter:2007</bcf:citekey>
-    <bcf:citekey order="419">tange_2021_5523272</bcf:citekey>
-    <bcf:citekey order="420">lam2015numba</bcf:citekey>
-    <bcf:citekey order="421">harris2020array</bcf:citekey>
-    <bcf:citekey order="422">HPV:VisIt</bcf:citekey>
-    <bcf:citekey order="423">gnuplot</bcf:citekey>
-    <bcf:citekey order="424">tomar2006converting</bcf:citekey>
+    <bcf:citekey order="417">Hunter:2007</bcf:citekey>
+    <bcf:citekey order="418">tange_2021_5523272</bcf:citekey>
+    <bcf:citekey order="419">lam2015numba</bcf:citekey>
+    <bcf:citekey order="420">harris2020array</bcf:citekey>
+    <bcf:citekey order="421">HPV:VisIt</bcf:citekey>
+    <bcf:citekey order="422">gnuplot</bcf:citekey>
+    <bcf:citekey order="423">tomar2006converting</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
