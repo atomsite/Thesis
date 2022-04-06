@@ -15,7 +15,7 @@ set grid x y mx
 
 set arrow from 1.5e7,1e-5 to 1.5e7,1e10 nohead ls 4 lc "black" dashtype "-"
 
-set label 1 "\\scriptsize{$T=1.5\\times 10^7$\,K}" at 1.4e7,2e-5 left rotate by 90
+set label 1 "\\scriptsize{$T=1.5\\times 10^7$\,K}" at 1.4e7,5e4 left rotate by 90
 
 set key top left
 
