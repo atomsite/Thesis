@@ -1875,7 +1875,6 @@ INPUT Acknowledgement/acknowledgement.tex
 INPUT ./Acknowledgement/acknowledgement.tex
 INPUT Acknowledgement/acknowledgement.tex
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmr5.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/lmmi9.tfm
@@ -1904,6 +1903,7 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT ./Thesis.toc
 INPUT Thesis.toc
 INPUT Thesis.toc
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 OUTPUT Thesis.toc
 INPUT ./Thesis.lof
 INPUT Thesis.lof
