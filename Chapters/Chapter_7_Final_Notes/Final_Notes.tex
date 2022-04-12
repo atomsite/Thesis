@@ -4,7 +4,7 @@ In this chapter we will discuss the general conclusions of our work, as well as 
 Whilst there were significant setbacks of our work -- chief among them being nearly two years of debugging, as well as a total refactoring of our work for a different hydrodynamical code -- the main goals of the project were completed.
 Through this project we have developed a flexible and fast dust evolution code which can be used to simulate the growth of grains in numerical simulations of a WCd system.
 Our dust model has been found to produce realistic yields of dust within both persistent and episodic dust forming CWB systems.
-This is despite dust production is not being artificially limited with orbital separation in the case of episodic WCd systems, while producing a similar degree of variability compared to observational studies of these systems.
+This is despite dust production not being artificially limited with orbital separation in the case of episodic WCd systems, while producing a similar degree of variability compared to observational studies of these systems.
 Hysteresis of dust production is observed, which is also in-line with what is observed in episodic WCd systems.
 
 Despite these successes, there is still much to add to this model.
@@ -36,21 +36,21 @@ In our first paper, \emph{\firstpapertitle}, we explore the system parameters th
 The system parameters that were studied were:
 
 \begin{itemize}
-  \item The mass loss, $\mdot$.
+  \item The mass loss rate, $\mdot$.
   \item The wind terminal velocity, $\vinf$.
   \item The orbital separation distance between the stars, $\dsep$.
 \end{itemize}
 
 \noindent
-Our results conclude that while all of these parameters influenced the dust production rates of the system, two of the parameters had an outsized influence on production.
-Modifying the wind terminal velocity of either star resulted in a significant increase in the dust production rate.
+We conclude that while all of these parameters influenced the dust production rates of the system, two of the parameters had an outsized influence on production.
+Modifying the wind terminal velocity of either star resulted in a significant increase or decrease in the dust production rate.
 We observed a change in the dust production rate by as much as six orders of magnitude between the most and least prolific dust forming systems.
-Slow dense winds are predicted to have more radiative, cooler WCRs, which are more conducive to dust production.
+Slow dense winds have more radiative, cooler WCRs, which are more conducive to dust production.
 However, we also observed that systems with a fast secondary wind can also drive significant dust production, despite not containing significant quantities of dust.
-This suggests that in addition to cooling, the ratio of each stars wind velocity plays an important role in dust production, as an increased shear drives KH instabilities.
-We also find that the orbital separation, $d\rms{sep}$ also significant contributes to the dust production rate.
+This suggests that in addition to cooling, the ratio of the wind velocities plays an important role in dust production, as an increased shear drives KH instabilities.
+We also find that the change in orbital separation, $d\rms{sep}$ also significantly changes the dust production rate.
 Closer orbits result in a significantly increased dust production rate.
-This is due to an wind density upon collision, resulting in stronger post-shock cooling.
+This is due to a higher wind density upon collision, resulting in stronger post-shock cooling.
 
 One of the key underlying factors of dust production -- in addition to cooling -- appears to be due to the formation of instabilities of either the KH or radiative thin-shell types.
 As the wind parameter, $\chi$, decreases, we begin to observe rapid cooling in the WCR, as well as the presence of instabilities.
@@ -58,21 +58,22 @@ We also observe the aforementioned KH instabilities from velocity shear.
 These instabilities result in the formation of high density clumps of cool, post-shock wind.
 These clumps then form significant quantities of dust, which were observed when comparing the density to the dust-to-gas mass ratios of the simulations.
 
-Whilst varying the mass loss rate can contribute to a change in dust production rate, this is for the most part due to an increased initial grain number density.
+Whilst varying the stellar mass loss rates can contribute to a change in dust production rate, this is for the most part due to an increased initial grain number density.
+However, an increased mass loss rate for either star can result in both more gas that can be converted to dust, as well as stronger shocks, leading to more cooling.
 
 \subsection{The role of eccentricity in dust formation}
 
-In our second paper: \emph{\secondpapertitle}, we confirmed that dust production was significantly influenced by continuously changing orbital separation.
+In our second paper: \emph{\secondpapertitle}, we confirmed that the dust production is significantly influenced by a continuously changing orbital separation.
 % Clear points
 This is in line with observations of WR140 at periastron, as well as our predictions from our previously published paper.
-A limited section of the systems orbit was simulated, and constrained to shortly before and after the periastron pass of the system.
-Dust yields were found to be sensible, albeit higher than the average dust production rates predicated by \textcite{lauRevisitingImpactDust2020}, due to this limited simulation range.
+Part of the orbit around periastron was simulated, as dust production was anticipated to be greatest there.
+Dust yields were found to be sensible, albeit higher than the average dust production rates predicted by \textcite{lauRevisitingImpactDust2020}, due to this limited simulation range.
 
 % Hysteresis
 Dust production also shows a degree of hysteresis.
 The maximum dust production rate of the system occurs shortly after periastron passage.
 This is partially due to the travel time between the stars to the WCR, which is on the order of a few days.
-The maxima is reached extremely rapidly, and as the stars recede from another, we find that the dust production rate tapers off slowly.
+The maxima is reached extremely rapidly, and as the stars recede from each other, we find that the dust production rate tapers off slowly.
 This is expected based on observations of characteristic carbon dust emission lines, where we see a similar tapering of the $L^\prime$ emission of WR140 \parencite{crowther_dust_2003}.
 It was also observed that the time taken for the system to cease producing dust was similar to the time taken for the observed $L^\prime$ flux to diminish to regular levels.
 Finally, we observe that even after the simulation should be behaving adiabatically, there is significant post-shock WCR cooling and instabilities, which encourage the production of dust.
@@ -81,17 +82,20 @@ Finally, we observe that even after the simulation should be behaving adiabatica
 Some part of this hysteresis is due to the radial velocity of the system.
 As we have found in our previous paper, WCd systems dust production rates are extremely dependent on the wind pre-shock velocity.
 An increase in radial velocity as the stars approach periastron will increase the perceived wind velocity relative to the WCR.
-As such, there is a corresponding increase in the dust formation rate; the inverse is true as the stars recede from one another.
-This velocity variability was found to be on the order of \SI{160}{km.s^{-1}}, suggesting it is not the primary reason for the asymmetry the change in the rate of dust production.
-This is not reflected in our model, but could be a contributing factor in the prolonged dust producing phase of the real WR140 system.
+As such, there is a corresponding decrease in the dust formation rate; the inverse is true as the stars recede from one another.
+This velocity variability was found to be on the order of \SI{160}{km.s^{-1}}, suggesting it is not the primary reason for the asymmetry in the rate of dust production.
+% This is not reflected in our model, but could be a contributing factor in the prolonged dust producing phase of the real WR140 system.
+
 
 \subsubsection{Radiative driving}
 
 Radiative line driving was not modelled in any simulations in this work.
-Whilst this may not significantly change the results of the research in paper 1, it could be the case that the wind velocity of the secondary star is lower than anticipated.
+Whilst this may not significantly change the results of the research in Chapter \ref{chap:parameterspace}, it could be the case that the wind velocity of the secondary star is lower than anticipated.
 Analysing the single wind outflow of each star in the system we find that the wind velocity is reduced to 84\% of the expected amount.
-Based on our results, this would somewhat lower the dust production at periastron, due to a decreased velocity shear.
+% Based on our results, this would somewhat lower the dust production at periastron, due to a decreased velocity shear.
+Whilst this would somewhat lower the dust production at periastron by reducing $\chi$ and reducing the wind velocity shear (though the latter is most likely a secondary effect).
 This discrepancy is most likely smaller than the influence due to the conservative value for the grain sticking factor, $\xi$.
+However, this would be a useful consideration in future models, especially when simulating systems which extremely close periastron passages.
 
 \section{Future Study}
 
@@ -100,15 +104,16 @@ Some potential future avenues of research will be discussed, categorised into th
 
 \subsection{More complex models}
 
-Our dust model, \bidmas{}, is designed to be comparatively flexible and extensible, additional dust growth and destruction mechanisms could be included; such as grain-grain collision and photoevaporation.
+Our dust model, \bidmas{}, is designed to be comparatively flexible and extensible.
+Additional dust growth and destruction mechanisms could be included; such as grain-grain collision and photoevaporation.
 Long-term goals would be significant rewriting of the dust model in order to incorporate a multi-fluid dust grain model that is coupled to the gas through drag forces.
 This would behave similarly to \textcite{hendrix_pinwheels_2016}, though with grain growth, destruction and cooling.
-This would be useful as the velocities between gas and dust grains could be better calculated, allowing for more accurate growth an destruction rates.
+This would be useful as the velocities between gas and dust grains could be better calculated, allowing for more accurate growth and destruction rates.
 This extended model could also be used to simulate dust mixing within the post-shock WCR.
-As dust has significantly more inertia than the medium it is travelling through, it could be the case that dust grains could enter the secondary, hydrogen rich OB flow, which could affect grain growth, but allow for complex chemical models. 
+As dust has significantly more inertia than the medium it is travelling through, it could be the case that dust grains could enter the secondary, hydrogen rich OB flow, which could affect grain growth, and allow for complex chemical models. 
 
 A dust grain nucleation model could also be implemented, in order to better determine the initial conditions of the system -- and therefore make more quantitative evaluations of these systems.
-This would also obviate the need to assume that the grain number density is constant throughout a simulation.
+% This would also obviate the need to assume that the relative grain number density is constant throughout a simulation.
 Finally, a chemical model could also be included, though this would take significant work\ldots
 
 \subsection{Further simulations of observed systems}
@@ -120,7 +125,7 @@ Simulation of other systems that were considered for this project such as WR104 
 Qualitative studies of these systems would be easier to implement, compared to broader parameter space studies.
 However, AMR would be required in order to simulate these systems, due to their close-in or distant orbits, which do not favour the refinement conditions of SMR.
 The main limiting factor to simulating systems is having well known wind parameters and orbital parameters.
-As large telescopes are built and more detailed surveys of WCd systems are performed, we should be able to simulate more of these systems in the future.
+As large telescopes are built and more detailed surveys of WCd systems are performed, more of these systems will become amenable to simulation in the future.
 
 \subsection{Radiative transfer}
 
@@ -134,10 +139,11 @@ This research could also be performed in conjunction with research into these sy
 
 Another topic of extreme interest is WR+WR systems like Apep (Section \ref{sec:bg-apep}) and WR48a (Section \ref{sec:bg-wr48a}).
 % Rarity, reasons for this, improb. 
-So far, only two such systems have been confirmed, and are predicted to be quite rare due to the improbability of both stars being in their short lived WR phases at the same time.
+So far, only two such systems have been confirmed.
+They are predicted to be quite rare due to the improbability of both stars being in their short lived WR phases at the same time.
 % Dust production rates, distances
 These systems, while having tremendous total mass loss rates, do not produce significant quantities of dust.
-This is quite curious, though it may be potentially due to their comparatively similar wind velocities and overall separation, if we are to extrapolate from our current results.
+This is quite curious, though it may be potentially due to their comparatively similar wind velocities and wide overall separation (though the orbital elements are still quite uncertain, see \cite{hanExtremeCollidingwindSystem2020}), if we are to extrapolate from our current results.
 % Metallicities, WN/WC
 The presence of another hydrogen depleted wind, such as that of an WN sequence WR star would result in interesting conditions for the systems, such as both winds being highly radiative.
 % Eccentricities in orbits
@@ -159,7 +165,7 @@ Comparison of these systems with galactic systems could also present an interest
 \end{figure}
 
 % JWST 
-The James Webb Space Telescope (JWST) represents the pinnacle of the observational sciences.
+The James Webb Space Telescope (JWST; Fig. \ref{fig:jwst}) represents the pinnacle of the observational sciences.
 % Nail biting
 From a nail biting launch to month-long deployment, I'm sure it is safe to say that many astrophysicists were more than a little bit nervous throughout the month of December.
 But now, the mirrors are aligned and cooling, and scientific observation is due to commence within the next few months -- we can all breathe a sigh of relief.
@@ -179,7 +185,7 @@ This short section covers other, more personal observations made throughout this
 \subsection[\textit{How I Learned to Stop Worrying and Love Numerics}]{\textit{Doctorate Strangelove or: How I Learned to Stop Worrying and Love Numerics}}
 
 Numerical simulation is an extremely complex topic, and when things go wrong, it can be enormously time consuming and sanity testing to fix.
-Sometimes code the works fine on one platform being used for testing will not run correctly, or refuse to compile at all.
+Sometimes code that works fine on one platform being used for testing will not run correctly, or refuse to compile at all.
 On occasion it felt like the software paradigm of WOCA\footnote{Write Once, Compile Anywhere.} simply did not apply when writing in allegedly portable languages, such as \texttt{C}.
 The code is also difficult to debug and fix, due to the performance impact, and being essentially unable to set breakpoints unless the simulation crashes within the first timestep.
 
@@ -214,7 +220,7 @@ After successfully quitting cold turkey from amphetamines for a month after a be
 \end{quote}
 
 \noindent
-In closing, if you, the reader, empathise with this\ldots It might be a good idea to get yourself checked.
+In closing, if you, the reader, empathise with this\ldots{} It might be a good idea to get yourself checked.
 
 \subsection{Carinae Strain: PhD research in a time of pandemic}
 \label{sec:pandemic}
@@ -230,7 +236,7 @@ But there truly is nothing more helpful and calming than enjoying a show or a ga
 
 This thesis demonstrates the effectiveness of an advected scalar dust model to estimate the yields of dust produced in a WCd system.
 We also use this model to quantitatively evaluate how various system parameters and behaviours change the growth rate of dust in the system.
-We find a two system parameters in particular to be extremely important to formation, $\vinf$ and $\dsep$.
+We find two system parameters in particular to be particularly important to the production of dust, $\vinf$ and $\dsep$.
 Subsequently, we conclude that the episodic nature of some WCd systems is due to their eccentric orbits.
 % The presence of instabilities appears to be very conducive to dust production, and hysteresis has been observed in these instabilities, leading to a slow reduction in dust production rate as an eccentric WCd system passes periastron.
 Continued development of the model and further observational work is essential to better understanding WCd systems.
