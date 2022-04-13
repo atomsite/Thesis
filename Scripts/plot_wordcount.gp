@@ -5,8 +5,6 @@ load "Scripts/gp-pal.pal"
 set y2tics nomirror
 set ytics nomirror
 
-set multiplot
-
 set xdata time
 
 set yrange [17:*]
@@ -34,28 +32,3 @@ set timefmt "%Y-%m-%d %H:%M:%S"
 set datafile separator ","
 plot "wordcount.csv" using 1:2 title "~Pages" w l ls 1 ,\
      "" using 1:3 title "~Words" w l ls 2 axes x1y2 ,\
-
-set size 0.4,0.35
-set origin 0.49,0.12
-
-unset title
-
-set timefmt "%m/%d/%y"
-set xrange ["02/20/22":"05/04/22"]
-set timefmt "%Y-%m-%d %H:%M:%S"
-
-unset xlabel
-unset ylabel
-unset y2label
-set format x ""
-set format y ""
-set format y2 ""
-
-unset grid
-
-unset yrange
-
-plot "wordcount.csv" using 1:2 notitle w l ls 1 ,\
-     "" using 1:3 notitle w l ls 2 axes x1y2 ,\
-
-unset multiplot

@@ -566,15 +566,17 @@ Other optimisations relied on replacing a na\"ive linear search with an indexing
 Instead of performing a search, we can calculate the index, $n$, of the closest bin that is cooler than the cell temperature with the formula
 
 \begin{equation}
+    \label{eq:logspaceemissivity}
     n = \left \lfloor \frac{\log_{10}(T) - \log_{10}(T)_\text{min}}{\delta \log_{10} (T)} \right \rfloor ,
 \end{equation}
 
 \noindent
 where $\log_{10}(T)$ is the log of the cell temperature, $\log_{10} (T)_\text{min}$ is the minimum log temperature in the lookup table and $\delta \log_{10} (T)$ is the log spacing of the temperature bins.
-The closest hotter temperature bin has an index of $n+1$, and a linear interpolation step can be used to calculate an approximate value of $\mathcal{L}(T)$:
+The closest hotter temperature bin has an index of $n+1$, and a linear interpolation step can be used to calculate an approximate value of $\Lambda\rms{g}(T)$:
 
 \begin{equation}
-  \mathcal{L}(T) \approx \mathcal{L}_n + (T - T_n) \frac{\mathcal{L}_{n+1} - \mathcal{L}_n}{T_{n+1} - T_n} .
+  \label{eq:logspaceinterpolate}
+  \Lambda\rms{g}(T) \approx \Lambda_n + (T - T_n) \frac{\Lambda_{n+1} - \Lambda_n}{T_{n+1} - T_n} .
 \end{equation}
 
 This speed-up is fairly significant as the average search performance changes from $\mathcal{O}(n)$ to $\mathcal{O}(1)$ time, a marked improvement over even a binary search, which would resolve in an average of $\mathcal{O}(\log n)$ time.
@@ -618,14 +620,15 @@ Gas and plasma emissivity for a wind of a specific elemental composition is only
 This is convenient for the sake of calculating gas cooling, as the calculation of the emissivities of thousands of emission lines and multiple radiative mechanisms across a temperature domain from $10^4\, \si{K}$ to $10^9\,\si{K}$ would be exceedingly computationally demanding.
 Instead, we can use a lookup table, as described in the previous section.
 Unfortunately, while the calculation of emission rate of a dust grain is simpler and does not depend on many discrete calculations, it is dependent on more parameters, which can change per cell.
-We find that the energy loss rate due to dust is calculated by the formulae:
+We find that the energy loss rate due to dust is calculated by the formula:
 
 \begin{equation}
-  \mathcal{L}\rms{d} = n\rms{w} n\rms{d} \Lambda\rms{d}(\rho\rms{w},a,T) ,
+  \label{eq:dustenergylosstotal}
+  \mathcal{L}\rms{d} = n\rms{d} H\rms{T} (\rho\rms{w},a,T) ,
 \end{equation}
 
 \noindent
-where $n\rms{w}$ is the wind number density and $\rho\rms{w}$ is the wind density. 
+where $H\rms{T}$ is the total grain heating rate due to collisions from electrons, atoms, and ions, while $\rho\rms{w}$ is the wind density. 
 Therefore, in order to calculate energy loss due to dust emission, we must either build a far more complex lookup table, or determine methods of calculating energy loss quickly.
 In this section we will discuss the pros and cons of both methods, and discuss the final methodology used in this project.
 
@@ -658,7 +661,23 @@ In the case of a dust grain of radius $a$ flowing through a pure elemental gas w
 \noindent
 where $A$ is the atomic mass of the gas in AMU and $h(a,T)$ is the effective grain heating factor.
 This last parameter, also referred to as the grain ``transparency'', is the fraction of the energy deposited from the field particle onto the grain.
+We can then calculate $H\rms{T}$ using the equation
 
+\begin{equation}
+  \label{eq:calchcolltotal}
+  H\rms{T} = \sum H = H\rms{el} + H\rms{coll},
+\end{equation}
+
+\noindent
+where $H\rms{el}$ is the grain heating due to electrons and $H\rms{coll}$ is the grain heating due to atom/ion collisions.
+Atoms and ions are grouped as the grain is assumed to be uncharged.
+For solar and WC abundances elements heavier than oxygen are effectively trace -- as such we simplify $H\rms{coll}$ throughout this thesis to be
+
+\begin{equation}
+  H\rms{coll} = H\rms{H} + H\rms{He} + H\rms{C} + H\rms{N} + H\rms{O} . 
+\end{equation}
+
+\noindent
 In order to determine $h(a,T)$ we define a critical energy, $E^*$, which is the amount of energy required by a field particle to penetrate the grain. 
 This critical energy varies depending on the atom and the grain size, and was calculated by \textcite{dwek_infrared_1981} in the case of an uncharged grain to be
 
@@ -746,7 +765,7 @@ A more complex integration method would not improve performance at this point, i
 
 \subsubsection{Lookup table}
 
-Another method considered was the use of a multidimensional lookup table, containing values for $\Lambda\rms{d}$ for specific values of $\rho\rms{g}$, $T$ and $a$.
+Another method considered was the use of a multidimensional lookup table, containing values for a normalised dust emissivity, $\Lambda\rms{d}$, for specific values of $\rho\rms{g}$, $T$ and $a$.
 A moderately sized array of $101\times 101 \times 101$ elements was used, with a total of \num{1030301} possible values of $\Lambda\rms{d}$, spaced logarithmically.
 The values for $\Lambda\rms{d}$ were generated from the integral method of solving Eq. \ref{eq:heintegral} using a \num{10000} bin integration with a parameter space described in Table \ref{tab:lookupparams}.
 
@@ -880,7 +899,7 @@ The temperature is subsequently calculated using the ideal gas law:
 
 \begin{equation}
   \label{eq:c3-idealgas}
-  T = \frac{P \mu m_H}{\rho k_B}.
+  T = \frac{P \mu m\rms{H}}{\rho k_B}.
 \end{equation}
 
 \noindent
@@ -911,6 +930,7 @@ Adaptive sub-stepping is utilised instead to improve accuracy of a fast Euler in
 At the end of each sub-step, after $\mathcal{L}$ is calculated, a cooling time is calculated using the formula
 
 \begin{equation}
+  \label{eq:substepinterval}
   \tau\rms{cool} = \frac{E_i}{\mathcal{L}} ,
 \end{equation}
 
@@ -1112,14 +1132,18 @@ As we assume all dust grains in the simulation are composed of amorphous carbon,
 
 Dust cooling is handled within the cooling loop, and functions by removing energy from each cell of the simulation.
 The gas is assumed to be optically thin to infrared, and the radiative losses are therefore removed from the simulation without re-adsorption.
-The emissivity of the grains at the current temperature and radius, $\Lambda(a,T)$, is calculated for each cell, and the rate of energy loss due to dust emission is calculated such that:
+The emissivity of the grains at the current temperature and radius, $\Lambda(a,T)$, is calculated for each cell, and the rate of energy loss per unit volume due to dust emission is calculated with the formula
+
+% \begin{equation}
+%   \frac{dE}{dt} = n\rms{T} n\rms{d} \Lambda\rms{d}(T,a),
+% \end{equation}
 
 \begin{equation}
-  \frac{dE}{dt} = n\rms{T} n\rms{d} \Lambda\rms{d}(T,a),
+  \mathcal{L}\rms{d} = n\rms{d} \left( H\rms{el} + H\rms{coll} \right) , 
 \end{equation}
 
 \noindent
-where $n\rms{T}$ is the total gas number density and $n\rms{d}$ is the dust number density.
+where $n\rms{d}$ is the dust number density, $H\rms{el}$ is the grain heating rate due to electrons and $H\rms{coll}$ is the grain heating rate due to atom/ion collisions.
 Dust cooling, as well as the optimisations needed to run quickly in a numerical simulation, is discussed in significantly more detail in Section \ref{sec:dustcoolingmodel}.
 
 \subsubsection{Dust evolution}
@@ -1160,11 +1184,18 @@ Carbon atoms accrete onto a dust grain at a constant rate, resulting in a change
 \end{equation}
 
 \noindent
-where $\xi$ is the grain sticking factor, $\rho\rms{C}$ is the density of carbon in the wind ($\rho\rms{C} = \rho\rms{g} X(C)$, where $X(C)$ is the carbon mass fraction), and $w\rms{C}$ is the RMS velocity of the carbon atoms ($w\rms{C} = \sqrt{3k\rms{B}T / 12 m\rms{H}}$).
+where $\xi$ is the grain sticking factor, $\rho\rms{C}$ is the density of carbon in the wind ($\rho\rms{C} = \rho\rms{g} X(C)$, where $X(C)$ is the carbon mass fraction), and $w\rms{C}$ is the RMS velocity of the carbon atoms:
+
+\begin{equation}
+  \label{eq:rmsvelocitycarbon}
+  w\rms{C} = \sqrt{\frac{3k\rms{B}T}{12 m\rms{H}}} .
+\end{equation}
+
 Throughout this thesis we use a grain sticking factor of 0.1.
 From Eq. \ref{eq:dustgrowthradiuschange} we can derive a corresponding rate of change in the dust density:
 
 \begin{equation}
+  \label{eq:dustgrowthratemodel}
   \frac{d \rho\rms{d,acc}}{dt} = \pi \xi \rho\rms{C} w\rms{C} n\rms{d} a^2.
 \end{equation}
 
@@ -1174,6 +1205,7 @@ We estimate an amorphous carbon grain \SI{1}{\micro\metre} to have a lifespan, $
 As described in \textcite{draineDestructionMechanismsInterstellar1979}, with additional work by \textcite{tielens_physics_1994} and \textcite{dwekCoolingSputteringInfrared1996}, this grain lifespan is dependent on the gas density, $n\rms{g}$, as well as the grain radius, taking the form:
 
 \begin{equation}
+  \label{eq:dustsputterlifetime}
   \tau\rms{gr} = \frac{a}{da/dt} ,
 \end{equation}
 
@@ -1189,6 +1221,7 @@ As such we find a lifespan for a grain of radius $a$ and gas number density $n\r
 This can be further simplified to find a value for $da/dt$ dependent on the gas number density:
 
 \begin{equation}
+  \label{eq:dustsputterdadt}
   \frac{da}{dt} = \num{1.056e-18} \cdot n\rms{g}. 
 \end{equation}
 
@@ -1196,6 +1229,7 @@ This can be further simplified to find a value for $da/dt$ dependent on the gas 
 Finally, we can calculate an associated rate of change in the dust density of:
 
 \begin{equation}
+  \label{eq:dustsputterdrhoddt}
   \frac{d \rho\rms{d,sput}}{dt} = -4 \pi n\rms{d} \rho\rms{gr} a^2 \frac{da}{dt} = \num{-1.33e-17} \cdot n\rms{d} n\rms{g} \rho\rms{gr} a^2 ,
 \end{equation}
 
@@ -1212,6 +1246,7 @@ Whilst a Euler method integration is less accurate than a sub-stepping method or
 After the total change for $\rho\rms{d}$ and $a$ are calculated, the post-step grain radius, $a\rms{new}$, is calculated:
 
 \begin{equation}
+  \label{eq:anewupdate}
   a\rms{new} = a\rms{old} + \Delta a .
 \end{equation}
 
@@ -1220,8 +1255,8 @@ Then the post-step dust and gas densities are calculated, with the mass of the n
 
 \begin{subequations}
   \begin{align}
-    \rho\rms{d,new} & = \rho\rms{d,old} + \Delta \rho\rms{d} , \\
-    \rho\rms{g,new} & = \rho\rms{g,old} - \Delta \rho\rms{d} . 
+    \rho\rms{d,new} & = \rho\rms{d,old} + \Delta \rho\rms{d} , \label{eq:newdustdensity} \\
+    \rho\rms{g,new} & = \rho\rms{g,old} - \Delta \rho\rms{d} \label{eq:newgasdensity}. 
   \end{align}
 \end{subequations}
 
@@ -1229,6 +1264,7 @@ Then the post-step dust and gas densities are calculated, with the mass of the n
 Finally, the new dust-to-gas mass ratio can be calculated from the new dust and gas densities:
 
 \begin{equation}
+  \label{eq:znewupdate}
   z\rms{new} = \frac{\rho\rms{d,new}}{\rho\rms{g,new}} . 
 \end{equation}
 

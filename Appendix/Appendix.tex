@@ -2,11 +2,98 @@
 
 \chapter{Breakdown of Computational Models}
 
-This section contains a breakdown of the cooling and dust models, along with an accompanying flowchart, for the sake of clarity.
+This section contains a breakdown of the cooling and dust models for the sake of clarity.
+
+\section{Initialisation}
+
+Operation occurs at the start of the simulation.
+
+\begin{enumerate}
+  \item Read in data from model file.
+  \item Check to see if cooling is enabled, if so, read in the cooling curve.
+  \item Check to see if dust model is enabled.
+  \item Check to see if dust cooling is enabled, if so, read in ionisation curve.
+  \item Check to see if required numbers of scalars are available.
+  \begin{itemize}
+    \item At least 1 in general.
+    \item At least 3 if dust model is enabled.
+    \item Exit with error if there is any issue.
+  \end{itemize}
+  \item Check to see if AMR is enabled, if so, enroll refinement condition.
+  \item Enroll source functions.
+  \item Calculate orbit for $\Phi$ defined in model as \texttt{phase\_offset}, use as orbital starting position.
+  \item Finish initialisation, print model details.
+\end{enumerate}
 
 \section{Cooling model}
 
+Operation occurs for every cell in numerical grid.
+
+\begin{enumerate}
+  \item Read in conserved gas variables and simulation timestep, $\Delta t$.
+  \item Calculate gas velocity from momentum.
+  \item Calculate gas kinetic energy.
+  \item Calculate cell pressure and cell internal energy.
+  \item Calculate cell temperature, $T$, using ideal gas equation.
+  \item If temperature is $<\SI{1.1e4}{K}$ and wind is purely WR or OB, set cell temperature as $10^4\,\si{K}$ and finish for this cell. This is performed to prevent time-wasting calculations when cooling the wind.
+  \item If dust cooling is enabled:
+  \begin{enumerate}
+    \item Read in $z$ and $a$ for cell.
+    \item Calculate $V\rms{gr}$, $m\rms{gr}$, $\rho\rms{d}$ and $n\rms{d}$ from $z$ and $a$.
+  \end{enumerate}
+  \item Set substep time, $\delta t = 0$.
+  \item Iterate until $\delta t = \Delta t$:
+  \begin{enumerate}
+    \item Calculate emissivity each wind for $T$ using Eq. \ref{eq:logspaceemissivity} \& Eq. \ref{eq:logspaceinterpolate}.
+    \item Calculate $\mathcal{L}\rms{g}$ for each wind.
+    \item Calculate total $\mathcal{L}\rms{g}$ based on $C$.
+    \item If dust cooling is enabled:
+    \begin{enumerate}
+      \item Calculate $H\rms{T}$ from Eq. \ref{eq:calchcolltotal}.
+      \item Calculate $\mathcal{L}\rms{d}$ from Eq. \ref{eq:dustenergylosstotal} and add to $\mathcal{L}\rms{g}$.
+    \end{enumerate}
+    \item Calculate substep interval, $dt$ using Eq. \ref{eq:substepinterval}, compare with remaining time in $\Delta t$.
+    \item Integrate using Euler method to find total change in energy.
+    \item Calculate change in temperature from ideal gas law, update temperature.
+    \item Check to see if temperature has reached lower bound, if so, break out of loop and set temperature to $10^4\,\si{K}$.
+    \item March forward, such that $\delta t\rms{new} = \delta t\rms{old} + dt$ and iterate if needed.
+  \end{enumerate}
+  \item Calculate new pressure from final temperature, recalculate total energy, update cell conserved parameters.
+\end{enumerate}
+
 \section{Dust model}
+
+Operation occurs for every cell in numerical grid and only if dust model is enabled.
+
+\begin{enumerate}
+  \item Read in conserved gas variables and simulation timestep.
+  \item Read in dust and wind ``colour'' scalars.
+  \item Calculate temperature.
+  \item Calculate $V\rms{gr}$, $m\rms{gr}$, $\rho\rms{d}$ and $n\rms{d}$ from $z$ and $a$.
+  \item If temperature is $\leq \SI{1.4e4}{K}$, dust growth occurs:
+  \begin{enumerate}
+    \item Calculate grain RMS velocity of carbon using Eq. \ref{eq:rmsvelocitycarbon}.
+    \item Calculate $da/dt$ using Eq. \ref{eq:dustgrowthradiuschange}.
+    \item Calculate $d\rho\rms{d}/dt$ using Eq. \ref{eq:dustgrowthratemodel}.
+  \end{enumerate}
+  \item If temperature is greater than $10^6\,\si{K}$, dust destruction occurs:
+  \begin{enumerate}
+    \item Calculate $\tau\rms{gr}$ using Eq. \ref{eq:dustsputterlifetime}.
+    \item Calculate $da/dt$ using Eq. \ref{eq:dustsputterdadt}.
+    \item Calculate $d\rho\rms{d}/dt$ using Eq. \ref{eq:dustsputterdrhoddt}.
+  \end{enumerate}
+  \item If $d\rho\rms{d}/dt \neq 0$:
+  \begin{enumerate}
+    \item Calculate new grain radius using Eq. \ref{eq:anewupdate}.
+    \item Calculate new dust density after cell timestep $\Delta t$ using Eq. \ref{eq:newdustdensity}.
+    \item Calculate new gas density using Eq. \ref{eq:newgasdensity}.
+    \item Calculate new $z$ using Eq. \ref{eq:znewupdate}.
+    \item Ensure that $a$ is not negative or unrealistically large.
+    \item Ensure that $z$ is not negative or $>1$.
+    \item Update cell conserved parameters.
+    \item Update dust scalars and wind ``colour''.
+  \end{enumerate}
+\end{enumerate}
 
 \chapter{Software Carpentry}
 
@@ -168,7 +255,7 @@ seq 0 <max> | parallel -j44  "athena_plot.py plot-config.yaml -n {}"
 
 \noindent
 where \texttt{<max>} is the number of simulation files.
-The \texttt{Numba} library \parencite{lam2015numba} was also used to improve performance by  JIT\footnote{Just In Time.} compiling, parallelising and vectorising certain steps that were not performant in either \texttt{Python} or \texttt{Numpy} \parencite{harris2020array}.
+The \texttt{Numba} library \parencite{lam2015numba} was also used to improve performance by just-in-time (JIT) compiling, parallelising and vectorising certain steps that were not performant in either \texttt{Python} or \texttt{Numpy} \parencite{harris2020array}.
 In this case, \texttt{Numba} was used to restructure numerical array data into a linear series of arrays, performing derived parameter such as dust density and temperature calculations, and matrix co-ordinate transforms.
 While this is less straightforward to implement, as many of \texttt{Pythons} data-types cannot be used, this offered a 2 order of magnitude processing speed increase in the case of an 8-core workstation.
 

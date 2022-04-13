@@ -1,5 +1,5 @@
 load "../turbo.pal"
-set terminal cairolatex standalone size 5in,3in
+set terminal cairolatex standalone size 6in,3in
 set output "shock-factor.tex"
 
 set format x  '$10^{%L}$'
