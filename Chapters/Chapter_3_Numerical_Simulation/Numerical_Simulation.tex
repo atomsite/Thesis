@@ -579,6 +579,7 @@ The closest hotter temperature bin has an index of $n+1$, and a linear interpola
   \Lambda\rms{g}(T) \approx \Lambda_n + (T - T_n) \frac{\Lambda_{n+1} - \Lambda_n}{T_{n+1} - T_n} .
 \end{equation}
 
+\noindent
 This speed-up is fairly significant as the average search performance changes from $\mathcal{O}(n)$ to $\mathcal{O}(1)$ time, a marked improvement over even a binary search, which would resolve in an average of $\mathcal{O}(\log n)$ time.
 In the case of a 101-bin array this is only a minor speed-up, but with the sheer number of calculations being performed, any optimisation to a function used multiple times per cell can significantly improve performance.
 In the case of larger, or multi-parameter lookup tables this method would only improve in performance, and is a good example of general optimisation in a numerics programme.
@@ -1362,7 +1363,7 @@ A more complex model may require additional parameters, and as such could be hig
 \begin{figure}[ht]
   \centering
   \includegraphics[width=4in]{assets/ray/cwb-raytrace-045.0.png}
-  \caption{X-ray radiative transfer image from \SI{0.1}{\kilo\electronvolt} to \SI{10.0}{\kilo\electronvolt} of a test CWB system with a momentum ratio of $\eta = 0.01$ inclined at $\phi = 45^\circ$ from the obesrver at a distance of \SI{1}{\kilo\parsec}. Radiative transfer was performed on an in-house code, which was to be modified to support dust emission.}
+  \caption[An x-ray radiative transfer example]{An x-ray radiative transfer image from \SI{0.1}{\kilo\electronvolt} to \SI{10.0}{\kilo\electronvolt} of a test CWB system with a momentum ratio of $\eta = 0.01$ inclined at $\phi = 45^\circ$ from the obesrver at a distance of \SI{1}{\kilo\parsec}. Radiative transfer was performed on an in-house code, which was to be modified to support dust emission.}
   \label{fig:inhousert}
 \end{figure}
 
