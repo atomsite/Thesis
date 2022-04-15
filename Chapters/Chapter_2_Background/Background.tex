@@ -29,9 +29,8 @@ However, as is the case with astrophysical terminology, the term stuck, to the c
 %//FIXME POTENTIAL maybe put this part in with OB stars? allows for more seamless switching from diatribe to the main body
 Instead, we now know that stars produce their energy through fusion.
 These reactions vary from sub-stellar deuterium and lithium burning, to main sequence p-p \& CNO hydrogen burning processes, and finally to the triple-$\alpha$ and other exotic fusion processes for evolved high-mass stars.
-The more massive the star the greater the internal pressure, allowing for more exotic fusion processes.
 
-The bigger a star, the greater the core pressure and temperature.
+The more massive the star, the greater the internal temperature and pressure, allowing for more exotic fusion processes.
 As all fusion reactions are highly dependent on temperature, stars with only a few dozen solar masses are thousands of times more luminous than our sun -- but only last a fraction of the time \parencite{carrollIntroductionModernAstrophysics2014}.
 These stars have luminosities in the range of \SI{1e4}{\solarluminosity} and lifespans on the order of \SI{10}{\mega\year}, less than 0.1\% of the lifespan of our sun.
 The adage of a candle burning twice as bright and lasting half as long doesn't quite express the differences between high-mass stars and low-mass stars, it would instead be better to compare a candle and a stick of dynamite.
@@ -123,7 +122,7 @@ The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\
 \end{equation}
 
 \noindent
-Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}), the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$.
+Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}), the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$ due to the small reaction cross-section.
 In more massive stars, with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not occur.
 The mechanisms underpinning fusion in intermediate and high-mass stars are much more energetic and temperature dependent.
 Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle:
@@ -165,7 +164,7 @@ Sampling the winds themselves is difficult due to the vast distances involved in
 We instead derive the properties of these extrasolar winds from spectrography, with the absorption and emission spectra of the winds betraying their composition.
 The velocity of these winds can be determined in much the same manner, through the Doppler shift of these emission lines.
 Early observations of stellar winds centred around the star P Cygni, the earliest known example of an evolved Luminous Blue Variable (LBV) star.
-The presence of peaks and throughs in the spectra of the star was the cause of some scientific curiosity.
+The presence of peaks and troughs in the spectra of the star was the cause of some scientific curiosity.
 This effect could only be explained by the presence of a shell rapidly expanding away from the star.
 The troughs of this spectra corresponded to a blue-shifted adsorption lobe, from radiation passing through this shell, while the emission line itself corresponded to the expanding shell itself \parencite{bealsNatureWolfRayetEmission1929,lamersIntroductionStellarWinds1999}.
 Observations of other stars typified this event, it was found that every star had a stellar wind, though the speed and quantity of the ejected material could vary by many orders of magnitude.
@@ -293,7 +292,7 @@ As researchers went back to the drawing board, improvements were made to the app
 \label{sec:evolvedstars}
 % Evolution and fate of massive stars, evolution, depletion of hydrogen products, then onto helium burning
 Unfortunately for the most massive stars, pesky limitations such as the conservation of energy severely curtail their lifespans.
-Despite being anywhere from 3 to 6 orders of magnitude brighter, the most massive stars typically have between 1 and 2 orders of magnitude more mass to fuse.
+Despite being anywhere from 3 to 6 orders of magnitude brighter, the most massive stars typically only have between 1 and 2 orders of magnitude more mass to fuse.
 % As such, they simply cannot compete with the ten billion year lifespan of our sun, or red dwarfs, which can have lifespans in the \emph{trillions} of years!
 % Luminosity lifetime relation
 % In order to approximate the main sequence lifespan of a massive, early-type star we must make some assumptions.
@@ -463,7 +462,7 @@ WC stars form from the most massive of O-type stars, and are the only observed d
 % WC stars, in particular, why important
 The hydrogen in a WC stars envelope has been completely depleted, instead, the stellar wind is enriched with other elements such as helium, carbon and oxygen.
 The presence of large quantities of carbon in the outflow is of particular interest, as interstellar dust can condense and form.
-Whilst low quantities of interstellar dust have been observed in the vicinity of single WC stars, this is typically in very low amounts.
+Whilst some WC stars are potentially capable of forming dust, this is predicted to be rare, and these stars only produce dust in small amounts \parencite{medinaAreAllWCd2021}.
 Certain binary systems can produce quantities of dust that can significantly impact their local environment, however.
 Within a binary system, it is typically paired with another massive star, such as an O-type or B-type.
 The RSG/LBV phase strips off the bulk of the stars outer envelope, resulting in a WR star that is significantly smaller and lighter than its partner.
@@ -474,7 +473,7 @@ These binaries will be discussed in much more detail -- of course -- as they are
 \begin{figure}[ht]
   \centering
   \includegraphics{assets/tracks/tracks.pdf}
-  \caption[Stellar evolution tracks of massive stars]{Stellar evolution tracks of rotating O-type stars from the zero-age main sequence (ZAMS) to their end of life. Higher mass O-type stars undergo a significant increase in brightness and temperature as they evolve into LBV and then WR stars. The O3V star in particular appears to undergo two separate phases, clearly indicative of the high-mass case of Eq. \ref{eq:wrevolution}. The evolutionary tracks were derived from the MIST project \parencite{choiMesaIsochronesStellar2016,dotterMESAIsochronesStellar2016,paxtonModulesExperimentsStellar2011}.}
+  \caption[Stellar evolution tracks of massive stars]{Stellar evolution tracks of rotating O-type stars from the zero-age main sequence (ZAMS; represented by a star) to their end of life. Higher mass O-type stars undergo a significant increase in brightness and temperature as they evolve into LBV and then WR stars. The O3V star in particular appears to undergo two separate phases, clearly indicative of the high-mass case of Eq. \ref{eq:wrevolution}. The evolutionary tracks were derived from the MIST project \parencite{choiMesaIsochronesStellar2016,dotterMESAIsochronesStellar2016,paxtonModulesExperimentsStellar2011}.}
   \label{fig:mist-zams}
 \end{figure}
 
@@ -490,9 +489,9 @@ The core contracts further, heating to temperatures in the range of $10^9 \, \si
 
 \begin{equation}
   \begin{alignedat}{3}
-    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Ne}{20}{10} + \atom{He}{4}{2} && + \SI{4.62}{\mega\electronvolt} \\
-    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Na}{23}{11} + p && + \SI{2.24}{\mega\electronvolt} \\
-    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Mg}{23}{12} + n && + \SI{2.60}{\mega\electronvolt}
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Ne}{20}{10} + \atom{He}{4}{2} && ~~ + \SI{4.62}{\mega\electronvolt} \\
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Na}{23}{11} + p && ~~ + \SI{2.24}{\mega\electronvolt} \\
+    \atom{C}{12}{6} + \atom{C}{12}{6} & \rightarrow \atom{Mg}{23}{12} + n && ~~ + \SI{2.60}{\mega\electronvolt}
   \end{alignedat}
 \end{equation}
 
@@ -546,7 +545,7 @@ The scientific community also found that the interstellar dust itself was intere
 Small grains of interstellar dust are a loose collective of atoms and molecules held together by weak molecular bonds, and are typically on the order of $10 \, \si{\angstrom}$ to $100 \, \si{\angstrom}$ in size.
 These grains are formed from small, refractory dust cores around $5\,\si{\angstrom}$ across, in high density regions such as stellar atmospheres and dark interstellar clouds \parencite{spitzerPhysicalProcessesInterstellar2008}.
 This initial accretion process can be quite rapid due to implantation of impinging carbon ions from the accompanying stellar wind \parencite{zubkoPhysicalModelDust1998a}.
-While the largest dust grains can be on the order of centimetres (in the case of protoplanetary disks), the initial grain size that we use in this project is $50 \, \si{\angstrom}$.
+While the largest dust grains can be on the order of centimetres (in the case of protoplanetary disks), the initial grain size that we use in this project is $50 \, \si{\angstrom}$, which we determined through experimentation (Section \ref{sec:injection}).
 There are a multitude of ways that these dust grains can grow and shrink in size, though only a few are simulated in this work.
 This is due to either difficulty of implementation into our model or time constraints.
 The first such mechanism for growth and destruction that will be discussed is grain-grain collision.
@@ -582,7 +581,7 @@ Between $10^5$ and $10^9$ Kelvin the following approximation is valid:
 
 \noindent
 where $T_6$ is the gas temperature in units of $10^6 \, \si{K}$.
-The dust destruction rate is dependent on the grain temperature, rapidly reducing below $10^6\, \si{\kelvin}$, and is found to be roughly flat from \SI{1e6}{K} to \SI{3e8}{\kelvin} \parencite{tielens_physics_1994}.
+The dust destruction rate is dependent on the gas temperature, rapidly reducing below $10^6\, \si{\kelvin}$, and is found to be roughly flat from \SI{1e6}{K} to \SI{3e8}{\kelvin} \parencite{tielens_physics_1994}.
 We can therefore adopt a normalised grain lifespan $\tau\rms{gr}$, which we can use to calculate the dust destruction rate in our simulations:
 
 \begin{equation}
@@ -1114,11 +1113,11 @@ The presence of dust within the immediate post-shock environment significantly i
 In order to parametrise this, an energy loss rate, as formulated in Eq. \ref{eq:energylossrate} but for a volume of dust, $\mathcal{L}\rms{d}$ is used:
 
 \begin{equation}
-  \mathcal{L}\rms{d} (a,T) = n\rms{d} n\rms{g} \Lambda\rms{d} (a,T)
+  \mathcal{L}\rms{d} (\rho\rms{g},a,T) = n\rms{d} H\rms{T}(\rho\rms{g},a,T) , 
 \end{equation}
 
 \noindent
-where $n\rms{d}$ is the number density of dust grains in the region and $a$ is the grain radius.
+where $\rho\rms{g}$ is the gas density in the region, $a$ is the grain radius, $n\rms{d}$ is the number density of dust grains in the region and $H\rms{T}$ is the average heating rate on a grain due to collisions with atoms, ions and free electrons.
 Fig. \ref{fig:dustplasmacomparison} compares $\mathcal{L}\rms{g}$ for a solar abundance plasma and $\mathcal{L}\rms{d}$ for dust within this plasma at varying grain sizes.
 % As we can see, small grain sizes, with the same dust-to-gas mass ratio, dust cooling dominates at high temperatures, before reaching a peak emission rate.
 At high temperatures we see that dust cooling is orders of magnitude more efficient.
@@ -1144,7 +1143,7 @@ Radiative heating is not calculated, as it is assumed that the dust grains are w
 The contribution of heating due to each ion species and electron is individually calculated, and combined to find the total grain heating rate:
 
 \begin{equation}
-  H = H\rms{el} + \sum_i H_i , 
+  H\rms{T} = H\rms{el} + \sum_i H_i , 
 \end{equation}
 
 \noindent
@@ -1228,7 +1227,7 @@ A good starting point to understanding dust formation is to understand how the W
 As previously discussed, dust can be destroyed through high-velocity collisions with grains, as well as evaporation through heating or ionising radiation.
 These processes are mitigated through the cooling, as well as through the large amount of UV extinction due to the high density of the WCR.
 Meanwhile, the dust production rate increases within high density regions, as collisions between dust grains and gas occur at a much higher rate.
-The same can be said with dust grains, allowing for fast growth from gas and impinging ion accretion, and grain-grain collision as the number density of dust grains begins to increase.
+The same can be said with dust grain cores, allowing for fast growth from gas and impinging ion accretion, and grain-grain collision as the number density of dust grains begins to increase.
 The accumulation of these effects results in a very fast initial growth rate, which tapers off as the post-shock region diffuses and expands.
 
 % Role of instabilities
@@ -1322,7 +1321,7 @@ WR140 is significant in that it is the first system observed with episodic WCd p
 WR140 has been observed many times over the years, with spectroscopic data dating back to 1972, and is perhaps the most well-observed episodic WCd system.
 % Eccentric orbit, variable dust formation
 With its eccentricity of $e=0.8993$, the separation between the stars -- and therefore $\chi$ -- vary by a factor of 17.6 from apastron to periastron.
-Therefore it an ideal system to verify that our dust model can naturally handle episodic dust forming systems, as well as to determine which parameters affect an episodic system.
+Therefore it is an ideal system to verify that our dust model can naturally handle episodic dust forming systems, as well as to determine which parameters affect an episodic system.
 
 % Difficulty of simulation
 As it is a highly eccentric system with a particularly long period orbit, a number of difficulties present themselves.
@@ -1415,8 +1414,8 @@ This discovery is very significant as it was the first galactic WR+WR system dis
 Further work by \textcite{hanExtremeCollidingwindSystem2020} has estimated the orbital parameters of Apep, finding that it is a highly eccentric system with a period of \SI{125(20)}{\year} and an eccentricity of \num{0.7(0.1)}, inclined at $\pm \ang{30} \pm \ang{5}$ towards Earth.
 An initial estimate of the dust formation rate was made, finding a dust production rate of $\sim \SI{5e-7}{\solarmass\per\year}$, while observation of the surrounding dust shell suggests that it is a periodic dust forming system, which is sensible considering the systems high eccentricity.
 The opening angle of the WCR was found to be very wide, at $\ang{125}\pm\ang{10}$, further suggesting the presence of two very high mass loss rate objects within the system due to a balanced wind momenta.
-Additional calculations by \textcite{marcoteAUscaleRadioImaging2021} estimated the systems wind momentum ratio to be $0.44\pm 0.08$, again in line with the WR+WR hypothesis. 
-Finally, the pre-print by \textcite{delpalacioNonthermalEmissionCollidingwind2021} finds a mass loss rate of \SI{4e-5}{\solarmass\per\year} for the WN star and \SI{2.9e-5}{\solarmass\per\year} for the WC star, which all but confirms the presence of a WR+WR binary at the heart of the Apep system.
+Additional calculations by \textcite{marcoteAUscaleRadioImaging2021} estimated the systems wind momentum ratio to be $0.44 \pm 0.08$, again in line with the WR+WR hypothesis. 
+Finally, \textcite{delpalacioNonthermalEmissionCollidingwind2022} finds a mass loss rate of \SI{4e-5}{\solarmass\per\year} for the WN star and \SI{2.9e-5}{\solarmass\per\year} for the WC star, which all but confirms the presence of a WR+WR binary at the heart of the Apep system.
 
 With an estimated combined mass loss rate of \SI{6.9e-5}{\solarmass\per\year} we estimate that the system has a dust conversion efficiency of 0.7\%.
 Whilst this system is therefore not a prodigious producer of dust, this is most likely due to the extremely high wind terminal velocity and high separation distance, which would suggest a fairly smooth and adiabatic post-shock region. 
@@ -1438,3 +1437,9 @@ As WR48a has insufficient data and Apep has only been recently discovered, there
 Another difficulty is the large degree of orbital separation, high eccentricity and long orbital timescales required to simulate these systems.
 The current limitations of the hydrodynamical code being used in this project render it difficult to simulate entire orbital passes of highly elliptical systems with long periods.
 If these issues are resolved in later versions of the hydro code however, this would present an interesting avenue of future research.
+
+\section{Summary}
+
+In this chapter, we have discussed the underlying physics of this thesis, from star formation to dust production, before discussing the crux of this project, the colliding wind binary.
+However, we must discuss the mathematical and computational aspects of our work before discussing our simulations and results.
+In the following chapter, we shall do this, discussing our model and methodology in detail.

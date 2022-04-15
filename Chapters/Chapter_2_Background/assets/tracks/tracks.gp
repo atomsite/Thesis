@@ -24,5 +24,12 @@ plot "20.0-msol-track.dat" u 1:2 w l ls 1 t "O9V - $20 \\, M_\\odot$" ,\
 "60.0-msol-track.dat" u 1:2 w l ls 5 t "O5V - $60 \\, M_\\odot$" ,\
 "85.0-msol-track.dat" u 1:2 w l ls 6 t "O4V - $85 \\, M_\\odot$" ,\
 "120.0-msol-track.dat" u 1:2 w l ls 7 t "O3V - $120 \\, M_\\odot$" ,\
+"< head -n 1 20.0-msol-track.dat" u 1:2 ls 1 pt 3 notitle ,\
+"< head -n 1 24.0-msol-track.dat" u 1:2 ls 2 pt 3 notitle ,\
+"< head -n 1 32.0-msol-track.dat" u 1:2 ls 3 pt 3 notitle ,\
+"< head -n 1 45.0-msol-track.dat" u 1:2 ls 4 pt 3 notitle ,\
+"< head -n 1 60.0-msol-track.dat" u 1:2 ls 5 pt 3 notitle ,\
+"< head -n 1 85.0-msol-track.dat" u 1:2 ls 6 pt 3 notitle ,\
+"< head -n 1 120.0-msol-track.dat" u 1:2 ls 7 pt 3 notitle ,\
 
      

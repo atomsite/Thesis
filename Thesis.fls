@@ -2098,13 +2098,7 @@ INPUT ./Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
-INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
-INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
-INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
-INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
-INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
-INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
@@ -2114,6 +2108,12 @@ INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/lmbsy7.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb10.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eurb7.tfm
+INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
+INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
+INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
+INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
+INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
+INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT /Users/py13je/texlive/2021/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mergecellc.pdf
