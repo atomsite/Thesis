@@ -361,7 +361,7 @@ The performance advantage of AMR scales significantly better with additional dim
   AMR & \num{201472} & $\sim 330 \, \si{MiB}$ & \num{3.77e+07} & \SI{82.277(0.400)}{s} & $\num{1178}\%$ \\
   \hline
   \end{tabular}
-  \caption{Results of a double mach reflection  with 44 cores on a dual-socket \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation and compiled with \texttt{GCC 4.8.5} with the \texttt{O3} optimisation set.}
+  \caption[Time taken to simulate $10^4$ timesteps of a double mach reflection test when AMR is disabled and enabled]{Time taken to simulate $10^4$ timesteps of a double mach reflection test when AMR is disabled and enabled. AMR significantly increases performance without a significant amount of overhead. Test was conducted a dual-socket \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation with 44 cores and compiled with \texttt{GCC 4.8.5} with the \texttt{O3} optimisation set. Benchmarking was conducted with \texttt{hyperfine}.}
   \label{tab:amr-comparison}
 \end{table}
 
