@@ -4,7 +4,7 @@
 Colliding wind binary (CWB) systems sit at the intersection of many fascinating fields.
 Unfortunately this means that a broad swathe of stellar astrophysics must be discussed in order to investigate them in any detail.
 In this chapter we will discuss the many underlying subjects of CWB systems.
-First, we shall start with massive, early type stars -- how they form, what drives their titanic energy outputs, as well as their inevitable and violent deaths.
+First, we shall start with massive, early-type stars -- how they form, what drives their titanic energy outputs, as well as their inevitable and violent deaths.
 Afterwards, we will discuss interstellar dust, the fragile, microscopic grains that act as chemical refineries across the cosmos.
 In particular, we will discuss their formation, growth and destruction mechanisms, in order to understand how such an object can arise in such a violent system as a CWB.
 We will then move on to discussing colliding wind binary systems, wind parameters and cooling mechanisms.
@@ -48,7 +48,8 @@ This includes stars in the O-type and some B-subtype (B0 and B1) classes in the 
 
 All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing truly staggering amounts of gas.
 The largest of these clouds are on the order of a few parsecs across, and contain \SI{1e6}{\solarmass} of potential star-stuff.
-These clouds are somewhat stable, and must be perturbed in order to collapse, which is easier said than done, but can be induced by stellar winds from nearby stars, and shock-waves from supernovae
+These clouds are somewhat stable, and must be perturbed in order to collapse.
+This is easier said than done, but can be induced by stellar winds from nearby stars and shock-waves from supernovae
 \parencite[Ch.~3]{bodenheimerPrinciplesStarFormation2011}.
 As the cloud collapses, energy is radiated through emission line processes, which lowers the radius of thermostatic equilibrium.
 As the GMC collapses further it begins to fragment, forming the molecular clumps and cloud cores that will eventually condense into protostars.
@@ -81,8 +82,8 @@ The equation of motion for this system is
 \noindent
 for any point with radius $r$ from the centre in the cloud, assuming spherical symmetry \parencite[96]{ward-thompsonIntroductionStarFormation2011}.
 
-In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse.
-This burgeoning star begins to drive the collapsing material through radiation pressure, blowing this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
+In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse \emph{prior} to the cessation of collapse.
+This burgeoning star begins to drive the collapsing material away through radiation pressure, blowing this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
 
 As more massive cores collapse, they are more prone to fragmentation, the angular velocity of the fragments can cause them to begin orbiting one another, eventually forming a binary or multiple star system.
 Close binary systems can also form by way of fragmentation in the proto-stellar disk.
@@ -91,6 +92,7 @@ However, in the case of massive stars, this value is significantly higher, with 
 As such, the environment within an OB association is one of many tight knit groups of young stars, which completely disrupt the local area\footnote{This is similar to the environments around student areas, such as Hyde Park and Headingley.}.
 
 \subsection{The p-p \& CNO fusion cycles}
+\label{sec:fusioncycles}
 
 \begin{table}[h]
   \centering
@@ -111,7 +113,7 @@ As such, the environment within an OB association is one of many tight knit grou
 As we have previously discussed, the KH mechanism is not the driving force behind the generation of energy in a star, instead, this energy is derived through nuclear fusion processes.
 We shall briefly discuss the various nuclear fusion processes in order to understand why massive stars are so luminous, as well as how their lives end.
 Nuclear fusion in stars was first proposed by \textcite{eddingtonInternalConstitutionStars1920}, though the exact processes continued to be a mystery for nearly 2 decades -- until \textcite{betheEnergyProductionStars1939} discovered the p-p fusion reaction chain that drives approximately 90\% of the energy generation of the sun.
-The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\solarmass} \lesssim \text{M}_\star \lesssim 1.3 \, \si{\solarmass}$, and releases energy by fusing protons into helium in a particularly direct manner: 
+The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\solarmass} \lesssim \text{M}_\star \lesssim 1.3 \, \si{\solarmass}$, and releases energy by fusing protons into helium in the following manner:
 
 \begin{equation}
   \begin{alignedat}{3}
@@ -122,7 +124,7 @@ The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\
 \end{equation}
 
 \noindent
-Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}), the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$ due to the small reaction cross-section.
+Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}); the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$ due to the small reaction cross-section.
 In more massive stars, with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not occur.
 The mechanisms underpinning fusion in intermediate and high-mass stars are much more energetic and temperature dependent.
 Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle:
@@ -139,9 +141,10 @@ Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within 
 \end{equation}
 
 \noindent
-The CNO I cycle -- which was also discovered by \textcite{betheEnergyProductionStars1939} -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{18}$
-(\cite[Ch.~10]{wongIntroductoryNuclearPhysics1998}; see Fig. \ref{fig:fusionrates}).
-The incredible densities at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
+The CNO I cycle -- which was also discovered by Bethe -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{18}$
+(\cite[Ch.~10]{wongIntroductoryNuclearPhysics1998,betheEnergyProductionStars1939}; see Fig. \ref{fig:fusionrates}).
+The CNO cycle is dominant at internal temperatures $>\SI{15.9}{\mega\kelvin}$, corresponding to a stellar mass of $\gtrsim \SI{1.3}{\solarmass}$ \parencite[121]{salarisEvolutionStarsStellar2005}.
+The incredible temperatures at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
 This results in a convective core surrounded by a radiative envelope, and is the driving force behind the incredible observed luminosities of high-mass stars as they convert hydrogen to helium at a truly astounding rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
 
 \begin{figure}[h]
@@ -152,11 +155,12 @@ This results in a convective core surrounded by a radiative envelope, and is the
 \end{figure}
 
 \subsection{Stellar winds}
+\label{sec:stellarwinds}
 
 % Influence of OB stars on surrounding environment, outsized influence etc.
 The luminosities and temperatures of high-mass stars also drive extremely fast stellar winds through radiative line driving.
 These winds have on the order of $10^{10}$ times more momentum than winds from stellar-mass stars, and punch holes clean into the interstellar medium (ISM), forming wind-driven bubbles and champagne flows.
-These winds can also perturb GMCs, disrupting it and forming more stars nearby.
+These winds can also perturb GMCs, disrupting them and forming more stars nearby.
 
 The study of stellar winds, of course, is quite hard from our vantage point on earth.
 Sampling the winds themselves is difficult due to the vast distances involved in sending a probe to collect the rarefied material from our stellar neighbourhood.
@@ -205,7 +209,7 @@ Whilst this barest description can give us some insight into how a wind behaves,
 \begin{figure}[h]
   \centering
   \includegraphics{assets/wind-comparison/wind-comp.pdf}
-  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in equation \ref{eq:smoothwind}.}
+  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in Table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in Eq. \ref{eq:smoothwind}.}
   \label{fig:windrhocomp}
 \end{figure}
 
@@ -281,7 +285,8 @@ Theories of radiation pressure being the main driving force for massive stars wa
 Later, \textcite{milnePossibilityEmissionHighspeed1926} predicted that after an initial acceleration phase from an ions emission lines, Doppler shift would be sufficient for continuum photons frequencies to match the resonant lines -- causing a much greater impulsive force.
 Early calculations of the force on stellar winds due to resonance lines by \textcite{lucy_mass_1970} found initial estimates for the mass loss rate based on a series of resonance line in the C, N, Si and S species of ions.
 However these were found to underestimate the mass loss by approximately two orders of magnitude.
-This is in part due to the models simplicity, due to limitations in both computing power and available data, as the force due to interaction of resonance lines with continuum photons were considered.
+This is in part due to the models simplicity, limitations in computing power and available data.
+% as the force due to interaction of resonance lines with continuum photons were considered.
 The first major breakthrough was with more complex models demonstrated by Castor, Abbott and Klein (\citeyear{castor_radiation-driven_1975}; abbreviated to CAK).
 The CAK model computed line forces from all emission lines in the C III ion, after estimating the line force from other ions by scaling the results of this calculation an estimate of mass loss rates for hot stars was calculated to within a factor of 3 of observational results.
 A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from a startling \num{250000} lines, however, this was found to be less accurate than the original CAK model!
@@ -373,7 +378,8 @@ Inside this giant star the core continues to collapse, compressing and heating f
 The endothermic component of the 3$\alpha$ process, as well as the short reaction time prevents it from occurring in any reasonable quantity until core temperatures are in the order of hundreds of millions of Kelvin
 \parencite[Pt.~6]{kippenhahnStellarStructureEvolution2012}.
 The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, which can result in staggering amounts of energy production.
-This process is far less energy efficient than hydrogen burning processes, and releases an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}), hence, the helium burning process can be as short as \SI{500000}{\year}.
+This process is far less energy efficient than hydrogen burning processes, and releases an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}).
+Hence, the helium burning process can be as short as \SI{500000}{\year}.
 At this point the fate of the star is sealed, it hurtles off of the main sequence like a 1966 Ford Thunderbird from the edge of the Grand Canyon\footnote{See \emph{Thelma and Louise} (1991) dir. Ridley Scott.}.
 Because of this helium burning, the most massive of early-type stars transition into a Wolf-Rayet (WR) star -- one of the cruces of this thesis.
 
@@ -479,7 +485,7 @@ These binaries will be discussed in much more detail -- of course -- as they are
 
 % Lifespan 
 The Wolf-Rayet phase only takes up a brief period of a typical massive stars lifespan, typically \SI{5e5}{\year}, or $\lesssim 10\%$ of the main sequence lifespan of a representative O-type star.
-Despite this short lived phase, the Wolf-Rayet leaves a marked impact on the surrounding stellar environment through stellar feedback and in some cases interstellar dust production.
+Despite this short-lived phase, the Wolf-Rayet leaves a marked impact on the surrounding stellar environment through stellar feedback and in some cases interstellar dust production.
 
 \subsubsection{The death of a star}
 
@@ -637,7 +643,7 @@ This of course makes the premise of our project all the more curious, with so ma
 
 % Grain types being considered, amorphous carbon grains
 The only species of interstellar dust studied in this thesis are composited of carbon.
-$sp^2$- (graphite) and $sp^3$-bonded (diamond) dust grains have been detected from their characteristic emission lines, as well as hydrocarbon chains and Polycyclic Aromatic Hydrocarbons (PAHs).
+$sp^2$ (graphite) and $sp^3$-bonded (diamond) dust grains have been detected from their characteristic emission lines, as well as hydrocarbon chains and Polycyclic Aromatic Hydrocarbons (PAHs).
 Complex organic molecules have also been detected in dusty environments, which are believed to have formed on the surface of dust grains, instead of forming within the ISM itself
 \parencite{herbstComplexOrganicInterstellar2009}.
 The primary dust detected in CWB systems is amorphous carbon grains, which are defined as grains with a mixture of $sp^2$- and $sp^3$-bonded carbon with no structural order or polymerisation
@@ -721,7 +727,7 @@ X-ray variability would result from the following effects:
 \end{itemize}
 
 \noindent
-Such effects could not be produced within a single star system \parencite{pittard_x-ray_1999}.
+Such effects could not be produced within a single star system \parencite[34]{pittard_x-ray_1999}.
 % Further research by \textcite{pollockEinsteinViewWolfRayet1987} also found that single WR stars were typically faint, with the brightest x-ray emitting WR stars being confirmed to within massive binaries.
 WR+OB systems were also found to be the brightest of such objects, while OB+OB binaries with significant x-ray flux were observed, these were typically less luminous.
 % Early work categorising, using gamma 2 vel and V444Cyg
@@ -761,6 +767,7 @@ The post-shock wind is driven by a combination of thermal pressure from the outf
 The geometry of the WCR is influenced strongly by the wind parameters of both stars, the most important of which is the wind momentum ratio, or $\eta$, which we define as:
 
 \begin{equation}
+  \label{eq:etach2}
   \eta = \frac{\dot M_\text{OB} v^\infty_\text{OB}}{\dot M_\text{WR} v^\infty_\text{WR}},
 \end{equation}
 
@@ -780,11 +787,11 @@ The position of this discontinuity can be predicted with the equation
 
 \noindent
 where $r\rms{WR}$ is the distance from the WR star to the contact discontinuity, $r_\text{OB}$ is the distance from the OB star to the contact discontinuity and $d_\text{sep}$ is the orbital separation distance of the stars.
-We can also approximate the opening angle, $\theta_c$, of the WCR using the equation provided by \textcite{eichler_particle_1993}
+We can also approximate the opening angle, $\theta\rms{c}$, of the WCR using the equation provided by \textcite{eichler_particle_1993}
 
 % Conic approximation
 \begin{equation}
-  \theta_c \simeq 2.1 \left(1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3}, ~~ \text{for } 10^{-4} \leq \eta \leq 1. \label{eq:conic}
+  \theta\rms{c} \simeq 2.1 \left(1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3}, ~~ \text{for } 10^{-4} \leq \eta \leq 1. \label{eq:conic}
 \end{equation}
 
 % Wind shock factor, see Julians paper
@@ -794,7 +801,7 @@ We can also approximate the opening angle, $\theta_c$, of the WCR using the equa
 % The opening angle for $C$ was found to be consistent with the solution provided by \textcite{eichler_particle_1993}, while 
 
 \noindent
-Work by \textcite{pittardCollidingStellarWinds2018} on determining the accuracy of opening angle expressions such as equation \ref{eq:conic} found that this approximation is accurate under the condition $\eta > 0.01$, but begins to diverge significantly if this condition is exceeded.
+Work by \textcite{pittardCollidingStellarWinds2018} on determining the accuracy of opening angle estimations such as Eq. \ref{eq:conic} found that this approximation is accurate under the condition $\eta > 0.01$, but begins to diverge significantly if this condition is exceeded.
 This was accomplished through a series of hydrodynamical simulations with different values for $\eta$, with the resultant opening angle calculated from the fully advected simulations.
 This work goes on to derive analytical solutions to the opening angles of the conic approximations of $\widetilde{S}_1$ and $\widetilde{S}_2$.
 These solutions were found to be:
@@ -865,9 +872,10 @@ For example, the systems WR104 and WR98a produce easily observable pinwheel stru
 
 % Whilst we have described the dynamics and structure of the post-shock WCR, we have not described the temperatures.
 Such violent regions of space are \emph{exceedingly} hot.
-In a fixed frame of reference, the immediate post-shock temperature, $T\rms{s}$, is calculated via the formulae:
+In a fixed frame of reference, the immediate post-shock temperature, $T\rms{s}$, is calculated via the formula:
 
 \begin{equation}
+  \label{eq:idealgasch2}
   T\rms{s} = \frac{3\mu m\rms{H}}{16 k\rms{B}} V\rms{s}^2 ,
 \end{equation}
 
@@ -1039,11 +1047,11 @@ If we determine the cooling time as the amount of time required for the gas to r
 
 \begin{equation}
   \label{eq:taucool}
-  t\rms{cool} = \frac{e}{\mathcal{L}(T)} = \frac{3}{8} \frac{k\rms{B} T}{n\rms{g} \Lambda(T)},
+  t\rms{cool} = \frac{e}{\mathcal{L}(T)} = \frac{3}{8} \frac{k\rms{B} T}{n\rms{w} \Lambda(T)},
 \end{equation}
 
 \noindent
-where $e$ is the internal energy per unit volume of the gas.
+where $e$ is the internal energy per unit volume of the gas and $n\rms{w}$ is the pre-shock wind number density.
 This value is appropriate in the case of a strong shock with a ratio of specific heats of $\gamma = 5/3$.
 The escape timescale can be approximated with the equation
 
@@ -1058,11 +1066,11 @@ where $c\rms{s}$ is the sound speed.
 
 \begin{equation}
   \label{eq:coolingparameter}
-  \chi \approx \frac{v_{\infty,8}^4 d\rms{12}}{\dot{\text{M}}_{-7}},
+  \chi \approx \frac{v_{8}^4 d\rms{12}}{\dot{\text{M}}_{-7}},
 \end{equation}
 
 \noindent
-where $v_{\infty,8}^4$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{12}$ is the orbital separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
+where $v_{8}^4$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{12}$ is the orbital separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
 
 In the case of a star with a cooling parameter of $\chi \gg 1$, the resultant stellar wind behaves adiabatically in the post-shock environment, producing a smooth flow.
 As $\chi$ decreases and approaches 1, the post-shock wind is increasingly dominated by its radiative processes.
@@ -1147,7 +1155,7 @@ The contribution of heating due to each ion species and electron is individually
 \end{equation}
 
 \noindent
-where $H_i$ is the grain heating due to collisions from an element, $i$.
+where $H_i$ is the grain heating due to collisions from atoms and ions of an element, $i$.
 Whilst collision from atoms and ions is a somewhat important factor in grain heating, we find that the primary contribution of grain heating is due to electron-grain collisions.
 As can be seen in \ref{fig:collisionalheatingcomparison}, heating due to electrons peaks between $10^5$ and $10^6 \, \si{K}$, with a ratio of contributions from electrons to ions of $\sim 100 : 1$.
 This is partially due to the increased electron number density, as the plasma can be multiply or completely ionised at higher temperatures.
@@ -1257,6 +1265,7 @@ Further analysis of available dust producing CWB systems suggests that many WCd 
 \end{figure}
 
 \subsection{Important WCd systems}
+\label{sec:importantwcd}
 
 The principle systems that are being simulated in this thesis are the variable dust forming system WR98a, and the episodic dust forming system WR140.
 The archetypal continuous dust forming system WR104 was also considered for simulation, but had to be cut due to time constraints.
@@ -1311,7 +1320,7 @@ A comparatively wide orbit reduces the number of cells required to simulate the 
 Finally, WR98a has previously been simulated using a multi-fluid dust model in \textcite{hendrix_pinwheels_2016}, this allows us to provide a point of comparison between our work and already published work.
 This is especially useful as there are only a handful of papers that cover dust models in CWB systems.
 % Parameter space exploration
-Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in chapter \ref{chap:parameterspace}.
+Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in Chapter \ref{chap:parameterspace}.
 
 \subsubsection{WR140}
 
@@ -1327,7 +1336,7 @@ Therefore it is an ideal system to verify that our dust model can naturally hand
 As it is a highly eccentric system with a particularly long period orbit, a number of difficulties present themselves.
 Firstly, the system has a much longer orbital period than the other systems being considered, as such, a complete orbit would take a long time to simulate as well.
 Secondly, this requires a corresponding increase in resolution, as the WCR needs to be sufficiently resolved at periastron.
-Whilst refinement methods such as Adaptive Mesh Refinement (AMR) would alleviate these issues somewhat, we found that the current version of the \athena{} hydrodynamical code lacked stability with passive scalars in AMR.
+Whilst refinement methods such as adaptive mesh refinement (AMR) would alleviate these issues somewhat, we found that the current version of the \athena{} hydrodynamical code lacked stability with passive scalars in AMR.
 This issue was deeply embedded in \athena{}, and as such could not be fixed by the end of this PhD.
 % Snippet
 Instead, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$. 
@@ -1392,7 +1401,7 @@ These systems are predicted to be comparatively rare, even among CWB systems.
 This is due to the unlikelihood that both stars in the system would be in their Wolf-Rayet phase at the same time.
 Despite these systems having an enormous combined mass-loss rate, initial estimates of the dust production rates of both systems indicate that their dust conversion efficiencies are comparatively low compared to less energetic systems, and overall quite mundane dust production rates in general.
 Whether this suppressed dust production rate is a common phenomena among WR+WR systems remains to be seen, as more systems would need to be discovered in order to determine this.
-Extragalactic WR+WR binaries have also been detected in the Magellanic clouds, though these are typically WN+WN pairs \parencite{shenarWolfRayetBinaries2019}.
+Extragalactic WR+WR binaries have also been detected in the Magellanic clouds, though all detected systems so far have been found to be WN+WN pairs \parencite{shenarWolfRayetBinaries2019}.
 
 \subsubsection{WR70-16 (``Apep'') -- a recently discovered WR+WR system}
 \label{sec:bg-apep}
@@ -1442,4 +1451,4 @@ If these issues are resolved in later versions of the hydro code however, this w
 
 In this chapter, we have discussed the underlying physics of this thesis, from star formation to dust production, before discussing the crux of this project, the colliding wind binary.
 However, we must discuss the mathematical and computational aspects of our work before discussing our simulations and results.
-In the following chapter, we shall do this, discussing our model and methodology in detail.
+In the following chapter we shall do this, discussing our model and methodology in detail.

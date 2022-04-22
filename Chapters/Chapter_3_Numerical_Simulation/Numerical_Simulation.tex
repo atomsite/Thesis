@@ -18,7 +18,7 @@ Unfortunately, many aspects of a CWB system are also comparatively difficult to 
 % Why is this it's own chapter?
 As mentioned in the introduction to this thesis, theoretical astrophysics straddles two complex fields, astrophysics and computer science.
 While we have discussed the underlying physics and physical phenomena of this project, we have so far neglected to cover the simulation side of this work.
-Some astrophysicists reading this thesis may be unfamiliar with the computational side of the work, and vice versa for computer scientists.
+Some astrophysicists reading this thesis may be unfamiliar with the computational side of the work, while computer scientists would be unfamiliar with the astrophysics.
 As such it is best to describe both in detail.
 Furthermore, discussing our methodology in its own section consolidates it and makes it easier for the reader to understand and replicate it.
 % Breakdown of chapter, what this involves
@@ -109,7 +109,7 @@ As such, this method is commonly used in hydrodynamical codes, and is used throu
 Godunov's method is commonly used as a base for higher-order extensions, which employ methods to interpolate and reconstruct the flow between the interfaces of each Riemann problem.
 Piecewise linear methods linearly interpolate the fluid state between cells to reconstruct the fluxes at the cell interfaces, this is generally considered to be significantly more versatile than a simple piecewise constant method \parencite{vanleerUltimateConservativeDifference1979}.
 The piecewise parabolic method performs a parabolic interpolation step instead across a multitude of cells.
-This is generally more accurate for a smooth and continuous flow, but most scheme must account for and detect discontinuities -- otherwise they can be smoothed out
+This is generally more accurate for a smooth and continuous flow, but most scheme must account for and detect discontinuities -- otherwise they might be smoothed out
 \parencite{colella_piecewise_1984}.
 Throughout this project we utilise the piecewise linear method, which is the default for \athena{}.
 
@@ -144,8 +144,9 @@ For instance, in the case of a three-dimensional problem, $\Delta t$ is found to
 
 \noindent
 For an explicit time-integration problem such as numerical simulation, the value of $C$ is typically $\leq 1$, with the timestep decreasing with additional dimensions for a given value of $C$.
-For 3-dimensional problems in this work, we typically start at $C = 0.15$, and decrease if necessary.
-It is important to note that there is also a constraint due to the sound speed of the fluid, $c_s$ -- as such for highly hypersonic flows the timestep should be reduced further.
+For 3-dimensional problems in this thesis, we typically start at $C = 0.15$, and decrease if necessary.
+It is important to note that there is also a constraint due to the sound speed of the fluid, $c_s$.
+As such, for highly hypersonic flows the timestep should be reduced further.
 
 Numerical simulations - whilst extremely processing intensive - are a class of problems that are considered to be \emph{embarrassingly parallel}.
 A hydrodynamical problem can be divided into a series of smaller problems and solved independently for a common timestep.
@@ -220,14 +221,14 @@ How wrong we were!
 
 % why we didn't use it in the end
 
-Unfortunately the advected scalar dust model never adequately worked.
-This model, when implemented in \mg, either produced dust rates measurable in grams per year, or the simulation rapidly converted all wind into dust.
+Unfortunately the advected scalar dust model never adequately worked in \mg.
+When implemented in \mg, the dust model either produced dust rates measurable in grams per year, or the simulation rapidly converted all gas into dust.
 Attempts to implement the dust model through modification of the conserved variables or through a rate-based source function were made, with many different implementation attempts.
 None of these panned out, resulting in a large amount of work being discarded.
 Using strict constraints to prevent rigorous dust production resulted in strange looking systems that did not behave as observations suggested.
 Furthermore, building a model that relied on dozens of constraints based on limited empirical data is rarely a good model, and is analogous to building a clock without a driving mechanism -- such that it is at least right twice a day.
 
-In addition to incompatibility with the dust model, numerous technical issues compounded this work.
+In addition to incompatibility with the dust model, numerous technical issues also meant that \mg{} was unsuitable for the work in this thesis.
 Mapping the wind onto the CWB also proved difficult when combined with AMR, as the provided implementation of wind remapping required a circular region with a radius of 3 coarse cells.
 In order to get the required separation for systems with close orbits, a very high coarse resolution would be required, massively increasing memory usage and removing the benefits of mesh refinement.
 Using a source function for wind mapping allowed for more refined cells to be used.
@@ -251,7 +252,7 @@ What began next was a frenzy of activity in order to assure that there was suffi
 \label{sec:athenapp}
 
 The \footlink{\athena{}}{https://github.com/PrincetonUniversity/athena} hydrodynamical code was found to be a much more suitable fit for this project.
-\athena{} is a total re-write of the older Athena MHD code in \texttt{C++} focussing on adding Adaptive Mesh Refinement, source code clarity, modularity, and improved performance \parencite{stoneAthenaAdaptiveMesh2020}.
+\athena{} is a total re-write of the older Athena MHD code in \texttt{C++} focussing on adding adaptive mesh refinement, source code clarity, modularity, and improved performance \parencite{stoneAthenaAdaptiveMesh2020}.
 This clarity and modularity allowed us to port our dust model and CWB problem from \mg{} to \athena{} in a few months.
 The hydrodynamical problem is defined at compile time, and as such ensures there is no overlapping code from other problem generator codebases.
 As such we were able to rapidly iterate and build a new version extremely quickly.
@@ -322,7 +323,7 @@ Refinement occurs at the end of a simulation step, splitting the cell in half al
 The effective dimensional resolution of a simulation with $n$ levels is given by the formula
 
 \begin{equation}
-  x\rms{AMR} = x\rms{coarse} \times 2^{n-1},
+  x\rms{AMR} = x\rms{coarse} \cdot 2^{n-1},
 \end{equation}
 
 \noindent
@@ -361,7 +362,7 @@ The performance advantage of AMR scales significantly better with additional dim
   AMR & \num{201472} & $\sim 330 \, \si{MiB}$ & \num{3.77e+07} & \SI{82.277(0.400)}{s} & $\num{1178}\%$ \\
   \hline
   \end{tabular}
-  \caption[Time taken to simulate $10^4$ timesteps of a double mach reflection test when AMR is disabled and enabled]{Time taken to simulate $10^4$ timesteps of a double mach reflection test when AMR is disabled and enabled. AMR significantly increases performance without a significant amount of overhead. Test was conducted a dual-socket \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation with 44 cores and compiled with \texttt{GCC 4.8.5} with the \texttt{O3} optimisation set. Benchmarking was conducted with \texttt{hyperfine}.}
+  \caption[Time taken to simulate $10^4$ timesteps of a double mach reflection test]{Time taken to simulate $10^4$ timesteps of a double mach reflection test when AMR is disabled and enabled. AMR significantly increases performance without a significant amount of overhead. Test was conducted a dual-socket \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation with 44 cores and compiled with \texttt{GCC 4.8.5} with the \texttt{O3} optimisation set. Benchmarking was conducted with \texttt{hyperfine}.}
   \label{tab:amr-comparison}
 \end{table}
 
@@ -384,7 +385,7 @@ SMR is a significantly simpler method of refining cells, where a region is defin
 The code will then progressively de-refine meshblocks beyond this region until the coarsest level is reached.
 This method is much less flexible, and is less efficient, but is still useful for simulations where a small region requires a higher spatial resolution at all times. 
 In the case of CWB systems this is a reasonably good approximation, as the region around the orbit of the stars can be refined to a higher resolution, while progressively de-refining further out from the barycentre (Fig. \ref{fig:smr-example}).
-For the \SI{1000}{AU} simulation requiring \SI{1.07e12} cells, na\"ively refining a region around 1.5 times the orbital separation from the barycentre with 7 refinement levels resulted in a reduction to \num{1.55e6} cells, a 6 order of magnitude reduction in cell count and memory usage.
+For the previously mentioned \SI{1000}{AU} simulation with \SI{1.07e12} cells, na\"ively refining a region around 1.5 times the orbital separation from the barycentre with 7 refinement levels resulted in a reduction to \num{1.55e6} cells, a 6 order of magnitude reduction in cell count and memory usage.
 As such, SMR was found to be suitable for our simulations, as a fix was not available for AMR from the \athena{} developers at the time of computation.
 
 \begin{figure}[ht]
@@ -402,7 +403,7 @@ As stated in an earlier section, a numerical simulation is only as accurate as i
 Our goals for the simulation of dust producing CWB systems throughout this project are as follows:
 
 \begin{itemize}
-  \item Two stars are produced and orbit each other with eccentricity $e$ and period $P$ based on star masses $m\rms{WR}$ and $m\rms{OB}$.
+  \item Two stars are produced and orbit each other with eccentricity $e$ and period $P$ based on star masses $\mass\rms{WR}$ and $\mass\rms{OB}$.
   \item The stars should produce a user-defined outflow of wind with mass loss rate $\mdot$ and terminal velocity $\vinf$.
   \item The outflowing wind must be of a pre-defined metallicity, and cool through radiative processes such as forbidden lines, recombination and resonance line emission.
   \item Dust should be able to condense in dense, cool regions.
@@ -453,10 +454,11 @@ Finally, a number of assumptions are made for the dust model.
 We assume that the number density of the dust grains is constant, such that the net amount of grains being shattered and grains being agglomerated is zero.
 As gas-grain sputtering and coagulation are significantly more common processes and do not change the number density, this is a reasonable assumption considering the dust evolution mechanisms currently implemented and the limitations of an advected scalar model.
 We assume that grain growth occurs below \SI{14000}{K}, which is below the sublimation temperature of carbon dust grains.
-Conversely, we assume that dust destruction processes are not significant until the gas temperature is above $10^6 \, \si{K}$, when a micron sized grain has a lifespan of $\lesssim 10^7\,\si{\year}$ in a flow with a density of $1\si{g.cm^{-3}}$ and the destruction rate begins to reach its maximum (see Fig. \ref{fig:grain-lifespan}).
+Conversely, we assume that dust destruction processes are not significant until the gas temperature is above $10^6 \, \si{K}$, when a micron sized grain has a lifespan of $\gtrsim 10^7\,\si{\year}$ in a flow with a density of $1\si{g.cm^{-3}}$ and the destruction rate begins to reach its maximum (see Fig. \ref{fig:grain-lifespan}).
 We also assume grain growth due to grain-gas accretion is approximately 10\% efficient, which is a conservative estimate for grain growth, and could be as high as 100\% in the case of uncharged dust grains \parencite[Ch.~9]{spitzerPhysicalProcessesInterstellar2008}.
 
 \subsection{Stars, wind propagation \& refinement}
+\label{sec:orbitsolver}
 
 % Orbits
 Stars are implemented as point masses, with their orbital positions and velocities governed by Keplerian dynamics.
@@ -466,7 +468,7 @@ The solver includes a Newton-Raphson approximation method for improved accuracy.
 % Why not gravitational interaction?
 As there are only two gravitationally interacting bodies in the system, it was deemed unnecessary to implement a more complex n-body gravitational system to model the dynamics of the stars.
 % Additionally, calculating the radial velocity at the start of the simulation would be required, all of which is not needed in the case of a Keplerian orbit simulation.
-As the orbital path of the system is already known, this also allowed the use of a ``phase offset'' to change the starting point of each simulation, such as in the case of the WR140 simulation, which begins at $\phi = 0.95$.
+As the orbital path of the system is already known, this also allowed the use of a ``phase offset'' to change the starting point of each simulation, such as in the case of the WR140 simulation, which begins at $\Phi = 0.95$.
 
 % Wind propagation
 With the assumption that winds are rapidly accelerated to $v^\infty$, propagating stellar winds through a simulation has been drastically simplified.
@@ -475,6 +477,7 @@ In the simulation, the conserved variables inside a small spherical region 6 fin
 The modified conserved variables in this ``remap zone'' correspond to the formulae:
 
 \begin{subequations}
+  \label{eq:ch3remapzones}
   \begin{align}
     \rho\rms{R} &= \frac{\dot{\text{M}}}{4 \pi r^2 \vinf}, \\
     p\rms{R}    &= \rho_R \vinf, \\
@@ -652,6 +655,7 @@ Throughout this project, we utilise the \textcite{dwek_infrared_1981} prescripti
 In the case of a dust grain of radius $a$ flowing through a pure elemental gas with an atomic mass $m$ and a number density $n$, we find the grain heating rate, $H$, to be 
 
 \begin{equation}
+  \label{eq:grainheatingratech3}
   \begin{split}
     H & = \left(\frac{32}{\pi m}\right)^{1/2} n\pi a^2 (k_B T)^{3/2} h(a,T) \\
     & = \num{1.26e-19} \frac{n}{A^{1/2}} a^2 (\si{\micro\metre}) T^{3/2} h(a,T) \, \si{\erg\per\second}
@@ -665,15 +669,16 @@ We can then calculate $H\rms{T}$ using the equation
 
 \begin{equation}
   \label{eq:calchcolltotal}
-  H\rms{T} = \sum H = H\rms{el} + H\rms{coll},
+  H\rms{T} = H\rms{el} + H\rms{coll},
 \end{equation}
 
 \noindent
-where $H\rms{el}$ is the grain heating due to electrons and $H\rms{coll}$ is the grain heating due to atom/ion collisions.
+where $H\rms{el}$ is the grain heating due to electrons and $H\rms{coll}$ is the grain heating due to atom and ion collisions.
 Atoms and ions are grouped as the grain is assumed to be uncharged.
 For solar and WC abundances elements heavier than oxygen are effectively trace -- as such we simplify $H\rms{coll}$ throughout this thesis to be
 
 \begin{equation}
+  \label{eq:atomionheatingrate}
   H\rms{coll} = H\rms{H} + H\rms{He} + H\rms{C} + H\rms{N} + H\rms{O} . 
 \end{equation}
 
@@ -818,7 +823,7 @@ This final bilinear+linear method improves performance from the integral method 
 \begin{figure}[ht]
   \centering
   \includegraphics{assets/lambda-dust-speedup/lambda-dust-speedup.pdf}
-  \caption[Dust lookup table methods comparison]{Comparison of execution time and speedup for lookup table methods.}
+  \caption[Dust lookup table methods comparison]{Comparison of execution time and speedup for lookup table methods. The bilinear+linear method improves performance significantly up to a point, as the linear step begins to take up a larger fraction of the problem.}
   \label{fig:dust-opt-speedup}
 \end{figure}
 
@@ -903,7 +908,7 @@ The temperature is subsequently calculated using the ideal gas law:
 \end{equation}
 
 \noindent
-At the current temperature, the cooling parameter, $\Lambda\rms{g}(T)$ for each wind is found from the lookup tables, and weighted in a similar manner as equation \ref{eq:windaveraging}. The energy loss due to dust grains is then calculated, with the total energy loss rate per unit volume within the cell defined through the formulae:
+At the current temperature, the cooling parameter, $\Lambda\rms{g}(T)$ for each wind is found from the lookup tables, and weighted in a similar manner as Eq. \ref{eq:windaveraging}. The energy loss due to dust grains is then calculated, with the total energy loss rate per unit volume within the cell defined through the formulae:
 
 % \begin{equation}
 %   \mathcal{L} = _\text{G} + _\text{D} = \left(\frac{\rho}{m_H}\right)^2 \Lambda_\text{G}(T) + n_\text{D} _\text{grain},
@@ -1019,12 +1024,13 @@ This was solved by using a lower Courant number, and ensuring a high spatial res
 Dust cooling is also implemented, utilising the method described in Section \ref{sec:dustcoolingmodel}. 
 
 % Lack of a reliance on ``magic numbers''
-Other important considerations for this work were to use as few ``magic numbers'' as possible, and for the code to be very well documented, in order to assist future PhD researchers.
+Other important considerations for this model were to use as few ``magic numbers'' as possible, and for the code to be very well documented, in order to assist future PhD researchers.
 The initial conditions of the model were based on sensible values for the initial size of grain nuclei and dust mass fractions, while using a comparatively conservative value for the grain sticking probability.
 Whilst much of the work in this thesis was accomplished on a slightly earlier build of this model, a more advanced, cleaned up version of the model has been \footlink{written}{https://github.com/atomsite/athena}.
 This improved model is ready for when the AMR stability issues of \athena{} have been solved by the software developers.
 
 \subsection{Implementation}
+\label{sec:dustimplementation}
 
 % Passive scalar 
 At its most fundamental level, \bidmas{} uses advected scalars\footnote{These can also be referred to as passive scalars, particularly in the \athena{} documentation. These terms are considered to be interchangeable throughout this thesis.} to model dust.
@@ -1160,7 +1166,7 @@ Once the energy loss due to dust emission has been calculated, the growth rate a
 The code loops through every cell in the simulation, first calculating the average particle mass in the cell, $\mu$:
 
 \begin{equation}
-  \mu = C \left(2 X\rms{WR} + \frac{3}{4} Y\rms{WR} + \frac{1}{2} Z\rms{WR} \right)^{-1} + (C-1) \left(2 X\rms{OB} + \frac{3}{4} Y\rms{OB} + \frac{1}{2} Z\rms{OB} \right)^{-1} ,
+  \mu = C \left(2 X\rms{WR} + \frac{3}{4} Y\rms{WR} + \frac{1}{2} Z\rms{WR} \right)^{-1} + (1-C) \left(2 X\rms{OB} + \frac{3}{4} Y\rms{OB} + \frac{1}{2} Z\rms{OB} \right)^{-1} ,
 \end{equation}
 
 \noindent
@@ -1238,18 +1244,18 @@ Finally, we can calculate an associated rate of change in the dust density of:
 
 \begin{equation}
   \label{eq:dustsputterdrhoddt}
-  \frac{d \rho\rms{d,sput}}{dt} = -4 \pi n\rms{d} \rho\rms{gr} a^2 \frac{da}{dt} = \num{-1.33e-17} \cdot n\rms{d} n\rms{g} \rho\rms{gr} a^2 ,
+  \frac{d \rho\rms{d,sp}}{dt} = -4 \pi n\rms{d} \rho\rms{gr} a^2 \frac{da}{dt} = \num{-1.33e-17} \cdot n\rms{d} n\rms{g} \rho\rms{gr} a^2 ,
 \end{equation}
 
 \noindent
 In order to find the total change in the dust density, $\Delta \rho\rms{g}$, and the grain radius, $\Delta a$, we perform an Euler integration over the simulation timestep, $\Delta t$:
 
 \begin{equation}
-  \Delta x = \int^{t+\Delta t}_{t} \frac{dx}{dt} dt \approx \frac{dx}{dt} \Delta t ,
+  \Delta x = \int^{t+\Delta t}_{t} \frac{dx}{dt} dt \approx \frac{dx}{dt} \Delta t , ~~ \text{where } \Delta t \ll t\rms{sim} , 
 \end{equation}
 
 \noindent
-where $x$ is the quantity being integrated and $t$ is the simulation time.
+where $x$ is the quantity being integrated and $t\rms{sim}$ is the total simulation time.
 Whilst a Euler method integration is less accurate than a sub-stepping method or higher-order integration method, this was found to be adequate, as the growth rate of the dust grain was found to be small over a single time step.
 After the total change for $\rho\rms{d}$ and $a$ are calculated, the post-step grain radius, $a\rms{new}$, is calculated:
 
@@ -1336,6 +1342,7 @@ This is because the purpose of the Hendrix model is to analyse the distribution 
 Because of this, the Hendrix model does not calculate dust growth or destruction, and only uses a single small grain size, with the dust-to-gas mass ratio calculated based on observations of the target system, WR98a.
 
 \subsection{Future dust models}
+\label{sec:futuredustmodels}
 
 % Future work, adopt multi-fluid model?
 
@@ -1392,7 +1399,12 @@ In this chapter, we have discussed the details, trials and tribulations of model
 Whilst there are some limitations to our model, it is suitable for qualitative analysis of dust production in WCR systems.
 Future models will include more dust evolution mechanisms, more accurate cooling, and a coupled dust fluid to analyse how dust advects through the turbulent post-shock environment.
 Regardless, this represents the first numerical model that calculates the growth of dust in WCd systems.
-In the following chapters, we will apply this model to two types of systems.
-First, persistent WCd systems in the form of a parameter space study.
-Secondly, we simulate the episodic WCd system WR140 at the systems periastron passage.
+In the following chapters, we will apply this model to two types of systems:
+
+\begin{itemize}
+  \item Persistent WCd systems in the form of a parameter space study with a system representative of WR98a as a baseline.
+  \item The episodic WCd system WR140 at periastron passage.
+\end{itemize}
+
+\noindent
 Whilst this work was elucidating, we are eager to continue this work with more detailed simulations and more advanced models.

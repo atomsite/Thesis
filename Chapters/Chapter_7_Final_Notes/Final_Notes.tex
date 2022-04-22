@@ -1,7 +1,7 @@
 \chapter{Final Notes and Conclusions}
 
 In this chapter we will discuss the general conclusions of our work, as well as some observations that were made over the course of this project.
-Whilst there were significant setbacks of our work -- chief among them being nearly two years of debugging, as well as a total refactoring of our work for a different hydrodynamical code -- the main goals of the project were completed.
+Whilst there were significant setbacks of our work -- namely two years of debugging and well as a total refactoring of our work for a different hydrodynamical code -- the main goals of the project were completed.
 Through this project we have developed a flexible and fast dust evolution code which can be used to simulate the growth of grains in numerical simulations of a WCd system.
 Our dust model has been found to produce realistic yields of dust within both persistent and episodic dust forming CWB systems.
 This is despite dust production not being artificially limited with orbital separation in the case of episodic WCd systems, while producing a similar degree of variability compared to observational studies of these systems.
@@ -12,7 +12,7 @@ More complex future models could incorporate additional dust growth and destruct
 WCd systems are still quite poorly known, and comparatively rare in the stellar catalogues.
 However, more detailed studies of new and previously observed systems will be possible with the next generation of telescopes.
 
-Whilst our dust production rates were typically on the order of what is expected for a WCd system, the production rate was underestimated in certain cases, in particular in the parameter space search.
+Whilst our dust production rates were typically on the order of what is expected for a WCd system, the production rate was out by an order of magnitude certain cases, in particular in the parameter space search.
 This is most likely due to three factors:
 
 \begin{itemize}
@@ -22,7 +22,7 @@ This is most likely due to three factors:
 \end{itemize}
 
 \noindent
-As such, the bulk of this work was centred around qualitative research of the dust production of WCd systems.
+As such, the bulk of this thesis was centred around qualitative research of the dust production of WCd systems.
 Quantitative work would be preferable when undergoing future research with more advanced models.
 
 \section{Conclusions}
@@ -46,7 +46,7 @@ We conclude that while all of these parameters influenced the dust production ra
 Modifying the wind terminal velocity of either star resulted in a significant increase or decrease in the dust production rate.
 We observed a change in the dust production rate by as much as six orders of magnitude between the most and least prolific dust forming systems.
 Slow dense winds have more radiative, cooler WCRs, which are more conducive to dust production.
-However, we also observed that systems with a fast secondary wind can also drive significant dust production, despite not containing significant quantities of dust.
+However, we also observed that systems with a fast secondary wind can also drive significant dust production in the primary wind.
 This suggests that in addition to cooling, the ratio of the wind velocities plays an important role in dust production, as an increased shear drives KH instabilities.
 We also find that the change in orbital separation, $d\rms{sep}$ also significantly changes the dust production rate.
 Closer orbits result in a significantly increased dust production rate.
@@ -67,7 +67,7 @@ In our second paper: \emph{\secondpapertitle}, we confirmed that the dust produc
 % Clear points
 This is in line with observations of WR140 at periastron, as well as our predictions from our previously published paper.
 Part of the orbit around periastron was simulated, as dust production was anticipated to be greatest there.
-Dust yields were found to be sensible, albeit higher than the average dust production rates predicted by \textcite{lauRevisitingImpactDust2020}, due to this limited simulation range.
+Dust yields were found to be sensible, albeit higher than the average dust production rates predicted by \textcite{lauRevisitingImpactDust2020}.
 
 % Hysteresis
 Dust production also shows a degree of hysteresis.
@@ -83,13 +83,13 @@ Some part of this hysteresis is due to the radial velocity of the system.
 As we have found in our previous paper, WCd systems dust production rates are extremely dependent on the wind pre-shock velocity.
 An increase in radial velocity as the stars approach periastron will increase the perceived wind velocity relative to the WCR.
 As such, there is a corresponding decrease in the dust formation rate; the inverse is true as the stars recede from one another.
-This velocity variability was found to be on the order of \SI{160}{km.s^{-1}}, suggesting it is not the primary reason for the asymmetry in the rate of dust production.
+This velocity variability was found to be on the order of \SI{160}{km.s^{-1}}, suggesting it is not the primary reason for the asymmetry in the rate of dust production -- though it could be an influencing factor.
 % This is not reflected in our model, but could be a contributing factor in the prolonged dust producing phase of the real WR140 system.
 
 
 \subsubsection{Radiative driving}
 
-Radiative line driving was not modelled in any simulations in this work.
+Radiative line driving was not modelled in any simulations in this thesis.
 Whilst this may not significantly change the results of the research in Chapter \ref{chap:parameterspace}, it could be the case that the wind velocity of the secondary star is lower than anticipated.
 Analysing the single wind outflow of each star in the system we find that the wind velocity is reduced to 84\% of the expected amount.
 % Based on our results, this would somewhat lower the dust production at periastron, due to a decreased velocity shear.
@@ -105,7 +105,7 @@ Some potential future avenues of research will be discussed, categorised into th
 \subsection{More complex models}
 
 Our dust model, \bidmas{}, is designed to be comparatively flexible and extensible.
-Additional dust growth and destruction mechanisms could be included; such as grain-grain collision and photoevaporation.
+Additional dust growth and destruction mechanisms could be included; such as grain-grain collision and photoevaporation (Section \ref{sec:futuredustmodels}).
 Long-term goals would be significant rewriting of the dust model in order to incorporate a multi-fluid dust grain model that is coupled to the gas through drag forces.
 This would behave similarly to \textcite{hendrix_pinwheels_2016}, though with grain growth, destruction and cooling.
 This would be useful as the velocities between gas and dust grains could be better calculated, allowing for more accurate growth and destruction rates.
@@ -209,8 +209,8 @@ Whilst this made me nervous initially, I found myself for the first time being a
 To those who don't know, there are few things quite as frustrating as finding yourself completely, utterly unable to work because you simply can't think clearly or keep on topic.
 In fact, I'm not confident I would have been able to finish this PhD without a small amount of (prescribed) chemical assistance.
 
-The sheer difference in the amount and consistency of my work after I began medicating made me think of a quote from the mathematician Paul Erd\H{o}s.
-After successfully quitting cold turkey from amphetamines for a month after a bet with his colleague Ronald Graham, he said this to him as he collected his \$500:
+The sheer difference in the amount and consistency of my work after I began medicating constantly reminded me of a quote from the mathematician Paul Erd\H{o}s.
+After successfully quitting cold turkey from amphetamines for a month after a bet with his colleague Ronald Graham, he said this to Graham as he collected his \$500:
 
 \begin{quote}
   \emph{
@@ -220,7 +220,7 @@ After successfully quitting cold turkey from amphetamines for a month after a be
 \end{quote}
 
 \noindent
-In closing, if you, the reader, empathise with this\ldots{} It might be a good idea to get yourself checked.
+In closing: if you, the reader, empathise with this\ldots{} It might be a good idea to get yourself checked.
 
 \subsection{Carinae Strain: PhD research in a time of pandemic}
 \label{sec:pandemic}

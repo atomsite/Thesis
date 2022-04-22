@@ -21,42 +21,42 @@ List of common symbols, if symbol requires a derivation, the appropriate equatio
   $C$ & Courant-Friedrichs-Lewy condition & Eq. \ref{eq:cfl} \\ 
   $f$ & Wind shock fraction & Eq. \ref{eq:windshockfraction} \\
   $h_e$ & Electron transparency & Section \ref{sec:wcrcooling} \\
-  $H\rms{coll}$ & Grain heating rate due to ions & \\
-  $H\rms{el}$ & Grain heating rate due to electrons & \\
-  $i$ & Inclination & \\
+  $H$ & Grain heating rate & Eq. \ref{eq:grainheatingratech3} \\
+  $H\rms{coll}$ & Grain heating rate due to atoms and ions & Eq. \ref{eq:grainheatingratech3} \\
+  $H\rms{el}$ & Grain heating rate due to electrons & Eq. \ref{eq:grainheatingratech3} \\
+  $i$ & Inclination & Section \ref{sec:importantwcd} \\
   $\mathcal{L}$ & Cooling rate per unit volume & Eq. \ref{eq:energylossrate} \\ 
-  $\lumin_\star$ & Stellar luminosity & \\
-  $\mass_\star$ & Stellar mass & \\
-  $\mdot$ & Mass loss rate & \\
+  $\lumin_\star$ & Stellar luminosity & Section \ref{sec:evolvedstars} \\
+  $\mass_\star$ & Stellar mass & Section \ref{sec:evolvedstars} \\
+  $\mdot$ & Mass loss rate & Section \ref{sec:stellarwinds} \\
   $t\rms{cool}$ & Cooling timescale & Eq. \ref{eq:taucool} \\
   $t\rms{esc}$ & Escape timescale & Eq. \ref{eq:tauesc} \\
-  $v_\infty$ & Wind terminal velocity & \\
-  $z$ & Dust-to-gas mass ratio  & \\
+  $v_\infty$ & Wind terminal velocity & Section \ref{sec:stellarwinds} \\
+  $z$ & Dust-to-gas mass ratio & Section \ref{sec:dustimplementation} \\
 
   % Greek symbols
 
-  $\beta$ & Electron ion ratio & \\
-  $\eta$ & Wind momentum ratio  & \\
+  $\beta$ & Electron ion ratio & Eq. \ref{eq:electronionratio} \\
+  $\eta$ & Wind momentum ratio  & Eq. \ref{eq:etach2} \\
   
-  $\Lambda(T)$ & Plasma Cooling function & \\
-  $\Lambda_d(h,a,T)$ & Dust cooling function & \\
+  $\Lambda(T)$ & Plasma Cooling function & Section \ref{sec:gas-dust-cooling} \\
 
-  $\xi$ & Grain sticking efficiency & \\
+  $\xi$ & Grain sticking efficiency & Eq. \ref{eq:dadtch3} \\
 
-  $\theta_c$ & WCR conic opening angle & Eq. \ref{eq:conic} \\
+  $\theta\rms{c}$ & WCR conic opening angle & Eq. \ref{eq:conic} \\
   
   $\tau_\text{KH}$ & Kelvin-Helmholtz timescale & Eq. \ref{eq:khtime} \\
   $\tau_\text{ff}$ & Free-fall timescale & Eq. \ref{eq:fftime} \\
 
-  $\mu$ & Mean molecular mass & \\
+  $\mu$ & Mean molecular mass & Eq. \ref{eq:idealgasch2} \\
 
   $\kappa$ & Sub-timestep fraction & Section \ref{sec:cooling-implementation} \\
 
-  $\Phi$ & Orbital phase & \\
+  $\Phi$ & Orbital phase & Section \ref{sec:orbitsolver} \\
 
   $\chi$ & Cooling parameter  & Eq. \ref{eq:coolingparameter} \\
 
-  $\gamma$ & Ratio of specific heats & \\
+  $\gamma$ & Ratio of specific heats & Eq. \ref{eq:ch3remapzones} \\
 
   % Include Units from here
   \hline
@@ -95,7 +95,7 @@ List of common symbols, if symbol requires a derivation, the appropriate equatio
   \si{\solarradius} & Solar radius & \SI{6.957e+10}{\centi\metre} \\
   \si{\au} & Astronomical Unit & \SI{1.496e+13}{\centi\metre} \\
   \si{\parsec} & Parsec & \SI{3.086e+18}{\centi\metre} \\
-  ``Warm'' & Warm temperature regime & \num{1e4} -- \SI{1e5}{\kelvin}\footnote{Personal preference} \\
+  ``Warm'' & Warm temperature regime & \num{1e4} -- \SI{1e5}{\kelvin}\footnote{Varies from researcher to researcher.} \\
 
 \end{longtable}
 

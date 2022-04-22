@@ -100,10 +100,10 @@ Operation occurs for every cell in numerical grid and only if dust model is enab
 \section{Software \& Resource Acknowledgements}
 
 This project relied on a number of resources available from the University of Leeds, as well as many open source projects scattered around the globe.
-Not to opine on the importance of open source projects for too long, but we as researchers should be aware of the time, effort and labour of programmers developing open source projects.
+Not to opine on the importance of open source projects for too long; but we as researchers should be aware of the time, effort and labour of programmers who develop open source projects.
 Learning that perhaps the bulk of the infrastructure we use rests almost entirely on a series of freely-developed projects came as a shock to me many years ago, and in lieu of payment, this section will acknowledge these projects.
 
-This work was undertaken on the ARC3 and ARC4 computers, part of the High Performance Computing facilities at the University of Leeds, UK.
+This simulations in this thesis were performed on the ARC3 and ARC4 computers, part of the High Performance Computing facilities at the University of Leeds, UK.
 Much of the earlier development and testing work was undertaken on workstations provided by the department.
 In particular was the 44 core workstation my supervisor used\footnote{Which I refer to as \texttt{jumpcannon}, after Annie Jump Cannon, though the name didn't catch on.}, whose computing brunt was used frequently throughout the project.
 
@@ -118,7 +118,7 @@ A good deal of the data reduction of this thesis was conducted using the Python 
 \noindent
 \athena{} \parencite{athena} was also used extensively throughout the work in this thesis.
 Whilst there are some aspects of this that need further development - in particular, passive scalars in AMR problems - it was found to be extremely robust, and easy to develop for.
-Some diagrams in this work, specifically Fig. \ref{fig:quiver-h} and Fig. \ref{fig:quiver-oplus} use the \footlink{Quiver}{https://q.uiver.app/} communicative diagram editor.
+Some diagrams in this thesis, specifically Fig. \ref{fig:quiver-h} and Fig. \ref{fig:quiver-oplus} use the \footlink{Quiver}{https://q.uiver.app/} communicative diagram editor.
 GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project.
 If parallelism is difficult to implement for a problem, sometimes the only option is to run many, \textit{many} serial programmes at once.
 The \footlink{\texttt{Hyperfine}}{https://github.com/sharkdp/hyperfine} command line benchmarking tool was used to benchmark \athena{} throughout the project, in order to find ideal configuration parameters such as numerical integrators, core counts and meshblock sizes.
@@ -206,7 +206,7 @@ This is extremely large, but could be even higher, due to overhead issues and th
 \begin{figure}
   \centering
   \includegraphics{assets/athena-amdahl/amdahl.pdf}
-  \caption[Strong scaling test of \athena]{Strong scaling test of \athena{} running the simulation of WR140 as defined in chapter \ref{ch:wr140} for 100 timesteps. The parallel fraction of \athena{} running this problem is found to be 98.7\%. The test was conducted over 22 cores of a dual-processor \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation using \texttt{hyperfine}. The second processor was not used as this introduced a penalty to performance due to inter-processor bandwidth bottlenecks.}
+  \caption[Strong scaling test of \athena]{Strong scaling test of \athena{} running the simulation of WR140 as defined in Chapter \ref{ch:wr140} for 100 timesteps. The parallel fraction of \athena{} running this problem is found to be 98.7\%. The test was conducted over 22 cores of a dual-processor \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation using \texttt{hyperfine}. The second processor was not used as this introduced a penalty to performance due to inter-processor bandwidth bottlenecks.}
   \label{fig:amdahl-athena}
 \end{figure}
 

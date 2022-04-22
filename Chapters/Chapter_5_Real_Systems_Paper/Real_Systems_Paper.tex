@@ -131,7 +131,7 @@ Additionally, influence on the fluid from either gravitational self-interaction 
 Athena++ utilises Message Passing Interface (MPI) parallelism.
 The numerical problem is broken into blocks, which are distributed between processing nodes on a High Performance Compute (HPC) cluster.
 The block size is variable, but for this simulation a block size of $40\times 40 \times 10$ cells in $XYZ$ was found to be optimal.
-Adaptive Mesh Refinement was considered for this simulation, however a known issue with the Athena++ code prevented this from being possible.
+Adaptive mesh refinement was considered for this simulation, however a known issue with the Athena++ code prevented this from being possible.
 Passive scalars incorporated into the simulation were found to not be conserved along the interfaces between mesh blocks undergoing refinement, this meant that the simulation would rapidly exhibit unphysical behaviour (this bug is recorded as issue \#365 on the Athena++ Github repository\footnote{\texttt{\href{https://github.com/PrincetonUniversity/athena/issues/365.}{https://github.com/PrincetonUniversity/athena/issues/365}}}).
 A ring of refined cells across the orbital path was considered, but the performance improvements of this method were found to be negligible and not worth pursuing, as the block based refinement method of Athena++ would result in significant redundant refinement.
 Instead, a static mesh is used, where the stars predicted orbit over the simulation is refined to the maximum level, with a gradual de-refinement away from this refinement region.
@@ -592,7 +592,7 @@ Whilst research into this is out of the scope of the project, evolution of dust 
 % Note change in dust yields from previous paper, will have to reference this when in publishing
 As we have previously discussed, varying the wind terminal velocity for both stars in a simulation can result in exponential changes in the dust production rate.
 This is theorised to be due to the increased influence of thermal instabilities through increased cooling in slower post-shock winds, as well as through KH instabilities driven through a wind velocity shear (if the wind terminal velocities are significantly different, see \cite{stevens_colliding_1992}).
-Previous work on this subject considered systems with circular orbits, hence the orbital motion between the stars was persistent, and did not contribute to to a change in the wind velocities over the orbit of the system.
+Previous work on this subject considered systems with circular orbits, hence the orbital motion between the stars was persistent, and did not contribute to a change in the wind velocities over the orbit of the system.
 However, in the case of a system with an eccentric orbit (such as WR140), we would find that both the outflow velocity for each wind - as well as the velocity ratio - would be markedly different over the systems orbit.
 % Discuss change in relative velocity, will significantly impact, by as much as an order of magnitude? Write script to calculate change in chi?
 As the stars approach periastron, the radial velocity, $v\rms{r}$ for each star rapidly changes from a minimum value to a maximum, as the stars approach and then swing past one another.

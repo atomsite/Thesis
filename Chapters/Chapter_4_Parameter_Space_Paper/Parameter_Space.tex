@@ -1,4 +1,4 @@
-\chapter[An Exploration of Dust Growth Within WCd Systems]{\firstpapertitle \parencite{eatsonExplorationDustGrain2022}}
+\chapter[An Exploration of Dust Growth Within WCd Systems]{\firstpapertitle{} \parencite{eatsonExplorationDustGrain2022}}
 \label{chap:parameterspace}
 
 \begin{abstract}
@@ -87,7 +87,7 @@ In some systems the winds may be so imbalanced that the stronger wind collides d
 The half-opening angle of the WCR can be estimated by the formula
 
 \begin{equation}
-  \theta_c \simeq 2.1 \left( 1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3} ~~~ \text{for} ~ 10^{-4} \leq \eta \leq 1 ,
+  \theta\rms{c} \simeq 2.1 \left( 1 - \frac{\eta^{2/5}}{4}\right) \eta^{-1/3} ~~~ \text{for} ~ 10^{-4} \leq \eta \leq 1 ,
 \end{equation}
 
 \noindent
@@ -150,7 +150,7 @@ A base coarse resolution of $320 \times 320 \times 40$ cells in $XYZ$ is defined
 This rectangular region encompasses the entire orbital path of the stars and is refined to the maximum level.
 This results in a resolution increase of a factor of $2^{n-1}$ greater than the coarse resolution, where $n$ is the refinement level (see Fig. \ref{fig:smr-grid}).
 In the case of 7 levels (inclusive of the base, ``coarsest'' level) as used in most of the simulations in this paper, this results in an effective resolution of $20480 \times 20480 \times 2560$ cells.
-SMR is utilised instead of Adaptive Mesh Refinement, a more flexible conditional method, as it has proven to be more reliable for our simulations.
+SMR is utilised instead of adaptive mesh refinement, a more flexible conditional method, as it has proven to be more reliable for our simulations.
 As much of the grain evolution occurs a small distance from the WCR stagnation point, much of the simulation volume can be run at a lower resolution without affecting the simulation results.
 
 \begin{figure}
@@ -305,7 +305,15 @@ where $E_0$ is the initial energy required to overcome the grain's potential and
 Electron-grain collisional heating, $H_\text{el}$, is modelled using the same calculation for $H_\text{coll}$, albeit with some differences.
 For accurately calculating the energy loss due to electron collisions, the electron number density, $n\rms{e}$, needs to be known.
 This is achieved with a second series of lookup tables that contain the electron-to-ion ratio of each wind across a temperature range of $10^4$ to $10^9\,\si{\kelvin}$ (Fig. \ref{fig:electron-curve}).
-The electron number density is $n \rms e = \beta n \rms i$, where $\beta$ is the electron-to-ion ratio and $n \rms i$ is the ion number density.
+The electron number density is 
+
+\begin{equation}
+  \label{eq:electronionratio}
+  n \rms e = \beta n \rms i ,
+\end{equation}
+
+\noindent
+where $\beta$ is the electron-to-ion ratio and $n \rms i$ is the ion number density.
 Another difference between calculating electron-grain and gas-grain cooling is calculating electron-grain transparency, which is a significantly more complex problem than calculating ion-grain transparency.
 An assumed full opacity proves to be extremely inaccurate at temperatures $>10^6\,\si{\kelvin}$.
 Electron-grain transparency is therefore calculated via an approximation described in \textcite{dwek_infrared_1981}:
@@ -375,6 +383,7 @@ Dust growth is modelled through approximating growth due to grain-gas accretion 
 Assuming a single average grain size the rate of change in the average grain radius is given by:
 
 \begin{equation}
+  \label{eq:dadtch3}
   \frac{da}{dt} = \frac{\xi \rho\rms{C} w_\text{C}}{4 \rho\rms{gr}} ,
 \end{equation}
 
@@ -607,7 +616,7 @@ Similarly to the previous set of simulations, a minimum of 1 orbit was needed fo
     \texttt{dsep-32AU} & \SI{40.5}{\year} & \SI{32}{\au} & 9.57 & 15319 & 4 & $(2560 \times 2560 \times 320) \,\text{cells}$    \\
     \texttt{dsep-64AU} & \SI{115}{\year}  & \SI{64}{\au} & 19.1 & 30638 & 3 & $(1280 \times 1280 \times 160) \,\text{cells}$    \\ \hline
   \end{tabular}
-  \caption{Parameters of simulations varying the separation distance, $d\rms{sep}$, between the stars.}
+  \caption[Parameters of simulations varying the separation distance]{Parameters of simulations varying the separation distance, $d\rms{sep}$, between the stars.}
   \label{tab:dsep-param}
 \end{table*}
 
@@ -759,7 +768,7 @@ This is in agreement with \textcite{williams_dust_1990} and \textcite{hendrix_pi
   \texttt{plasmacool}   & 0.02   & 1.20 & 1915 & \num{1.29e-10} & \num{9.06E-07} \\
   \texttt{nocool}   & 0.02   & 1.20 & 1915 & \num{2.71e-14} & \num{9.06E-07} \\ \hline
   \end{tabular}
-  \caption{Average rate of dust production for the set of different radiative simulations. $\maxdust$ is the maximum expected dust formation rate (Eq. \ref{eq:maxdust}).}
+  \caption[Average rate of dust production for the set of different radiative simulations]{Average rate of dust production for the set of different radiative simulations. $\maxdust$ is the maximum expected dust formation rate (Eq. \ref{eq:maxdust}).}
   \label{tab:radiative-average-rates}
 \end{table}
 
@@ -804,7 +813,7 @@ In the case of \texttt{mdot-1} this doubles the number density of grains, increa
 \begin{figure}
   \centering
   \includegraphics{assets/vinf-phase-dust_rate.pdf}
-  \caption[Comparison of the dust production rate for simulations varying the wind terminal velocity]{Comparison of the dust production rate for simulations varying the wind terminal velocity, $v^\infty$. Simulations with a strong wind velocity imbalance produce significantly more dust than their counterparts.}
+  \caption[Comparison of the dust production rate for simulations varying $\vinf$]{Comparison of the dust production rate for simulations varying the wind terminal velocity, $v^\infty$. Simulations with a strong wind velocity imbalance produce significantly more dust than their counterparts.}
   \label{fig:vinfdustproduction}
 \end{figure}
 
@@ -959,7 +968,7 @@ Our results are consistent with observations of episodic dust forming systems, w
   \texttt{dsep-32AU} & 9.57 & 15319 & \num{8.83e-14} & \num{9.06E-07} \\
   \texttt{dsep-64AU} & 19.1 & 30638 & \num{2.41e-14} & \num{9.06E-07} \\ \hline
   \end{tabular}
-  \caption{Average rates of dust production for the separation distance simulation set. The stellar parameters are the same as in the \texttt{baseline} model, which has a $d\rms{sep} = \SI{4.0}{\au}$.}
+  \caption[Average rates of dust production for the separation distance simulation set]{Average rates of dust production for the separation distance simulation set. The stellar parameters are the same as in the \texttt{baseline} model, which has a $d\rms{sep} = \SI{4.0}{\au}$.}
   \label{tab:dsep-average-rates}
 \end{table}
 
