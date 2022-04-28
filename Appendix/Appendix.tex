@@ -2,7 +2,7 @@
 
 \chapter{Breakdown of Computational Models}
 
-This section contains a breakdown of the cooling and dust models for the sake of clarity.
+This section contains a simplified breakdown of the cooling and dust models for the sake of clarity.
 
 \section{Initialisation}
 
@@ -25,7 +25,7 @@ Operation occurs at the start of the simulation.
   \item Finish initialisation, print model details.
 \end{enumerate}
 
-\section{Cooling model}
+\section{Cooling Model}
 
 Operation occurs for every cell in numerical grid.
 
@@ -61,7 +61,7 @@ Operation occurs for every cell in numerical grid.
   \item Calculate new pressure from final temperature, recalculate total energy, update cell conserved parameters.
 \end{enumerate}
 
-\section{Dust model}
+\section{Dust Model}
 
 Operation occurs for every cell in numerical grid and only if dust model is enabled.
 
@@ -104,8 +104,16 @@ Not to opine on the importance of open source projects for too long; but we as r
 Learning that perhaps the bulk of the infrastructure we use rests almost entirely on a series of freely-developed projects came as a shock to me many years ago, and in lieu of payment, this section will acknowledge these projects.
 
 This simulations in this thesis were performed on the ARC3 and ARC4 computers, part of the High Performance Computing facilities at the University of Leeds, UK.
+According to the SGE log file I had used approximately \SI{8e+09}{s} of cumulative CPU time on ARC3 and ARC4 (Fig. \ref{fig:cpugraph}) over the course of this PhD, which is over \num{250} core-years!
 Much of the earlier development and testing work was undertaken on workstations provided by the department.
-In particular was the 44 core workstation my supervisor used\footnote{Which I refer to as \texttt{jumpcannon}, after Annie Jump Cannon, though the name didn't catch on.}, whose computing brunt was used frequently throughout the project.
+In particular was the 44 core workstation my supervisor used\footnote{Which I always referred to as \texttt{jumpcannon}, after Annie Jump Cannon, though the name didn't catch on.}, whose computing brunt was used frequently throughout the project.
+
+\begin{figure}
+  \centering
+  \includegraphics[]{assets/cpu_time.pdf}
+  \caption[Cumulative CPU time on ARC4]{Cumulative CPU time in core-years for ARC4 from 2020 to 2022. Most of, if not all of the data produced in this project was generated over this period. One shudders to think how much electricity was used.}
+  \label{fig:cpugraph}
+\end{figure}
 
 A good deal of the data reduction of this thesis was conducted using the Python 3 programming language \parencite{10.5555/1593511}, in particular, the following open source modules were used extensively:
 
@@ -120,7 +128,7 @@ A good deal of the data reduction of this thesis was conducted using the Python 
 Whilst there are some aspects of this that need further development - in particular, passive scalars in AMR problems - it was found to be extremely robust, and easy to develop for.
 Some diagrams in this thesis, specifically Fig. \ref{fig:quiver-h} and Fig. \ref{fig:quiver-oplus} use the \footlink{Quiver}{https://q.uiver.app/} communicative diagram editor.
 GNU Parallel \parencite{tange_2021_5523272} was used to speed up the batch processing of data within this project.
-If parallelism is difficult to implement for a problem, sometimes the only option is to run many, \textit{many} serial programmes at once.
+If parallelism is difficult to implement for a problem, sometimes the best option is to run many, \textit{many} serial programmes at once.
 The \footlink{\texttt{Hyperfine}}{https://github.com/sharkdp/hyperfine} command line benchmarking tool was used to benchmark \athena{} throughout the project, in order to find ideal configuration parameters such as numerical integrators, core counts and meshblock sizes.
 Most of the line plots in this project were produced by the \texttt{Gnuplot} graphing tool, whilst the \footlink{\texttt{turbo}}{https://ai.googleblog.com/2019/08/turbo-improved-rainbow-colormap-for.html} palette was used to generate readable and accessible colour schemes for our plots.
 A modified version of the \texttt{turbo.pal} palette file from the \footlink{\texttt{gnuplotting.org} GitHub repo}{https://github.com/Gnuplotting/gnuplot-palettes/blob/master/turbo.pal} was used to import the colour scheme into \texttt{gnuplot}.
@@ -206,7 +214,7 @@ This is extremely large, but could be even higher, due to overhead issues and th
 \begin{figure}
   \centering
   \includegraphics{assets/athena-amdahl/amdahl.pdf}
-  \caption[Strong scaling test of \athena]{Strong scaling test of \athena{} running the simulation of WR140 as defined in Chapter \ref{ch:wr140} for 100 timesteps. The parallel fraction of \athena{} running this problem is found to be 98.7\%. The test was conducted over 22 cores of a dual-processor \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation using \texttt{hyperfine}. The second processor was not used as this introduced a penalty to performance due to inter-processor bandwidth bottlenecks.}
+  \caption[Strong scaling test of \athena]{Strong scaling test of \athena{} running the simulation of WR140 as defined in Chapter \ref{ch:wr140} for 100 timesteps. The parallel fraction of \athena{} running this problem is found to be 98.7\%. The test was conducted over 22 cores of a dual-processor \SI{2.1}{\giga\hertz} Intel Xeon Gold 6152 workstation using \texttt{hyperfine}. The second processor was not used as this introduced a penalty to performance due to inter-processor bandwidth bottlenecks. Due to the scale of the problem being relatively small, the parallel fraction may be underestimated.}
   \label{fig:amdahl-athena}
 \end{figure}
 
@@ -233,7 +241,7 @@ In testing \athena{} we found that the communication overhead became significant
 There was also an observed increase in communication overhead with \mg{} as well, as the programme handles parallelism by slicing the problem along the $y$ axis, resulting in a very large number of ``ghost'' cells that require communication.
 
 
-\section{Datatypes \& visualisation}
+\section{Datatypes \& Visualisation}
 \label{sec:visualisation}
 
 Output data from \athena{} was exported at regular time-elapse intervals in the form of 3-D HDF5 files \parencite{hdf5} and 2-D slices at $z=0$ HDF5 files.
@@ -266,7 +274,7 @@ Occasionally, rendering video of the batch processes 2D exports was performed in
 For this, the following command was used:
 
 \begin{lstlisting}[language=bash]
-cat /*.png | ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -vf format=yuv420p output.mp4
+cat *.png | ffmpeg -f image2pipe -framerate 30 -i - -c:v libx264 -vf format=yuv420p output.mp4
 \end{lstlisting}
 
 \section{Version Control}

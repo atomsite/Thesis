@@ -19,7 +19,7 @@ The term Early-type stars is quite possibly the epitome of bad naming convention
 It's a very old term, coming from the dawn of astrophysics itself, it is quite opaque as to what it means, and is also by definition \textit{completely wrong}.
 In fact it is one of the most wrong pieces of terminology I can think of
 \footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 1,000,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}.
-The first generation of astrophysicists\footnote{As opposed to astronomers or ``natural philosophers''.} found themselves asking very big, very fundamental questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to shine for so long?''
+The first generation of astrophysicists\footnote{As opposed to astronomers or natural philosophers.} found themselves asking very big, very fundamental questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to shine for so long?''
 Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
 
 Of course, like all pressing questions of the late \nth{19} century, it fell to Lord Kelvin to provide a convincing -- albiet incorrect -- answer.
@@ -59,7 +59,7 @@ Firstly, the Kelvin-Helmholtz (KH) timescale\footnote{The idea of gravitational 
 
 \begin{equation}
   \label{eq:khtime}
-  \tau\rms{KH} \approx \frac{G M_\star^2}{R_\star L_\star},  
+  \tau\rms{KH} \approx \frac{G \mass_\star^2}{R_\star L_\star},  
 \end{equation}
 
 \noindent
@@ -76,7 +76,7 @@ where $\rho_\star$ is the mean density of the collapsing cloud.
 The equation of motion for this system is
 
 \begin{equation}
-  \frac{d^2r}{dt^2} = - \frac{GM_\star}{r^2} ,
+  \frac{d^2r}{dt^2} = - \frac{G\mass_\star}{r^2} ,
 \end{equation}
 
 \noindent
@@ -125,9 +125,9 @@ The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\
 
 \noindent
 Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}); the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$ due to the small reaction cross-section.
-In more massive stars, with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not occur.
+In more massive stars with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not occur.
 The mechanisms underpinning fusion in intermediate and high-mass stars are much more energetic and temperature dependent.
-Above a stellar mass of $1.3 \si{\solarmass}$ pressures and temperatures within a stellar core favour the fusion of hydrogen into helium through the catalytic CNO cycle:
+Above a certain core temperature, the catalytic CNO cycle produces significantly more energy:
 
 \begin{equation}
   \begin{alignedat}{3}
@@ -159,7 +159,7 @@ This results in a convective core surrounded by a radiative envelope, and is the
 
 % Influence of OB stars on surrounding environment, outsized influence etc.
 The luminosities and temperatures of high-mass stars also drive extremely fast stellar winds through radiative line driving.
-These winds have on the order of $10^{10}$ times more momentum than winds from stellar-mass stars, and punch holes clean into the interstellar medium (ISM), forming wind-driven bubbles and champagne flows.
+These winds have on the order of $10^{10}$ times more momentum than winds from stellar-mass stars, and punch holes into the interstellar medium (ISM), forming wind-driven bubbles and champagne flows.
 These winds can also perturb GMCs, disrupting them and forming more stars nearby.
 
 The study of stellar winds, of course, is quite hard from our vantage point on earth.
@@ -209,7 +209,7 @@ Whilst this barest description can give us some insight into how a wind behaves,
 \begin{figure}[h]
   \centering
   \includegraphics{assets/wind-comparison/wind-comp.pdf}
-  \caption[$\rho_w$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in Table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in Eq. \ref{eq:smoothwind}.}
+  \caption[$\rho\rms{w}$ comparison of main sequence winds]{Comparison of the densities of various main sequence winds using the parameters specified in Table \ref{tab:windcomp}, wind densities are estimated using the smooth wind approximation described in Eq. \ref{eq:smoothwind}.}
   \label{fig:windrhocomp}
 \end{figure}
 
@@ -277,7 +277,7 @@ This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply
 \begin{figure}[h]
   \centering
   \includegraphics[]{assets/cak/vel.pdf}
-  \caption[Radiative line driving velocity and density profile]{Velocity and density profiles of the WR and OB stars in the WR140 system. Acceleration is gradual until $(R/R_\star) - 1 > 10^{-3}$, where wind opacity drastically increases due to Doppler shift. The model uses the Castor, Abbott and Klein formalism, with the CAK parameters of the stars estimated to be $k = 0.37$, $\alpha = 0.60$ for the O4-5 star and $k = 0.48$, $\alpha = 0.57$ for the WC7 star.}
+  \caption[Radiative line driving velocity and density profile]{Velocity and density profiles of the WR and OB stars in the WR140 system. Acceleration is gradual until $(R/R_\star) - 1 > 10^{-3}$, where wind opacity drastically increases due to Doppler shift. The model uses the Castor, Abbott and Klein formalism, with the CAK parameters of the stars estimated to be $\text{R}_\star = \SI{12}{\solarradius}$, $\mass_\star = \SI{36}{\solarmass}$, $k = 0.37$, $\alpha = 0.60$ for the O4-5 star and $\text{R}_\star = \SI{4}{\solarradius}$, $\mass_\star = \SI{15}{\solarmass}$, $k = 0.48$, $\alpha = 0.57$ for the WC7 star.}
   \label{fig:cak-vel}
 \end{figure}
 
@@ -738,7 +738,7 @@ This will be discussed in more detail later in this section.
 % , but needless to say this phenomena is puzzling, as fragile grains of interstellar dust would not survive for long in the outflow of a WC star, due to the high wind temperatures and immense UV flux.
 % Because of this, dust growth was speculated, and later confirmed, to occur within the Wind Collision Region, the topic of the next section of this thesis.
 
-\subsection{The Wind Collision Region}
+\subsection{The wind collision region}
 \label{sec:wcr}
 
 \begin{figure}[h]
@@ -901,7 +901,7 @@ This is crucial to the formation of dust in the post-shock region, which relies 
 
 The influence of each cooling mechanism varies over a particular temperature range, due to the collision energy of the atoms and ions.
 While there is some overlap, certain mechanisms are clearly dominant over specific temperature ranges (Table \ref{tab:coolprocess} and Fig. \ref{fig:wcsolcooling}).
-In the ``warm\footnote{See what I mean about the phrase ``warm''?}'' phase we find that forbidden line emission through atomic hydrogen or metallic ions is dominant, while at higher temperatures higher energy processes such as H recombination and resonance line emission dominate.
+In the ``warm''\footnote{See what I mean about the phrase ``warm''?} phase we find that forbidden line emission through atomic hydrogen or metallic ions is dominant, while at higher temperatures higher energy processes such as H recombination and resonance line emission dominate.
 At extremely high temperatures in the immediate post-shock WCR, free-free processes such as bremsstrahlung dominate
 \parencite[Ch.~6]{dysonPhysicsInterstellarMedium2021}.
 In this section we will discuss these primary mechanisms of cooling.
@@ -1008,7 +1008,7 @@ Therefore, this process acts as the dominant cooling process in the universe at 
 
 % Temperature range, temperature importance
 CWB systems are interesting interstellar phenomena.
-There are only a handful of phenomena in space that operate on such a large temperature range over such a short timespan.
+Only a handful of phenomena in space that operate on such a large temperature range over such a short timespan like CWB systems do.
 These systems are highly dependent on the temperature, and therefore very dependent on the amount of cooling occurring in the system.
 % Slight discussion on difficulty of simulation
 This can present tremendous challenges trying to simulate them, due to the difficulty of calculating contributions to cooling.
@@ -1070,7 +1070,7 @@ where $c\rms{s}$ is the sound speed.
 \end{equation}
 
 \noindent
-where $v_{8}^4$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{12}$ is the orbital separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
+where $v_{8}$ is the wind terminal velocity in units of $10^8 \, \si{cm.s^{-1}}$, $d\rms{12}$ is the orbital separation distance between the stars in units of $10^{12} \, \si{cm}$ and $\dot{\text{M}}_{-7}$ is the mass loss rate of the star in units of $10^{-7} \, \si{\solarmass\per\year}$.
 
 In the case of a star with a cooling parameter of $\chi \gg 1$, the resultant stellar wind behaves adiabatically in the post-shock environment, producing a smooth flow.
 As $\chi$ decreases and approaches 1, the post-shock wind is increasingly dominated by its radiative processes.
@@ -1167,7 +1167,7 @@ This impact is especially important on small grains, as there is less material f
 \begin{figure}[h]
   \centering
   \includegraphics{assets/dust-electron-contribution/coll-el-comp.pdf}
-  \caption[$H_{el}$ and $H_{coll}$ comparison]{Comparison of grain heating rate due to ion collisional excitation, $H_{coll}$, and electron excitation, $H_{el}$. The dust grain has a grain radius of \SI{5e-3}{\micro\metre} and is in a gas with a density of $10^{-20}$ \si{\gram\per\centi\metre\cubed} with solar and WC abundances.}
+  \caption[$H\rms{el}$ and $H\rms{coll}$ comparison]{Comparison of grain heating rate due to ion collisional excitation, $H\rms{coll}$, and electron excitation, $H\rms{el}$. The dust grain has a grain radius of \SI{5e-3}{\micro\metre} and is in a gas with a density of $10^{-20}$ \si{\gram\per\centi\metre\cubed} with solar and WC abundances.}
   \label{fig:collisionalheatingcomparison}
 \end{figure}
 
@@ -1211,7 +1211,7 @@ The \footlink{Galactic Wolf-Rayet Catalogue}{http://pacrowther.staff.shef.ac.uk/
 \textcite{rossloweSpatialDistributionGalactic2015} notes that there are a total of 42 confirmed WCd systems, approximately 35\% of all WC systems, though this value is somewhat out of date and includes single star systems.
 A more up-to-date estimate performed for this thesis using the updated dataset estimates a total of 80 WCd systems, of which 72 have well-determined spectral subtypes (Table \ref{tab:wc-summated-list} \& Fig. \ref{fig:wrmap}).
 % Impact of systems 
-\textcite{rossloweSpatialDistributionGalactic2015} goes on to estimate that out of an estimated total of 1900 galactic WR stars, approximately 300 of these stars are predicted to be dusty WC stars.
+\textcite{rossloweSpatialDistributionGalactic2015} goes on to estimate that out of an estimated total of \num{1900} galactic WR stars, approximately \num{300} of these stars are predicted to be dusty WC stars.
 Whilst this is a far cry from the number of galactic AGB stars, which outnumber WCd stars by approximately 3 orders of magnitude \parencite{ishiharaGalacticDistributionsCarbon2011}, these systems can still significantly impact the surrounding interstellar medium -- with strong stellar feedback propagating large quantities of dust into the surrounding medium.
 
 \begin{figure}[h]
@@ -1320,7 +1320,7 @@ A comparatively wide orbit reduces the number of cells required to simulate the 
 Finally, WR98a has previously been simulated using a multi-fluid dust model in \textcite{hendrix_pinwheels_2016}, this allows us to provide a point of comparison between our work and already published work.
 This is especially useful as there are only a handful of papers that cover dust models in CWB systems.
 % Parameter space exploration
-Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in Chapter \ref{chap:parameterspace}.
+Because of this relative ease of simulation and relatively slow wind velocity for both stars in the system, WR98a was chosen to be the baseline system for the research conducted in Chapter \ref{chap:parameterspace} \parencite{eatsonExplorationDustGrain2022}.
 
 \subsubsection{WR140}
 
@@ -1339,7 +1339,7 @@ Secondly, this requires a corresponding increase in resolution, as the WCR needs
 Whilst refinement methods such as adaptive mesh refinement (AMR) would alleviate these issues somewhat, we found that the current version of the \athena{} hydrodynamical code lacked stability with passive scalars in AMR.
 This issue was deeply embedded in \athena{}, and as such could not be fixed by the end of this PhD.
 % Snippet
-Instead, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$. 
+Instead, it was decided to only simulate the system as it undergoes closest approach, from $\phi = 0.95$ to $\phi = 1.10$ (Chapter \ref{ch:wr140}; \cite{eatsonExploringDustGrowth2022}). 
 
 \subsubsection{WR104}
 
@@ -1401,7 +1401,7 @@ These systems are predicted to be comparatively rare, even among CWB systems.
 This is due to the unlikelihood that both stars in the system would be in their Wolf-Rayet phase at the same time.
 Despite these systems having an enormous combined mass-loss rate, initial estimates of the dust production rates of both systems indicate that their dust conversion efficiencies are comparatively low compared to less energetic systems, and overall quite mundane dust production rates in general.
 Whether this suppressed dust production rate is a common phenomena among WR+WR systems remains to be seen, as more systems would need to be discovered in order to determine this.
-Extragalactic WR+WR binaries have also been detected in the Magellanic clouds, though all detected systems so far have been found to be WN+WN pairs \parencite{shenarWolfRayetBinaries2019}.
+Extragalactic WR+WR binaries have also been detected in the Magellanic clouds, though all detected systems so far have been found to be WN+WN pairs, which are not known to produce dust \parencite{shenarWolfRayetBinaries2019}.
 
 \subsubsection{WR70-16 (``Apep'') -- a recently discovered WR+WR system}
 \label{sec:bg-apep}

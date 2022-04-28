@@ -207,7 +207,7 @@ Finally, the extreme degree of cooling in the post-shock WCR can render the simu
 All of these factors enact a significant computational cost, requiring a large number of cores to effectively simulate the systems.
 Fortunately, mesh refinement techniques can improve this situation by drastically reducing the number of cells that need processing; simplifying our problem from \textit{impossibly} intensive to \textit{extremely} intensive.
 
-\section{The \mg{} hydrodynamical code}
+\section{The \mg{} Hydrodynamical Code}
 \label{sec:mgcode}
 
 % briefly cover MG hydrodynamical code, since this was used for the first half of this work before adopting a more modern hydro code
@@ -827,16 +827,18 @@ This final bilinear+linear method improves performance from the integral method 
   \label{fig:dust-opt-speedup}
 \end{figure}
 
-\subsubsection{\textcite{dwek_infrared_1981} approximation}
+\subsubsection{The \textcite{dwek_infrared_1981} approximation}
 
 \textcite{dwek_infrared_1981} provide a series of equations to estimate $h_{e}$ based on the value of $x^*$:
 
 \begin{equation}
-  \begin{alignedat}{3}
-    h_e(x^*) & = 1 ,                && ~~ x^* > 4.5, \\
-    & = 0.37{x^*}^{0.62} , && ~~ x^* > 1.5 , \\
-    & = 0.27{x^*}^{1.50} , && ~~ \text{otherwise.}
-  \end{alignedat} \label{eq:electrontransparencyestimate}
+  h_e(x^*) = 
+  \begin{cases}
+    1                , & \text{if } x^* > 4.5 \\
+    0.37{x^*}^{0.62} , & \text{if } x^* > 1.5 \\
+    0.27{x^*}^{1.50} , & \text{otherwise.}
+  \end{cases}
+  \label{eq:electrontransparencyestimate}
 \end{equation}
 
 \noindent
@@ -850,7 +852,7 @@ Because of this, it was decided that the approximation method would be used.
 \begin{figure}[ht]
   \centering
   \includegraphics{assets/grain-transparency/lambda-comp.pdf}
-  \caption[Electron transparency method accuracy - $\Lambda_d$]{$\Lambda_d$ as a function of temperature for various grain sizes and solar abundances. Solid lines represent calculations from the \textcite{dwek_infrared_1981} estimation, dashed lines represent the integral method. The estimation method is extremely close to the integral value aside from at the highest temperatures.}
+  \caption[Electron transparency method accuracy -- $\Lambda\rms{d}$]{$\Lambda\rms{d}$ as a function of temperature for various grain sizes and solar abundances. Solid lines represent calculations from the \textcite{dwek_infrared_1981} estimation, dashed lines represent the integral method. The estimation method is extremely close to the integral value aside from at the highest temperatures.}
   \label{fig:lambda-comp-int-vs-est}
 \end{figure}
 
@@ -1402,8 +1404,8 @@ Regardless, this represents the first numerical model that calculates the growth
 In the following chapters, we will apply this model to two types of systems:
 
 \begin{itemize}
-  \item Persistent WCd systems in the form of a parameter space study with a system representative of WR98a as a baseline.
-  \item The episodic WCd system WR140 at periastron passage.
+  \item Persistent WCd systems in the form of a parameter space study with a system representative of WR98a as a baseline (Chapter \ref{chap:parameterspace}; \cite{eatsonExplorationDustGrain2022}).
+  \item The episodic WCd system WR140 at periastron passage (Chapter \ref{ch:wr140}; \cite{eatsonExploringDustGrowth2022}).
 \end{itemize}
 
 \noindent

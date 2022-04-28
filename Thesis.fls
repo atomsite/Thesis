@@ -2391,6 +2391,11 @@ INPUT ./Appendix/Appendix.tex
 INPUT Appendix/Appendix.tex
 INPUT ./Appendix/Appendix.tex
 INPUT Appendix/Appendix.tex
+INPUT ./Appendix/assets/cpu_time.pdf
+INPUT ./Appendix/assets/cpu_time.pdf
+INPUT ./Appendix/assets/cpu_time.pdf
+INPUT ./Appendix/assets/cpu_time.pdf
+INPUT ./Appendix/assets/cpu_time.pdf
 INPUT ./Appendix/assets/Amdahl/amdahl.pdf
 INPUT ./Appendix/assets/Amdahl/amdahl.pdf
 INPUT ./Appendix/assets/Amdahl/amdahl.pdf
