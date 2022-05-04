@@ -1,0 +1,11 @@
+% This document encapsulates the main document "Thesis.pdf" and adds an offset suitable for printing and binding, adding another two inches to the inside borders
+% This document requires recompilation after **any** changes to Thesis.tex, and also has broken links, but does not affect the geometry of the document, and therefore has the same number of pages
+
+\documentclass[a4paper, twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{pdfpages}
+
+\begin{document}
+\includepdf[pages=-,fitpaper=true, offset=5mm 0mm,frame=false]{Thesis.pdf}
+\end{document}
