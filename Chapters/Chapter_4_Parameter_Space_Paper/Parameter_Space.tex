@@ -319,11 +319,12 @@ An assumed full opacity proves to be extremely inaccurate at temperatures $>10^6
 Electron-grain transparency is therefore calculated via an approximation described in \textcite{dwek_infrared_1981}:
 
 \begin{equation}
-  \begin{alignedat}{3}
-    h(x^*) & = 1 ,                && ~~ x^* > 4.5, \\
-           & = 0.37{x^*}^{0.62} , && ~~ x^* > 1.5 , \\
-           & = 0.27{x^*}^{1.50} , && ~~ \text{otherwise,}
-  \end{alignedat}
+  h_e(x^*) = 
+  \begin{cases}
+    1                , & \text{if } x^* > 4.5 \\
+    0.37{x^*}^{0.62} , & \text{if } x^* > 1.5 \\
+    0.27{x^*}^{1.50} , & \text{otherwise,}
+  \end{cases}
 \end{equation}
 
 \noindent

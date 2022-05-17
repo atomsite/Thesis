@@ -219,7 +219,7 @@ A multi-fluid model with drag force coupling could also be implemented, however 
 Dust grows through grain accretion using formulae described by \textcite{spitzerPhysicalProcessesInterstellar2008} where dust grains grow via low-velocity collisions with surrounding carbon atoms, causing them to accrete onto the surface of the dust grain.
 Carbon is removed from the gas, reducing the cell gas density, while the corresponding dust density increases.
 This ensures that mass is preserved in the simulation.
-Assuming a single average grain size the rate of change in the grain radius in a cell dueo to accretion, $da\rms{acc}/dt$, is given by the equation:
+Assuming a single average grain size the rate of change in the grain radius in a cell due to accretion, $da\rms{acc}/dt$, is given by the equation:
 
 \begin{equation}
   \frac{da\rms{acc}}{dt} = \frac{\xi \rho\rms{C} w\rms{C}}{4\rho\rms{gr}},
@@ -312,11 +312,12 @@ The grain heating factor for electron collisions, $h\rms{e}$, is calculated via 
 $h\rms{e}$ is estimated through the following conditions:
 
 \begin{equation}
-  \begin{alignedat}{3}
-    h\rms{e}(x^*) & = 1 ,                && ~~ x^* > 4.5, \\
-             & = 0.37{x^*}^{0.62} , && ~~ x^* > 1.5 , \\
-             & = 0.27{x^*}^{1.50} , && ~~ \text{otherwise,}
-  \end{alignedat}
+  h_e(x^*) = 
+  \begin{cases}
+    1                , & \text{if } x^* > 4.5 \\
+    0.37{x^*}^{0.62} , & \text{if } x^* > 1.5 \\
+    0.27{x^*}^{1.50} , & \text{otherwise,}
+  \end{cases}
 \end{equation}
 
 \noindent

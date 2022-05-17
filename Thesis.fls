@@ -2,7 +2,7 @@ PWD /Users/py13je/Documents/Thesis
 INPUT /Users/py13je/texlive/2021/texmf.cnf
 INPUT /Users/py13je/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT /Users/py13je/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/py13je/Documents/Thesis/Thesis.tex
+INPUT Thesis.tex
 OUTPUT Thesis.log
 INPUT ./Macros/MacroFile1.tex
 INPUT ./Macros/MacroFile1.tex
