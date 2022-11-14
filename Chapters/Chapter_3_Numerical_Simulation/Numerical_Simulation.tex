@@ -4,7 +4,7 @@
 % Brief summation of computational work
 Observational astrophysics is a field based on snapshots.
 The universe can be thought of as a near-infinite number of laboratory experiments that are viewed by astronomers from a fixed perspective.
-Additionally, most phenomena evolve over incredibly long timescales.
+Additionally, most phenomena evolve over extremely long timescales.
 It may in some cases take the entire lifetime of a researcher to collect enough information on a single system -- in other cases, they may be long dead before their predictions can be validated.
 Despite this, by observing many systems at once we can overcome this limit, piecing together the properties and formation of phenomena from a thousand disparate snapshots in space and time.
 This kind of ``natural parallelisation'' has historically worked extremely well -- but has its limitations.
@@ -162,7 +162,7 @@ Other enhancements to numerical simulation include mesh refinement, which is cov
 Numerical simulations, thanks to their generalised but calculation-intensive approximation of partial differential equations, have an enormous range of uses -- especially in the field of astrophysics.
 Numerical simulations particularly excel in modelling large timescales and regions that are otherwise difficult to observe.
 
-For instance, the laws of physics have remained consistent over the last 13.8 billion years\footnote{With some earlier exceptions, see cosmological inflation.}, and as such simulations have been performed of the early universe.
+For instance, the laws of physics have remained consistent over the last 13.8 billion years, and as such simulations have been performed of the early universe.
 The dynamics and collapse of the universe into filaments and galaxies provides our only continuous look into the long-term evolution of the universe.
 
 Regions that undergo too much extinction from dust or that are too distant to observe can also be simulated, as long as a reasonable estimation of the initial system parameters can be made.
@@ -241,7 +241,7 @@ Debugging was rendered difficult by the use of OpenMPI, and the general structur
 Finally, the numerical integrator was found to be unstable in the face of extremely radiative cooling environments.
 Complex multi-step cooling processes were considered and implemented, but even these could not handle such rapid cooling without breakdown if a reasonable Courant number was to be used.
 The solution to this was to artificially limit cooling to a fraction of the energy in the cell per timestep.
-This reduced the simulation accuracy, and resulted in much slower cooling within the post-shock WCR\footnote{I understand, reader, that this section reads like a series of complaints\ldots This is because it is. I recommend that you humour me, as attempting to debug \mg{} ate up more than two years of my life and was the direct cause of many, \textit{many} sleepless nights. Thankfully this is the last time we will ever speak of it, unless you and I share a pint or two at a local pub.}.
+This reduced the simulation accuracy, and resulted in much slower cooling within the post-shock WCR.
 
 In the end, the decision was made to switch from \mg{} to the then-new \athena{} hydrodynamical code.
 This decision was made in mid-2020.
@@ -535,7 +535,8 @@ For a shock with $M_a = 100$ the final density can exceed the pre-shock density 
 Performing radiative cooling within a numerical simulation is computationally difficult, and trade-offs between accuracy and performance must be considered at every step of designing the simulation, as every single cell must undergo cooling.
 For this project, the final cooling can be out by a few percent at worst, but is fast enough to run the simulations in a reasonable amount of time without excessive memory requirements.
 In order to simplify the radiation calculations, radiation does not re-interact with the simulation, instead it is completely removed from the simulation.
-Due to this, scattering, re-adsorption and radiative transfer are not simulated at all\footnote{If these are considered, your programme is now a ray-tracing programme as well as a hydrodynamical code, which is its own, even more complicated field.}.
+\turbo{need to clean this up because footnote removed}
+Due to this, scattering, re-adsorption and radiative transfer are not simulated at all.
 Other methods of reducing computational cost and optimising the code are used in this project, and will be described in detail in this section.
 
 \subsection{Plasma cooling}
@@ -998,7 +999,7 @@ Improved models in the future could utilise an adaptive RK method, in a similar 
 In order to determine the rate of dust production, as well as the growth ``hot spot'' areas of a WCR, it was decided to implement a full dust model within a numerical simulation.
 The dust model would utilise advected scalars as this would be computationally lightweight.
 Additionally, this model was designed to be extensible; while grain destruction and accretion mechanisms that were the most influential were implemented first, a number of additional mechanisms could be implemented later for improved accuracy.
-The Binary Interaction Dust Model with Accretion and Sputtering (\bidmas)\footnote{Any good thesis (though this one, again, is of debatable quality) has an incredibly laboured acronym!} model is the result of this work.
+The Binary Interaction Dust Model with Accretion and Sputtering (\bidmas) model is the result of this work.
 Although only a few dust evolution mechanisms were implemented due to time restrictions, it is a good first step towards modelling dust growth in WCd systems.
 
 \subsection{\bidmas{} features}

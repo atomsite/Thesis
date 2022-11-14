@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bcf:controlfile version="3.7" bltxversion="3.16" xmlns:bcf="https://sourceforge.net/projects/biblatex">
+<bcf:controlfile version="3.8" bltxversion="3.17" xmlns:bcf="https://sourceforge.net/projects/biblatex">
   <!-- BIBER OPTIONS -->
   <bcf:options component="biber" type="global">
     <bcf:option type="singlevalued">
@@ -46,9 +46,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -269,10 +268,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -299,9 +294,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -498,10 +492,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -528,9 +518,8 @@
       <bcf:key>labelnamespec</bcf:key>
       <bcf:value order="1">shortauthor</bcf:value>
       <bcf:value order="2">author</bcf:value>
-      <bcf:value order="3">groupauthor</bcf:value>
-      <bcf:value order="4">shorteditor</bcf:value>
-      <bcf:value order="5">editor</bcf:value>
+      <bcf:value order="3">shorteditor</bcf:value>
+      <bcf:value order="4">editor</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeltitle</bcf:key>
@@ -723,10 +712,6 @@
       <bcf:value>1</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
-      <bcf:key>usegroupauthor</bcf:key>
-      <bcf:value>1</bcf:value>
-    </bcf:option>
-    <bcf:option type="singlevalued">
       <bcf:key>usenarrator</bcf:key>
       <bcf:value>1</bcf:value>
     </bcf:option>
@@ -828,7 +813,6 @@
     <bcf:option datatype="boolean">usetranslator</bcf:option>
     <bcf:option datatype="boolean">useshortauthor</bcf:option>
     <bcf:option datatype="boolean">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean">usenarrator</bcf:option>
     <bcf:option datatype="boolean">useexecproducer</bcf:option>
     <bcf:option datatype="boolean">useexecdirector</bcf:option>
@@ -948,7 +932,6 @@
     <bcf:option datatype="boolean">usetranslator</bcf:option>
     <bcf:option datatype="boolean">useshortauthor</bcf:option>
     <bcf:option datatype="boolean">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean">usenarrator</bcf:option>
     <bcf:option datatype="boolean">useexecproducer</bcf:option>
     <bcf:option datatype="boolean">useexecdirector</bcf:option>
@@ -1041,7 +1024,6 @@
     <bcf:option datatype="boolean" backendout="1">usetranslator</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useshortauthor</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useshorteditor</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">usegroupauthor</bcf:option>
     <bcf:option datatype="boolean" backendout="1">usenarrator</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useexecproducer</bcf:option>
     <bcf:option datatype="boolean" backendout="1">useexecdirector</bcf:option>
@@ -1150,6 +1132,9 @@
         <bcf:map_step map_type_source="hardware" map_type_target="software"/>
       </bcf:map>
       <bcf:map>
+        <bcf:map_step map_field_source="groupauthor" map_field_target="author"/>
+      </bcf:map>
+      <bcf:map>
         <bcf:per_type>proceedings</bcf:per_type>
         <bcf:map_step map_field_source="booktitle" map_field_target="title"/>
         <bcf:map_step map_type_source="proceedings" map_type_target="book"/>
@@ -1172,7 +1157,7 @@
         <bcf:map_step map_field_set="pubstate" map_null="1"/>
       </bcf:map>
       <bcf:map>
-        <bcf:map_step map_field_source="groupauthor" map_match="([^{}]+)" map_final="1"/>
+        <bcf:map_step map_field_source="author" map_match="([^{}]+)" map_final="1"/>
         <bcf:map_step map_field_source="publisher" map_match="$1" map_final="1"/>
         <bcf:map_step map_field_set="publisher" map_null="1"/>
       </bcf:map>
@@ -1583,14 +1568,14 @@
       <bcf:field fieldtype="field" datatype="datepart">minute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">second</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">timezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">season</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">yeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endmonth</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endday</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endhour</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">endtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">endseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">endyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="date" skip_output="true">eventdate</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">eventendyear</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">eventyear</bcf:field>
@@ -1600,14 +1585,14 @@
       <bcf:field fieldtype="field" datatype="datepart">eventminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">eventseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">eventyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendmonth</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendday</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendhour</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">eventendtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">eventendseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">eventendyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="date" skip_output="true">origdate</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">origendyear</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">origyear</bcf:field>
@@ -1617,14 +1602,14 @@
       <bcf:field fieldtype="field" datatype="datepart">origminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">origseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">origyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendmonth</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendday</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendhour</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">origendtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">origendseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">origendyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="date" skip_output="true">urldate</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">urlendyear</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart" nullok="true">urlyear</bcf:field>
@@ -1634,14 +1619,14 @@
       <bcf:field fieldtype="field" datatype="datepart">urlminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urltimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">urlseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">urlyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendmonth</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendday</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendhour</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendminute</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendsecond</bcf:field>
       <bcf:field fieldtype="field" datatype="datepart">urlendtimezone</bcf:field>
-      <bcf:field fieldtype="field" datatype="datepart">urlendseason</bcf:field>
+      <bcf:field fieldtype="field" datatype="datepart">urlendyeardivision</bcf:field>
       <bcf:field fieldtype="field" datatype="verbatim">doi</bcf:field>
       <bcf:field fieldtype="field" datatype="verbatim">eprint</bcf:field>
       <bcf:field fieldtype="field" datatype="verbatim">file</bcf:field>
@@ -1658,7 +1643,6 @@
       <bcf:field fieldtype="field" format="xsv" datatype="option" skip_output="true">relatedoptions</bcf:field>
       <bcf:field fieldtype="field" datatype="range">pages</bcf:field>
       <bcf:field fieldtype="field" datatype="code">execute</bcf:field>
-      <bcf:field fieldtype="list" datatype="name">groupauthor</bcf:field>
       <bcf:field fieldtype="list" datatype="name">narrator</bcf:field>
       <bcf:field fieldtype="list" datatype="name">execproducer</bcf:field>
       <bcf:field fieldtype="list" datatype="name">execdirector</bcf:field>
@@ -1685,10 +1669,10 @@
       <bcf:field>endhour</bcf:field>
       <bcf:field>endminute</bcf:field>
       <bcf:field>endmonth</bcf:field>
-      <bcf:field>endseason</bcf:field>
       <bcf:field>endsecond</bcf:field>
       <bcf:field>endtimezone</bcf:field>
       <bcf:field>endyear</bcf:field>
+      <bcf:field>endyeardivision</bcf:field>
       <bcf:field>entryset</bcf:field>
       <bcf:field>entrysubtype</bcf:field>
       <bcf:field>execute</bcf:field>
@@ -1727,17 +1711,17 @@
       <bcf:field>origendhour</bcf:field>
       <bcf:field>origendminute</bcf:field>
       <bcf:field>origendmonth</bcf:field>
-      <bcf:field>origendseason</bcf:field>
       <bcf:field>origendsecond</bcf:field>
       <bcf:field>origendtimezone</bcf:field>
       <bcf:field>origendyear</bcf:field>
+      <bcf:field>origendyeardivision</bcf:field>
       <bcf:field>orighour</bcf:field>
       <bcf:field>origminute</bcf:field>
       <bcf:field>origmonth</bcf:field>
-      <bcf:field>origseason</bcf:field>
       <bcf:field>origsecond</bcf:field>
       <bcf:field>origtimezone</bcf:field>
       <bcf:field>origyear</bcf:field>
+      <bcf:field>origyeardivision</bcf:field>
       <bcf:field>origlocation</bcf:field>
       <bcf:field>origpublisher</bcf:field>
       <bcf:field>origtitle</bcf:field>
@@ -1747,7 +1731,6 @@
       <bcf:field>relatedoptions</bcf:field>
       <bcf:field>relatedstring</bcf:field>
       <bcf:field>relatedtype</bcf:field>
-      <bcf:field>season</bcf:field>
       <bcf:field>second</bcf:field>
       <bcf:field>shortauthor</bcf:field>
       <bcf:field>shorteditor</bcf:field>
@@ -1789,6 +1772,7 @@
       <bcf:field>xdata</bcf:field>
       <bcf:field>xref</bcf:field>
       <bcf:field>year</bcf:field>
+      <bcf:field>yeardivision</bcf:field>
     </bcf:entryfields>
     <bcf:entryfields>
       <bcf:entrytype>set</bcf:entrytype>
@@ -2217,12 +2201,12 @@
       <bcf:field>note</bcf:field>
       <bcf:field>number</bcf:field>
       <bcf:field>pubstate</bcf:field>
-      <bcf:field>season</bcf:field>
       <bcf:field>series</bcf:field>
       <bcf:field>subtitle</bcf:field>
       <bcf:field>title</bcf:field>
       <bcf:field>titleaddon</bcf:field>
       <bcf:field>volume</bcf:field>
+      <bcf:field>yeardivision</bcf:field>
     </bcf:entryfields>
     <bcf:entryfields>
       <bcf:entrytype>mvproceedings</bcf:entrytype>
@@ -2234,17 +2218,17 @@
       <bcf:field>eventendhour</bcf:field>
       <bcf:field>eventendminute</bcf:field>
       <bcf:field>eventendmonth</bcf:field>
-      <bcf:field>eventendseason</bcf:field>
       <bcf:field>eventendsecond</bcf:field>
       <bcf:field>eventendtimezone</bcf:field>
       <bcf:field>eventendyear</bcf:field>
+      <bcf:field>eventendyeardivision</bcf:field>
       <bcf:field>eventhour</bcf:field>
       <bcf:field>eventminute</bcf:field>
       <bcf:field>eventmonth</bcf:field>
-      <bcf:field>eventseason</bcf:field>
       <bcf:field>eventsecond</bcf:field>
       <bcf:field>eventtimezone</bcf:field>
       <bcf:field>eventyear</bcf:field>
+      <bcf:field>eventyeardivision</bcf:field>
       <bcf:field>eventtitle</bcf:field>
       <bcf:field>eventtitleaddon</bcf:field>
       <bcf:field>isbn</bcf:field>
@@ -2275,17 +2259,17 @@
       <bcf:field>eventendhour</bcf:field>
       <bcf:field>eventendminute</bcf:field>
       <bcf:field>eventendmonth</bcf:field>
-      <bcf:field>eventendseason</bcf:field>
       <bcf:field>eventendsecond</bcf:field>
       <bcf:field>eventendtimezone</bcf:field>
       <bcf:field>eventendyear</bcf:field>
+      <bcf:field>eventendyeardivision</bcf:field>
       <bcf:field>eventhour</bcf:field>
       <bcf:field>eventminute</bcf:field>
       <bcf:field>eventmonth</bcf:field>
-      <bcf:field>eventseason</bcf:field>
       <bcf:field>eventsecond</bcf:field>
       <bcf:field>eventtimezone</bcf:field>
       <bcf:field>eventyear</bcf:field>
+      <bcf:field>eventyeardivision</bcf:field>
       <bcf:field>eventtitle</bcf:field>
       <bcf:field>eventtitleaddon</bcf:field>
       <bcf:field>isbn</bcf:field>
@@ -2326,17 +2310,17 @@
       <bcf:field>eventendhour</bcf:field>
       <bcf:field>eventendminute</bcf:field>
       <bcf:field>eventendmonth</bcf:field>
-      <bcf:field>eventendseason</bcf:field>
       <bcf:field>eventendsecond</bcf:field>
       <bcf:field>eventendtimezone</bcf:field>
       <bcf:field>eventendyear</bcf:field>
+      <bcf:field>eventendyeardivision</bcf:field>
       <bcf:field>eventhour</bcf:field>
       <bcf:field>eventminute</bcf:field>
       <bcf:field>eventmonth</bcf:field>
-      <bcf:field>eventseason</bcf:field>
       <bcf:field>eventsecond</bcf:field>
       <bcf:field>eventtimezone</bcf:field>
       <bcf:field>eventyear</bcf:field>
+      <bcf:field>eventyeardivision</bcf:field>
       <bcf:field>eventtitle</bcf:field>
       <bcf:field>eventtitleaddon</bcf:field>
       <bcf:field>isbn</bcf:field>
@@ -2408,17 +2392,17 @@
       <bcf:field>eventendhour</bcf:field>
       <bcf:field>eventendminute</bcf:field>
       <bcf:field>eventendmonth</bcf:field>
-      <bcf:field>eventendseason</bcf:field>
       <bcf:field>eventendsecond</bcf:field>
       <bcf:field>eventendtimezone</bcf:field>
       <bcf:field>eventendyear</bcf:field>
+      <bcf:field>eventendyeardivision</bcf:field>
       <bcf:field>eventhour</bcf:field>
       <bcf:field>eventminute</bcf:field>
       <bcf:field>eventmonth</bcf:field>
-      <bcf:field>eventseason</bcf:field>
       <bcf:field>eventsecond</bcf:field>
       <bcf:field>eventtimezone</bcf:field>
       <bcf:field>eventyear</bcf:field>
+      <bcf:field>eventyeardivision</bcf:field>
       <bcf:field>eventtitle</bcf:field>
       <bcf:field>eventtitleaddon</bcf:field>
       <bcf:field>howpublished</bcf:field>
@@ -2434,7 +2418,6 @@
     </bcf:entryfields>
     <bcf:entryfields>
       <bcf:field>with</bcf:field>
-      <bcf:field>groupauthor</bcf:field>
       <bcf:field>narrator</bcf:field>
       <bcf:field>execproducer</bcf:field>
       <bcf:field>execdirector</bcf:field>
@@ -2797,10 +2780,7 @@
       <bcf:entrytype>article</bcf:entrytype>
       <bcf:entrytype>report</bcf:entrytype>
       <bcf:constraint type="mandatory">
-        <bcf:fieldor>
-          <bcf:field>author</bcf:field>
-          <bcf:field>groupauthor</bcf:field>
-        </bcf:fieldor>
+        <bcf:field>author</bcf:field>
         <bcf:field>title</bcf:field>
       </bcf:constraint>
     </bcf:constraints>
@@ -2816,270 +2796,271 @@
     <bcf:citekey order="12">hamaguchiNonthermalXraysColliding2018</bcf:citekey>
     <bcf:citekey order="13">hamaguchiNonthermalXraysColliding2018</bcf:citekey>
     <bcf:citekey order="14">hamaguchiNonthermalXraysColliding2018</bcf:citekey>
-    <bcf:citekey order="15">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="16">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="17">carrollIntroductionModernAstrophysics2014</bcf:citekey>
-    <bcf:citekey order="18">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
-    <bcf:citekey order="19">bodenheimerPrinciplesStarFormation2011</bcf:citekey>
-    <bcf:citekey order="20">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
-    <bcf:citekey order="21">bodenheimerPrinciplesStarFormation2011</bcf:citekey>
+    <bcf:citekey order="15">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="16">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="17">draineInterstellarDustGrains2003</bcf:citekey>
+    <bcf:citekey order="18">morganDustFormationEarly2003</bcf:citekey>
+    <bcf:citekey order="19">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="20">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="21">carrollIntroductionModernAstrophysics2014</bcf:citekey>
     <bcf:citekey order="22">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
-    <bcf:citekey order="23">chiniSpectroscopicSurveyMultiplicity2012</bcf:citekey>
-    <bcf:citekey order="24">eddingtonInternalConstitutionStars1920</bcf:citekey>
-    <bcf:citekey order="25">eddingtonInternalConstitutionStars1920</bcf:citekey>
-    <bcf:citekey order="26">betheEnergyProductionStars1939</bcf:citekey>
-    <bcf:citekey order="27">betheEnergyProductionStars1939</bcf:citekey>
-    <bcf:citekey order="28">wongIntroductoryNuclearPhysics1998</bcf:citekey>
-    <bcf:citekey order="28">betheEnergyProductionStars1939</bcf:citekey>
-    <bcf:citekey order="29">salarisEvolutionStarsStellar2005</bcf:citekey>
-    <bcf:citekey order="30">salarisEvolutionStarsStellar2005</bcf:citekey>
-    <bcf:citekey order="31">harrisThermonuclearReactionRates1983</bcf:citekey>
-    <bcf:citekey order="32">harrisThermonuclearReactionRates1983</bcf:citekey>
-    <bcf:citekey order="33">bealsNatureWolfRayetEmission1929</bcf:citekey>
-    <bcf:citekey order="33">lamersIntroductionStellarWinds1999</bcf:citekey>
-    <bcf:citekey order="34">lamersIntroductionStellarWinds1999</bcf:citekey>
-    <bcf:citekey order="35">cassinelliStellarWinds1979</bcf:citekey>
-    <bcf:citekey order="36">lucy_mass_1970</bcf:citekey>
-    <bcf:citekey order="37">lucy_mass_1970</bcf:citekey>
-    <bcf:citekey order="38">lucy_mass_1970</bcf:citekey>
-    <bcf:citekey order="39">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="23">bodenheimerPrinciplesStarFormation2011</bcf:citekey>
+    <bcf:citekey order="24">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="25">bodenheimerPrinciplesStarFormation2011</bcf:citekey>
+    <bcf:citekey order="26">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="27">chiniSpectroscopicSurveyMultiplicity2012</bcf:citekey>
+    <bcf:citekey order="28">lamersUnderstandingStellarEvolution2017</bcf:citekey>
+    <bcf:citekey order="29">lamersUnderstandingStellarEvolution2017</bcf:citekey>
+    <bcf:citekey order="30">eddingtonInternalConstitutionStars1920</bcf:citekey>
+    <bcf:citekey order="31">eddingtonInternalConstitutionStars1920</bcf:citekey>
+    <bcf:citekey order="32">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="33">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="34">wongIntroductoryNuclearPhysics1998</bcf:citekey>
+    <bcf:citekey order="34">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="34">lamersUnderstandingStellarEvolution2017</bcf:citekey>
+    <bcf:citekey order="35">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="36">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="37">harrisThermonuclearReactionRates1983</bcf:citekey>
+    <bcf:citekey order="38">harrisThermonuclearReactionRates1983</bcf:citekey>
+    <bcf:citekey order="39">bealsNatureWolfRayetEmission1929</bcf:citekey>
+    <bcf:citekey order="39">lamersIntroductionStellarWinds1999</bcf:citekey>
     <bcf:citekey order="40">lamersIntroductionStellarWinds1999</bcf:citekey>
-    <bcf:citekey order="41">macielHydrodynamicsStellarWinds2014</bcf:citekey>
-    <bcf:citekey order="42">sahaRadiationPressureQuantumTheory1919</bcf:citekey>
-    <bcf:citekey order="43">sahaRadiationPressureQuantumTheory1919</bcf:citekey>
-    <bcf:citekey order="44">milnePossibilityEmissionHighspeed1926</bcf:citekey>
-    <bcf:citekey order="45">milnePossibilityEmissionHighspeed1926</bcf:citekey>
-    <bcf:citekey order="46">lucy_mass_1970</bcf:citekey>
-    <bcf:citekey order="47">lucy_mass_1970</bcf:citekey>
-    <bcf:citekey order="48">castor_radiation-driven_1975</bcf:citekey>
-    <bcf:citekey order="49">1982ApJ...259..282A</bcf:citekey>
-    <bcf:citekey order="50">1982ApJ...259..282A</bcf:citekey>
-    <bcf:citekey order="51">friend_theory_1986</bcf:citekey>
-    <bcf:citekey order="51">pauldrachRadiationdrivenWindsHot1986</bcf:citekey>
-    <bcf:citekey order="52">salarisEvolutionStarsStellar2005</bcf:citekey>
-    <bcf:citekey order="53">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="53">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="53">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="54">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="54">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="54">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="55">schonbergEvolutionMainSequenceStars1942</bcf:citekey>
-    <bcf:citekey order="56">schonbergEvolutionMainSequenceStars1942</bcf:citekey>
-    <bcf:citekey order="57">salarisEvolutionStarsStellar2005</bcf:citekey>
-    <bcf:citekey order="58">beechSchoenbergChandrasekharLimitPolytropic1988</bcf:citekey>
-    <bcf:citekey order="59">kippenhahnStellarStructureEvolution2012</bcf:citekey>
-    <bcf:citekey order="60">2010ApJ...724L..90M</bcf:citekey>
-    <bcf:citekey order="61">2010ApJ...724L..90M</bcf:citekey>
-    <bcf:citekey order="62">crowther_physical_2007</bcf:citekey>
-    <bcf:citekey order="63">betheEnergyProductionStars1939</bcf:citekey>
-    <bcf:citekey order="64">betheEnergyProductionStars1939</bcf:citekey>
-    <bcf:citekey order="65">gamowWCWNStars1943</bcf:citekey>
-    <bcf:citekey order="66">gamowWCWNStars1943</bcf:citekey>
-    <bcf:citekey order="67">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="67">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="67">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="68">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="68">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="68">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="69">contiLuminousHotStars2012</bcf:citekey>
-    <bcf:citekey order="70">vinkVeryMassiveStars2015</bcf:citekey>
-    <bcf:citekey order="71">crowther_physical_2007</bcf:citekey>
-    <bcf:citekey order="72">crowtherQuantitativeClassificationWC1998</bcf:citekey>
-    <bcf:citekey order="73">contiRelationshipWRStars1975</bcf:citekey>
-    <bcf:citekey order="74">contiRelationshipWRStars1975</bcf:citekey>
-    <bcf:citekey order="75">neugentWolfRayetContent2019</bcf:citekey>
-    <bcf:citekey order="75">oswaltPlanetsStarsStellar2013</bcf:citekey>
-    <bcf:citekey order="76">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="41">cassinelliStellarWinds1979</bcf:citekey>
+    <bcf:citekey order="42">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="43">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="44">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="45">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="46">lamersIntroductionStellarWinds1999</bcf:citekey>
+    <bcf:citekey order="47">macielHydrodynamicsStellarWinds2014</bcf:citekey>
+    <bcf:citekey order="48">sahaRadiationPressureQuantumTheory1919</bcf:citekey>
+    <bcf:citekey order="49">sahaRadiationPressureQuantumTheory1919</bcf:citekey>
+    <bcf:citekey order="50">milnePossibilityEmissionHighspeed1926</bcf:citekey>
+    <bcf:citekey order="51">milnePossibilityEmissionHighspeed1926</bcf:citekey>
+    <bcf:citekey order="52">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="53">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="54">castor_radiation-driven_1975</bcf:citekey>
+    <bcf:citekey order="55">1982ApJ...259..282A</bcf:citekey>
+    <bcf:citekey order="56">1982ApJ...259..282A</bcf:citekey>
+    <bcf:citekey order="57">friend_theory_1986</bcf:citekey>
+    <bcf:citekey order="57">pauldrachRadiationdrivenWindsHot1986</bcf:citekey>
+    <bcf:citekey order="58">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="59">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="59">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="59">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="60">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="60">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="60">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="61">schonbergEvolutionMainSequenceStars1942</bcf:citekey>
+    <bcf:citekey order="62">schonbergEvolutionMainSequenceStars1942</bcf:citekey>
+    <bcf:citekey order="63">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="64">beechSchoenbergChandrasekharLimitPolytropic1988</bcf:citekey>
+    <bcf:citekey order="65">kippenhahnStellarStructureEvolution2012</bcf:citekey>
+    <bcf:citekey order="66">2010ApJ...724L..90M</bcf:citekey>
+    <bcf:citekey order="67">2010ApJ...724L..90M</bcf:citekey>
+    <bcf:citekey order="68">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="69">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="70">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="71">gamowWCWNStars1943</bcf:citekey>
+    <bcf:citekey order="72">gamowWCWNStars1943</bcf:citekey>
+    <bcf:citekey order="73">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="73">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="73">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="74">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="74">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="74">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="75">contiLuminousHotStars2012</bcf:citekey>
+    <bcf:citekey order="76">vinkVeryMassiveStars2015</bcf:citekey>
     <bcf:citekey order="77">crowther_physical_2007</bcf:citekey>
-    <bcf:citekey order="78">medinaAreAllWCd2021</bcf:citekey>
-    <bcf:citekey order="79">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="79">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="79">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="80">choiMesaIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="80">dotterMESAIsochronesStellar2016</bcf:citekey>
-    <bcf:citekey order="80">paxtonModulesExperimentsStellar2011</bcf:citekey>
-    <bcf:citekey order="81">ryanStellarEvolutionNucleosynthesis2010a</bcf:citekey>
-    <bcf:citekey order="82">longairHighEnergyAstrophysics2011</bcf:citekey>
-    <bcf:citekey order="83">kapteynAbsorptionLightSpace1909</bcf:citekey>
-    <bcf:citekey order="84">kapteynAbsorptionLightSpace1909</bcf:citekey>
-    <bcf:citekey order="85">whittetDustGalacticEnvironment2002</bcf:citekey>
-    <bcf:citekey order="86">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="87">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="88">chokshiDustCoagulation1993</bcf:citekey>
-    <bcf:citekey order="89">jonesGrainShatteringShocks1996</bcf:citekey>
-    <bcf:citekey order="89">jonesDustDestructionProcesses2004</bcf:citekey>
-    <bcf:citekey order="90">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
-    <bcf:citekey order="91">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
-    <bcf:citekey order="92">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="93">drainePhysicsDustGrains1979</bcf:citekey>
-    <bcf:citekey order="93">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="94">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="95">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="96">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="97">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="98">watsonAbundancesInterstellarMolecules1972</bcf:citekey>
-    <bcf:citekey order="99">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="100">jonesDustDestructionProcesses2004</bcf:citekey>
-    <bcf:citekey order="101">herbstComplexOrganicInterstellar2009</bcf:citekey>
-    <bcf:citekey order="102">draineInterstellarDustGrains2003</bcf:citekey>
-    <bcf:citekey order="103">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="104">herbstComplexOrganicInterstellar2009</bcf:citekey>
-    <bcf:citekey order="105">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
-    <bcf:citekey order="106">williamsChemistryCosmicDust2015</bcf:citekey>
-    <bcf:citekey order="107">apaiProtoplanetaryDustAstrophysical2010</bcf:citekey>
-    <bcf:citekey order="108">birnstielDustEvolutionFormation2016</bcf:citekey>
-    <bcf:citekey order="109">gossetXMMNewtonLookWolfRayet2005</bcf:citekey>
-    <bcf:citekey order="110">nazeNewXrayDetections2021</bcf:citekey>
-    <bcf:citekey order="111">sewardXraysEtaCarinae1979</bcf:citekey>
-    <bcf:citekey order="111">oskinovaXrayEmissionSingle2015</bcf:citekey>
-    <bcf:citekey order="111">rauwXrayEmissionMassive2022</bcf:citekey>
-    <bcf:citekey order="112">prilutskii_x_1976</bcf:citekey>
-    <bcf:citekey order="113">prilutskii_x_1976</bcf:citekey>
-    <bcf:citekey order="114">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
-    <bcf:citekey order="115">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
-    <bcf:citekey order="116">pittard_x-ray_1999</bcf:citekey>
-    <bcf:citekey order="117">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="78">crowtherQuantitativeClassificationWC1998</bcf:citekey>
+    <bcf:citekey order="79">contiRelationshipWRStars1975</bcf:citekey>
+    <bcf:citekey order="80">contiRelationshipWRStars1975</bcf:citekey>
+    <bcf:citekey order="81">neugentWolfRayetContent2019</bcf:citekey>
+    <bcf:citekey order="81">oswaltPlanetsStarsStellar2013</bcf:citekey>
+    <bcf:citekey order="82">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="83">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="84">medinaAreAllWCd2021</bcf:citekey>
+    <bcf:citekey order="85">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="85">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="85">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="86">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="86">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="86">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="87">ryanStellarEvolutionNucleosynthesis2010a</bcf:citekey>
+    <bcf:citekey order="88">longairHighEnergyAstrophysics2011</bcf:citekey>
+    <bcf:citekey order="89">kapteynAbsorptionLightSpace1909</bcf:citekey>
+    <bcf:citekey order="90">kapteynAbsorptionLightSpace1909</bcf:citekey>
+    <bcf:citekey order="91">whittetDustGalacticEnvironment2002</bcf:citekey>
+    <bcf:citekey order="92">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="93">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="94">chokshiDustCoagulation1993</bcf:citekey>
+    <bcf:citekey order="95">jonesGrainShatteringShocks1996</bcf:citekey>
+    <bcf:citekey order="95">jonesDustDestructionProcesses2004</bcf:citekey>
+    <bcf:citekey order="96">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
+    <bcf:citekey order="97">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
+    <bcf:citekey order="98">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="99">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="99">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="100">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="101">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="102">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="103">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="104">watsonAbundancesInterstellarMolecules1972</bcf:citekey>
+    <bcf:citekey order="105">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="106">jonesDustDestructionProcesses2004</bcf:citekey>
+    <bcf:citekey order="107">herbstComplexOrganicInterstellar2009</bcf:citekey>
+    <bcf:citekey order="108">draineInterstellarDustGrains2003</bcf:citekey>
+    <bcf:citekey order="109">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="110">herbstComplexOrganicInterstellar2009</bcf:citekey>
+    <bcf:citekey order="111">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="112">williamsChemistryCosmicDust2015</bcf:citekey>
+    <bcf:citekey order="113">apaiProtoplanetaryDustAstrophysical2010</bcf:citekey>
+    <bcf:citekey order="114">birnstielDustEvolutionFormation2016</bcf:citekey>
+    <bcf:citekey order="115">gossetXMMNewtonLookWolfRayet2005</bcf:citekey>
+    <bcf:citekey order="116">nazeNewXrayDetections2021</bcf:citekey>
+    <bcf:citekey order="117">sewardXraysEtaCarinae1979</bcf:citekey>
+    <bcf:citekey order="117">oskinovaXrayEmissionSingle2015</bcf:citekey>
+    <bcf:citekey order="117">rauwXrayEmissionMassive2022</bcf:citekey>
     <bcf:citekey order="118">prilutskii_x_1976</bcf:citekey>
-    <bcf:citekey order="119">williamsInfraredPhotometryLatetype1987</bcf:citekey>
-    <bcf:citekey order="120">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="121">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="122">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="122">grimaldoProtonAccelerationColliding2019</bcf:citekey>
-    <bcf:citekey order="123">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="124">usov_stellar_1991</bcf:citekey>
-    <bcf:citekey order="125">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="119">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="120">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
+    <bcf:citekey order="121">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
+    <bcf:citekey order="122">pittard_x-ray_1999</bcf:citekey>
+    <bcf:citekey order="123">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="124">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="125">williamsInfraredPhotometryLatetype1987</bcf:citekey>
     <bcf:citekey order="126">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="127">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="128">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="129">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="130">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="127">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="128">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="128">grimaldoProtonAccelerationColliding2019</bcf:citekey>
+    <bcf:citekey order="129">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="130">usov_stellar_1991</bcf:citekey>
     <bcf:citekey order="131">eichler_particle_1993</bcf:citekey>
     <bcf:citekey order="132">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="133">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="134">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="135">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="136">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="137">macielHydrodynamicsStellarWinds2014</bcf:citekey>
-    <bcf:citekey order="138">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="139">neufeldRadiativeCoolingWarm1993</bcf:citekey>
-    <bcf:citekey order="139">neufeldThermalBalanceDense1995</bcf:citekey>
-    <bcf:citekey order="140">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
+    <bcf:citekey order="133">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="134">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="135">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="136">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="137">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="138">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="139">dysonPhysicsInterstellarMedium2021</bcf:citekey>
+    <bcf:citekey order="140">dysonPhysicsInterstellarMedium2021</bcf:citekey>
     <bcf:citekey order="141">dysonPhysicsInterstellarMedium2021</bcf:citekey>
-    <bcf:citekey order="142">longairHighEnergyAstrophysics2011</bcf:citekey>
-    <bcf:citekey order="143">meweCalculatedXradiationOptically1985</bcf:citekey>
-    <bcf:citekey order="143">kaastraSPEXHighresolutionCosmic2013</bcf:citekey>
-    <bcf:citekey order="144">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="145">wienerCosmicRayHeating2013</bcf:citekey>
-    <bcf:citekey order="146">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="147">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="148">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="149">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="150">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="151">wolfireNeutralAtomicPhases1995</bcf:citekey>
-    <bcf:citekey order="152">whittetDustGalacticEnvironment2002</bcf:citekey>
-    <bcf:citekey order="153">draineInterstellarDustGrains2003</bcf:citekey>
-    <bcf:citekey order="154">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="155">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="156">medinaAreAllWCd2021</bcf:citekey>
-    <bcf:citekey order="157">medinaAreAllWCd2021</bcf:citekey>
-    <bcf:citekey order="158">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="159">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="160">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="161">salpeter_formation_1977</bcf:citekey>
-    <bcf:citekey order="161">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="162">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="163">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="164">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="165">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="166">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="167">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="142">dysonPhysicsInterstellarMedium2021</bcf:citekey>
+    <bcf:citekey order="143">macielHydrodynamicsStellarWinds2014</bcf:citekey>
+    <bcf:citekey order="144">dysonPhysicsInterstellarMedium2021</bcf:citekey>
+    <bcf:citekey order="145">neufeldRadiativeCoolingWarm1993</bcf:citekey>
+    <bcf:citekey order="145">neufeldThermalBalanceDense1995</bcf:citekey>
+    <bcf:citekey order="146">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
+    <bcf:citekey order="147">dysonPhysicsInterstellarMedium2021</bcf:citekey>
+    <bcf:citekey order="148">longairHighEnergyAstrophysics2011</bcf:citekey>
+    <bcf:citekey order="149">meweCalculatedXradiationOptically1985</bcf:citekey>
+    <bcf:citekey order="149">kaastraSPEXHighresolutionCosmic2013</bcf:citekey>
+    <bcf:citekey order="150">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="151">wienerCosmicRayHeating2013</bcf:citekey>
+    <bcf:citekey order="152">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="153">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="154">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="155">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="156">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="157">wolfireNeutralAtomicPhases1995</bcf:citekey>
+    <bcf:citekey order="158">whittetDustGalacticEnvironment2002</bcf:citekey>
+    <bcf:citekey order="159">draineInterstellarDustGrains2003</bcf:citekey>
+    <bcf:citekey order="160">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="161">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="162">medinaAreAllWCd2021</bcf:citekey>
+    <bcf:citekey order="163">medinaAreAllWCd2021</bcf:citekey>
+    <bcf:citekey order="164">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="165">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="166">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="167">salpeter_formation_1977</bcf:citekey>
+    <bcf:citekey order="167">draineDestructionMechanismsInterstellar1979</bcf:citekey>
     <bcf:citekey order="168">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="169">ishiharaGalacticDistributionsCarbon2011</bcf:citekey>
-    <bcf:citekey order="170">niedzielskiKinematicalStructureWolfRayet2002</bcf:citekey>
-    <bcf:citekey order="171">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="171">williamsVariableDustEmission2019</bcf:citekey>
-    <bcf:citekey order="172">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="173">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="174">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="175">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="176">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
-    <bcf:citekey order="177">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
-    <bcf:citekey order="178">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
-    <bcf:citekey order="179">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
-    <bcf:citekey order="180">monnierPinwheelNebulaWR1999</bcf:citekey>
-    <bcf:citekey order="181">monnierPinwheelNebulaWR1999</bcf:citekey>
-    <bcf:citekey order="182">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="183">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="184">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="185">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="186">williamsCondensationShellHD1978</bcf:citekey>
-    <bcf:citekey order="187">williamsCondensationShellHD1978</bcf:citekey>
-    <bcf:citekey order="188">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="189">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="190">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="191">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="192">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="193">lamberts_colliding_2012</bcf:citekey>
-    <bcf:citekey order="194">williamsSpectroscopyWC9WolfRayet2000</bcf:citekey>
-    <bcf:citekey order="195">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="196">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="197">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="198">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="199">lauRevealingEfficientDust2021</bcf:citekey>
-    <bcf:citekey order="200">lauRevealingEfficientDust2021</bcf:citekey>
-    <bcf:citekey order="201">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="202">gayley_sudden_1997</bcf:citekey>
-    <bcf:citekey order="203">callinghamAnisotropicWindsWolf2019</bcf:citekey>
-    <bcf:citekey order="204">danksInfraredSpectroscopyInfrared1983</bcf:citekey>
-    <bcf:citekey order="205">williamsVariableDustEmission2019</bcf:citekey>
-    <bcf:citekey order="206">shenarWolfRayetBinaries2019</bcf:citekey>
-    <bcf:citekey order="207">callinghamAnisotropicWindsWolf2019</bcf:citekey>
-    <bcf:citekey order="208">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="169">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="170">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="171">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="172">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="173">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="174">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="175">ishiharaGalacticDistributionsCarbon2011</bcf:citekey>
+    <bcf:citekey order="176">niedzielskiKinematicalStructureWolfRayet2002</bcf:citekey>
+    <bcf:citekey order="177">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="177">williamsVariableDustEmission2019</bcf:citekey>
+    <bcf:citekey order="178">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="179">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="180">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="181">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="182">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="183">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="184">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="185">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="186">monnierPinwheelNebulaWR1999</bcf:citekey>
+    <bcf:citekey order="187">monnierPinwheelNebulaWR1999</bcf:citekey>
+    <bcf:citekey order="188">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="189">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="190">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="191">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="192">williamsCondensationShellHD1978</bcf:citekey>
+    <bcf:citekey order="193">williamsCondensationShellHD1978</bcf:citekey>
+    <bcf:citekey order="194">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="195">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="196">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="197">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="198">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="199">lamberts_colliding_2012</bcf:citekey>
+    <bcf:citekey order="200">williamsSpectroscopyWC9WolfRayet2000</bcf:citekey>
+    <bcf:citekey order="201">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="202">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="203">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="204">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="205">lauRevealingEfficientDust2021</bcf:citekey>
+    <bcf:citekey order="206">lauRevealingEfficientDust2021</bcf:citekey>
+    <bcf:citekey order="207">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="208">gayley_sudden_1997</bcf:citekey>
     <bcf:citekey order="209">callinghamAnisotropicWindsWolf2019</bcf:citekey>
-    <bcf:citekey order="210">callinghamTwoWolfRayet2020</bcf:citekey>
-    <bcf:citekey order="211">hanExtremeCollidingwindSystem2020</bcf:citekey>
-    <bcf:citekey order="212">hanExtremeCollidingwindSystem2020</bcf:citekey>
-    <bcf:citekey order="213">marcoteAUscaleRadioImaging2021</bcf:citekey>
-    <bcf:citekey order="214">marcoteAUscaleRadioImaging2021</bcf:citekey>
-    <bcf:citekey order="215">delpalacioNonthermalEmissionCollidingwind2022</bcf:citekey>
-    <bcf:citekey order="216">delpalacioNonthermalEmissionCollidingwind2022</bcf:citekey>
+    <bcf:citekey order="210">danksInfraredSpectroscopyInfrared1983</bcf:citekey>
+    <bcf:citekey order="211">williamsVariableDustEmission2019</bcf:citekey>
+    <bcf:citekey order="212">shenarWolfRayetBinaries2019</bcf:citekey>
+    <bcf:citekey order="213">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="214">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="215">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="216">callinghamTwoWolfRayet2020</bcf:citekey>
     <bcf:citekey order="217">hanExtremeCollidingwindSystem2020</bcf:citekey>
     <bcf:citekey order="218">hanExtremeCollidingwindSystem2020</bcf:citekey>
-    <bcf:citekey order="219">zhekovMultiwavelengthViewDusty2014</bcf:citekey>
-    <bcf:citekey order="220">williamsVariableDustEmission2019</bcf:citekey>
-    <bcf:citekey order="220">zhekovChandraRevisitsWR2022</bcf:citekey>
-    <bcf:citekey order="221">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="222">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="223">godunov_difference_1959</bcf:citekey>
-    <bcf:citekey order="224">toroRestorationContactSurface1994</bcf:citekey>
-    <bcf:citekey order="225">vanleerUltimateConservativeDifference1979</bcf:citekey>
-    <bcf:citekey order="226">colella_piecewise_1984</bcf:citekey>
-    <bcf:citekey order="227">toro_riemann_2013</bcf:citekey>
-    <bcf:citekey order="228">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="228">callinghamAnisotropicWindsWolf2019</bcf:citekey>
-    <bcf:citekey order="229">stoneAthenaAdaptiveMesh2020</bcf:citekey>
-    <bcf:citekey order="230">vanleerUltimateConservativeDifference1979</bcf:citekey>
-    <bcf:citekey order="231">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
-    <bcf:citekey order="232">meyerStabilizedRungeKuttaLegendreMethod2014</bcf:citekey>
-    <bcf:citekey order="233">toroRestorationContactSurface1994</bcf:citekey>
-    <bcf:citekey order="234">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="219">marcoteAUscaleRadioImaging2021</bcf:citekey>
+    <bcf:citekey order="220">marcoteAUscaleRadioImaging2021</bcf:citekey>
+    <bcf:citekey order="221">delpalacioNonthermalEmissionCollidingwind2022</bcf:citekey>
+    <bcf:citekey order="222">delpalacioNonthermalEmissionCollidingwind2022</bcf:citekey>
+    <bcf:citekey order="223">hanExtremeCollidingwindSystem2020</bcf:citekey>
+    <bcf:citekey order="224">hanExtremeCollidingwindSystem2020</bcf:citekey>
+    <bcf:citekey order="225">zhekovMultiwavelengthViewDusty2014</bcf:citekey>
+    <bcf:citekey order="226">williamsVariableDustEmission2019</bcf:citekey>
+    <bcf:citekey order="226">zhekovChandraRevisitsWR2022</bcf:citekey>
+    <bcf:citekey order="227">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="228">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="229">godunov_difference_1959</bcf:citekey>
+    <bcf:citekey order="230">toroRestorationContactSurface1994</bcf:citekey>
+    <bcf:citekey order="231">vanleerUltimateConservativeDifference1979</bcf:citekey>
+    <bcf:citekey order="232">colella_piecewise_1984</bcf:citekey>
+    <bcf:citekey order="233">toro_riemann_2013</bcf:citekey>
+    <bcf:citekey order="234">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="234">callinghamAnisotropicWindsWolf2019</bcf:citekey>
     <bcf:citekey order="235">stoneAthenaAdaptiveMesh2020</bcf:citekey>
-    <bcf:citekey order="236">bergerAdaptiveMeshRefinement1984</bcf:citekey>
-    <bcf:citekey order="237">bergerAdaptiveMeshRefinement1984</bcf:citekey>
-    <bcf:citekey order="238">bergerLocalAdaptiveMesh1989</bcf:citekey>
-    <bcf:citekey order="239">bergerLocalAdaptiveMesh1989</bcf:citekey>
-    <bcf:citekey order="240">gayley_sudden_1997</bcf:citekey>
-    <bcf:citekey order="241">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="242">meweCalculatedXradiationOptically1985</bcf:citekey>
-    <bcf:citekey order="242">meweCalculatedXradiationOptically1986</bcf:citekey>
-    <bcf:citekey order="243">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="244">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="245">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="246">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="247">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="248">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="249">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="250">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="236">vanleerUltimateConservativeDifference1979</bcf:citekey>
+    <bcf:citekey order="237">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
+    <bcf:citekey order="238">meyerStabilizedRungeKuttaLegendreMethod2014</bcf:citekey>
+    <bcf:citekey order="239">toroRestorationContactSurface1994</bcf:citekey>
+    <bcf:citekey order="240">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="241">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="242">bergerAdaptiveMeshRefinement1984</bcf:citekey>
+    <bcf:citekey order="243">bergerAdaptiveMeshRefinement1984</bcf:citekey>
+    <bcf:citekey order="244">bergerLocalAdaptiveMesh1989</bcf:citekey>
+    <bcf:citekey order="245">bergerLocalAdaptiveMesh1989</bcf:citekey>
+    <bcf:citekey order="246">gayley_sudden_1997</bcf:citekey>
+    <bcf:citekey order="247">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="248">meweCalculatedXradiationOptically1985</bcf:citekey>
+    <bcf:citekey order="248">meweCalculatedXradiationOptically1986</bcf:citekey>
+    <bcf:citekey order="249">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="250">townsendExactIntegrationScheme2009</bcf:citekey>
     <bcf:citekey order="251">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="252">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="253">dwek_infrared_1981</bcf:citekey>
@@ -3088,216 +3069,377 @@
     <bcf:citekey order="256">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="257">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="258">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="259">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="260">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="261">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="262">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="263">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="264">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="259">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="260">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="261">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="262">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="263">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="264">dwek_infrared_1981</bcf:citekey>
     <bcf:citekey order="265">townsendExactIntegrationScheme2009</bcf:citekey>
     <bcf:citekey order="266">townsendExactIntegrationScheme2009</bcf:citekey>
     <bcf:citekey order="267">townsendExactIntegrationScheme2009</bcf:citekey>
     <bcf:citekey order="268">townsendExactIntegrationScheme2009</bcf:citekey>
-    <bcf:citekey order="269">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="270">stoneAthenaAdaptiveMesh2020</bcf:citekey>
-    <bcf:citekey order="271">toro_riemann_2013</bcf:citekey>
-    <bcf:citekey order="272">lauRevealingEfficientDust2021</bcf:citekey>
-    <bcf:citekey order="273">lauRevealingEfficientDust2021</bcf:citekey>
-    <bcf:citekey order="274">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="275">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="276">bhattaraiEvolutionAmorphousCarbon2018</bcf:citekey>
-    <bcf:citekey order="277">mihalasStellarAtmospheres1978</bcf:citekey>
-    <bcf:citekey order="278">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="279">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="280">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="281">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="282">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="283">draineDestructionMechanismsInterstellar1979</bcf:citekey>
-    <bcf:citekey order="284">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="285">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="286">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="287">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="288">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="289">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="290">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="291">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="292">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="293">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="294">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="295">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="296">robitailleHYPERIONOpensourceParallelized2011</bcf:citekey>
+    <bcf:citekey order="269">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="270">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="271">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="272">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="273">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="274">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="275">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="276">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="277">toro_riemann_2013</bcf:citekey>
+    <bcf:citekey order="278">lauRevealingEfficientDust2021</bcf:citekey>
+    <bcf:citekey order="279">lauRevealingEfficientDust2021</bcf:citekey>
+    <bcf:citekey order="280">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="281">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="282">bhattaraiEvolutionAmorphousCarbon2018</bcf:citekey>
+    <bcf:citekey order="283">mihalasStellarAtmospheres1978</bcf:citekey>
+    <bcf:citekey order="284">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="285">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="286">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="287">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="288">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="289">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="290">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="291">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="292">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="293">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="294">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="295">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="296">hendrix_pinwheels_2016</bcf:citekey>
     <bcf:citekey order="297">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="298">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="299">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="298">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="299">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
     <bcf:citekey order="300">hendrix_pinwheels_2016</bcf:citekey>
     <bcf:citekey order="301">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="302">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="303">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="304">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="305">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="306">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="307">allenInfraredPhotometryNorthern1972</bcf:citekey>
-    <bcf:citekey order="308">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="309">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="310">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="311">van1999wolf</bcf:citekey>
-    <bcf:citekey order="311">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="312">tuthill_dusty_1999</bcf:citekey>
-    <bcf:citekey order="313">monnierPinwheelNebulaWR1999</bcf:citekey>
-    <bcf:citekey order="314">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="315">cherchneffDustFormationCarbonrich2015</bcf:citekey>
-    <bcf:citekey order="316">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="316">williamsVariableDustEmission2019</bcf:citekey>
-    <bcf:citekey order="317">ishiharaGalacticDistributionsCarbon2011</bcf:citekey>
-    <bcf:citekey order="318">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="319">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="320">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="321">stevens_stagnation-point_1994</bcf:citekey>
-    <bcf:citekey order="322">gayley_sudden_1997</bcf:citekey>
-    <bcf:citekey order="323">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="323">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="324">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="325">stoneAthenaAdaptiveMesh2020</bcf:citekey>
-    <bcf:citekey order="326">spiteriNewClassOptimal2002</bcf:citekey>
-    <bcf:citekey order="327">williamsSpectraWC9Stars2015</bcf:citekey>
-    <bcf:citekey order="328">williamsSpectraWC9Stars2015</bcf:citekey>
-    <bcf:citekey order="329">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="330">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="331">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="332">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="333">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="334">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="335">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="336">drainePhysicsDustGrains1979</bcf:citekey>
-    <bcf:citekey order="337">drainePhysicsDustGrains1979</bcf:citekey>
-    <bcf:citekey order="338">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="338">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="339">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="339">zubkoPhysicalModelDust1998a</bcf:citekey>
-    <bcf:citekey order="340">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="341">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="342">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
-    <bcf:citekey order="343">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="344">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="345">pittard_3d_2009</bcf:citekey>
-    <bcf:citekey order="346">pittard_3d_2009</bcf:citekey>
-    <bcf:citekey order="347">williams_dust_1990</bcf:citekey>
-    <bcf:citekey order="348">williams_dust_1990</bcf:citekey>
+    <bcf:citekey order="302">robitailleHYPERIONOpensourceParallelized2011</bcf:citekey>
+    <bcf:citekey order="303">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="304">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="305">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="306">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="307">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="308">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="309">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="310">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="311">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="312">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="313">allenInfraredPhotometryNorthern1972</bcf:citekey>
+    <bcf:citekey order="314">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="315">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="316">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="317">van1999wolf</bcf:citekey>
+    <bcf:citekey order="317">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="318">tuthill_dusty_1999</bcf:citekey>
+    <bcf:citekey order="319">monnierPinwheelNebulaWR1999</bcf:citekey>
+    <bcf:citekey order="320">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="321">cherchneffDustFormationCarbonrich2015</bcf:citekey>
+    <bcf:citekey order="322">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="322">williamsVariableDustEmission2019</bcf:citekey>
+    <bcf:citekey order="323">ishiharaGalacticDistributionsCarbon2011</bcf:citekey>
+    <bcf:citekey order="324">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="325">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="326">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="327">stevens_stagnation-point_1994</bcf:citekey>
+    <bcf:citekey order="328">gayley_sudden_1997</bcf:citekey>
+    <bcf:citekey order="329">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="329">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="330">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="331">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="332">spiteriNewClassOptimal2002</bcf:citekey>
+    <bcf:citekey order="333">williamsSpectraWC9Stars2015</bcf:citekey>
+    <bcf:citekey order="334">williamsSpectraWC9Stars2015</bcf:citekey>
+    <bcf:citekey order="335">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="336">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="337">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="338">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="339">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="340">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="341">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="342">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="343">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="344">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="344">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="345">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="345">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="346">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="347">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="348">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
     <bcf:citekey order="349">hendrix_pinwheels_2016</bcf:citekey>
     <bcf:citekey order="350">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="351">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="352">herbstComplexOrganicInterstellar2009</bcf:citekey>
-    <bcf:citekey order="353">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="354">prilutskii_x_1976</bcf:citekey>
-    <bcf:citekey order="355">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="356">tuthill_dusty_1999</bcf:citekey>
-    <bcf:citekey order="357">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="358">monnierPinwheelNebulaWR1999</bcf:citekey>
-    <bcf:citekey order="359">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="360">williamsInfraredPhotometryLatetype1987</bcf:citekey>
-    <bcf:citekey order="360">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="361">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="362">rossloweSpatialDistributionGalactic2015</bcf:citekey>
-    <bcf:citekey order="363">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="364">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="365">stoneAthenaAdaptiveMesh2020</bcf:citekey>
-    <bcf:citekey order="366">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
-    <bcf:citekey order="367">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
-    <bcf:citekey order="368">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="369">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
-    <bcf:citekey order="370">drainePhysicsDustGrains1979</bcf:citekey>
-    <bcf:citekey order="371">drainePhysicsDustGrains1979</bcf:citekey>
-    <bcf:citekey order="372">tielens_physics_1994</bcf:citekey>
-    <bcf:citekey order="372">dwekCoolingSputteringInfrared1996</bcf:citekey>
-    <bcf:citekey order="373">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="374">dwek_infrared_1981</bcf:citekey>
-    <bcf:citekey order="375">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
-    <bcf:citekey order="375">soulainSPHEREViewWolfRayet2018</bcf:citekey>
-    <bcf:citekey order="375">callinghamAnisotropicWindsWolf2019</bcf:citekey>
-    <bcf:citekey order="376">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="377">stevens_stagnation-point_1994</bcf:citekey>
-    <bcf:citekey order="378">gayley_sudden_1997</bcf:citekey>
-    <bcf:citekey order="379">eichler_particle_1993</bcf:citekey>
-    <bcf:citekey order="380">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="381">pittardCollidingStellarWinds2018</bcf:citekey>
-    <bcf:citekey order="382">lamersIntroductionStellarWinds1999</bcf:citekey>
-    <bcf:citekey order="383">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="384">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="385">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="386">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="387">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="388">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="351">pittard_3d_2009</bcf:citekey>
+    <bcf:citekey order="352">pittard_3d_2009</bcf:citekey>
+    <bcf:citekey order="353">williams_dust_1990</bcf:citekey>
+    <bcf:citekey order="354">williams_dust_1990</bcf:citekey>
+    <bcf:citekey order="355">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="356">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="357">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="358">herbstComplexOrganicInterstellar2009</bcf:citekey>
+    <bcf:citekey order="359">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="360">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="361">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="362">tuthill_dusty_1999</bcf:citekey>
+    <bcf:citekey order="363">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="364">monnierPinwheelNebulaWR1999</bcf:citekey>
+    <bcf:citekey order="365">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="366">williamsInfraredPhotometryLatetype1987</bcf:citekey>
+    <bcf:citekey order="366">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="367">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="368">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="369">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="370">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="371">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="372">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
+    <bcf:citekey order="373">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
+    <bcf:citekey order="374">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="375">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="376">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="377">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="378">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="378">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="379">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="380">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="381">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="381">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="381">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="382">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="383">stevens_stagnation-point_1994</bcf:citekey>
+    <bcf:citekey order="384">gayley_sudden_1997</bcf:citekey>
+    <bcf:citekey order="385">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="386">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="387">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="388">lamersIntroductionStellarWinds1999</bcf:citekey>
     <bcf:citekey order="389">thomasOrbitStellarMasses2021</bcf:citekey>
     <bcf:citekey order="390">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="391">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="392">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="391">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="392">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
     <bcf:citekey order="393">thomasOrbitStellarMasses2021</bcf:citekey>
     <bcf:citekey order="394">thomasOrbitStellarMasses2021</bcf:citekey>
-    <bcf:citekey order="395">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="396">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="397">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="398">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="399">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="400">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="395">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="396">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="397">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="398">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="399">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="400">thomasOrbitStellarMasses2021</bcf:citekey>
     <bcf:citekey order="401">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
     <bcf:citekey order="402">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
-    <bcf:citekey order="403">williamsSpectraWC9Stars2015</bcf:citekey>
-    <bcf:citekey order="404">williamsSpectraWC9Stars2015</bcf:citekey>
-    <bcf:citekey order="405">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="406">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="407">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
-    <bcf:citekey order="408">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
-    <bcf:citekey order="409">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="410">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
-    <bcf:citekey order="411">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="403">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="404">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="405">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="406">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="407">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="408">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="409">williamsSpectraWC9Stars2015</bcf:citekey>
+    <bcf:citekey order="410">williamsSpectraWC9Stars2015</bcf:citekey>
+    <bcf:citekey order="411">crowther_dust_2003</bcf:citekey>
     <bcf:citekey order="412">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="413">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="414">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="415">williams_orbitally_2009</bcf:citekey>
-    <bcf:citekey order="416">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="417">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="418">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="419">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="420">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="421">pittard_3d_2009</bcf:citekey>
-    <bcf:citekey order="422">pittard_3d_2009</bcf:citekey>
-    <bcf:citekey order="423">pittard_3d_2010</bcf:citekey>
-    <bcf:citekey order="424">stevens_colliding_1992</bcf:citekey>
-    <bcf:citekey order="425">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="426">sugawaraSuzakuMonitoringWolf2015</bcf:citekey>
-    <bcf:citekey order="427">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="428">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="429">eatsonExplorationDustGrain2022</bcf:citekey>
-    <bcf:citekey order="430">eatsonExploringDustGrowth2022</bcf:citekey>
-    <bcf:citekey order="431">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="432">lauRevisitingImpactDust2020</bcf:citekey>
-    <bcf:citekey order="433">crowther_dust_2003</bcf:citekey>
-    <bcf:citekey order="434">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="435">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="436">robitailleHYPERIONOpensourceParallelized2011</bcf:citekey>
-    <bcf:citekey order="437">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="438">hendrix_pinwheels_2016</bcf:citekey>
-    <bcf:citekey order="439">hanExtremeCollidingwindSystem2020</bcf:citekey>
-    <bcf:citekey order="440">hanExtremeCollidingwindSystem2020</bcf:citekey>
-    <bcf:citekey order="441">10.5555/1593511</bcf:citekey>
-    <bcf:citekey order="442">harris2020array</bcf:citekey>
-    <bcf:citekey order="443">astropy:2013</bcf:citekey>
-    <bcf:citekey order="443">astropy:2018</bcf:citekey>
-    <bcf:citekey order="444">Hunter:2007</bcf:citekey>
-    <bcf:citekey order="445">athena</bcf:citekey>
-    <bcf:citekey order="446">tange_2021_5523272</bcf:citekey>
-    <bcf:citekey order="447">amdahlValiditySingleProcessor1967</bcf:citekey>
-    <bcf:citekey order="448">trobecIntroductionParallelComputing2018</bcf:citekey>
-    <bcf:citekey order="449">gustafsonReevaluatingAmdahlLaw1988</bcf:citekey>
-    <bcf:citekey order="450">pachecoIntroductionParallelProgramming2022</bcf:citekey>
-    <bcf:citekey order="451">hdf5</bcf:citekey>
-    <bcf:citekey order="452">Hunter:2007</bcf:citekey>
-    <bcf:citekey order="453">tange_2021_5523272</bcf:citekey>
-    <bcf:citekey order="454">lam2015numba</bcf:citekey>
-    <bcf:citekey order="455">harris2020array</bcf:citekey>
-    <bcf:citekey order="456">HPV:VisIt</bcf:citekey>
-    <bcf:citekey order="457">gnuplot</bcf:citekey>
-    <bcf:citekey order="458">tomar2006converting</bcf:citekey>
+    <bcf:citekey order="413">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="414">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="415">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="416">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="417">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="418">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="419">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="420">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="421">williams_orbitally_2009</bcf:citekey>
+    <bcf:citekey order="422">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="423">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="424">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="425">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="426">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="427">pittard_3d_2009</bcf:citekey>
+    <bcf:citekey order="428">pittard_3d_2009</bcf:citekey>
+    <bcf:citekey order="429">pittard_3d_2010</bcf:citekey>
+    <bcf:citekey order="430">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="431">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="432">sugawaraSuzakuMonitoringWolf2015</bcf:citekey>
+    <bcf:citekey order="433">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="434">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="435">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="436">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="437">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="438">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="439">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="440">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="441">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="442">robitailleHYPERIONOpensourceParallelized2011</bcf:citekey>
+    <bcf:citekey order="443">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="444">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="445">hanExtremeCollidingwindSystem2020</bcf:citekey>
+    <bcf:citekey order="446">hanExtremeCollidingwindSystem2020</bcf:citekey>
+    <bcf:citekey order="447">10.5555/1593511</bcf:citekey>
+    <bcf:citekey order="448">harris2020array</bcf:citekey>
+    <bcf:citekey order="449">astropy:2013</bcf:citekey>
+    <bcf:citekey order="449">astropy:2018</bcf:citekey>
+    <bcf:citekey order="450">Hunter:2007</bcf:citekey>
+    <bcf:citekey order="451">athena</bcf:citekey>
+    <bcf:citekey order="452">tange_2021_5523272</bcf:citekey>
+    <bcf:citekey order="453">amdahlValiditySingleProcessor1967</bcf:citekey>
+    <bcf:citekey order="454">trobecIntroductionParallelComputing2018</bcf:citekey>
+    <bcf:citekey order="455">gustafsonReevaluatingAmdahlLaw1988</bcf:citekey>
+    <bcf:citekey order="456">pachecoIntroductionParallelProgramming2022</bcf:citekey>
+    <bcf:citekey order="457">hdf5</bcf:citekey>
+    <bcf:citekey order="458">Hunter:2007</bcf:citekey>
+    <bcf:citekey order="459">tange_2021_5523272</bcf:citekey>
+    <bcf:citekey order="460">lam2015numba</bcf:citekey>
+    <bcf:citekey order="461">harris2020array</bcf:citekey>
+    <bcf:citekey order="462">HPV:VisIt</bcf:citekey>
+    <bcf:citekey order="463">gnuplot</bcf:citekey>
+    <bcf:citekey order="464">tomar2006converting</bcf:citekey>
+    <bcf:citekey order="465">castor_radiation-driven_1975</bcf:citekey>
+    <bcf:citekey order="466">hamaguchiNonthermalXraysColliding2018</bcf:citekey>
+    <bcf:citekey order="467">lauRevisitingImpactDust2020</bcf:citekey>
+    <bcf:citekey order="468">draineInterstellarDustGrains2003</bcf:citekey>
+    <bcf:citekey order="469">morganDustFormationEarly2003</bcf:citekey>
+    <bcf:citekey order="470">eatsonExplorationDustGrain2022</bcf:citekey>
+    <bcf:citekey order="471">eatsonExploringDustGrowth2022</bcf:citekey>
+    <bcf:citekey order="472">carrollIntroductionModernAstrophysics2014</bcf:citekey>
+    <bcf:citekey order="473">ward-thompsonIntroductionStarFormation2011</bcf:citekey>
+    <bcf:citekey order="474">bodenheimerPrinciplesStarFormation2011</bcf:citekey>
+    <bcf:citekey order="475">chiniSpectroscopicSurveyMultiplicity2012</bcf:citekey>
+    <bcf:citekey order="476">lamersUnderstandingStellarEvolution2017</bcf:citekey>
+    <bcf:citekey order="477">eddingtonInternalConstitutionStars1920</bcf:citekey>
+    <bcf:citekey order="478">betheEnergyProductionStars1939</bcf:citekey>
+    <bcf:citekey order="479">wongIntroductoryNuclearPhysics1998</bcf:citekey>
+    <bcf:citekey order="480">salarisEvolutionStarsStellar2005</bcf:citekey>
+    <bcf:citekey order="481">harrisThermonuclearReactionRates1983</bcf:citekey>
+    <bcf:citekey order="482">bealsNatureWolfRayetEmission1929</bcf:citekey>
+    <bcf:citekey order="483">lamersIntroductionStellarWinds1999</bcf:citekey>
+    <bcf:citekey order="484">cassinelliStellarWinds1979</bcf:citekey>
+    <bcf:citekey order="485">lucy_mass_1970</bcf:citekey>
+    <bcf:citekey order="486">macielHydrodynamicsStellarWinds2014</bcf:citekey>
+    <bcf:citekey order="487">sahaRadiationPressureQuantumTheory1919</bcf:citekey>
+    <bcf:citekey order="488">milnePossibilityEmissionHighspeed1926</bcf:citekey>
+    <bcf:citekey order="489">1982ApJ...259..282A</bcf:citekey>
+    <bcf:citekey order="490">friend_theory_1986</bcf:citekey>
+    <bcf:citekey order="491">pauldrachRadiationdrivenWindsHot1986</bcf:citekey>
+    <bcf:citekey order="492">choiMesaIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="493">dotterMESAIsochronesStellar2016</bcf:citekey>
+    <bcf:citekey order="494">paxtonModulesExperimentsStellar2011</bcf:citekey>
+    <bcf:citekey order="495">schonbergEvolutionMainSequenceStars1942</bcf:citekey>
+    <bcf:citekey order="496">beechSchoenbergChandrasekharLimitPolytropic1988</bcf:citekey>
+    <bcf:citekey order="497">kippenhahnStellarStructureEvolution2012</bcf:citekey>
+    <bcf:citekey order="498">2010ApJ...724L..90M</bcf:citekey>
+    <bcf:citekey order="499">crowther_physical_2007</bcf:citekey>
+    <bcf:citekey order="500">gamowWCWNStars1943</bcf:citekey>
+    <bcf:citekey order="501">contiLuminousHotStars2012</bcf:citekey>
+    <bcf:citekey order="502">vinkVeryMassiveStars2015</bcf:citekey>
+    <bcf:citekey order="503">crowtherQuantitativeClassificationWC1998</bcf:citekey>
+    <bcf:citekey order="504">contiRelationshipWRStars1975</bcf:citekey>
+    <bcf:citekey order="505">neugentWolfRayetContent2019</bcf:citekey>
+    <bcf:citekey order="506">oswaltPlanetsStarsStellar2013</bcf:citekey>
+    <bcf:citekey order="507">medinaAreAllWCd2021</bcf:citekey>
+    <bcf:citekey order="508">ryanStellarEvolutionNucleosynthesis2010a</bcf:citekey>
+    <bcf:citekey order="509">longairHighEnergyAstrophysics2011</bcf:citekey>
+    <bcf:citekey order="510">kapteynAbsorptionLightSpace1909</bcf:citekey>
+    <bcf:citekey order="511">whittetDustGalacticEnvironment2002</bcf:citekey>
+    <bcf:citekey order="512">spitzerPhysicalProcessesInterstellar2008</bcf:citekey>
+    <bcf:citekey order="513">zubkoPhysicalModelDust1998a</bcf:citekey>
+    <bcf:citekey order="514">chokshiDustCoagulation1993</bcf:citekey>
+    <bcf:citekey order="515">jonesGrainShatteringShocks1996</bcf:citekey>
+    <bcf:citekey order="516">jonesDustDestructionProcesses2004</bcf:citekey>
+    <bcf:citekey order="517">drainePhysicsInterstellarIntergalactic2011</bcf:citekey>
+    <bcf:citekey order="518">tielens_physics_1994</bcf:citekey>
+    <bcf:citekey order="519">drainePhysicsDustGrains1979</bcf:citekey>
+    <bcf:citekey order="520">dwekCoolingSputteringInfrared1996</bcf:citekey>
+    <bcf:citekey order="521">watsonAbundancesInterstellarMolecules1972</bcf:citekey>
+    <bcf:citekey order="522">herbstComplexOrganicInterstellar2009</bcf:citekey>
+    <bcf:citekey order="523">draineDestructionMechanismsInterstellar1979</bcf:citekey>
+    <bcf:citekey order="524">williamsChemistryCosmicDust2015</bcf:citekey>
+    <bcf:citekey order="525">apaiProtoplanetaryDustAstrophysical2010</bcf:citekey>
+    <bcf:citekey order="526">birnstielDustEvolutionFormation2016</bcf:citekey>
+    <bcf:citekey order="527">gossetXMMNewtonLookWolfRayet2005</bcf:citekey>
+    <bcf:citekey order="528">nazeNewXrayDetections2021</bcf:citekey>
+    <bcf:citekey order="529">sewardXraysEtaCarinae1979</bcf:citekey>
+    <bcf:citekey order="530">oskinovaXrayEmissionSingle2015</bcf:citekey>
+    <bcf:citekey order="531">rauwXrayEmissionMassive2022</bcf:citekey>
+    <bcf:citekey order="532">prilutskii_x_1976</bcf:citekey>
+    <bcf:citekey order="533">cherepashchukDetectabilityWolfRayetBinaries1976</bcf:citekey>
+    <bcf:citekey order="534">pittard_x-ray_1999</bcf:citekey>
+    <bcf:citekey order="535">williamsInfraredPhotometryLatetype1987</bcf:citekey>
+    <bcf:citekey order="536">eichler_particle_1993</bcf:citekey>
+    <bcf:citekey order="537">grimaldoProtonAccelerationColliding2019</bcf:citekey>
+    <bcf:citekey order="538">stevens_colliding_1992</bcf:citekey>
+    <bcf:citekey order="539">usov_stellar_1991</bcf:citekey>
+    <bcf:citekey order="540">pittardCollidingStellarWinds2018</bcf:citekey>
+    <bcf:citekey order="541">dysonPhysicsInterstellarMedium2021</bcf:citekey>
+    <bcf:citekey order="542">neufeldRadiativeCoolingWarm1993</bcf:citekey>
+    <bcf:citekey order="543">neufeldThermalBalanceDense1995</bcf:citekey>
+    <bcf:citekey order="544">meweCalculatedXradiationOptically1985</bcf:citekey>
+    <bcf:citekey order="545">kaastraSPEXHighresolutionCosmic2013</bcf:citekey>
+    <bcf:citekey order="546">wienerCosmicRayHeating2013</bcf:citekey>
+    <bcf:citekey order="547">wolfireNeutralAtomicPhases1995</bcf:citekey>
+    <bcf:citekey order="548">dwek_infrared_1981</bcf:citekey>
+    <bcf:citekey order="549">salpeter_formation_1977</bcf:citekey>
+    <bcf:citekey order="550">rossloweSpatialDistributionGalactic2015</bcf:citekey>
+    <bcf:citekey order="551">ishiharaGalacticDistributionsCarbon2011</bcf:citekey>
+    <bcf:citekey order="552">niedzielskiKinematicalStructureWolfRayet2002</bcf:citekey>
+    <bcf:citekey order="553">crowther_dust_2003</bcf:citekey>
+    <bcf:citekey order="554">williamsVariableDustEmission2019</bcf:citekey>
+    <bcf:citekey order="555">monnierKeckAperturemaskingExperiment2007</bcf:citekey>
+    <bcf:citekey order="556">monnierPinwheelNebulaWR1999</bcf:citekey>
+    <bcf:citekey order="557">hendrix_pinwheels_2016</bcf:citekey>
+    <bcf:citekey order="558">williamsCondensationShellHD1978</bcf:citekey>
+    <bcf:citekey order="559">soulainSPHEREViewWolfRayet2018</bcf:citekey>
+    <bcf:citekey order="560">lamberts_colliding_2012</bcf:citekey>
+    <bcf:citekey order="561">williamsSpectroscopyWC9WolfRayet2000</bcf:citekey>
+    <bcf:citekey order="562">harriesThreedimensionalDustRadiativetransfer2004</bcf:citekey>
+    <bcf:citekey order="563">lauRevealingEfficientDust2021</bcf:citekey>
+    <bcf:citekey order="564">gayley_sudden_1997</bcf:citekey>
+    <bcf:citekey order="565">callinghamAnisotropicWindsWolf2019</bcf:citekey>
+    <bcf:citekey order="566">danksInfraredSpectroscopyInfrared1983</bcf:citekey>
+    <bcf:citekey order="567">shenarWolfRayetBinaries2019</bcf:citekey>
+    <bcf:citekey order="568">callinghamTwoWolfRayet2020</bcf:citekey>
+    <bcf:citekey order="569">hanExtremeCollidingwindSystem2020</bcf:citekey>
+    <bcf:citekey order="570">marcoteAUscaleRadioImaging2021</bcf:citekey>
+    <bcf:citekey order="571">delpalacioNonthermalEmissionCollidingwind2022</bcf:citekey>
+    <bcf:citekey order="572">zhekovMultiwavelengthViewDusty2014</bcf:citekey>
+    <bcf:citekey order="573">zhekovChandraRevisitsWR2022</bcf:citekey>
+    <bcf:citekey order="574">godunov_difference_1959</bcf:citekey>
+    <bcf:citekey order="575">toroRestorationContactSurface1994</bcf:citekey>
+    <bcf:citekey order="576">vanleerUltimateConservativeDifference1979</bcf:citekey>
+    <bcf:citekey order="577">colella_piecewise_1984</bcf:citekey>
+    <bcf:citekey order="578">toro_riemann_2013</bcf:citekey>
+    <bcf:citekey order="579">stoneAthenaAdaptiveMesh2020</bcf:citekey>
+    <bcf:citekey order="580">ruuthHighOrderStrongStabilityPreservingRungeKutta2005</bcf:citekey>
+    <bcf:citekey order="581">meyerStabilizedRungeKuttaLegendreMethod2014</bcf:citekey>
+    <bcf:citekey order="582">bergerAdaptiveMeshRefinement1984</bcf:citekey>
+    <bcf:citekey order="583">bergerLocalAdaptiveMesh1989</bcf:citekey>
+    <bcf:citekey order="584">meweCalculatedXradiationOptically1986</bcf:citekey>
+    <bcf:citekey order="585">townsendExactIntegrationScheme2009</bcf:citekey>
+    <bcf:citekey order="586">bhattaraiEvolutionAmorphousCarbon2018</bcf:citekey>
+    <bcf:citekey order="587">mihalasStellarAtmospheres1978</bcf:citekey>
+    <bcf:citekey order="588">robitailleHYPERIONOpensourceParallelized2011</bcf:citekey>
+    <bcf:citekey order="589">allenInfraredPhotometryNorthern1972</bcf:citekey>
+    <bcf:citekey order="590">williamsMultifrequencyVariationsWolfrayet1990</bcf:citekey>
+    <bcf:citekey order="591">van1999wolf</bcf:citekey>
+    <bcf:citekey order="592">thomasOrbitStellarMasses2021</bcf:citekey>
+    <bcf:citekey order="593">tuthill_dusty_1999</bcf:citekey>
+    <bcf:citekey order="594">cherchneffDustFormationCarbonrich2015</bcf:citekey>
+    <bcf:citekey order="595">stevens_stagnation-point_1994</bcf:citekey>
+    <bcf:citekey order="596">spiteriNewClassOptimal2002</bcf:citekey>
+    <bcf:citekey order="597">williamsSpectraWC9Stars2015</bcf:citekey>
+    <bcf:citekey order="598">pittard_3d_2009</bcf:citekey>
+    <bcf:citekey order="599">williams_dust_1990</bcf:citekey>
+    <bcf:citekey order="600">fahedSpectroscopyArchetypeCollidingwind2011</bcf:citekey>
+    <bcf:citekey order="601">williams_orbitally_2009</bcf:citekey>
+    <bcf:citekey order="602">pittard_3d_2010</bcf:citekey>
+    <bcf:citekey order="603">sugawaraSuzakuMonitoringWolf2015</bcf:citekey>
+    <bcf:citekey order="604">10.5555/1593511</bcf:citekey>
+    <bcf:citekey order="605">harris2020array</bcf:citekey>
+    <bcf:citekey order="606">astropy:2013</bcf:citekey>
+    <bcf:citekey order="607">astropy:2018</bcf:citekey>
+    <bcf:citekey order="608">Hunter:2007</bcf:citekey>
+    <bcf:citekey order="609">athena</bcf:citekey>
+    <bcf:citekey order="610">tange_2021_5523272</bcf:citekey>
+    <bcf:citekey order="611">amdahlValiditySingleProcessor1967</bcf:citekey>
+    <bcf:citekey order="612">trobecIntroductionParallelComputing2018</bcf:citekey>
+    <bcf:citekey order="613">gustafsonReevaluatingAmdahlLaw1988</bcf:citekey>
+    <bcf:citekey order="614">pachecoIntroductionParallelProgramming2022</bcf:citekey>
+    <bcf:citekey order="615">hdf5</bcf:citekey>
+    <bcf:citekey order="616">lam2015numba</bcf:citekey>
+    <bcf:citekey order="617">HPV:VisIt</bcf:citekey>
+    <bcf:citekey order="618">gnuplot</bcf:citekey>
+    <bcf:citekey order="619">tomar2006converting</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
@@ -3310,10 +3452,9 @@
     <bcf:sort order="3">
       <bcf:sortitem order="1">sortname</bcf:sortitem>
       <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">groupauthor</bcf:sortitem>
-      <bcf:sortitem order="4">editor</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="5">title</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="4">
       <bcf:sortitem order="1">pubstate</bcf:sortitem>
@@ -3324,10 +3465,18 @@
       <bcf:sortitem literal="1" order="3">-2000000000</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="6">
+      <bcf:sortitem order="1">month</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="7">
+      <bcf:sortitem order="1">day</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">-2000000000</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="8">
       <bcf:sortitem order="1">sorttitle</bcf:sortitem>
       <bcf:sortitem order="2">title</bcf:sortitem>
     </bcf:sort>
-    <bcf:sort order="7">
+    <bcf:sort order="9">
       <bcf:sortitem order="1">volume</bcf:sortitem>
       <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
     </bcf:sort>

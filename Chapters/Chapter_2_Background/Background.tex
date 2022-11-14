@@ -17,12 +17,11 @@ This chapter largely covers the underlying physics of these systems, while the n
 
 The term Early-type stars is quite possibly the epitome of bad naming conventions in astrophysics.
 It's a very old term, coming from the dawn of astrophysics itself, it is quite opaque as to what it means, and is also by definition \textit{completely wrong}.
-In fact it is one of the most wrong pieces of terminology I can think of
-\footnote{Aside from astrophysicists calling something ``warm'', of course. That can quite literally mean anything from 10 to 1,000,000 Kelvin, depending on who you ask, what they're writing about, or how they're feeling at that particular moment. In fact, I'll probably end up falling into this same trap somewhere in this thesis as well!}.
-The first generation of astrophysicists\footnote{As opposed to astronomers or natural philosophers.} found themselves asking very big, very fundamental questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to shine for so long?''
+In fact it is one of the most wrong pieces of terminology I can think of.
+The first generation of astrophysicists found themselves asking very big, very fundamental questions such as ``what even \textit{are} stars?'' and ``what possible mechanism can allow a star to shine for so long?''
 Each of these questions was rather pressing for the burgeoning field, and the scientific community was aching for an answer.
 
-Of course, like all pressing questions of the late \nth{19} century, it fell to Lord Kelvin to provide a convincing -- albiet incorrect -- answer.
+Of course, like all pressing questions of the late \nth{19} century, it fell to Lord Kelvin to provide a convincing -- albeit incorrect -- answer.
 Kelvin assumed that gravitational collapse was the mechanism for a stars long-term heating, with younger, ``early'' stars shining the brightest.
 Not only was the mechanism incorrect, but typically older main sequence stars are more luminous than their younger counterparts of a similar mass!
 However, as is the case with astrophysical terminology, the term stuck, to the confusion of many young astrophysicists.
@@ -46,7 +45,9 @@ This includes stars in the O-type and some B-subtype (B0 and B1) classes in the 
 \subsection{Formation}
 \label{sec:starformation}
 
-All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing truly staggering amounts of gas.
+\turbo{This whole section needs rewriting}
+
+All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing large quantities of gas.
 The largest of these clouds are on the order of a few parsecs across, and contain \SI{1e6}{\solarmass} of potential star-stuff.
 These clouds are somewhat stable, and must be perturbed in order to collapse.
 This is easier said than done, but can be induced by stellar winds from nearby stars and shock-waves from supernovae
@@ -55,7 +56,7 @@ As the cloud collapses, energy is radiated through emission line processes, whic
 As the GMC collapses further it begins to fragment, forming the molecular clumps and cloud cores that will eventually condense into protostars.
 As one of these fragments condenses, it forms a proto-stellar core.
 This collapse can be described in the form of a series of timescales.
-Firstly, the Kelvin-Helmholtz (KH) timescale\footnote{The idea of gravitational contraction as expounded by Lord Kelvin does in fact apply to stars, just not with regards to how their energy is produced.}, $\tau\rms{KH}$, which is the time required for the proto-stellar core to radiate away its kinetic energy:
+Firstly, the Kelvin-Helmholtz (KH) timescale, $\tau\rms{KH}$, which is the time required for the proto-stellar core to radiate away its \note{gravitational potential energy}:
 
 \begin{equation}
   \label{eq:khtime}
@@ -85,11 +86,12 @@ for any point with radius $r$ from the centre in the cloud, assuming spherical s
 In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse \emph{prior} to the cessation of collapse.
 This burgeoning star begins to drive the collapsing material away through radiation pressure, blowing this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
 
+\turbo{This section in particular needs redoing, largely to cover more contemporary high-mass work}
+
 As more massive cores collapse, they are more prone to fragmentation, the angular velocity of the fragments can cause them to begin orbiting one another, eventually forming a binary or multiple star system.
 Close binary systems can also form by way of fragmentation in the proto-stellar disk.
 Due to this fragmentation it has been observed that roughly 2/3\ts{rds} of all main sequence stars are found to be in a multiple system \parencite[113]{ward-thompsonIntroductionStarFormation2011}, with approximately 20\% of stars in close binary orbits.
 However, in the case of massive stars, this value is significantly higher, with $>82\%$ of stars with masses $>\SI{16}{\solarmass}$ being found to be in a close binary system \parencite{chiniSpectroscopicSurveyMultiplicity2012}.
-As such, the environment within an OB association is one of many tight knit groups of young stars, which completely disrupt the local area\footnote{This is similar to the environments around student areas, such as Hyde Park and Headingley.}.
 
 \subsection{The p-p \& CNO fusion cycles}
 \label{sec:fusioncycles}
@@ -100,12 +102,12 @@ As such, the environment within an OB association is one of many tight knit grou
     \hline
     Process & Reaction rate & Energy released per nucleon & Significant in \\
     \hline
-    p-p & $\epsilon \propto T^{3.5}$ at \SI{5e6}{\kelvin} & \SI{6.54}{\mega\electronvolt} & Low-mass stars \\
-    CNO & $\epsilon \propto T^{18}$ at \SI{1e6}{\kelvin} & \SI{6.18}{\mega\electronvolt} & High-mass stars \\
+    p-p & $\epsilon \propto T^{4}$ at \SI{1e7}{\kelvin} & \SI{6.54}{\mega\electronvolt} & Low-mass stars \\
+    CNO & $\epsilon \propto T^{12}$ at \SI{2e7}{\kelvin} & \SI{6.18}{\mega\electronvolt} & High-mass stars \\
     $3\alpha$ & $\epsilon \propto T^{40}$ at \SI{1e8}{\kelvin}  & \SI{0.61}{\mega\electronvolt} & Post-main-sequence high-mass stars \\
     \hline 
   \end{tabular}
-  \caption[Comparison of fusion process reaction rates]{A comparison of reaction rates and released energy for the p-p chain reaction, CNO reaction and triple-alpha reaction. Whilst the $3\alpha$ reaction has a much higher temperature dependence for the reaction, it requires much higher pressures, and produces considerably less energy per nucleon. These factors contribute to the high luminosities and short lifespans of high-mass stars.}
+  \caption[\note{This table has undergone changes} Comparison of fusion process reaction rates]{A comparison of reaction rates and released energy for the p-p chain reaction, CNO reaction and triple-alpha reaction. Whilst the $3\alpha$ reaction has a much higher temperature dependence for the reaction, it requires much higher pressures, and produces considerably less energy per nucleon. These factors contribute to the high luminosities and short lifespans of high-mass stars \note{\parencite[Section 8.2]{lamersUnderstandingStellarEvolution2017}}.}
   \label{tab:reactionrates}
 \end{table}
 
@@ -141,11 +143,11 @@ Above a certain core temperature, the catalytic CNO cycle produces significantly
 \end{equation}
 
 \noindent
-The CNO I cycle -- which was also discovered by Bethe -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{18}$
-(\cite[Ch.~10]{wongIntroductoryNuclearPhysics1998,betheEnergyProductionStars1939}; see Fig. \ref{fig:fusionrates}).
+The CNO I cycle -- which was also discovered by Bethe -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{12}$
+(\cite[Ch.~10]{wongIntroductoryNuclearPhysics1998,betheEnergyProductionStars1939,lamersUnderstandingStellarEvolution2017}; also see Fig. \ref{fig:fusionrates}).
 The CNO cycle is dominant at internal temperatures $>\SI{15.9}{\mega\kelvin}$, corresponding to a stellar mass of $\gtrsim \SI{1.3}{\solarmass}$ \parencite[121]{salarisEvolutionStarsStellar2005}.
-The incredible temperatures at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
-This results in a convective core surrounded by a radiative envelope, and is the driving force behind the incredible observed luminosities of high-mass stars as they convert hydrogen to helium at a truly astounding rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
+The increased temperatures at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
+This results in a convective core surrounded by a radiative envelope, and is the driving force behind the observed luminosities of high-mass stars as they convert hydrogen to helium at an immense rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
 
 \begin{figure}[h]
   \centering
@@ -159,7 +161,7 @@ This results in a convective core surrounded by a radiative envelope, and is the
 
 % Influence of OB stars on surrounding environment, outsized influence etc.
 The luminosities and temperatures of high-mass stars also drive extremely fast stellar winds through radiative line driving.
-These winds have on the order of $10^{10}$ times more momentum than winds from stellar-mass stars, and punch holes into the interstellar medium (ISM), forming wind-driven bubbles and champagne flows.
+These winds have on the order of $10^{10}$ times more momentum than winds from \note{stellar mass} stars, and punch holes into the interstellar medium (ISM), forming wind-driven bubbles and champagne flows.
 These winds can also perturb GMCs, disrupting them and forming more stars nearby.
 
 The study of stellar winds, of course, is quite hard from our vantage point on earth.
@@ -224,7 +226,7 @@ In fact, winds from red dwarfs are found to be markedly denser, but the mechanis
 % Evolved low-mass stars
 As low-mass stars evolve and leave the main sequence, they swell into red giants, causing the surface gravity of the star to decrease significantly.
 As the star expands and cools, dust condenses and forms in the photosphere.
-These dust grains adsorb photons more readily than ions and atoms do through Thompson scattering, and can adsorb a broad range of wavelengths due to their size.
+These dust grains \note{absorb} photons more readily than ions and atoms do through Thompson scattering, and can \note{absorb} a broad range of wavelengths due to their size.
 The dust grains are subsequently driven away by radiation pressure, the gas in the wind is coupled to the dust, driving it away in the form of a dense, optically thick, barely supersonic wind
 \parencite[Ch.~5]{lamersIntroductionStellarWinds1999}.
 The mass loss rates of these stars are extremely high, no lower than $10^{-7} \, \si{\solarmass\per\year}$ and as high as $10^{-5} \, \si{\solarmass\per\year}$ with velocities on the order of $10-100 \, \si{\kilo\metre\per\second}$, making the wind extremely dense.
@@ -248,7 +250,7 @@ Furthermore, coronal heating and dust driving mechanisms were not possible, due 
 
 % Line driven wind theory 
 Line-driven winds present an alternative driving mechanism for massive stars.
-A photon with an energy equal to the excitation energy of an emission line of an ion in the wind is adsorbed, exciting the ion.
+A photon with an energy equal to the excitation energy of an emission line of an ion in the wind is \note{absorbed}, exciting the ion.
 This ion then de-excites over a timescale of $10^{-8} \, \si{\second}$, emitting a photon at a random angle relative to the radial direction relative to the star, $\alpha$.
 This emission of a photon produces a recoil force on the ion, resulting in a change in the radial velocity, $\Delta v\rms{r}$, such that:
 
@@ -256,17 +258,19 @@ This emission of a photon produces a recoil force on the ion, resulting in a cha
   \Delta v\rms{r} = v\rms{r}'' + v\rms{r}' - v\rms{r} = \frac{h\nu_0}{mc} \left(1-\cos \alpha \right),
 \end{equation}
 
+\turbo{This section needs to be worked on, extend based on work on page 199 of Lamers and Cassinelli}
+
 \noindent
 where $v\rms{r}'$ is the ions radial velocity after the photon adsorption, $v\rms{r}''$ is the ions radial velocity after photon emission and $\nu_0$ is the frequency of the resonating photon.
 Compared to conventional Thompson scattering, resonance lines are six orders of magnitude more opaque, making it a much more efficient process
 \parencite[Ch.~8]{lamersIntroductionStellarWinds1999}.
-This driving force occurs in winds enriched with elements with a large number of resonant lines, where heavier ion species from C, N, O and Fe group elements adsorb the photons.
+This driving force occurs in winds enriched with elements with a large number of resonant lines, where heavier ion species from C, N, O and Fe group elements \note{absorb} the photons.
 Lighter elements such as H and He are carried along via Coulomb forces, coupled to the heavier elements so long as the medium is sufficiently dense.
 
 But why is this effect not observed in lower mass stars?
 Resonance lines in heavier elements have comparatively high energy transitions, requiring ionising UV photons to excite them. 
-For instance, the C III resonance line has an energy of \SI{12.69}{\electronvolt}, so a photon requires a wavelength of \SI{977}{\angstrom} in order to be adsorbed (Fig. {\ref{fig:planck-comp}}).
-Additionally, photons would only be adsorbed over a narrow range of frequencies.
+For instance, the C III resonance line has an energy of \SI{12.69}{\electronvolt}, so a photon requires a wavelength of \SI{977}{\angstrom} in order to be \note{absorbed} (Fig. {\ref{fig:planck-comp}}).
+Additionally, photons would only be \note{absorbed} over a narrow range of frequencies.
 This inhibits efficient momentum transfer from UV photons without Doppler shift.
 As the outflow from the star has a distribution of radial velocities this results in a greater chance of resonance line adsorption if Doppler shift is considered.
 If we were to observe the outflow of a massive wind we observe a relatively low velocity component of the wind close to the star once the wind reaches a certain critical velocity.
@@ -289,7 +293,7 @@ This is in part due to the models simplicity, limitations in computing power and
 % as the force due to interaction of resonance lines with continuum photons were considered.
 The first major breakthrough was with more complex models demonstrated by Castor, Abbott and Klein (\citeyear{castor_radiation-driven_1975}; abbreviated to CAK).
 The CAK model computed line forces from all emission lines in the C III ion, after estimating the line force from other ions by scaling the results of this calculation an estimate of mass loss rates for hot stars was calculated to within a factor of 3 of observational results.
-A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from a startling \num{250000} lines, however, this was found to be less accurate than the original CAK model!
+A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from \num{250000} lines, however, this was found to be less accurate than the original CAK model!
 As researchers went back to the drawing board, improvements were made to the approximations and assumptions made by the CAK model, such as the finite disk correction factor
 \parencite{friend_theory_1986,pauldrachRadiationdrivenWindsHot1986}.
 
@@ -359,7 +363,7 @@ For a star of solar composition we find $q\rms{SC} \sim 0.08$
 For low-mass stars, this collapse timescale is extremely slow.
 Instead the star expands into an asymptotic giant branch (AGB) star, continuing shell burning until the material is exhausted
 \parencite{beechSchoenbergChandrasekharLimitPolytropic1988}.
-This leaves behind a degenerate helium core in the form of a white dwarf, which continues to contract and emit radiation through KH processes\footnote{Finally! Kelvin was right!}.
+This leaves behind a degenerate helium core in the form of a white dwarf, which continues to contract and emit radiation through KH processes.
 
 For massive stars the ratio of core mass to total mass is significantly higher, exceeding the Sch{\"o}nberg-Chandrasekhar limit.
 The outer envelope is driven away through radiation processes as the calculus of hydrostatic equilibrium shifts from contraction to expansion.
@@ -377,10 +381,10 @@ Inside this giant star the core continues to collapse, compressing and heating f
 % Which can also produce a small amount of oxygen with an additional $\atom{C}{12}{6} + \atom{He}{4}{2}$ interaction.
 The endothermic component of the 3$\alpha$ process, as well as the short reaction time prevents it from occurring in any reasonable quantity until core temperatures are in the order of hundreds of millions of Kelvin
 \parencite[Pt.~6]{kippenhahnStellarStructureEvolution2012}.
-The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, which can result in staggering amounts of energy production.
+The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, which can result in significantly higher rates of energy production.
 This process is far less energy efficient than hydrogen burning processes, and releases an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}).
 Hence, the helium burning process can be as short as \SI{500000}{\year}.
-At this point the fate of the star is sealed, it hurtles off of the main sequence like a 1966 Ford Thunderbird from the edge of the Grand Canyon\footnote{See \emph{Thelma and Louise} (1991) dir. Ridley Scott.}.
+At this point the fate of the star is sealed, it hurtles off of the main sequence like a 1966 Ford Thunderbird from the edge of the Grand Canyon.
 Because of this helium burning, the most massive of early-type stars transition into a Wolf-Rayet (WR) star -- one of the cruces of this thesis.
 
 \subsubsection{Wolf-Rayet stars}
@@ -490,7 +494,7 @@ Despite this short-lived phase, the Wolf-Rayet leaves a marked impact on the sur
 \subsubsection{The death of a star}
 
 % Continued evolution, carbon burning
-The star, still shedding a significant portion of its mass, continues its death march\footnote{I understand that this section has taken a flair for the dramatic, but what \emph{isn't} dramatic about the death of a star?}.
+The star, still shedding a significant portion of its mass, continues its death march.
 The core contracts further, heating to temperatures in the range of $10^9 \, \si{\kelvin}$, carbon atoms are smashed together and burned, producing many heavier elements:
 
 \begin{equation}
@@ -513,14 +517,14 @@ Finally, iron begins to deposit in the core of the star.
 All fusion processes at this point are endothermic.
 Suddenly without any exothermic fusion processes -- and robbed of its only support mechanism against gravity -- the star rapidly collapses.
 The core rushes in on itself, accelerating to a large fraction of the speed of light.
-This collapse produces truly unimaginable densities and temperatures in excess of \SI{100}{\giga\kelvin}\footnote{I can state a temperature of \SI{100}{\giga\kelvin} but can you really \emph{imagine} it? Can anyone really comprehend that kind of temperature?} within the core; protons capture electrons, forming neutrons and emitting copious amounts of neutrinos.
+This collapse produces truly unimaginable densities and temperatures in excess of \SI{100}{\giga\kelvin} within the core; protons capture electrons, forming neutrons and emitting copious amounts of neutrinos.
 Eventually neutron degeneracy suddenly halts the collapse, the near-relativistic core material suddenly rebounds and generates an enormous shock wave, causing the conditions inside the dying star to jump to more absurd temperatures and pressures.
 The rebounding material forms a core collapse supernova, ejecting heavy elements formed through neutron capture into an unsuspecting universe.
-What's left behind is a neutron star: the remnant of the electron capture mechanism from the original inward dive\footnote{Randall Munroe of \href{https://what-if.xkcd.com/73/}{\texttt{XKCD}} once stated a good description of supernovae that I like to tell people: ``However big you think supernovae are, they're \emph{bigger} than that.''} \parencite[Ch.~13]{longairHighEnergyAstrophysics2011}.
+What's left behind is a neutron star: the remnant of the electron capture mechanism from the original inward dive \parencite[Ch.~13]{longairHighEnergyAstrophysics2011}.
 
 In the case of collapsing Wolf-Rayet stars and other supergiant evolved stars this can go even further.
 Neutron degeneracy is insufficient to halt the collapse and the core collapses into a black hole.
-The resultant jet of material from this hypernova\footnote{\emph{Bigger than bigger than that!}} makes up a gamma-ray burst (GRB), a phenomena that can threaten planets \emph{thousands} of light years from their point of origin.
+The resultant jet of material from this hypernova makes up a gamma-ray burst (GRB), a phenomena that can threaten planets \emph{thousands} of light years from their point of origin.
 We should stop here, this section was written to provide context as to what early-type stars fundamentally are: violent, destructive, and awe-inspiring.
 It seems absurd that these systems could produce anything as fragile as interstellar dust.
 
@@ -901,24 +905,22 @@ This is crucial to the formation of dust in the post-shock region, which relies 
 
 The influence of each cooling mechanism varies over a particular temperature range, due to the collision energy of the atoms and ions.
 While there is some overlap, certain mechanisms are clearly dominant over specific temperature ranges (Table \ref{tab:coolprocess} and Fig. \ref{fig:wcsolcooling}).
-In the ``warm''\footnote{See what I mean about the phrase ``warm''?} phase we find that forbidden line emission through atomic hydrogen or metallic ions is dominant, while at higher temperatures higher energy processes such as H recombination and resonance line emission dominate.
+In the ``warm'' phase we find that forbidden line emission through atomic hydrogen or metallic ions is dominant, while at higher temperatures higher energy processes such as H recombination and resonance line emission dominate.
 At extremely high temperatures in the immediate post-shock WCR, free-free processes such as bremsstrahlung dominate
 \parencite[Ch.~6]{dysonPhysicsInterstellarMedium2021}.
 In this section we will discuss these primary mechanisms of cooling.
 
 \subsubsection{``Cool'' medium}
 
-At temperatures from 10 to $10^3 \, \si{\kelvin}$ atomic excitation is extremely unlikely, other than heating events from adsorption of cosmic rays.
+At temperatures from 10 to $100 \, \si{\kelvin}$ atomic excitation is extremely unlikely, other than heating events from adsorption of cosmic rays.
 Instead, spontaneous rotational and vibrational transitions in molecules shed what little thermal energy remains in these clouds.
 The most influential molecules on the temperature of these gas clouds are $\text{H}_2 \text{O}$, $\text{H}_2$ and $\text{CO}$
 \parencite{neufeldRadiativeCoolingWarm1993,neufeldThermalBalanceDense1995}.
 Through molecular transitions for cooling and heating through cosmic rays, a stable temperature in the order of \SI{10}{\kelvin} is maintained in these cold, dense clouds.
 While this mechanism is essential for understanding how molecular clouds remain so cool, heating from the parent stars will prevent the WCR from getting this cold.
 
-\subsubsection{``Warm'' medium}
-
 % Section on forbidden line emission
-Between $10^4$ and $10^5 \, \si{\kelvin}$, radiative cooling is dominated by forbidden line transitions\footnote{Like many other phenomena discussed in this thesis, this too is a misnomer. This transition was initially believed to be prohibited under contemporary models of atomic physics. This is in fact just astrophysicists jumping the gun again!}.
+Between $100 \,\si{K}$ and $1000 \, \si{K}$, radiative cooling is dominated by the hydrogen forbidden line transition.
 This mechanism releases energy through a hyperfine splitting of the $1s$ ground state of hydrogen, where the hydrogen atom spontaneously emits photons de-excite to a more stable spin state.
 Transition between a proton/electron parallel ($\uparrow\uparrow$) to antiparallel ($\uparrow\downarrow$) spin state emits a photon of energy \SI{5.86}{\micro\electronvolt}:
 
@@ -941,9 +943,17 @@ Transition between a proton/electron parallel ($\uparrow\uparrow$) to antiparall
 
 \noindent
 Despite the parallel spin state being metastable, with a very long lifetime of \SI{11}{\mega\year}, it occurs extremely readily in a large volume of gas in the ISM.
-Gas at this temperature is relatively transparent to radio waves, and as such the \SI{21}{cm} line can steadily remove energy through cooling\footnote{In the fighting game community (FGC), this is referred to as ``chip damage''.}.
+Gas at this temperature is relatively transparent to radio waves, and as such the \SI{21}{cm} line can steadily remove energy through cooling.
 Due to the presence of enormous quantities of atomic hydrogen, the \SI{21}{\centi\metre} line is one of the most prevalent type of radio emission in the galaxy\footnote{In fact, the wavelength and parallel spin state actually make up a set of fundamental units used in messages such as the \textit{Voyager} and \textit{Pioneer} messages due to its ubiquity.}
 \parencite[Ch.~8]{drainePhysicsInterstellarIntergalactic2011}.
+
+
+\subsubsection{``Warm'' medium}
+
+% Hydrogen ion recombination
+
+As the temperature increases, the rate of cooling peaks.
+In WCRs containing hydrogen this is consistent with recombination of electrons and hydrogen ions, releasing photons of energy $13.6\,\si{\electronvolt}$.
 In winds with a higher metallicity, forbidden line transitions from ions with more electron orbitals, can become dominant.
 Such ions include $\text{O}^+$ and $\text{O}^{++}$:
 
@@ -985,20 +995,20 @@ Such ions include $\text{O}^+$ and $\text{O}^{++}$:
 \end{figure}
 
 \noindent
-These transitions release significantly more energy, and as such are a more efficient way of removing energy from metal enriched winds, explaining the increase in cooling rate in the WC abundance wind in Fig. \ref{fig:wcsolcooling}
+These transitions release significantly more energy than the comparable, lower temperature \SI{21}{\centi\metre} transition, and as such are a more efficient way of removing energy from metal enriched winds, explaining the increase in cooling rate in the WC abundance wind in Fig. \ref{fig:wcsolcooling}
 \parencite[Ch.~5]{dysonPhysicsInterstellarMedium2021}.
-As the temperature increases, the rate of cooling peaks.
-In WCRs containing hydrogen this is consistent with recombination of electrons and hydrogen ions, releasing photons of energy $13.6\,\si{\electronvolt}$.
+\turbo{Change citation}
+
 
 \subsubsection{``Hot'' medium}
 
-Beyond $10^6\,\si{\kelvin}$\footnote{Which we have arbitrarily defined as ``hot''.} forbidden line transitions are no longer dominant as metastable levels in the ground state of ions become increasingly rare as the species become more and more ionised ($\text{C}^{3+}$, $\text{O}^{4+}$ etc.).
+Beyond $10^6\,\si{\kelvin}$ forbidden line transitions are no longer dominant as metastable levels in the ground state of ions become increasingly rare as the species become more and more ionised ($\text{C}^{3+}$, $\text{O}^{4+}$ etc.).
 Instead, resonance line transitions in metals, the driving force behind the stellar winds, begin to take over the role of cooling.
 These lines are not metastable like forbidden lines, and have much higher transition probabilities.
 As such, the emission rate is still quite high, but is constantly decreasing as temperature increases, as the probability for an ion being completely ionised increases.
 At temperatures in excess of $10^7\,\si{\kelvin}$, even these heavier ions are completely ionised.
 With their electrons stripped bare they simply do not have any resonance lines left!
-However, at these extreme temperatures, the WCR is cooled through radiation emitted via the bremsstrahlung\footnote{Or ``braking radiation'' if you have forgotten how to spell bremsstrahlung.} mechanism.
+However, at these extreme temperatures, the WCR is cooled through radiation emitted via the bremsstrahlung mechanism.
 This mechanism is comparatively simple: as the path of a high velocity charged particle is changed, it emits radiation equivalent to the change in velocity, in accordance with the conservation of energy.
 As this process is not determined by emission lines or energy levels, it increases with temperature, as stronger deflections release higher energy photons.
 Therefore, this process acts as the dominant cooling process in the universe at temperatures beyond $10^9 \, \si{\kelvin}$
@@ -1019,7 +1029,7 @@ This is accomplished using models such as the Mewe-Gronenschild-Kaastra (\texttt
 \parencite{meweCalculatedXradiationOptically1985,kaastraSPEXHighresolutionCosmic2013}.
 
 % Introduce Lambda, fundamental value for cooling
-In order to explore the contribution of cooling to the structure of the WCR, we must do what many\footnote{But possibly not \emph{all}.} astrophysicists despise the most: describe something mathematically.
+In order to explore the contribution of cooling to the structure of the WCR, we must do what many astrophysicists despise the most -- describe something mathematically.
 First, in order to determine the amount of cooling occurring at a particular temperature, we summate the contributions of all energy loss mechanisms -- from forbidden lines to bremsstrahlung -- into a single value.
 We first define the energy loss rate of a volume of gas, $\mathcal{L}(T)$, which in the case of plasma cooling is calculated by the equation
 
