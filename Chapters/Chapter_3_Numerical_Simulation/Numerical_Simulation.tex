@@ -136,7 +136,7 @@ For multiple dimensions, the CFL number is calculated with the formula
 \noindent
 where $\Delta t$ is the timestep, $u_{x_i}$ is the velocity of the fluid along a spatial dimension, $i$, and $\Delta x_i$ is the cell spacing for each spatial dimension \parencite[Ch.~5]{toro_riemann_2013}.
 Hydrodynamical codes typically allow the user to define $C$ such that the code can calculate the necessary timestep.
-For instance, in the case of a three-dimensional problem, $\Delta t$ is found to be
+For instance, in the case of a three-dimensional problem, $\Delta t$ is found to be:
 
 \begin{equation}
   \Delta t = C \left( \frac{u_x}{\Delta x} + \frac{u_y}{\Delta y} + \frac{u_z}{\Delta z} \right)^{-1} .
@@ -148,11 +148,11 @@ For 3-dimensional problems in this thesis, we typically start at $C = 0.15$, and
 It is important to note that there is also a constraint due to the sound speed of the fluid, $c_s$.
 As such, for highly hypersonic flows the timestep should be reduced further.
 
-Numerical simulations - whilst extremely processing intensive - are a class of problems that are considered to be \emph{embarrassingly parallel}.
+\note{Hydrodynamical simulations are an extremely processing intensive, but highly parallelisable problem.}
 A hydrodynamical problem can be divided into a series of smaller problems and solved independently for a common timestep.
-These numerical grids must be checked for concurrency at the interfaces between grids, which introduces some overhead to the parallelism, but on the whole is significantly faster than a single-threaded method.
-This subdivision can be performed through striping along one of the dimensional axes, with stripes distributed to a specific processor (as performed by \mg{} and \footlink{\texttt{VH1}}{https://wonka.physics.ncsu.edu/pub/VH-1/}.
-Another method for parallelism is reducing the entire problem to a series of blocks that are solved in parallel (performed by \athena). 
+These numerical grids must be checked for concurrency at the interfaces between grids, which \note{introduces some redundancy and reduces overall parallel efficiency}, but on the whole is significantly faster than \note{with single-threaded execution}.
+This subdivision can be performed through striping along one of the dimensional axes, with stripes distributed to a specific processor (as performed by \mg{} and \footlink{\texttt{VH1}}{https://wonka.physics.ncsu.edu/pub/VH-1/}).
+Another method for parallelism is reducing the entire problem to a series of blocks \note{stored in an octree or similar datastructure} that are \note{subsequently} solved in parallel (performed by \athena; \cite{stoneAthenaAdaptiveMesh2020}). 
 Other enhancements to numerical simulation include mesh refinement, which is covered in more detail in Section \ref{sec:refinement}.
 
 \section{The Purpose of Numerical Simulations}
@@ -180,18 +180,29 @@ The WCR is extremely difficult to observe for a variety of reasons:
 
 \begin{itemize}
   \item The nearest WCR are typically over \SI{1}{\kilo\parsec} away, and the structure is comparatively small, on the order of a few \si{\au}.
-  \item The structure can also be obscured by the parent stars, which are typically brighter in the optical and UV spectra.
+  \item The structure can also be obscured by the parent stars, which are \note{high-mass stars with luminosities $>\SI{1e5}{\solarluminosity}$}.
   \item In some cases, the WCR is extremely dense, leading to significant reddening and extinction.
   \item Dense winds from the WR star can also worsen extinction.
 \end{itemize}
 
 \noindent
-Observation of the large-scale dusty structure of the WCR is possible with current telescopes, and the surrounding dust cloud (and pinwheel structure in the case of persistent WCd systems) has been observed in multiple WCd systems \parencite{soulainSPHEREViewWolfRayet2018,callinghamAnisotropicWindsWolf2019}.
-However, observation of the compact dust forming region is far more difficult.
-In most cases, a telescope with an angular resolution $<50\,\si{\micro\arcsecond}$ would be required to resolve the region, ruling out even the highest resolution instrumentation.
+Observation of the large-scale dusty structure of the WCR is possible with current telescopes, and the surrounding dust cloud (and pinwheel structure in the case of persistent WCd systems) has been observed in multiple WCd systems \note{\parencite{soulainSPHEREViewWolfRayet2018,callinghamAnisotropicWindsWolf2019,lauNestedDustShells2022}}.
+\note{This feature, while impressive and useful for discerining whether a system is episodic or peristently dust forming, does not undergo significant dust formation, which instead occurs a short distance from the apex of the WCR \parencite{harriesThreedimensionalDustRadiativetransfer2004}}.
+
+\note{Observation of the apex and dust formation zone of the WCR is markedly more difficult, as it is an extremely compact feature compared to the outflowing spiral or ring structure.}
+\note{In the case of WR140, with a periastron of \SI{1.53}{AU} and a distance from Earth of \SI{1720}{pc}, a minimum angular resolution of \SI{0.44}{\milli\arcsecond} is required to resolve the stars separately, in order to observe the apex of the wind collision region we would need to be significantly lower than this, perhaps by one or two orders of magnitude.}
+\note{For comparison, the James Webb Space Telescopes NIRCam instrument has an angular resolution of \SI{70}{\milli\arcsecond} at a wavelength of \SI{2}{\micro\metre}, which is insufficient to resolve the innermost region of the WCR.}
+\note{Interferometers -- such as the VLTI GRAVITY instrument -- offer an increased resolution at similar wavelengths, but are still insufficient (GRAVITY, for example, has an angular resolution of \SI{3}{\milli\arcsecond} in the K band).}
+\note{Additionally, the brightness of the stars is very high, with a combined luminosity on the order of \SI{2e6}{\solarluminosity} \parencite{williamsResults2009Campaign2011}.}
+\note{Whilst this emission is primarily in the ultraviolet, this would make the innermost region of the WCR more difficult to observe and would potentially necessitate the use of a coronagraph in a similar method to the direct detection of exoplanets.}
+
+
+% However, observation of the compact dust forming region is far more difficult.
+% In most cases, a telescope with an angular resolution $<50\,\si{\micro\arcsecond}$ would be required to resolve the region, ruling out even the highest resolution instrumentation.
+
 Thus, numerical simulation is a requirement.
 Implementation of a dust model in order to analyse how dust growth occurs within the region can also be performed and compared to observational estimates.
-Radiative transfer models can also be used to model the dust production rate of these systems\footnote{However, this was not feasible given the difficulties of this project.}.
+Radiative transfer models can also be used to model the dust production rate of these systems\footnote{\note{However, this was not feasible for this project, due to time limitations.}}.
 
 % Why are colliding wind binary systems such a pain to solve
 CWB systems, however, are difficult to \emph{simulate} as well!
@@ -200,7 +211,8 @@ Numerical simulations are vastly simplified by reducing the number of dimensions
 Single object systems can be reduced to 1-D spherically symmetric or 2-D cylindrical axisymmetric representations.
 This is the case in earlier simulations of supernovae and jets.
 Simulations of CWB systems are possible with cylindrical symmetry, but inclusion of orbits will negate the effects due to orbital motion, such as pinwheel formation.
-The apex of the WCR must be properly resolved from either of the stars, in the case of systems with imbalanced winds this can result in a cell width, $\Delta x$, of $<1/100^{\text{th}}$ of the orbital separation\footnote{This value is derived from experimentation, and can vary for certain simulations, such as those of WR104.}.
+
+\note{In order for the WCR to evolve correctly, the apex of the region must be properly resolved from either of stars and must also have a sufficiently high cell resolution to resolve the two shock regions separately. However, as the WCR apex is the smallest feature of the system, the separation resolution should be minimised without violating these conditions. In the case of a WR+OB CWB system the resolution must also be higher as the significantly stronger WR wind situates the WCR apex closer to the OB star.}
 Ideally, to simulate a CWB system, it is preferable to simulate a large domain, typically \SI{100}{AU} to \SI{1000}{AU}.
 This further increases the number of cells required to simulate the system.
 Finally, the extreme degree of cooling in the post-shock WCR can render the simulation unstable, requiring robust cooling techniques or very small timesteps to ensure stability.
@@ -210,48 +222,46 @@ Fortunately, mesh refinement techniques can improve this situation by drasticall
 \section{The \mg{} Hydrodynamical Code}
 \label{sec:mgcode}
 
+\begin{center}
+  \turbo{This section has been significantly edited}
+\end{center}
+
 % briefly cover MG hydrodynamical code, since this was used for the first half of this work before adopting a more modern hydro code
 
-Initially this project intended to use the \mg{} hydrodynamical code, as CWB systems had already been simulated, and the resultant code being readily available within the department.
-
+Initially this project intended to use the \mg{} hydrodynamical code \parencite{falleSelfsimilarJets1991}, as CWB systems had already been simulated, and the resultant code being readily available within the department.
 \mg{} also had a number of features that were useful for this project, such as MPI parallelism and adaptive mesh refinement.
 It was initially estimated that it would take little more than a year to implement the dust and cooling models; with large-scale simulations on the ARC3 and ARC4 computers being commenced mid-way through the second year of research.
-
-How wrong we were!
+This was unfortunately not the case.
 
 % why we didn't use it in the end
 
-Unfortunately the advected scalar dust model never adequately worked in \mg.
-When implemented in \mg, the dust model either produced dust rates measurable in grams per year, or the simulation rapidly converted all gas into dust.
+It was found that our dust model was unreliable when implemented in \mg.
+The dust model either produced dust rates measurable in grams per year, or the simulation rapidly converted all gas into dust.
 Attempts to implement the dust model through modification of the conserved variables or through a rate-based source function were made, with many different implementation attempts.
-None of these panned out, resulting in a large amount of work being discarded.
-Using strict constraints to prevent rigorous dust production resulted in strange looking systems that did not behave as observations suggested.
-Furthermore, building a model that relied on dozens of constraints based on limited empirical data is rarely a good model, and is analogous to building a clock without a driving mechanism -- such that it is at least right twice a day.
+None of these were reliable, resulting in a large amount of work being discarded.
+Using strict constraints to prevent rigorous dust production resulted in strange looking systems that did not agree with observational data.
 
-In addition to incompatibility with the dust model, numerous technical issues also meant that \mg{} was unsuitable for the work in this thesis.
-Mapping the wind onto the CWB also proved difficult when combined with AMR, as the provided implementation of wind remapping required a circular region with a radius of 3 coarse cells.
-In order to get the required separation for systems with close orbits, a very high coarse resolution would be required, massively increasing memory usage and removing the benefits of mesh refinement.
-Using a source function for wind mapping allowed for more refined cells to be used.
-This could also produce artefacts at level transitions, however, while also producing wind temperatures of the order \SI{1e7}{K}.
+In addition to incompatibility with the dust model, the wind mapping implementation resulted in additional issues.
+In order to get the required separation resolution for systems with close orbits, a very high coarse resolution was required, massively increasing memory usage and removing the benefits of mesh refinement.
+Using a source function to simulate wind was considered, which would have allowed for refined cells to map wind, but this would produce winds with unrealistically high temperatures, on the order of \SI{1e7}{K}.
 
-While being very extensible in terms of being able to implement a problem generator fairly easily, low-level manipulation of the \mg{} source code was found to be extremely difficult due to limited documentation and a complex, linked-list grid structure.
-Writing workarounds and fixes to the issues described was very time-consuming, slowing progress in the project significantly.
-Iteration time was also extremely long, requiring multiple hours to run a simulation to determine if the fixes worked.
-Debugging was rendered difficult by the use of OpenMPI, and the general structure of the code rendered the setting of breakpoints difficult even in the single-threaded case.
-Finally, the numerical integrator was found to be unstable in the face of extremely radiative cooling environments.
-Complex multi-step cooling processes were considered and implemented, but even these could not handle such rapid cooling without breakdown if a reasonable Courant number was to be used.
-The solution to this was to artificially limit cooling to a fraction of the energy in the cell per timestep.
-This reduced the simulation accuracy, and resulted in much slower cooling within the post-shock WCR.
+% While being very extensible in terms of being able to implement a problem generator fairly easily, low-level manipulation of the \mg{} source code was found to be extremely difficult due to limited documentation and a complex, linked-list grid structure.
+% Writing workarounds and fixes to the issues described was very time-consuming, slowing progress in the project significantly.
+% Iteration time was also extremely long, requiring multiple hours to run a simulation to determine if the fixes worked.
+% Debugging was rendered difficult by the use of OpenMPI, and the general structure of the code rendered the setting of breakpoints difficult even in the single-threaded case.
+% Finally, the numerical integrator was found to be unstable in the face of extremely radiative cooling environments.
+% Complex multi-step cooling processes were considered and implemented, but even these could not handle such rapid cooling without breakdown if a reasonable Courant number was to be used.
+% The solution to this was to artificially limit cooling to a fraction of the energy in the cell per timestep.
+% This reduced the simulation accuracy, and resulted in much slower cooling within the post-shock WCR.
 
-In the end, the decision was made to switch from \mg{} to the then-new \athena{} hydrodynamical code.
-This decision was made in mid-2020.
+In the end, the decision to switch from \mg{} to the then-new \athena{} hydrodynamical code was made in mid-2020.
 By the end of 2020 the problem generators were built, the necessary modifications to the underlying code of \athena{} were completed and the dust model was fully implemented.
-What began next was a frenzy of activity in order to assure that there was sufficient data to complete this project in time.
+% What began next was a frenzy of activity in order to assure that there was sufficient data to complete this project in time.
 
 \section{The \athena{} hydrodynamical code}
 \label{sec:athenapp}
 
-The \footlink{\athena{}}{https://github.com/PrincetonUniversity/athena} hydrodynamical code was found to be a much more suitable fit for this project.
+The \footlink{\athena{}}{https://github.com/PrincetonUniversity/athena} \note{hydrodynamical code was found to be a more suitable fit for this project}.
 \athena{} is a total re-write of the older Athena MHD code in \texttt{C++} focussing on adding adaptive mesh refinement, source code clarity, modularity, and improved performance \parencite{stoneAthenaAdaptiveMesh2020}.
 This clarity and modularity allowed us to port our dust model and CWB problem from \mg{} to \athena{} in a few months.
 The hydrodynamical problem is defined at compile time, and as such ensures there is no overlapping code from other problem generator codebases.
@@ -453,9 +463,11 @@ Whilst re-adsorption and subsequent re-emission would significantly increase the
 Finally, a number of assumptions are made for the dust model.
 We assume that the number density of the dust grains is constant, such that the net amount of grains being shattered and grains being agglomerated is zero.
 As gas-grain sputtering and coagulation are significantly more common processes and do not change the number density, this is a reasonable assumption considering the dust evolution mechanisms currently implemented and the limitations of an advected scalar model.
-We assume that grain growth occurs below \SI{14000}{K}, which is below the sublimation temperature of carbon dust grains.
-Conversely, we assume that dust destruction processes are not significant until the gas temperature is above $10^6 \, \si{K}$, when a micron sized grain has a lifespan of $\gtrsim 10^7\,\si{\year}$ in a flow with a density of $1\si{g.cm^{-3}}$ and the destruction rate begins to reach its maximum (see Fig. \ref{fig:grain-lifespan}).
-We also assume grain growth due to grain-gas accretion is approximately 10\% efficient, which is a conservative estimate for grain growth, and could be as high as 100\% in the case of uncharged dust grains \parencite[Ch.~9]{spitzerPhysicalProcessesInterstellar2008}.
+\note{We would expect to address this in future, multi-fluid versions of this model, however.}
+\note{Additionally, we assume that grain growth begins to occur below temperatures close to \SI{1e4}{K}, which is the typical floor temperature of CWB simulations \parencite{pittard_3d_2009,parkinInvestigatingXrayEmission2011}.}
+\note{Meanwhile, dust destruction processes do not become significant in the model until the gas temperature exceeds \SI{1e6}{K}, when a micron-sized grain has a lifespan of approximately \SI{1e7}{\year} in a flow of density \SI{1}{g.cm^{-3}}.}
+\note{We also adopt a 10\% efficiency factor for dust grain growth, in low temperature environments with uncharged grains this can be as high as 100\% according to \textcite{spitzerPhysicalProcessesInterstellar2008}, but is much lower in the expected conditions of a WCd system \parencite{leitch-devlinStickingCoefficientsAtoms1985}.}
+\note{The assumptions for the dust model are discussed in further detail in Section \ref{sec:dustimplementation}.}
 
 \subsection{Stars, wind propagation \& refinement}
 \label{sec:orbitsolver}
@@ -494,6 +506,16 @@ For systems with a WCR closer to the secondary star the number of cells should b
 % How refinement is performed 
 Throughout this thesis SMR is used to increase the effective resolution of simulations.
 A box around the CWB orbit is refined to the highest level defined in the simulations input file, \athena{} de-refines the cells gradually around this box until the simulation is at its coarsest resolution.
+\note{In Section \ref{sec:numerical-purpose} we discussed the minimum resolution limits of the WCR, and how this effects the resolution of the simulation as a whole.}
+\note{In short: the finest cell resolution must be sufficiently high as to ensure that the shocks within the WCR are resolved from each other and from the parent stars.}
+\note{Radiative cooling also increases the resolution requirement, as the post-shock region can be significanly more compressed.}
+\note{The resolution must also be kept as low as possible so as not to increase the computational cost of the simulation.}
+\note{There is limited discussion on separation resolution in available literature, and would vary depending on the wind properties of the system, in particular $\eta$.}
+\note{\textcite{pittard_3d_2009} uses a separation resolution of $\sim 100$ cells for a non-adiabatic OB+OB binary system with a close orbit. This was used as a starting point to determine an appropriate separation resolution.}
+\note{Testing was conducted by running simulations with a progressively lower simulation and finding whether mixed winds were present in the remap zones, which would indicate that the WCR was not resolved form the star.}
+\note{We found a separation resolution of 100 cells was suitable for WR98a and WR140, while simulations with a separation resolution of 30 cells would not produce consistent results.}
+\note{As such our simulations in \textcite{eatsonExplorationDustGrain2022} used a separation resolution of $\sim{120}$ fine cells including remap zones, while simulations of WR140 in \textcite{eatsonExploringDustGrowth2022} utilised a separation resolution of $\sim{100}$ fine cells including remap zones. The reduction in the latter was for the sake of limited simulation time, but did not result in winds impinging on the remap zones.}
+\note{Remap zones were specified to be 12 fine cells in radius. 3 fine cells was found to be the minimum value producing radial outflows, but increased resolution was needed to produce spherical outflows with no fluctuation.}
 
 \subsection{Cooling in numerical simulations}
 
@@ -535,7 +557,7 @@ For a shock with $M_a = 100$ the final density can exceed the pre-shock density 
 Performing radiative cooling within a numerical simulation is computationally difficult, and trade-offs between accuracy and performance must be considered at every step of designing the simulation, as every single cell must undergo cooling.
 For this project, the final cooling can be out by a few percent at worst, but is fast enough to run the simulations in a reasonable amount of time without excessive memory requirements.
 In order to simplify the radiation calculations, radiation does not re-interact with the simulation, instead it is completely removed from the simulation.
-\turbo{need to clean this up because footnote removed}
+\note{This was done as re-interaction would significantly increase the computational cost for each time-step.}
 Due to this, scattering, re-adsorption and radiative transfer are not simulated at all.
 Other methods of reducing computational cost and optimising the code are used in this project, and will be described in detail in this section.
 
@@ -1032,7 +1054,7 @@ The initial conditions of the model were based on sensible values for the initia
 Whilst much of the work in this thesis was accomplished on a slightly earlier build of this model, a more advanced, cleaned up version of the model has been \footlink{written}{https://github.com/atomsite/athena}.
 This improved model is ready for when the AMR stability issues of \athena{} have been solved by the software developers.
 
-\subsection{Implementation}
+\subsection{Implementation \note{\& testing}}
 \label{sec:dustimplementation}
 
 % Passive scalar 
@@ -1066,6 +1088,23 @@ Multiple scalars are used to describe the wind and dust parameters within each c
 \noindent
 This method is markedly simpler to implement and faster to compute, as the dust can be described on a per-cell basis in a series of simple calculations, this allows dust evolution mechanisms to be implemented easily, as long as they can be defined by these parameters either directly or through a derivative, such as the grain number density.
 
+% Testing
+\note{Initial testing was conducted by first simulating the evolution of dust in a 0-D scenario, where a region with a set initial density was left to evolve for an in-simulation year.}
+\note{These evolution tests are seen in Fig. \ref{fig:initialtesting}, where dust yields were strongly dependent on the gas density and time elapsed, producing yields exceeding 1\% in the case of a region with $\rho\rms{g} = \SI{1e-14}{g.cm^{-3}}$.}
+% Limitations to testing
+\note{This initial testing phase was brief, and mainly used to determine whether the grain growth equations would produce sensible results or affect the stability of a hydrodynamical simulation.}
+\note{This is mainly because this method does not account for expansion of the post-shock gas, nor does it account for the initial rapid cooling phase; these two limitations combined result in a significant over-estimation of dust production.}
+\note{Instead, simple 3-D simulations with a similar elapsed time of a year and a limited numerical domain were conducted before running full-scale simulations.}
+\note{These simulations typically had a run time of a day, and as such were suitable for rapid testing.}
+\note{These simple 3-D tests, and initial parameter searches are discussed in more detail in Section \ref{sec:injection}.}
+
+\begin{figure}
+  \centering
+  \includegraphics{assets/initial-dust-test.pdf}
+  \caption[\note{Initial testing of the dust model}]{\note{Initial, ``0-D'' testing of the dust model, where a gas of a specific density and a small amount of initial dust ($z_i = 10^{-10}$, $a_i = \SI{0.01}{\micro\metre}$) was left to evolve at a temperature of \SI{1e4}{K}. This testing does not account for cooling and expansion, and thus over-estimates the amount of dust produced at these conditions.}}
+  \label{fig:initialtesting}
+\end{figure}
+
 \subsubsection{Dust injection}
 \label{sec:injection}
 
@@ -1091,6 +1130,13 @@ This method is markedly simpler to implement and faster to compute, as the dust 
   \label{fig:azweak_z}
 \end{figure}
 
+\begin{figure}[p]
+  \centering
+  \includegraphics{assets/a_z_tweaking/a_evol.pdf}
+  \caption[\note{$a$ evolution with varying $z_i$}]{\note{A comparison of the average value for $a$ in the WCR over the course of a simulation with WR98a properties. $z_i$ and $a_i$ are varied for each simulation. We find that grain growth occurs more rapidly in simulations with a smaller initial grain radius, and that changing the value of $z_i$ does not change the final average grain radius significantly.}}
+  \label{fig:a_evol}
+\end{figure}
+
 Dust is injected into the system in small quantities from the wind remap zone of the WC star.
 If we were to describe this mechanism in physical terms, this would be as if refractory carbon grain cores condensed into the WC wind.
 Whilst the exact mechanism for initial grain nucleation is not known, this is an ideal first step as it assures that dust grains are present in the post-shock WCR wind.
@@ -1099,11 +1145,13 @@ Therefore, it was decided that the model would operate on as few initial paramet
 % INitial comparisons
 Determining the injected scalar values at this remap zone was an important first step, as it was not known how these initial parameters would impact the final dust yield, $\mass\rms{d,f}$, or the dust formation rate, $\mdot\rms{d}$. 
 In order to determine the ideal initial parameters, and to determine the sensitivity of the model to its initial conditions, a series of simulations were conducted using the orbital and wind parameters of WR98a.
+\note{These simulations were also conducted to determine the stability of the grain growth model when incorporated into \athena{}.}
 The initial grain radius, $a_i$ was varied from \SI{0.01}{\micro\metre} to \SI{1}{\micro\metre}, while the initial dust-to-gas mass ratio, $z_i$ was varied from $10^{-6}$ to $10^{-4}$.
-These simulations were run over the course of a week on the ARC4 HPC cluster over 128 cores.
-The total elapsed time within the simulation was one year, with the simulation advecting fully to the simulation extent of $100\times 100 \times 10 \, \si{\au}$ in around \SI{0.1}{\year}.
+\note{Each simulation had a coarse cell resolution of $320 \times 320 \times 40$ XYZ cells with 4 levels, for an effective resolution of $2560\times 2560 \times 320$ XYZ cells.}
+\note{Whilst this is the same coarse resolution as the simulations conducted \textcite{eatsonExplorationDustGrain2022} (Ch. \ref{chap:parameterspace}), the number of levels is lower, resulting in $1/512^{\text{th}}$ of the effective resolution of the full-scale simulations outside of the wind collision region.}
+\note{The simulation domain was also smaller, with a size of $256 \,\si{AU} \times 256 \,\si{AU} \times 32 \,\si{AU}$, which allows for faster advection of the simulation.}
+These simulations were run over the course of a week on the ARC4 HPC cluster \note{using 64} cores.
 Whilst the results of \textcite{lauRevealingEfficientDust2021} had not been published at this time, a final dust-to-gas mass fraction of $\sim 1\%$ was assumed to be an ideal starting point for a model of WR98a.
-
 
 As can be seen in Fig. \ref{fig:azweak_img}, we find that decreasing $a_i$ creates a much more defined WCR, at the cost of increasing dust outside of the WCR.
 Dust formation occurs where expected, on the WC edge of the WCR, with the bulk of dust formation occurring within a short distance from the apex of the WCR shock.
@@ -1112,16 +1160,21 @@ Additionally, \textcite{zubkoPhysicalModelDust1998a} notes that the initial dust
 This is expanded on in Fig. \ref{fig:aztwek_wcrrat}, where we find that changing $z_i$ significantly affects the amount of dust produced in the WCR compared to the total dust yield.
 As we do not observe significant quantities of dust being produced outside of the WCR, we prioritised a small value of $z_i$, as long as it does not significantly influence dust yields.
 Finally, Fig. \ref{fig:azweak_z} shows that changing $z_i$ does not affect the total dust yield significantly, which is far more sensitive to changes in $a_i$.
+\note{We also observed a similar lack of change in $a$ when $z_i$ is varied (Fig. \ref{fig:a_evol}).}
+\note{$a$ is also noted to not increase significantly overall, even in the case of small initial grain sizes.}
+\note{For instance, in the case of simulations with an initial grain size of \SI{1e-2}{\micro\metre}, we observe a rapid initial grain size increase, which quickly slows to a final average size of \SI{3e-2}{\micro\metre}, consistent with \textcite{zubkoPhysicalModelDust1998a}.}
 We can therefore discern from these previous two results that $z_i$ should be kept to a fairly small value.
+
 
 The parameter $z_i$ was found to not affect the dust production within the WCR significantly.
 Therefore, we were able to reduce the effective initial parameter space of dust in the wind to a single parameter, $a_i$, which was found to operate best when set to a realistic value.
-After this preliminary parameter space exploration, an $a_i$ of \SI{50}{\angstrom} and a $z_i$ value of $10^{-8}$ were utilised.
+After this preliminary parameter space exploration and additional stability testing, an $a_i$ of \SI{50}{\angstrom} and a $z_i$ value of $10^{-8}$ were utilised.
 Whilst these initial parameters were based on an extrapolation of our test data, these initial values were found to be more than adequate.
 Other dust injection mechanisms were considered for this project, such as injecting dust into the apex of the WCR.
 These were found to give inconsistent results when initially tested in the \mg{} hydrodynamical code, however.
+\note{\athena{} was also modified to check each cell in the simulation for unrealistic dust conditions, such as dust density increasing beyond the total amount of gas in a cell, and grain sizes beyond \SI{1}{\micro\metre} (the scalar primitive value limit). If a cell is detected violating these conditions the simulation is ended and the user is alerted.}
 
-\subsubsection{Assumptions \& limitations}
+\subsubsection{Assumptions \note{\& limitations}}
 \label{sec:bidmasassumptions}
 \label{sec:bidmaslimitations}
 
@@ -1129,21 +1182,41 @@ From this we can determine further assumptions for our dust model.
 % Number density
 We assume that the number density ratio, $n\rms{d}/n\rms{g}$, is constant throughout the simulation, and is calculated based on the initial grain radius and the initial dust-to-gas mass ratio.
 % Limitations due to this
-We therefore assume that the net rate of grain shattering and grain agglomeration is zero, no grains are created or destroyed -- they just increase or decrease their radii.
+\note{This is an inherent limitation of being unable to simulate grain-grain interactions in the current iteration of the \bidmas{} model.}
 % In the worst case, the dust number density may not be correctly calculated, which can affect the rate of cooling.
 % Multiple grain sizes and coupling
-We also assume that there is no variation in grain size within each numerical cell.
+\note{Another limitation of the advected scalar model worth considering is that there} is no variation in grain size within each numerical cell.
+\note{However, the simulations we conducted in \textcite{eatsonExplorationDustGrain2022} (see Chapter \ref{ch:wr140}) show that grain size does not vary significantly within the WCR itself.}
 % Limitations due to this
-Whilst other models assume that dust grains are coupled through a drag force, it was found that the dust was effectively coupled to the wind as if it was co-moving (Section \ref{sec:hendrixmodel}).
-This may however prevent significant dust mixing in the immediate post-shock region, due to the increased inertia of the dust grains compared to the gas.
+\note{As an advected scalar relates to properties that co-move with the fluid, dust grains in this model are therefore simulated as perfectly co-moving.}
+whilst other models assume that dust grains are \note{instead} coupled through a drag force, it was found that the dust was effectively coupled to the wind as if it was co-moving (Section \ref{sec:hendrixmodel}; \note{\cite{hendrix_pinwheels_2016}}).
+\note{It is important to note that this may prevent significant dust mixing in the immediate post-shock region due to the increased inertia of the dust grains compared to the gas, which would be important to consider with a more advanced chemical model.}
 % Grain-grain collision
-As a single grain size for each cell is assumed, dynamics between grains of different sizes, such as grain agglomeration cannot be accurately simulated.
+As a single grain size for each cell is assumed, dynamics between grains of different sizes, such as grain agglomeration \note{and shattering} cannot be accurately simulated.
 % Fixes
 These issues could be addressed with a multi-scalar or multi-fluid model, which is a potential future feature of this project.
 
-All grains in the simulation are assumed to be circular, with a volume, $V\rms{gr}$, of $4/3 \pi a^3$ and a mass, $m\rms{gr} = V\rms{gr} \rho\rms{gr}$, where $\rho\rms{gr}$ is the grain bulk density.
-As we assume all dust grains in the simulation are composed of amorphous carbon, we assume that $\rho\rms{gr} = \SI{3.0}{g.cm^{-3}}$, which is on the upper end of densities expected for amorphous carbon
-\parencite{bhattaraiEvolutionAmorphousCarbon2018}.
+All grains in the simulation are assumed to be circular, \note{and thus have} a volume, $V\rms{gr}$, of $4/3 \pi a^3$ and a mass, $m\rms{gr} = V\rms{gr} \rho\rms{gr}$, where $\rho\rms{gr}$ is the grain bulk density.
+As we assume all dust grains in the simulation are composed of amorphous carbon, we \note{adopt a value of} $\rho\rms{gr} = \SI{3.0}{g.cm^{-3}}$ \parencite{bhattaraiEvolutionAmorphousCarbon2018}.
+
+% Gas temperature, restate floor temperature of 10,000K
+\note{Other important assumptions for this model that must be justified involve the high temeprature of formation and dust growth, as well as the lack of immediate grain destruction through UV photodissociation and heating.}
+
+% Formation pathways at high temperatures
+\note{In the case of CWB systems, a high temperature dust formation pathway occurs at temperatures on the order of \SI{4e3}{K} and gas number densities exceeding \SI{1e10}{cm^{-3}}.}
+\note{This process involves the formation of carbon chains, which form into rings and then intermediate fullerene caged species \parencite{cherchneff_dust_2010}.}
+\note{Such conditions are observed in even highly imbalanced WR140 systems at periastron, such as WR140 \parencite{williams_orbitally_2009,williamsConditionsWR1402021}.}
+% Appropriate to simulate cooling, though a limitation
+\note{Whilst we do not simulate temperatures below \SI{1e4}{K} in our simulations for the sake of stability, these observations indicate that cooling below this point does occur.}
+% UV shielding
+\note{The lack of destruction through UV radiation emanating from the parent stars is an important assumption for this model.}
+\note{Most theories for dust formation in WCRs involve UV shielding from high density clumps in which the dust forms, as well as occultation from the compressed, post-shock winds and other clumps \parencite{tuthill_prototype_2008,williams_orbitally_2009,lauRevisitingImpactDust2020}.}
+% Harries, optical depth, significant drop in temperature
+\note{In addition, \textcite{harriesThreedimensionalDustRadiativetransfer2004} provides a quantitative calculation of this effect, they find that when there is significant dust mass and optical depth in the first spiral resolution, shielding can prevent strong UV heating, with the second turn showing a significant drop in temperature as well, dust formation is also a net positive, despite being above the expected sublimation temperature.}
+\note{In addition to shielding through the post-shock wind and clumps, the decrease in flux $\propto r^{-2}$ with a slower reduction in post-shock wind density would result in an increasingly more favourable environment for dust growth in the WCR.}
+% Formation pathways at low temperatures
+\note{It is also important to note that an alternative, lower temperature path exists, wherein a catalysed reaction with hydrogen can occur, which could further increase dust production rates \parencite{herbstComplexOrganicInterstellar2009}.}
+\note{This is not simulated, but future work could explore this alternate formation pathway.}
 
 \subsubsection{Dust cooling}
 
@@ -1164,6 +1237,7 @@ where $n\rms{d}$ is the dust number density, $H\rms{el}$ is the grain heating ra
 Dust cooling, as well as the optimisations needed to run quickly in a numerical simulation, is discussed in significantly more detail in Section \ref{sec:dustcoolingmodel}.
 
 \subsubsection{Dust evolution}
+\label{sec:ddustevol}
 
 Once the energy loss due to dust emission has been calculated, the growth rate and destruction rate for dust grains in each cell is calculated.
 The code loops through every cell in the simulation, first calculating the average particle mass in the cell, $\mu$:
@@ -1173,10 +1247,15 @@ The code loops through every cell in the simulation, first calculating the avera
 \end{equation}
 
 \noindent
-where $C$ is the wind ``colour'', and $X,Y,Z$ are the individual wind hydrogen, helium and metal mass fractions, respectively
-\parencite{mihalasStellarAtmospheres1978}.
+\note{where $C$ is the wind ``colour'', and $X,Y,Z$ are the individual wind hydrogen, helium and metal mass fractions, respectively
+\parencite{mihalasStellarAtmospheres1978,pittard_x-ray_1999}.}
 The cell temperature is then calculated using the ideal gas law, which is used to determine which dust evolution mechanism occurs.
-For temperatures above $10^6 \, \si{K}$, dust destruction occurs, while at temperatures below \SI{1.4e4}{K} dust growth occurs instead.
+\note{
+  As photoionisation maintains the wind temperature of these systems at approximately \SI{1e4}{K}, the floor temperature of the simulations was set to this temperature.
+  This is a typical floor temperature value of CWB simulations \parencite{pittard_3d_2009,parkinInvestigatingXrayEmission2011} due to this reason, and that it is more numerically stable when radiative cooling is introduced.
+}
+For temperatures above $10^6 \, \si{K}$, dust destruction occurs, while at temperatures below \SI{1.4e4}{K} \note{-- slightly above the floor temperature --} dust growth occurs instead.
+
 As the dust grains are assumed to be spherical, we can model dust growth and destruction in a unified manner, corresponding to a change in grain radius.
 In the case of dust destruction, ions sputter off atoms from the surface of the dust grain, wearing the grain evenly over time, while in the case of accretion, low velocity collisions cause atoms to stick, growing the grain evenly.
 
@@ -1184,9 +1263,9 @@ For both processes we find a change in the grain radius of $da/dt$, which can be
 
 \begin{subequations}
   \begin{align}
-    \frac{dV\rms{gr}}{dt} & = 4 \pi a^2 \frac{da}{dt} ,\\
-    \frac{dm\rms{gr}}{dt} & = \rho\rms{gr} \frac{dV\rms{gr}}{dt} ,\\
-    \frac{d\rho\rms{d}}{dt}   & = n\rms{d} \frac{dm\rms{gr}}{dt} ,
+    \frac{dV\rms{gr}}{dt}   & = 4 \pi a^2 \frac{da}{dt} ,\\
+    \frac{dm\rms{gr}}{dt}   & = \rho\rms{gr} \frac{dV\rms{gr}}{dt} ,\\
+    \frac{d\rho\rms{d}}{dt} & = n\rms{d} \frac{dm\rms{gr}}{dt} ,
   \end{align}
 \end{subequations}
 
@@ -1208,7 +1287,8 @@ where $\xi$ is the grain sticking factor, $\rho\rms{C}$ is the density of carbon
   w\rms{C} = \sqrt{\frac{3k\rms{B}T}{12 m\rms{H}}} .
 \end{equation}
 
-Throughout this thesis we use a grain sticking factor of 0.1.
+\noindent
+Throughout this thesis we use a grain sticking factor of 0.1, \note{which is a reasonable estimate based on research by \textcite{leitch-devlinStickingCoefficientsAtoms1985}}.
 From Eq. \ref{eq:dustgrowthradiuschange} we can derive a corresponding rate of change in the dust density:
 
 \begin{equation}

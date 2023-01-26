@@ -107,6 +107,8 @@
 \usepackage{xcolor}
 \usepackage[super]{nth} % Allows for superscripting numbers
 
+\usepackage[flushleft,para,online]{threeparttable}
+
 % Colour style for programming markup, using nord scheme https://www.nordtheme.com/
 \definecolor{codetext}{HTML}{2e3440}
 \definecolor{codegreen}{HTML}{a3be8c}
@@ -239,51 +241,74 @@
 \clearpage
 
 \begin{dedication}
-  \begin{center}
-    \parbox{0.6\textwidth}{
-      \raggedright{
-        \emph{
-          ``Space is \textbf{big}. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space.''
-        }
-        \par
-      }
-      \raggedleft{
-        \rule{\linewidth}{0.5pt}
-        \Large
-        \MakeUppercase{Douglas Adams}
-        \\
-        \large
-        \emph{The Hitchhiker's Guide to the Galaxy}
-        \par
-      }
-    }
-    \vfill
-  \end{center}
+\begin{center}
+\parbox{0.64\textwidth}{
+\raggedright{
+\emph{
+``Everyone who uses a computer frequently has had, from time to time, a mad desire to attack the precocious abacus with an axe.''
+}
+\par
+}
+\raggedleft{
+\rule{\linewidth}{0.5pt}
+\Large
+\MakeUppercase{John Drury Clark}
+\\
+\normalsize
+\emph{Ignition!: An Informal History of Liquid Rocket Propellants}
+\par
+}
+}
+\vfill
+\end{center}
 \end{dedication}
 
-\begin{dedication}
-  \begin{center}
-    \parbox{0.6\textwidth}{
-      \vspace{1em}
-      \raggedright{
-        \emph{
-          ``I am aware that quoting Douglas Adams in an astrophysics thesis is an absolutely enormous clich\'{e}, but I want to do it anyway.''
-        }
-        \par
-      }
-      \raggedleft{
-        \rule{\linewidth}{0.5pt}
-        \Large
-        \MakeUppercase{Me}
-        \\
-        \large
-        \emph{Discussing the inclusion of a quote in this thesis}
-        \par
-      }
-    }
-  \end{center}
-  \vfill
-\end{dedication}
+% \begin{dedication}
+%   \begin{center}
+%     \parbox{0.6\textwidth}{
+%       \raggedright{
+%         \emph{
+%           ``Space is \textbf{big}. Really big. You just won't believe how vastly, hugely, mind-bogglingly big it is. I mean, you may think it's a long way down the road to the chemist's, but that's just peanuts to space.''
+%         }
+%         \par
+%       }
+%       \raggedleft{
+%         \rule{\linewidth}{0.5pt}
+%         \Large
+%         \MakeUppercase{Douglas Adams}
+%         \\
+%         \large
+%         \emph{The Hitchhiker's Guide to the Galaxy}
+%         \par
+%       }
+%     }
+%     \vfill
+%   \end{center}
+% \end{dedication}
+
+% \begin{dedication}
+%   \begin{center}
+%     \parbox{0.6\textwidth}{
+%       \vspace{1em}
+%       \raggedright{
+%         \emph{
+%           ``I am aware that quoting Douglas Adams in an astrophysics thesis is an absolutely enormous clich\'{e}, but I want to do it anyway.''
+%         }
+%         \par
+%       }
+%       \raggedleft{
+%         \rule{\linewidth}{0.5pt}
+%         \Large
+%         \MakeUppercase{Me}
+%         \\
+%         \large
+%         \emph{Discussing the inclusion of a quote in this thesis}
+%         \par
+%       }
+%     }
+%   \end{center}
+%   \vfill
+% \end{dedication}
 
 \clearpage
 
@@ -321,8 +346,9 @@
 % References separate from main matter or appendix
 \addcontentsline{toc}{chapter}{References} % Adds References to contents page
 \printbibheading
-\printbibliography[type=book,notkeyword=software,heading=subbibliography,title={Book Citations}]
-\printbibliography[type=article,notkeyword=software,heading=subbibliography,title={Journal Citations}]
+% \printbibliography[type=book,notkeyword=software,heading=subbibliography,title={Book Citations}]
+% \printbibliography[type=article,notkeyword=software,heading=subbibliography,title={Journal Citations}]
+\printbibliography[notkeyword=software,heading=subbibliography,title={Literature Citations}]
 \printbibliography[keyword=software,heading=subbibliography,title={Software Citations}]
 \printbibliography[nottype=book,nottype=article,notkeyword=software,heading=subbibliography,title={Other Citations}]
 

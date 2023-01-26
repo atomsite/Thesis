@@ -16,25 +16,25 @@ These systems can produce a variety of beautiful outbursts, from Wolf-Rayet nebu
 The latter form either fine filaments, or pinwheels extending out for parsecs, with an enormous amount of structural variety.
 On top of the visible and infrared, these systems are also visible from the radio to gamma rays, emitting copious amounts of radiation though both thermal and non-thermal mechanisms.
 
-Massive stars have an incredibly outsized influence on their local interstellar medium (ISM).
+Massive stars have an outsized influence on their local interstellar medium (ISM).
 Even in a single system, these stars produce winds capable of perturbing their local medium, forming pockets of high density material that can drive star formation, as well as ionising this medium, producing HII regions.
 WR stars turn the metaphorical dial of this influence up to eleven, driving enormous quantities of hot, ionised wind into the ISM.
 Massive stars literally tear themselves apart over a period of around 500,000 years, flinging many solar masses worth of material into space at an appreciable fraction of the speed of light.
-These stars too, are destined to die in violent, chaotic, and beautiful\footnote{Provided you are not in the blast radius.} ways, such as supernovae and gamma-ray bursts (GRBs).
+These stars too, are destined to die in violent, chaotic, and beautiful ways, such as supernovae and gamma-ray bursts (GRBs).
 
-If these stars form a close binary with colliding winds we observe incredibly powerful shocks, as the mechanical energy equivalent to the luminance of a thousand suns acts on a region only a few solar radii in size.
+If these stars form a close binary with colliding winds we observe powerful shocks, as the mechanical energy equivalent to the luminance of a thousand suns acts on a region only a few solar radii in size.
 This heats this wind collision region (WCR) to temperatures in excess of $10^8 \, \si{K}$ as these winds crash headlong into each other.
 These systems are among the brightest continuous x-ray sources in the night sky (Fig. \ref{fig:intro-xray}), and provoked much scientific debate before the discovery of their true nature. 
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=4in]{assets/wolf-rayets/x-ray.png}
-  \caption[\emph{Chandra \& NuSTAR imagery of $\eta$ Carinae \parencite{hamaguchiNonthermalXraysColliding2018}}]{Chandra x-ray imagery of $\eta$ Carinae at the soft x-ray minimum of 2009, with contours from the NuSTAR $5-10 \, \si{\kilo\electronvolt}$ x-ray band. CWB systems are incredibly bright in x-ray bands due to the powerful shock heating driving thermal x-ray processes. Image sourced from \textcite{hamaguchiNonthermalXraysColliding2018}.}
+  \caption[\emph{Chandra \& NuSTAR imagery of $\eta$ Carinae \parencite{hamaguchiNonthermalXraysColliding2018}}]{Chandra x-ray imagery of $\eta$ Carinae at the soft x-ray minimum of 2009, with contours from the NuSTAR $5-10 \, \si{\kilo\electronvolt}$ x-ray band. CWB systems are extremely bright in x-ray bands due to the powerful shock heating driving thermal x-ray processes. Image sourced from \textcite{hamaguchiNonthermalXraysColliding2018}.}
   \label{fig:intro-xray}
 \end{figure}
 
 However, a most puzzling question is how dust forms in certain CWB systems (which we refer to as WCd systems throughout this thesis).
-These systems have violent shocks, incredibly high temperatures, and produce copious amounts of ionising radiation.
+These systems have violent shocks, high temperatures, and produce copious amounts of ionising radiation.
 So how can it be that something as tenuous as interstellar dust can form?
 The mechanisms behind formation and growth are extremely poorly understood, and as such we intend to glean some information on the mechanisms and yields of dust production processes in these systems.
 
@@ -46,15 +46,16 @@ Dust formation in early-type star systems is a relatively poorly understood phen
 As the grains should be readily destroyed by shocks and ionising radiation, nascent grain cores must require some form of shielding or rapid dust growth mechanisms in order to form larger grains.
 % Point of dust formation
 \note{
-  We find that some of these binary systems can produce dust at similar rates to asymptotic giant branch stars ($\sim\SI{1e-5}{\solarmass\per\year}$ of dust, see \textcite{lauRevisitingImpactDust2020}).
+  We find that some of these binary systems can produce dust at similar rates to asymptotic giant branch stars ($\sim\SI{1e-5}{\solarmass\per\year}$ of dust; see \cite{lauRevisitingImpactDust2020}).
   Though these systems are significantly rarer than AGB systems and do not inject as much dust into the interstellar medium when compared to individual supernova \parencite{draineInterstellarDustGrains2003}, the influence on their local stellar environment should not be discounted. 
-  Furthermore, in the early universe when massive stars were more common these systems would have had more influence on the dust content of the galactic interstellar medium \parencite{morganDustFormationEarly2003}.
+  Furthermore, in the first few hundred million years of the universe massive stars were more common and AGB stars were significantly rarer \parencite{morganDustFormationEarly2003}, these systems would therefore have had more influence on the dust content of the galactic interstellar medium \parencite{dwekOriginDustEarly2011,soulainSmokeWindDust2022a}.
+  This primordial dust would then allow for more complex early chemistry than purely gas-phase interactions would allow \parencite{galliDawnChemistry2013}.
 }
 \note{We must also consider that dust} formation is vital for the formation of planets and complex organic molecules throughout the galaxy, so understanding the mechanisms behind its formation is of significant scientific interest.
 % Stellar feedback and massive stars 
 CWB systems are -- for a variety of reasons -- very difficult to both observe \emph{and} simulate.
 WR CWB systems are quite distant, with the nearest systems being typically more than \SI{2}{\kilo\parsec} from Earth, making the wind collision region (WCR) very difficult to observe.
-The WCR is also shrouded by dense stellar winds, occluding the shock region.
+The WCR is also shrouded by dense stellar winds, occluding the shock region \note{\parencite{crowther_physical_2007}}.
 These systems are also comparatively rare, making it more difficult to typify these systems.
 If we simulate these systems, we find other difficulties such as a requirement of 3D simulation in order to model orbital effects.
 CWB systems also have a large variation in length scales that render the simulations very computationally challenging.
@@ -84,7 +85,7 @@ We found that this system was the easiest to simulate, due to its comparatively 
 % Parameter space search 
 In addition to simulating a system with parameters similar to WR98a, a parameter space search was conducted using WR98a as a baseline: wind properties predicted to be influencing the dust production rate were varied, in order to understand their effects.
 % Episodic dst forming systems -- WR140
-The episodic dust forming system WR140 was also simulated, whose dust formation is theorised to be due to its high orbital eccentricity.
+The episodic dust forming system WR140 was also simulated, whose \note{dust production variability} is theorised to be due to its high orbital eccentricity \note{\parencite{crowther_dust_2003}}.
 This was a more complex affair, as the system was far more complex to simulate than WR98a.
 This section of the project had to be partially truncated due to time constraints, and a partial orbit of the system near periastron was opted for in lieu of a full orbit of the system.
 
@@ -98,7 +99,7 @@ Furthermore, simulation of other systems, such as the WR+WR systems WR70-16 ``Ap
 
 \section{Thesis Structure}
 
-The structure of this thesis could be described as somewhat unconventional, this is because of two primary reasons:
+\note{The structure of this thesis could be described as unconventional, this is because of two primary reasons:}
 
 \begin{itemize}
   \item Difficulties in the early and middle sections of the project.
@@ -112,8 +113,8 @@ This code was ultimately abandoned by the \nth{3} year and replaced with a more 
 Additionally the outbreak of a global pandemic resulted in a stalling of some aspects of the work in the thesis.
 This meant that there was a lot of time to develop the codebase and theorise on the nature of these systems, but much of the actual data collection was performed in the last few months of the project.
 As such, there is a great deal of discussion of the background and methodology, and an enormous amount of discussion on the future of this particular field.
-While the primary objectives of this PhD were achieved, many aspects of this thesis that were planned out at the start of the project were unfortunately truncated or removed.
-This was extremely disappointing, of course, but I hope to continue work on this field outside of this PhD, and develop a more advanced dust model for numerical simulation.
+\note{While the primary objectives of this PhD were achieved, many aspects of this thesis that were planned at the start of the project were unfortunately truncated or removed.}
+\note{This was extremely disappointing of course}, but I hope to continue work on this field outside of this PhD, and develop a more advanced dust model for numerical simulation.
 
 % Two introductory sections
 Astrophysical fluid dynamics straddles two particularly complex fields: physics and computer science.
@@ -122,12 +123,12 @@ Because of this, the first two chapters of this thesis are both background chapt
 In Chapter \ref{ch:background} we discuss the physics of massive stars and dust, before synthesising these two sections in order to discuss dust producing CWB systems.
 In Chapter \ref{ch:numsim} we discuss the underlying principles of numerical simulation, and discuss our model, from the choice of numerical code to the underlying mechanisms and methodology.
 % Paper chapters
-Afterwards, we will move on to Chapters \ref{chap:parameterspace} \& \ref{ch:wr140}.
-These chapters have been adapted from two papers written concurrently with this thesis:
+\note{Afterwards, we will move on to Chapters \ref{chap:parameterspace} \& \ref{ch:wr140}.
+These chapters have been adapted from two papers written concurrently with this thesis:}
 
 \begin{enumerate}
-  \item \emph{\firstpapertitle} \parencite{eatsonExplorationDustGrain2022}.
-  \item \emph{\secondpapertitle} \parencite{eatsonExploringDustGrowth2022}.
+  \item \note{\emph{\firstpapertitle} \parencite{eatsonExplorationDustGrain2022}.}
+  \item \note{\emph{\secondpapertitle} \parencite{eatsonExploringDustGrowth2022}.}
 \end{enumerate}
 
 \noindent

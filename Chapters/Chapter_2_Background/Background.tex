@@ -6,7 +6,7 @@ Unfortunately this means that a broad swathe of stellar astrophysics must be dis
 In this chapter we will discuss the many underlying subjects of CWB systems.
 First, we shall start with massive, early-type stars -- how they form, what drives their titanic energy outputs, as well as their inevitable and violent deaths.
 Afterwards, we will discuss interstellar dust, the fragile, microscopic grains that act as chemical refineries across the cosmos.
-In particular, we will discuss their formation, growth and destruction mechanisms, in order to understand how such an object can arise in such a violent system as a CWB.
+In particular, we will discuss their formation, \note{growth and destruction mechanisms} in order to understand how such an object can arise in such a violent system as a CWB.
 We will then move on to discussing colliding wind binary systems, wind parameters and cooling mechanisms.
 Finally, we will synthesise what we have discussed by detailing the crux of this project: the dust producing colliding wind binary (WCd) system.
 This chapter largely covers the underlying physics of these systems, while the next chapter (Ch. \ref{ch:numsim}) concerns the simulation of these physical phenomena and effects. 
@@ -37,26 +37,31 @@ The adage of a candle burning twice as bright and lasting half as long doesn't q
 We define high-mass stars as stars that are sufficiently massive to undergo carbon fusion near the end of their lives.
 Defining high-mass as stars that are predominantly driven by the CNO cycle or late-life helium burning can include intermediate mass stars, which form degenerate cores and evolve into white dwarfs.
 Many works -- including this one -- define a high-mass, early-type star as having a mass of $>\SI{8}{\solarmass}$.
-This includes stars in the O-type and some B-subtype (B0 and B1) classes in the Harvard classification system
-\parencite[143]{ward-thompsonIntroductionStarFormation2011}.
+This includes stars in the \note{O-type class of the Harvard classification system, as well as some B-type stars}
+\note{(B3V to B0V; \cite{zinneckerUnderstandingMassiveStar2007})}.
 
 % Formation of OB stars, note binary systems!
 
 \subsection{Formation}
 \label{sec:starformation}
 
-\turbo{This whole section needs rewriting}
+\begin{center}
+  \turbo{This whole section has been rewritten from scratch}
+\end{center}
 
-All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing large quantities of gas.
-The largest of these clouds are on the order of a few parsecs across, and contain \SI{1e6}{\solarmass} of potential star-stuff.
-These clouds are somewhat stable, and must be perturbed in order to collapse.
-This is easier said than done, but can be induced by stellar winds from nearby stars and shock-waves from supernovae
-\parencite[Ch.~3]{bodenheimerPrinciplesStarFormation2011}.
-As the cloud collapses, energy is radiated through emission line processes, which lowers the radius of thermostatic equilibrium.
-As the GMC collapses further it begins to fragment, forming the molecular clumps and cloud cores that will eventually condense into protostars.
-As one of these fragments condenses, it forms a proto-stellar core.
-This collapse can be described in the form of a series of timescales.
-Firstly, the Kelvin-Helmholtz (KH) timescale, $\tau\rms{KH}$, which is the time required for the proto-stellar core to radiate away its \note{gravitational potential energy}:
+% Initial basics, star formation from first principles
+
+Both early and late-type stars form from the collapse of giant molecular clouds (GMCs).
+These clouds consist of H\textsubscript{2}, other simple molecules and dust, surrounded by a region of atomic gas that shields the interior cloud from interstellar UV radiation, preventing molecular disassociation \parencite{mckeeTheoryStarFormation2007}.
+These clouds are, as the name implies, giant, with masses exceeding $10^4\,\si{\solarmass}$ and can be multiple parsecs in radius.
+Whilst these regions are typically gravitationally stable due to internal turbulent pressure, and can have lifespans of tens of millions of years, regions of the cloud can undergo collapse through external perturbation, such as through strong winds or supernova shocks \parencite{heyerMolecularCloudsMilky2015}.
+As a region collapses, it forms pockets of higher density, these further collapse into dense cores and filaments that are the sites of star formation as the region fragments and splits
+\parencite{ladaEmbeddedClustersMolecular2003}.
+As the region fragments it forms a series of dense cores that begin to gravitationally dominate and accrete material \parencite{zinneckerUnderstandingMassiveStar2007}.
+
+% Virial, KH and free fall times, circumstellar disks
+This collapse can be described in simplest terms via a series of equations.
+Firstly, the Kelvin-Helmholtz (KH) timescale:
 
 \begin{equation}
   \label{eq:khtime}
@@ -64,7 +69,10 @@ Firstly, the Kelvin-Helmholtz (KH) timescale, $\tau\rms{KH}$, which is the time 
 \end{equation}
 
 \noindent
-where $G$ is the gravitational constant, $M_\star$ is the proto-stellar core mass, $R_\star$ is the radius of the core and $L_\star$ is the core luminosity.
+where $G$ is the gravitational constant, $M_\star$ is the \note{protostellar} core mass, $R_\star$ is the radius of the core and $L_\star$ is the core luminosity.
+The KH timescale represents the time for the collapsing region to contract from infinity to radius $R$.
+As the gas cloud contracts it heats up, which can prevent further contraction without a mechanism to radiate its energy.
+Thus the KH timescale represents the timescale for the \note{protostellar} core to radiate away its gravitational potential energy.
 The other timescale is the free-fall timescale, $\tau\rms{ff}$, which is the time taken for a molecular cloud fragment to fully collapse onto the core, given by the equation
 
 \begin{equation}
@@ -74,24 +82,110 @@ The other timescale is the free-fall timescale, $\tau\rms{ff}$, which is the tim
 
 \noindent
 where $\rho_\star$ is the mean density of the collapsing cloud.
-The equation of motion for this system is
+\parencite[Ch.~3]{bodenheimerPrinciplesStarFormation2011}.
 
-\begin{equation}
-  \frac{d^2r}{dt^2} = - \frac{G\mass_\star}{r^2} ,
-\end{equation}
+% Massive star formation
+Massive star formation occurs as a runaway process, where a particularly massive core collapses extremely quickly.
+Whilst internal pressure and magnetic turbulence can slow the collapse of core into a protostar \parencite{ladaEmbeddedClustersMolecular2003}, the KH timescale of a massive protostar is significantly shorter than the free-fall timescale, and instead begin fusing hydrogen before the region has fully collapsed \parencite{lawsMassiveYoungStellar2019,kahnCocoonsEarlytypeStars1974}.
+% Maximum size from radiation pressure, find citations on this
+As the star begins to burn, its nascent stellar wind begins to blow away the surrounding material, which prevents the accretion of much of the material and limits the maximum size of massive stars.
+Additionally, these winds can perturb the rest of the cloud, leading to further collapses and additional star formation.
+% Why it's more poorly understood
+However, as \textcite{motteHighMassStarMassive2018} notes, there is no observational evolutionary sequence that is established for high-mass star formation.
+These massive young stellar objects (MYSOS) are poorly understood compared to their low-mass contemporaries due to this surrounding cloud \parencite{frostMultiscaleExplorationMassive2019}.
+% Competitive accretion scenario and monolithic scenario 
+The accretion mechanism of these massive stars is also poorly understood due to these factors, however, three competing theories exist:
 
-\noindent
-for any point with radius $r$ from the centre in the cloud, assuming spherical symmetry \parencite[96]{ward-thompsonIntroductionStarFormation2011}.
+\begin{itemize}
+  \item Core accretion, where a large, monolithic core collapses into a single massive star \parencite{henningProtostarsPlanetsVI2014}.
+  \item Competitive accretion, as proposed by \textcite{bonnellCompetitiveAccretionEmbedded2001}, where multiple stars form and feed from the same material, their combined gravitational influence leading to higher accretion rates than isolated stars \parencite{bonnellStarFormationGravitational2006}.
+  \item Protostellar collisions, as proposed by \textcite{bonnellFormationMassiveStars1998}, which intermediate mass stars collide and merge during the accretion process.
+\end{itemize}
 
-In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse \emph{prior} to the cessation of collapse.
-This burgeoning star begins to drive the collapsing material away through radiation pressure, blowing this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
 
-\turbo{This section in particular needs redoing, largely to cover more contemporary high-mass work}
+% Kim 2021, duration of embedded phase
+Eventually, the cloud disperses; ending the embedded phase, the massive star is now optically visible, but not after a substantial fraction of the lifetime of the star itself \parencite{kimDurationEmbeddedPhase2021}.
 
-As more massive cores collapse, they are more prone to fragmentation, the angular velocity of the fragments can cause them to begin orbiting one another, eventually forming a binary or multiple star system.
-Close binary systems can also form by way of fragmentation in the proto-stellar disk.
-Due to this fragmentation it has been observed that roughly 2/3\ts{rds} of all main sequence stars are found to be in a multiple system \parencite[113]{ward-thompsonIntroductionStarFormation2011}, with approximately 20\% of stars in close binary orbits.
-However, in the case of massive stars, this value is significantly higher, with $>82\%$ of stars with masses $>\SI{16}{\solarmass}$ being found to be in a close binary system \parencite{chiniSpectroscopicSurveyMultiplicity2012}.
+% Massive binary formation
+As extremely dense cores collapse, the conserved angular momentum and gravitational interaction from these cores and protostars can cause these to form a binary system.
+% Competitive accretion
+Close binary systems can also form by way of fragmentation in the protostellar disk.
+Our understanding of longer-lived low-mass binary systems is significantly better understood than high-mass binaries, but both are believed to be relatively common \parencite{ducheneStellarMultiplicity2013}.
+
+% Why binary evolution is important in this work
+Binary evolution -- particularly for the fraction of massive stars that exhibit multiplicity -- is important to important to understanding the influence of WCd systems, as it directly influences the number of systems suitable for dust formation.
+The mechanism by which binary systems evolve will also set constraints on the orbital properties of the system \parencite{ducheneStellarMultiplicity2013,dsilvaSpectroscopicMultiplicitySurvey2022a}, which we found throughout our research to significantly influence the growth and production rate of dust \parencite{eatsonExploringDustGrowth2022}.
+The distribution and probability of massive star multiplicity is also important for the understanding of massive star evolution, as high stellar densities and multiple systems is a prediction of the competitive accretion model 
+\parencite{chiniSpectroscopicSurveyMultiplicity2012,zinneckerUnderstandingMassiveStar2007}.
+
+% Observational evidence for binary formation
+
+Observation is also made more difficult due to the smaller sample size of massive stars, as well as the relative shortness of their lives, with some more massive stars having a shorter lifespan than the dissipation time of their parent molecular cloud \parencite{zinneckerUnderstandingMassiveStar2007}. 
+Observational evidence of massive star multiplicity instead relies heavily on spectroscopic observation due to the dense surrounding molecular cloud.
+The detection of stars through periodicity in their radial velocity is instead used as a marker for binary orbits, 
+However, this biases the detection of certain kinds of binary system, such as close-in binaries with short orbital periods ($P$) with orbits edge-on to Earth.
+
+While the binary fraction of nearby young solar mass stars is $>50\%$, there is an observed correlation between multiplicity probability and primary star mass \parencite{fuhrmannMultiplicitySolartypeStars2017}.
+In the case of more massive stars, a spectroscopic survey by 
+\textcite{chiniSpectroscopicSurveyMultiplicity2012} suggests a close binary fraction of $>82\%$ of stars with masses above $16 \, \si{\solarmass}$.
+More contemporary surveys and simulation work find similar values, such as \textcite{dsilvaSpectroscopicMultiplicitySurvey2020}, which estimates a multiplicity fraction of $>72\%$ for binaries containing an evolved massive star undergoing its Wolf-Rayet phase.
+% WC WN dichotomy
+Interestingly, recent studies of Galactic binaries suggests a dichotomy between different sub-types of WR star, with binary systems containing a carbon-phase WR (WC) star having significantly more spaced out and eccentric orbits.
+This discrepancy is too extreme to be explained by mass transfer loss, and suggests that unstable mass-transfer phases and mergers in evolved late-type systems may be somewhat commonplace
+\parencite{dsilvaSpectroscopicMultiplicitySurvey2022,dsilvaSpectroscopicMultiplicitySurvey2022a,dsilvaSpectroscopicMultiplicitySurvey2020}.
+
+\begin{center}
+  \turbo{End of new section}
+\end{center}
+
+
+
+
+% All stars form from the collapse of giant molecular clouds (GMCs), enormous, cold clouds containing large quantities of gas.
+% The largest of these clouds are on the order of a few parsecs across, and contain \SI{1e6}{\solarmass} of potential star-stuff.
+% These clouds are somewhat stable, and must be perturbed in order to collapse.
+% This is easier said than done, but can be induced by stellar winds from nearby stars and shock-waves from supernovae
+% \parencite[Ch.~3]{bodenheimerPrinciplesStarFormation2011}.
+% As the cloud collapses, energy is radiated through emission line processes, which lowers the radius of thermostatic equilibrium.
+% As the GMC collapses further it begins to fragment, forming the molecular clumps and cloud cores that will eventually condense into protostars.
+% As one of these fragments condenses, it forms a \note{protostellar} core.
+% This collapse can be described in the form of a series of timescales.
+% Firstly, the Kelvin-Helmholtz (KH) timescale, $\tau\rms{KH}$, which is the time required for the \note{protostellar} core to radiate away its \note{gravitational potential energy}:
+
+% \begin{equation}
+%   \label{eq:khtime}
+%   \tau\rms{KH} \approx \frac{G \mass_\star^2}{R_\star L_\star},  
+% \end{equation}
+
+% \noindent
+% where $G$ is the gravitational constant, $M_\star$ is the \note{protostellar} core mass, $R_\star$ is the radius of the core and $L_\star$ is the core luminosity.
+% The other timescale is the free-fall timescale, $\tau\rms{ff}$, which is the time taken for a molecular cloud fragment to fully collapse onto the core, given by the equation
+
+% \begin{equation}
+%   \label{eq:fftime}
+%   \tau\rms{ff} \approx \sqrt{\frac{3\pi}{32 G \rho_\star}} ,
+% \end{equation}
+
+% \noindent
+% where $\rho_\star$ is the mean density of the collapsing cloud.
+% The equation of motion for this system is
+
+% \begin{equation}
+%   \frac{d^2r}{dt^2} = - \frac{G\mass_\star}{r^2} ,
+% \end{equation}
+
+% \noindent
+% for any point with radius $r$ from the centre in the cloud, assuming spherical symmetry \parencite[96]{ward-thompsonIntroductionStarFormation2011}.
+
+% In the case of a massive star, the KH timescale is significantly shorter than the free-fall timescale ($\tau\rms{KH} \ll \tau\rms{ff}$), meaning that the material at the center of the collapsing cloud begins to fuse \emph{prior} to the cessation of collapse.
+% This burgeoning star begins to drive the collapsing material away through radiation pressure, blowing this material outwards, causing it to accrete and shock material within the GMC \parencite[Ch.~5]{bodenheimerPrinciplesStarFormation2011}. 
+
+% \turbo{This section in particular needs redoing, largely to cover more contemporary high-mass work}
+
+% As more massive cores collapse, they are more prone to fragmentation, the angular velocity of the fragments can cause them to begin orbiting one another, eventually forming a binary or multiple star system.
+% Close binary systems can also form by way of fragmentation in the \note{protostellar} disk.
+% Due to this fragmentation it has been observed that roughly 2/3\ts{rds} of all main sequence stars are found to be in a multiple system \parencite[113]{ward-thompsonIntroductionStarFormation2011}, with approximately 20\% of stars in close binary orbits.
+% However, in the case of massive stars, this value is significantly higher, with $>82\%$ of stars with masses $>\SI{16}{\solarmass}$ being found to be in a close binary system \parencite{chiniSpectroscopicSurveyMultiplicity2012}.
 
 \subsection{The p-p \& CNO fusion cycles}
 \label{sec:fusioncycles}
@@ -107,14 +201,14 @@ However, in the case of massive stars, this value is significantly higher, with 
     $3\alpha$ & $\epsilon \propto T^{40}$ at \SI{1e8}{\kelvin}  & \SI{0.61}{\mega\electronvolt} & Post-main-sequence high-mass stars \\
     \hline 
   \end{tabular}
-  \caption[\note{This table has undergone changes} Comparison of fusion process reaction rates]{A comparison of reaction rates and released energy for the p-p chain reaction, CNO reaction and triple-alpha reaction. Whilst the $3\alpha$ reaction has a much higher temperature dependence for the reaction, it requires much higher pressures, and produces considerably less energy per nucleon. These factors contribute to the high luminosities and short lifespans of high-mass stars \note{\parencite[Section 8.2]{lamersUnderstandingStellarEvolution2017}}.}
+  \caption[Comparison of fusion process reaction rates]{\turbo{This table has undergone changes} A comparison of reaction rates and released energy for the p-p chain reaction, CNO reaction and triple-alpha reaction. Whilst the $3\alpha$ reaction has a much higher temperature dependence for the reaction, it requires much higher pressures, and produces considerably less energy per nucleon. These factors contribute to the high luminosities and short lifespans of high-mass stars \note{\parencite{lamersUnderstandingStellarEvolution2017}}.}
   \label{tab:reactionrates}
 \end{table}
 
 \noindent
 As we have previously discussed, the KH mechanism is not the driving force behind the generation of energy in a star, instead, this energy is derived through nuclear fusion processes.
 We shall briefly discuss the various nuclear fusion processes in order to understand why massive stars are so luminous, as well as how their lives end.
-Nuclear fusion in stars was first proposed by \textcite{eddingtonInternalConstitutionStars1920}, though the exact processes continued to be a mystery for nearly 2 decades -- until \textcite{betheEnergyProductionStars1939} discovered the p-p fusion reaction chain that drives approximately 90\% of the energy generation of the sun.
+Nuclear fusion in stars was first proposed by \textcite{eddingtonInternalConstitutionStars1920}, though the exact processes continued to be a mystery for nearly 2 decades \note{until \textcite{betheEnergyProductionStars1939} discovered the p-p fusion reaction chain that drives approximately 90\% of the energy generation of the sun}.
 The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\solarmass} \lesssim \text{M}_\star \lesssim 1.3 \, \si{\solarmass}$, and releases energy by fusing protons into helium in the following manner:
 
 \begin{equation}
@@ -126,7 +220,7 @@ The p-p fusion chain dominates energy generation for stars between $0.08 \,\si{\
 \end{equation}
 
 \noindent
-Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}); the reaction rate has a poor temperature dependence of $\epsilon \propto T^{3.5}$ due to the small reaction cross-section.
+Whilst the reaction is direct and efficient, due to its high energy production per nucleon (Table \ref{tab:reactionrates}); the reaction rate has a poor temperature dependence of $\epsilon \propto T^{4}$ due to the small reaction cross-section.
 In more massive stars with core temperatures on the order of $10^8 \, \si{\kelvin}$, the extreme luminosities we observe would simply not occur.
 The mechanisms underpinning fusion in intermediate and high-mass stars are much more energetic and temperature dependent.
 Above a certain core temperature, the catalytic CNO cycle produces significantly more energy:
@@ -143,11 +237,11 @@ Above a certain core temperature, the catalytic CNO cycle produces significantly
 \end{equation}
 
 \noindent
-The CNO I cycle -- which was also discovered by Bethe -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{12}$
-(\cite[Ch.~10]{wongIntroductoryNuclearPhysics1998,betheEnergyProductionStars1939,lamersUnderstandingStellarEvolution2017}; also see Fig. \ref{fig:fusionrates}).
-The CNO cycle is dominant at internal temperatures $>\SI{15.9}{\mega\kelvin}$, corresponding to a stellar mass of $\gtrsim \SI{1.3}{\solarmass}$ \parencite[121]{salarisEvolutionStarsStellar2005}.
+The CNO I cycle -- which was also discovered by Bethe \parencite{betheEnergyProductionStars1939} -- has a markedly higher temperature dependence on the reaction rate, $\epsilon \propto 10^{12}$
+(\note{\cite{harrisThermonuclearReactionRates1983}; see also Fig. \ref{fig:fusionrates}}).
+The CNO cycle is dominant at internal temperatures $>\SI{15.9}{\mega\kelvin}$, corresponding to a stellar mass of $\gtrsim \SI{1.3}{\solarmass}$ \note{\parencite{salarisEvolutionStarsStellar2005}}.
 The increased temperatures at the cores of high-mass stars therefore result in a reaction rate orders of magnitude higher than the sun.
-This results in a convective core surrounded by a radiative envelope, and is the driving force behind the observed luminosities of high-mass stars as they convert hydrogen to helium at an immense rate \parencite[Ch.~5]{salarisEvolutionStarsStellar2005}.
+This results in a convective core surrounded by a radiative envelope, and is the driving force behind the observed luminosities of high-mass stars as they convert hydrogen to \note{helium at a significant rate \note{\parencite{salarisEvolutionStarsStellar2005}}}.
 
 \begin{figure}[h]
   \centering
@@ -169,7 +263,7 @@ Sampling the winds themselves is difficult due to the vast distances involved in
 % Additionally, the bubble blown from our own suns stellar wind makes collection even more difficult, leaving the heliosphere is no easy feat either, just ask the Voyager probes.
 We instead derive the properties of these extrasolar winds from spectrography, with the absorption and emission spectra of the winds betraying their composition.
 The velocity of these winds can be determined in much the same manner, through the Doppler shift of these emission lines.
-Early observations of stellar winds centred around the star P Cygni, the earliest known example of an evolved Luminous Blue Variable (LBV) star.
+Early observations of stellar winds centred around the star \note{P Cygni}, the earliest known example of an evolved Luminous Blue Variable (LBV) star \note{\parencite{kudritzki_winds_2000}}.
 The presence of peaks and troughs in the spectra of the star was the cause of some scientific curiosity.
 This effect could only be explained by the presence of a shell rapidly expanding away from the star.
 The troughs of this spectra corresponded to a blue-shifted adsorption lobe, from radiation passing through this shell, while the emission line itself corresponded to the expanding shell itself \parencite{bealsNatureWolfRayetEmission1929,lamersIntroductionStellarWinds1999}.
@@ -222,7 +316,7 @@ Along with their middling velocity of \SI{400}{\kilo\metre\per\second} this resu
 The reason for this feeble outflow is the driving mechanism.
 The corona in stars with a convective envelope is approximately 3 orders of magnitude hotter than the stars photosphere, this hot corona exerts pressure on gas trapped within it, causing it to be expelled from the star.
 This mechanism is thermally driven and does not expel gas from the envelope, only gas dredged up to the corona, explaining this comparative weakness.
-In fact, winds from red dwarfs are found to be markedly denser, but the mechanisms behind their winds are less understood.
+\note{In fact, winds from red dwarfs are found to be markedly denser, but the mechanism behind their winds is less understood.}
 % Evolved low-mass stars
 As low-mass stars evolve and leave the main sequence, they swell into red giants, causing the surface gravity of the star to decrease significantly.
 As the star expands and cools, dust condenses and forms in the photosphere.
@@ -235,11 +329,15 @@ The mass loss rates of these stars are extremely high, no lower than $10^{-7} \,
 
 By the 1970s the winds of early-type stars had been typified, finding mass loss rates between $10^{-8}$ to $10^{-5} \, \si{\solarmass\per\year}$ and wind velocities of \num{600} to \SI{3500}{\kilo\metre\per\second}.
 It was also found that the mass loss rate of these stars was almost proportional to the luminosity ($\mdot_\star \propto L_\star^{1.1}$; \cite{cassinelliStellarWinds1979}).
-This strongly suggested that the driving mechanism of these winds was based on radiation pressure, though thompson scattering would not be a sufficiently efficient process to drive winds of this magnitude.
+This correlation strongly suggests that the driving mechanism of these winds was based on radiation pressure, though thompson scattering would not be a sufficiently efficient process to drive winds of this magnitude.
 Furthermore, coronal heating and dust driving mechanisms were not possible, due to a lack of a convective envelope and lack of dust build up respectively.
 
 \subsubsection{Line-driven wind theory}
 \label{sec:cak}
+
+\begin{center}
+  \turbo{Section has undergone heavy work}
+\end{center}
 
 \begin{figure}[h]
   \centering
@@ -248,24 +346,46 @@ Furthermore, coronal heating and dust driving mechanisms were not possible, due 
   \label{fig:planck-comp}
 \end{figure}
 
-% Line driven wind theory 
-Line-driven winds present an alternative driving mechanism for massive stars.
-A photon with an energy equal to the excitation energy of an emission line of an ion in the wind is \note{absorbed}, exciting the ion.
-This ion then de-excites over a timescale of $10^{-8} \, \si{\second}$, emitting a photon at a random angle relative to the radial direction relative to the star, $\alpha$.
-This emission of a photon produces a recoil force on the ion, resulting in a change in the radial velocity, $\Delta v\rms{r}$, such that:
-
-\begin{equation}
-  \Delta v\rms{r} = v\rms{r}'' + v\rms{r}' - v\rms{r} = \frac{h\nu_0}{mc} \left(1-\cos \alpha \right),
-\end{equation}
-
-\turbo{This section needs to be worked on, extend based on work on page 199 of Lamers and Cassinelli}
-
 \noindent
-where $v\rms{r}'$ is the ions radial velocity after the photon adsorption, $v\rms{r}''$ is the ions radial velocity after photon emission and $\nu_0$ is the frequency of the resonating photon.
-Compared to conventional Thompson scattering, resonance lines are six orders of magnitude more opaque, making it a much more efficient process
-\parencite[Ch.~8]{lamersIntroductionStellarWinds1999}.
-This driving force occurs in winds enriched with elements with a large number of resonant lines, where heavier ion species from C, N, O and Fe group elements \note{absorb} the photons.
-Lighter elements such as H and He are carried along via Coulomb forces, coupled to the heavier elements so long as the medium is sufficiently dense.
+\note{
+Whilst radiation pressure and Thompson scattering were considered to be too weak to drive stellar winds being observed emanating from early-type stars, radiative line driving is a significantly more efficient process.
+An early-type star emits strongly in the UV, ionising the outermost regions, heavier ion species such as C, N, O and Fe group ions contain resonant lines that can readily absorb photons, with an opacity $10^6$ times greater than Thompson scattering.
+The ion is excited by the photon absorption, and subsequently de-excites over a timescale of $10^{-8}$ seconds, re-emitting a photon, changing the momentum of the ion \parencite{lamersIntroductionStellarWinds1999}.
+Lighter elements, coupled via Coulomb forces, are carried away with the heavier ions, resulting in an extremely efficient momentum transfer mechanism \parencite{vinkTheoryDiagnosticsHot2022}.
+}
+
+% As the ions accelerate, 
+
+
+% \turbo{End of re-written section}
+
+% % Line driven wind theory 
+% % Line-driven winds present an alternative driving mechanism for massive stars.
+% % \note{The principle is from radiation pressure, wherein a photon is \note{absorbed}, .
+% % This ion then de-excites over a timescale of $10^{-8} \, \si{\second}$, emitting a photon at a random angle relative to the radial direction relative to the star, $\alpha$.
+% % \note{This emission of a photon produces a recoil force on the ion, resulting in a change in momentum on the ion.}
+
+
+
+
+
+
+
+
+% % , resulting in a change in the radial velocity, $\Delta v\rms{r}$, such that:
+
+% % \begin{equation}
+% %   \Delta v\rms{r} = v\rms{r}'' + v\rms{r}' - v\rms{r} = \frac{h\nu_0}{mc} \left(1-\cos \alpha \right),
+% % \end{equation}
+
+% % \turbo{This section needs to be worked on, extend based on work on page 199 of Lamers and Cassinelli}
+
+% % \noindent
+% % where $v\rms{r}'$ is the ions radial velocity after the photon adsorption, $v\rms{r}''$ is the ions radial velocity after photon emission and $\nu_0$ is the frequency of the resonating photon.
+% Compared to conventional Thompson scattering, resonance lines are six orders of magnitude more opaque, making it a much more efficient process
+% \parencite[Ch.~8]{lamersIntroductionStellarWinds1999}.
+% This driving force occurs in winds enriched with elements with a large number of resonant lines, where heavier ion species from C, N, O and Fe group elements \note{absorb} the photons.
+% Lighter elements such as H and He are carried along via Coulomb forces, coupled to the heavier elements so long as the medium is sufficiently dense.
 
 But why is this effect not observed in lower mass stars?
 Resonance lines in heavier elements have comparatively high energy transitions, requiring ionising UV photons to excite them. 
@@ -273,10 +393,10 @@ For instance, the C III resonance line has an energy of \SI{12.69}{\electronvolt
 Additionally, photons would only be \note{absorbed} over a narrow range of frequencies.
 This inhibits efficient momentum transfer from UV photons without Doppler shift.
 As the outflow from the star has a distribution of radial velocities this results in a greater chance of resonance line adsorption if Doppler shift is considered.
-If we were to observe the outflow of a massive wind we observe a relatively low velocity component of the wind close to the star once the wind reaches a certain critical velocity.
+If we were to observe the outflow of a massive wind we observe a relatively low velocity component of the wind close to the star once the wind reaches a certain critical velocity \note{\parencite{cassinelliStellarWinds1979}}.
 At a certain point we would observe a significant and rapid increase in the velocity of the wind, as the influence on adsorption due to Doppler shift results in the wind becoming much more opaque to UV photons.
-Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \parencite[Ch.~10]{macielHydrodynamicsStellarWinds2014}.
-This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply at a distance $(R/R_\star) - 1 > 10^{-3}$ as the wind begins to rapidly accelerate away from the star as opacity increases -- with a corresponding decrease in wind density.
+Eventually we would observe the wind reaching a terminal velocity, due to a decrease in photon flux from the inverse square law and the outflow becoming more diffuse as it spreads away from the star \note{\parencite{castor_radiation-driven_1975}}.
+\note{This can be seen in Fig. \ref{fig:cak-vel}, where the velocity increases sharply at a distance of} $(R/R_\star) - 1 > 10^{-3}$ as the wind begins to rapidly accelerate away from the star as opacity increases -- with a corresponding decrease in wind density.
 
 \begin{figure}[h]
   \centering
@@ -296,6 +416,23 @@ The CAK model computed line forces from all emission lines in the C III ion, aft
 A much more complex emission line model developed by \textcite{1982ApJ...259..282A} involved the calculation of the force from \num{250000} lines, however, this was found to be less accurate than the original CAK model!
 As researchers went back to the drawing board, improvements were made to the approximations and assumptions made by the CAK model, such as the finite disk correction factor
 \parencite{friend_theory_1986,pauldrachRadiationdrivenWindsHot1986}.
+\note{These additions contributed to the development of the modified CAK (M-CAK) model, which was the standard through the 80's and 90's}.
+\note{
+However, there were still some limitations to this model. In particular, when simulating the denser and hotter winds of high-mass O-type and WR stars we find that M-CAK significantly underestimates their mass loss rates.
+}
+\note{
+As computational capability increased, new models incorporating multiple scattering events using Monte Carlo methods were developed \parencite{vinkNatureBistabilityJump1999}, and modern wind models rely on calculating the radiative acceleration in the co-moving reference frame of the wind\parencite{gormaz-matamalaNewHydrodynamicSolutions2021}.
+These modern methods rely less on free parameters, and are therefore more consistent \parencite{mullerConsistentSolutionVelocity2008}, and have fewer approximations such as the Sobolev approximation.
+}
+
+\note{
+WR stars -- which are evolved early-type stars -- have winds that are significantly more enriched with intermediate-mass elements such as C and O through helium burning in the core.
+A greater number of ions that contribute to the effect of radiative line driving resulted in inconsistent results when simulating WR stars using earlier models.
+However, mass loss rates for WR stars could not be readily computed from theoretical models until more recently, with models such as the model described in \textcite{grafenerHydrodynamicModelAtmospheres2005} and the \texttt{PoWR} model described in \textcite{sanderNatureMassiveHelium2020} presenting viable alternatives to empirical models.
+In the case of WC stars, it was originally assumed that C ions would be the most important species for mass loss, simulations on stars with varying metallicity suggests that the  \parencite{vinkMetallicityDependenceWolfRayet2005}.
+Thus, mass loss for WC stars in the early, Fe-poor universe would be primarily influenced by intermediate mass elements such as carbon, we would therefore see WR stars with a lower mass loss rate \parencite{vinkTheoryDiagnosticsHot2022}.
+This could potentially influence dust production rates in the early universe, and could present an interesting avenue for future research.
+}
 
 \subsection{Evolved early-type stars}
 \label{sec:evolvedstars}
@@ -334,10 +471,10 @@ We can then make the following estimate for the main sequence lifespan of an ear
 \end{equation}
 
 \noindent
-Whilst this is a fairly simplistic reduction of the stellar mass loss rate, more advanced models such as the Modules for Experiments in Stellar Astrophysics (MESA) project show that this estimate is somewhat accurate.
+Whilst this is a fairly simplistic reduction of the stellar mass loss rate, \note{observations and} advanced models such as the \note{MESA}\footnote{Modules for Experiments in Stellar Astrophysics} project \note{\parencite{paxtonModulesExperimentsStellar2011}} show that this estimate is \note{relatively} accurate.
 As we can see in Fig. \ref{fig:mist-lifespan}, this estimate is somewhat accurate over near-solar mass and some lower mass early-type stars.
 Assuming a solar lifespan of $\tau\sol = \SI{10}{\giga\year}$ we find through Eq. \ref{eq:mass-lifespan} that a typical O-type star with a mass of \SI{10}{\solarmass} has a main-sequence lifetime of $\sim \SI{30}{\mega\year}$.
-It takes the sun approximately \SI{230}{\mega\year} to orbit the galaxy, making the suns ``age'' approximately 19 galactic ``years'' old. Continuing with this analogy, we find that even the least luminous early-type star does not make it to its first birthday!
+It takes the sun approximately \SI{230}{\mega\year} to orbit the galaxy, making the suns ``age'' approximately 19 galactic ``years'' old. Continuing with this analogy, we find that even the least luminous early-type star does not make it to its \note{first birthday.}
 
 \begin{figure}[ht]
   \centering
@@ -379,8 +516,8 @@ Inside this giant star the core continues to collapse, compressing and heating f
 
 \noindent
 % Which can also produce a small amount of oxygen with an additional $\atom{C}{12}{6} + \atom{He}{4}{2}$ interaction.
-The endothermic component of the 3$\alpha$ process, as well as the short reaction time prevents it from occurring in any reasonable quantity until core temperatures are in the order of hundreds of millions of Kelvin
-\parencite[Pt.~6]{kippenhahnStellarStructureEvolution2012}.
+The endothermic component of the 3$\alpha$ process \note{prevents the reaction} from occurring in any reasonable quantity until core temperatures are in the order of hundreds of millions of Kelvin
+\note{\parencite{harrisThermonuclearReactionRates1983}}.
 The reaction rate of the 3$\alpha$ process is proportional to $T^{40}$, which can result in significantly higher rates of energy production.
 This process is far less energy efficient than hydrogen burning processes, and releases an order of magnitude less energy per nucleon (Table \ref{tab:reactionrates}).
 Hence, the helium burning process can be as short as \SI{500000}{\year}.
@@ -403,11 +540,11 @@ Because of this helium burning, the most massive of early-type stars transition 
 In the late 19\ts{th} century, astronomers Charles Wolf and Georges Rayet noted a curious series of stars with exceptionally broad emission lines.
 Considering that stars previously had only been observed with narrow adsorption lines, this was a particular scientific curiosity
 \parencite{crowther_physical_2007}.
-While the mechanism behind energy production in stars was not understood, the scientific community did understand that these winds were \emph{staggeringly} hot.
+\note{While the mechanism behind energy production in stars was not understood, the scientific community did understand that these winds were extremely hot}.
 After the initial theories of stellar fusion reactions were developed by \textcite{betheEnergyProductionStars1939}, however, the picture came into sharper focus.
 \textcite{gamowWCWNStars1943} proposed that these stars contained material produced in the central fusion reaction, which implied that the outer layers of the star had been completely stripped off.
 This was found to be the case, though categorical confirmation of this did not occur for several more decades.
-The thickness of these emission lines was easier to establish -- these ions were moving \emph{fast}.
+\note{The thickness of these emission lines was easier to establish -- these ions were very fast moving}.
 As such, it was safe to assume that the emission lines were not coming from the stars themselves, but from the winds!
 
 % Evolution, include crowther table here
@@ -421,9 +558,9 @@ As such, it was safe to assume that the emission lines were not coming from the 
 
 Wolf-Rayet (WR) stars are produced when the largest early-type stars lose significant mass in the LBV stage (Fig. \ref{fig:wr124} \& \ref{fig:mist-massloss}), while the internal core has the sufficient pressure and temperature required for helium burning.
 This drives the remnants of the outer envelope away, exposing more and more of the innards of the star, the inner envelope and core, which are still burning hydrogen and helium
-\parencite[Ch.~5]{contiLuminousHotStars2012}.
+\note{\parencite{crowther_physical_2007}}.
 % Mass loss rates, wind velocities
-Whilst in the LBV phase mass loss rates can be higher, these are short but intense bursts of mass loss, rather than a continuous wind \parencite[Ch.~4]{vinkVeryMassiveStars2015}.
+Whilst in the LBV phase mass loss rates can be higher, these are short but intense bursts of mass loss, rather than a continuous wind \note{\parencite{davidsonEtaCarinaeIts1997}}.
 WR stars, in comarison, drive significant, continuous mass loss of the order of $10^{-5} \, \si{\solarmass\per\year}$, with wind velocities on the order of $10^3 \, \si{\kilo\metre\per\second}$. 
 % Wind temperatures adn composition, emission lines?
 The naked core has an extremely high surface temperature, between \SI{30000}{\kelvin} to \SI{100000}{\kelvin}, multiply ionising the outflowing hydrogen-deprived wind
@@ -449,7 +586,7 @@ Previously this measurement was more qualitative, and based on the relative rati
 \textcite{contiRelationshipWRStars1975} first proposed that massive stars would lose their outer envelopes while undergoing core helium burning.
 Initially the outermost hydrogen layer is ejected from the star, which is observed as a WN phase WR.
 As the star continues to evolve and the remaining envelope becomes helium depleted, we observe emission from the exposed core and innermost, carbon and oxygen enriched shell
-\parencite{neugentWolfRayetContent2019,oswaltPlanetsStarsStellar2013}.
+\note{\parencite{neugentWolfRayetContent2019}}.
 The ``Conti scenario'' that they described forms the basis for stellar evolution models from main sequence O-type stars to Wolf-Rayet stars.
 Further work has refined this evolutionary chain.
 Successive and intermediate stages occur depending on the initial mass of the O-type star, $\mass\rms{O}$.
@@ -468,11 +605,11 @@ Successive and intermediate stages occur depending on the initial mass of the O-
 % Discussion of 
 \noindent
 This can also be seen in evolutionary tracks, such as those in Fig. \ref{fig:mist-zams}.
-WC stars form from the most massive of O-type stars, and are the only observed dust-producing WR stars.
+WC stars form from the most massive of O-type stars, and are the only observed dust-producing WR stars \parencite{rossloweSpatialDistributionGalactic2015}.
 % WC stars, in particular, why important
 The hydrogen in a WC stars envelope has been completely depleted, instead, the stellar wind is enriched with other elements such as helium, carbon and oxygen.
 The presence of large quantities of carbon in the outflow is of particular interest, as interstellar dust can condense and form.
-Whilst some WC stars are potentially capable of forming dust, this is predicted to be rare, and these stars only produce dust in small amounts \parencite{medinaAreAllWCd2021}.
+\note{Whilst some WC stars are potentially capable of forming dust, these stars only produce dust in small amounts \parencite{medinaAreAllWCd2021}}.
 Certain binary systems can produce quantities of dust that can significantly impact their local environment, however.
 Within a binary system, it is typically paired with another massive star, such as an O-type or B-type.
 The RSG/LBV phase strips off the bulk of the stars outer envelope, resulting in a WR star that is significantly smaller and lighter than its partner.
@@ -509,7 +646,7 @@ The core contracts further, heating to temperatures in the range of $10^9 \, \si
 These reactions salvage miniscule amounts of energy per nucleon, burning through all carbon in the core in $\sim 10^3$ years.
 % Neon burning, buildup of nuclear ash
 The core continues to contract, more vigorous and less efficient fusion processes begin to pile up on each other.
-The star burns neon, then oxygen, and then silicon -- the latter of which has a flurry of reaction modes that produce many different elements, and burns through the entire reserves in approximately a day
+The star burns neon, then oxygen, and then silicon -- the latter of which has a flurry of reaction \note{mechanisms} that produce many different elements, and burns through the entire reserves in approximately a day
 \parencite[Ch.~6]{ryanStellarEvolutionNucleosynthesis2010a}.
 
 % Iron
@@ -520,7 +657,7 @@ The core rushes in on itself, accelerating to a large fraction of the speed of l
 This collapse produces truly unimaginable densities and temperatures in excess of \SI{100}{\giga\kelvin} within the core; protons capture electrons, forming neutrons and emitting copious amounts of neutrinos.
 Eventually neutron degeneracy suddenly halts the collapse, the near-relativistic core material suddenly rebounds and generates an enormous shock wave, causing the conditions inside the dying star to jump to more absurd temperatures and pressures.
 The rebounding material forms a core collapse supernova, ejecting heavy elements formed through neutron capture into an unsuspecting universe.
-What's left behind is a neutron star: the remnant of the electron capture mechanism from the original inward dive \parencite[Ch.~13]{longairHighEnergyAstrophysics2011}.
+\note{What's left behind is a neutron star; the remnant of the electron capture mechanism from the original inward dive} \note{\parencite{canalOriginNeutronStars1990}}.
 
 In the case of collapsing Wolf-Rayet stars and other supergiant evolved stars this can go even further.
 Neutron degeneracy is insufficient to halt the collapse and the core collapses into a black hole.
@@ -528,14 +665,16 @@ The resultant jet of material from this hypernova makes up a gamma-ray burst (GR
 We should stop here, this section was written to provide context as to what early-type stars fundamentally are: violent, destructive, and awe-inspiring.
 It seems absurd that these systems could produce anything as fragile as interstellar dust.
 
-And yet they \emph{do!}
+\begin{center}
+  And yet they \emph{do!}
+\end{center}
 
 \section{Interstellar Dust}
 \label{sec:dust}
 
 % Observational history
 For much of the history of astronomy, interstellar dust was not its own field, nor was it studied in significant detail.
-Instead it was regarded as nothing but a \emph{nuisance}.
+Instead it was regarded as nothing but a \note{nuisance}.
 Early astronomy relied solely on visible light observations, and at these wavelengths dust obscures dim and distant stars, as well as the innermost depths of the galaxy.
 % Early astronomy, of course, was limited to the visible light spectra, at these wavelengths dust \emph{is} in fact a nuisance, contributing nothing and extincting stars and the innermost depths of the galaxy.
 The first population counts of stars at the turn of the \nth{20} century were hampered by this extinction, with \textcite{kapteynAbsorptionLightSpace1909} noting:
@@ -582,7 +721,7 @@ In this spherical case the dust destruction rate is also proportional to the num
 
 Calculating the exact dust sputtering yield incurred on a grain is a very complex process, requiring a summation of sputtering yields across all projectile ion species.
 Instead, we use an approximation described by \textcite[Ch.~25]{drainePhysicsInterstellarIntergalactic2011} which significantly simplifies the process and does not require simulation of the dynamics of ions.
-Between $10^5$ and $10^9$ Kelvin the following approximation is valid:
+\note{Between $10^5\,\si{K}$ and $10^9\,\si{K}$ the following approximation is valid}:
 
 
 \begin{equation}
@@ -616,7 +755,7 @@ This steady accretion process can be described in the form of another fairly eff
 By considering a spherical grain moving through a flow of atoms with a number density $n\rms{a}$, a certain number of these atoms would collide and stick to the dust grain, this sticking probability is defined as $\xi$.
 This sticking factor is found to be $\approx 1$ for neutral atoms\footnote{Though we adopt a more conservative value of $0.1$ due to the turbulent nature of the environments that are studied in this project.} \parencite{watsonAbundancesInterstellarMolecules1972}.
 Above a threshold velocity, atoms fail to adhere to the grain surface in significant quantities, and at even higher velocities contribute to the sputtering process instead \parencite{spitzerPhysicalProcessesInterstellar2008}.
-For this research, this threshold temperature was defined as \SI{14000}{\kelvin}.
+For \note{our dust model}, this threshold temperature was defined as \SI{14000}{\kelvin}\footnote{\note{Our reasoning for this value is detailed in Section \ref{sec:ddustevol}.}}.
 
 If we model a grain of radius $a$, the cross section, $\sigma$, of the grain moving through the gas would be $\sigma = \pi a^2$.
 In the case of a grain moving through a gas of composition $x$ and density $\rho_x$ where the grain is significantly larger than the atoms composing the gas, it is found that the rate of change in the grain mass, $dm\rms{gr}/dt$, is:
@@ -646,7 +785,7 @@ This of course makes the premise of our project all the more curious, with so ma
 \subsection{Dust composition}
 
 % Grain types being considered, amorphous carbon grains
-The only species of interstellar dust studied in this thesis are composited of carbon.
+\note{The species of interstellar dust studied in this thesis are composed of carbon}.
 $sp^2$ (graphite) and $sp^3$-bonded (diamond) dust grains have been detected from their characteristic emission lines, as well as hydrocarbon chains and Polycyclic Aromatic Hydrocarbons (PAHs).
 Complex organic molecules have also been detected in dusty environments, which are believed to have formed on the surface of dust grains, instead of forming within the ISM itself
 \parencite{herbstComplexOrganicInterstellar2009}.
@@ -682,12 +821,12 @@ As a giant molecular cloud (GMC) collapses, it heats up.
 In an adiabatic case the increased temperature would provide a counterbalancing pressure on the collapsing cloud, forming a hydrostatic equilibrium and preventing the cloud from collapsing any further.
 In the case of extremely massive clouds, this collapse can still occur as gravity will dominate, but this equilibrium dictates the minimum mass for a cloud to collapse into a protostar.
 As such, for all but the most massive stars to form, energy must be lost in the form of radiation
-\parencite{ward-thompsonIntroductionStarFormation2011}.
+\note{\parencite{ladaEmbeddedClustersMolecular2003}}.
 As cooling from dust grains is extremely efficient in cold, dense environments, this mechanism is well-suited for the environment of a GMC.
 In addition to cooling through rotational mechanisms of simple molecules in the gas-phase of the medium, these processes sufficiently cool the GMC, allowing for further collapse.
 In addition, dust grains would also provide a replenishing source of cooling molecules such as CO and OH through non-thermal grain desorption processes.
 The presence of dust grains within a GMC therefore strongly influences the minimum mass of stars
-\parencite{williamsChemistryCosmicDust2015}.
+\note{\parencite{heyerMolecularCloudsMilky2015}}.
 
 % Planetary formation
 Interstellar dust is also important for planetary formation.
@@ -695,7 +834,7 @@ Collision between refractory dust grains is the first stage of planetesimal form
 Within the protoplanetary disk, low velocity collisions between micron-sized grains can occur, causing these grains to stick and rapidly accrete.
 If the local region of the disk is gravitationally unstable, these small grains will form a gravitationally bound cluster, and contract over time into a planetesimal.
 Afterwards, rapid accretion of other planetesimals gives rise to the formation of both rocky planets and gas giants
-\parencite{apaiProtoplanetaryDustAstrophysical2010}.
+\note{\parencite{williamsProtoplanetaryDisksTheir2011}}.
 Dust is also a regulator of opacity, which determines the temperature structure and composition of the protoplanetary disk.
 Finally, and perhaps most importantly to the reader, the complex organic molecules produced in the dust grain are pre-biotic precursors to life
 \parencite{birnstielDustEvolutionFormation2016}.
@@ -920,9 +1059,11 @@ Through molecular transitions for cooling and heating through cosmic rays, a sta
 While this mechanism is essential for understanding how molecular clouds remain so cool, heating from the parent stars will prevent the WCR from getting this cold.
 
 % Section on forbidden line emission
+\note{
 Between $100 \,\si{K}$ and $1000 \, \si{K}$, radiative cooling is dominated by the hydrogen forbidden line transition.
 This mechanism releases energy through a hyperfine splitting of the $1s$ ground state of hydrogen, where the hydrogen atom spontaneously emits photons de-excite to a more stable spin state.
 Transition between a proton/electron parallel ($\uparrow\uparrow$) to antiparallel ($\uparrow\downarrow$) spin state emits a photon of energy \SI{5.86}{\micro\electronvolt}:
+}
 
 \begin{figure}[H]
   \adjustbox{scale=0.6,center}{%
@@ -942,10 +1083,12 @@ Transition between a proton/electron parallel ($\uparrow\uparrow$) to antiparall
 \end{figure}
 
 \noindent
+\note{
 Despite the parallel spin state being metastable, with a very long lifetime of \SI{11}{\mega\year}, it occurs extremely readily in a large volume of gas in the ISM.
 Gas at this temperature is relatively transparent to radio waves, and as such the \SI{21}{cm} line can steadily remove energy through cooling.
 Due to the presence of enormous quantities of atomic hydrogen, the \SI{21}{\centi\metre} line is one of the most prevalent type of radio emission in the galaxy\footnote{In fact, the wavelength and parallel spin state actually make up a set of fundamental units used in messages such as the \textit{Voyager} and \textit{Pioneer} messages due to its ubiquity.}
 \parencite[Ch.~8]{drainePhysicsInterstellarIntergalactic2011}.
+}
 
 
 \subsubsection{``Warm'' medium}
@@ -995,10 +1138,7 @@ Such ions include $\text{O}^+$ and $\text{O}^{++}$:
 \end{figure}
 
 \noindent
-These transitions release significantly more energy than the comparable, lower temperature \SI{21}{\centi\metre} transition, and as such are a more efficient way of removing energy from metal enriched winds, explaining the increase in cooling rate in the WC abundance wind in Fig. \ref{fig:wcsolcooling}
-\parencite[Ch.~5]{dysonPhysicsInterstellarMedium2021}.
-\turbo{Change citation}
-
+These transitions release significantly more energy than the comparable, \note{lower temperature \SI{21}{\centi\metre} transition, and as such are a more efficient way of removing energy from metal enriched winds, explaining the increase in cooling rate in the WC abundance wind in Fig. \ref{fig:wcsolcooling}}.
 
 \subsubsection{``Hot'' medium}
 
@@ -1011,8 +1151,7 @@ With their electrons stripped bare they simply do not have any resonance lines l
 However, at these extreme temperatures, the WCR is cooled through radiation emitted via the bremsstrahlung mechanism.
 This mechanism is comparatively simple: as the path of a high velocity charged particle is changed, it emits radiation equivalent to the change in velocity, in accordance with the conservation of energy.
 As this process is not determined by emission lines or energy levels, it increases with temperature, as stronger deflections release higher energy photons.
-Therefore, this process acts as the dominant cooling process in the universe at temperatures beyond $10^9 \, \si{\kelvin}$
-\parencite[Ch.~6]{longairHighEnergyAstrophysics2011}.
+Therefore, this process acts as the dominant cooling process in the universe at temperatures beyond $10^9 \, \si{\kelvin}$.
 
 \subsubsection{Radiative effects in WCRs}
 
@@ -1186,7 +1325,7 @@ This impact is especially important on small grains, as there is less material f
 
 %Intro to dust formation in said systems
 Despite the extremely violent conditions thus far described in CWB systems, these systems appear to be extremely prolific producers of interstellar dust.
-Whilst single WC stars can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert more than 10\% of their wind masses from ionised carbon into amorphous carbon dust grains\footnote{In extreme cases.}.
+Whilst single WC stars can produce small amounts of dust in the form of amorphous carbon grains (though this could be observed to be extremely rare, pending the results of \textcite{medinaAreAllWCd2021}), binary systems have been observed to convert more than 10\% of their wind masses from ionised carbon into amorphous carbon dust grains\footnote{In extreme cases.} \parencite{lauRevisitingImpactDust2020}.
 This can result in a dust production rate in excess of $10^{-6} \, \si{\solarmass\per\year}$, more than a typical AGB star.
 The dust production rate ranges from $10^{-10}$ to $10^{-6}\, \si{\solarmass\per\year}$ \parencite{lauRevisitingImpactDust2020}.
 Research by \textcite{zubkoPhysicalModelDust1998a} details dust growth around these regions.
@@ -1223,6 +1362,11 @@ A more up-to-date estimate performed for this thesis using the updated dataset e
 % Impact of systems 
 \textcite{rossloweSpatialDistributionGalactic2015} goes on to estimate that out of an estimated total of \num{1900} galactic WR stars, approximately \num{300} of these stars are predicted to be dusty WC stars.
 Whilst this is a far cry from the number of galactic AGB stars, which outnumber WCd stars by approximately 3 orders of magnitude \parencite{ishiharaGalacticDistributionsCarbon2011}, these systems can still significantly impact the surrounding interstellar medium -- with strong stellar feedback propagating large quantities of dust into the surrounding medium.
+\note{
+  However, as population III stars are theorised to be significantly higher mass \parencite{morganDustFormationEarly2003} the proportion of stars that underwent either a WR or analogous phase would be higher. As there were fewer low-mass stars, AGB stars would be significantly less viable in the low-metallicity early universe.
+  As such, WCd stars would have a much greater impact on the formation of dust in the early universe and would be highly influential on the deposition of carbon and dust into early galaxies \parencite{soulainSmokeWindDust2022a}.
+  Whilst there is limited analysis of the impact of these stars in the early universe, this would present an interesting avenue of research in the future.
+}
 
 \begin{figure}[h]
   \centering
@@ -1249,7 +1393,7 @@ The same can be said with dust grain cores, allowing for fast growth from gas an
 The accumulation of these effects results in a very fast initial growth rate, which tapers off as the post-shock region diffuses and expands.
 
 % Role of instabilities
-The presence of instabilities driven by cooling and other factors leads to pockets of high density post-shock material.
+The presence of instabilities driven by cooling and other factors leads to pockets of high density post-shock material \parencite{stevens_colliding_1992}.
 This can lead to ``clumps'' of highly dust-enriched post-shock stellar wind.
 These clumps would have additional protection from UV photons, and would also be cool enough for dust to form.
 Thus, the driving hypothesis for this theory is that these are regions where the bulk of dust formation would occur.
@@ -1269,8 +1413,8 @@ Further analysis of available dust producing CWB systems suggests that many WCd 
 
 \begin{figure}[h]
   \centering
-  \includegraphics[]{assets/magnitudes/magnitudes.pdf}
-  \caption[L$^\prime$ photometry of episodic dust making stars]{L$^\prime$ photometry for episodic dust making stars, data derived from \textcite{crowther_dust_2003}, and provided by PM Williams in private correspondence. WR140 and WR137 in particular have extremely predictable dust forming events which correspond to periastron passage in both systems.}
+  \includegraphics[]{assets/magnitudes/magnitudes-new.pdf}
+  \caption[L$^\prime$ photometry of episodic dust making stars]{\turbo{This graph has been modified} L$^\prime$ photometry for episodic dust making stars, data derived from \textcite{crowther_dust_2003}, and provided by PM Williams in private correspondence. WR140 and WR137 in particular have extremely predictable dust forming events which correspond to periastron passage in both systems.}
   \label{fig:periodicmags}
 \end{figure}
 
@@ -1281,33 +1425,53 @@ The principle systems that are being simulated in this thesis are the variable d
 The archetypal continuous dust forming system WR104 was also considered for simulation, but had to be cut due to time constraints.
 This system will also be discussed to provide a point of comparison between the two systems.
 
-\begin{table}[h]
+\scriptsize
+\begin{threeparttable}[h]
   \centering
   \begin{tabular}{llllllll}
   \hline
   System & $\dot{\text M}_{\text{WR}}$ & $\dot{\text M}_{\text{OB}}$ & $v_{\text{WR}}^\infty$ & $v_{\text{OB}}^\infty$ & $\eta$ & $\chi_\text{WR,min}$ & $\dot{\text M}_\text{D}$ \\
    & (\si{\solarmass\per\year}) & (\si{\solarmass\per\year}) & (\si{\km\per\second}) & (\si{\km\per\second}) & & & (\si{\solarmass\per\year}) \\ \hline
-  WR98a & \num{5.0e-6} & \num{5.0e-8} & 900  & 2000 & 0.0222 & 0.7970 & $\left(6.10^{+1.77}_{-1.38}\right) \times 10^{-7}$ \\ 
-  WR104 & \num{3.0e-5} & \num{6.0e-8} & 1220 & 2000 & 0.0033 & 0.2430 & $\left(4.39^{+1.27}_{-0.97}\right) \times 10^{-6}$ \\
-  WR140 & \num{5.6e-5} & \num{1.6e-6} & 2895 & 3200 & 0.0314 & 2.6866 & $\left(8.11^{+4.83}_{-4.15}\right) \times 10^{-10}$ \\ \hline
+  WR98a & (\num{5.0e-6})\tnote{1} & (\num{5.0e-8})\tnote{1} & 900\tnote{1}  & 2000\tnote{1} & 0.0222\tnote{6} & 0.7970\tnote{6} & $\left(6.10^{+1.77}_{-1.38}\times 10^{-7}\right)$\tnote{2} \\ 
+  WR104 & (\num{3.0e-5})\tnote{3} & (\num{6.0e-8})\tnote{3} & 1220\tnote{4} & 2000\tnote{4} & 0.0033\tnote{6} & 0.2430\tnote{6} & $\left(4.39^{+1.27}_{-0.97} \times 10^{-6}\right)$\tnote{2} \\
+  WR140 & (\num{5.7e-5})\tnote{5} & (\num{1.6e-6})\tnote{5} & 2860\tnote{5} & 3200\tnote{5} & 0.0314\tnote{6} & 2.6866\tnote{6} & $\left(8.11^{+4.83}_{-4.15}\times 10^{-10}\right)$\tnote{2} \\ \hline 
   \end{tabular}
+  \begin{tablenotes}
+    \item[1] \note{\textcite{hendrix_pinwheels_2016};}
+    \item[2] \note{\textcite{lauRevisitingImpactDust2020};}
+    \item[3] \note{\textcite{harriesThreedimensionalDustRadiativetransfer2004};}
+    \item[4] \note{\textcite{soulainSPHEREViewWolfRayet2018};}
+    \item[5] \note{\textcite{williams_dust_1990};}
+    \item[6] \note{Calculated}
+  \end{tablenotes}
   \caption[Wind properties of systems considered for simulation]{Wind properties of systems considered for simulation in this thesis.}
   \label{tab:systems-wind-properties}
-\end{table}
+\end{threeparttable}
+\normalsize
 
-\begin{table}[h]
+\scriptsize
+\begin{threeparttable}[h]
   \centering
   \begin{tabular}{lllllllll}
   \hline
   System & Classification & Period & Eccentricity & Inclination & $M_{\text{WR}}$ & $M_{\text{OB}}$ & Periastron & Apastron \\
    & & (d) & ($e$) & ($i$) & (\si{\solarmass}) & (\si{\solarmass}) & (AU) & (AU) \\ \hline
-  WR98a & WC8-9+OB & 556 & $\sim 0$ & $35\pm6^\circ$ &10.0 & 18.0 & 4.06 & 4.06 \\
-  WR104 & WC9d+B0.5V & 245 & 0.0600 & $\lesssim 16^\circ$ & 10.0 & 20.0 & 2.20 & 2.48 \\
-  WR140 & WC7+O5 & 2869 & 0.8993 & $119.1\pm0.9^\circ$ & 10.31 & 29.27 & 1.53 & 26.9 \\ \hline
+  WR98a & WC8-9+OB\tnote{1} & 556\tnote{2} & $\sim 0$\tnote{2} & $35\pm6^\circ$\tnote{2} &10.0\tnote{2} & 18.0\tnote{2} & 4.06\tnote{6} & 4.06\tnote{6} \\
+  WR104 & WC9d+B0.5V\tnote{1} & 245\tnote{3} & 0.060\tnote{3} & $\lesssim 16^\circ$\tnote{3} & 10.0\tnote{4} & 20.0\tnote{4} & 2.20\tnote{6} & 2.48\tnote{6} \\
+  WR140 & WC7+O5\tnote{1} & 2895\tnote{5} & 0.8993\tnote{5} & $119.1\pm0.9^\circ$\tnote{5} & 10.31\tnote{5} & 29.27\tnote{5} & 1.53\tnote{6} & 26.9\tnote{6} \\ \hline
   \end{tabular}
+  \begin{tablenotes}
+    \item[1] \note{\textcite{rossloweSpatialDistributionGalactic2015};}
+    \item[2] \note{\textcite{hendrix_pinwheels_2016};}
+    \item[3] \note{\textcite{lamberts_impact_2012};}
+    \item[4] \note{\textcite{soulainSPHEREViewWolfRayet2018};}
+    \item[5] \note{\textcite{thomasOrbitStellarMasses2021};}
+    \item[6] \note{Calculated}
+  \end{tablenotes}
   \caption[Orbital properties of systems considered for simulation]{Orbital properties of systems considered for simulation in this thesis.}
   \label{tab:systems-orbital-properties}
-\end{table}
+\end{threeparttable}
+\normalsize
 
 \subsubsection{WR98a}
 
@@ -1334,8 +1498,15 @@ Because of this relative ease of simulation and relatively slow wind velocity fo
 
 \subsubsection{WR140}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=5in]{assets/wr-140-jwst.png}
+  \caption[JWST image of WR140]{\note{JWST MIRI image of the WCd system WR140, asymmetric dusty ``rings'' are observed, indicating that the system is a episodic WCd system \parencite{lauNestedDustShells2022}.}}
+  \label{fig:jwst-wr140}
+\end{figure}
+
 % Historical observation
-WR140 is significant in that it is the first system observed with episodic WCd properties.
+\note{WR140 (Fig. \ref{fig:jwst-wr140})} is significant in that it is the first system observed with episodic WCd properties.
 \textcite{williamsCondensationShellHD1978} noted a rapid brightening in the infrared, suggesting the formation of a new shell of dust around the system.
 WR140 has been observed many times over the years, with spectroscopic data dating back to 1972, and is perhaps the most well-observed episodic WCd system.
 % Eccentric orbit, variable dust formation
@@ -1364,9 +1535,9 @@ Instead, it was decided to only simulate the system as it undergoes closest appr
 \noindent
 WR104 (Fig. \ref{fig:soulain-wr104}) is an archetypal example of a continuous WCd system.
 It is a comparatively tight binary with a semi-major axis of \SI{2.34}{\au} and a period of $\sim 241$ days.
-The system also has a relatively circular orbit, with an eccentricity of $e = 0.06$ \parencite{lamberts_colliding_2012}.
+The system also has a relatively circular orbit, with an eccentricity of $e = 0.06$ \parencite{lambertsImpactOrbitalMotion2012a}.
 WR104 consists of a WC9 star with a B0.5V partner \parencite{williamsSpectroscopyWC9WolfRayet2000}; this combination of a WC star and a comparatively weak B partner results in a severely imbalanced wind.
-We estimate a wind momentum ratio of $0.003$, an order of magnitude lower than WR98a.
+The system has a wind momentum ratio of $0.003$, an order of magnitude lower than WR98a.
 This imbalanced wind -- combined with the tight orbit -- results in an extremely IR bright WCR that is constantly churning out dust.
 % Mass loss rate
 Using radiative transfer models, \textcite{harriesThreedimensionalDustRadiativetransfer2004} calculated a dust production rate of \SI{8(1)e-7}{\solarmass\per\year}, corresponding to 2\% of the total mass loss rate of the system.
@@ -1409,7 +1580,7 @@ This would of course results in truly titanic wind collisions.
 These candidates are the recently discovered WR70-16 \parencite{callinghamAnisotropicWindsWolf2019}, and the previously discovered WR48a system \parencite{danksInfraredSpectroscopyInfrared1983}, which exhibits the spectroscopic lines of both a WC and WN system \parencite{williamsVariableDustEmission2019}.
 These systems are predicted to be comparatively rare, even among CWB systems.
 This is due to the unlikelihood that both stars in the system would be in their Wolf-Rayet phase at the same time.
-Despite these systems having an enormous combined mass-loss rate, initial estimates of the dust production rates of both systems indicate that their dust conversion efficiencies are comparatively low compared to less energetic systems, and overall quite mundane dust production rates in general.
+Despite these systems having an enormous combined mass loss rate, initial estimates of the dust production rates of both systems indicate that their dust conversion efficiencies are comparatively low compared to less energetic systems, and overall quite mundane dust production rates in general.
 Whether this suppressed dust production rate is a common phenomena among WR+WR systems remains to be seen, as more systems would need to be discovered in order to determine this.
 Extragalactic WR+WR binaries have also been detected in the Magellanic clouds, though all detected systems so far have been found to be WN+WN pairs, which are not known to produce dust \parencite{shenarWolfRayetBinaries2019}.
 
