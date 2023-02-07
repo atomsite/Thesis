@@ -10,52 +10,21 @@
 
 \note{Colliding Wind Binary (CWB) systems are relatively rare phenomena, but have a significant influence on galactic evolution in terms of dust production -- especially in the early universe.
 The mechanisms behind this dust production, however, are poorly understood.
-The strong winds from both partners in the binary system drive shocks that heat the dust forming region to temperatures in excess of \SI{1e8}{K}; whilst this region does rapidly cool, the initial shock temperatures would destroy any dust grains that formed outside of the collision region.
+The strong winds from both partners in the binary system drive shocks that heat the dust forming region to temperatures in excess of \SI{1e8}{K}; whilst this region does rapidly cool, the initial shock temperatures would destroy any dust grains that formed outside the collision region.
 Furthermore, this collision region is difficult to observe and simulate, limiting our understanding of how grains form and evolve in this region.}
 
 \note{This thesis attempts to improve our understanding of the evolution of dust grains within these systems, particularly growth of these grains from small dust grain cores to micron-scale grains.
-We implement a co-moving dust grain model that simulates growth through accretion of gas onto the dust grains, as well as destruction through gas-grain sputtering.
+A co-moving dust grain model was implemented that simulates growth through accretion of gas onto the dust grains, as well as destruction through gas-grain sputtering.
 The model also simulates cooling through collisional excitation and subsequent emission for both dust grains and gas.
-Overall, we attempted to build a model for simulating dust growth in a numerical simulation that was influenced by the wind and orbital characteristics of the system, in order to understand what parameters most influence dust growth.}
+Overall, the goal of this model was to determine how dust growth was influenced by the wind and orbital characteristics of the system, and which of these characteristics were most important for dust growth.}
 
 \note{First, a parameter space exploration of dust producing CWB systems (WCd systems) was conducted, varying the orbital separation ($\dsep$), the wind terminal velocity ($\vinf$) and the mass loss rate ($\mdot$) of each star.
-We found that dust production is strongly influenced by the ratio of wind terminal velocities between each star, as well as the orbital separation.
+It was found that dust production is strongly influenced by the ratio of wind terminal velocities between each star, as well as the orbital separation.
 Following up on this, a limited simulation of the episodic dust forming system WR140 was conducted, in order to understand how variance in orbital separation through eccentricity changed dust production rates over the course of a periastron passage.
-We determined that dust production occurs over a very short period immediately prior to periastron passage and a small period after, with an ``active'' phase of approximately 1 year, or $1/8$\textsuperscript{th} of the systems orbital period}
+Furthermore, it was determined that dust production occurs over a very short period immediately prior to periastron passage and a small period after, with an ``active'' phase of approximately 1 year, or $1/8$\textsuperscript{th} of the systems orbital period}
 
-\note{Whilst there is much to be done in the future, and many more systems to be simulated (in particular the recently discovered WR+WR CWB systems WR48a and WR70-16) we find that this model is a good first step towards shedding light on these elusive and dust-shrouded systems.}
+\note{Whilst there is much to be done in the future, and many more systems to be simulated (in particular the recently discovered WR+WR CWB systems WR48a and WR70-16) this model is a good first step towards shedding light on these elusive and dust-shrouded systems.}
 
-\begin{center}
-  \turbo{Please note that this section is one page when boldening due to change highlighting}
-\end{center}
-
-
-% Colliding wind binary (CWB) systems are exceptionally easy to understand at the most fundamental level.
-% These systems consist of two stars in a binary system that produce winds that collide.
-% Unlike many pieces of terminology in astrophysics, this one is fairly simple and self-explanatory.
-
-% \begin{center}
-%   This is where the simplicity ends, however.
-% \end{center}
-
-% These systems produce titanic quantities of x-rays, making them some of the brightest continuous x-ray sources in the galaxy.
-% The innermost wind collision region is an enormous shocked region with temperatures typically on the order of $10^8$ Kelvin, driving these x-ray emissions.
-% Whilst being very bright, they are distant, rare, and their innermost depths are shrouded by dense stellar winds produced by the dominant Wolf-Rayet star driving their titanic shocks.
-% As such, these systems are fundamentally very complex to observe \emph{and} simulate.
-
-% What is most interesting is that despite violent shocks, intense x-ray emissions and hot stellar winds, small interstellar dust grains of amorphous carbon can form.
-% The quantity of these grains varies from system to system but can be produced in quantities on the order of \SI{1e-6}{\solarmass\per\year} in the most extreme dust-producing systems.
-% The mechanisms of this dust creation and production are extremely poorly understood, as such we aim to shed some light on these systems through \emph{in silico} work.
-
-% Through this project, we have developed a model to simulate CWB systems using the open-source \athena{} hydrodynamical code.
-% We have also incorporated a passive scalar model to simulate dust growth, destruction and radiative cooling.
-% Using this model we have performed a parameter space search in order to understand which wind and stellar parameters affect dust growth and production in a CWB system.
-% We have also performed a simulation of the episodic dust-producing CWB system, WR140.
-% Our results have determined which parameters are the most influential on dust growth within these systems.
-% We have also managed to replicate the periodic nature of dust production in WR140 without artificial constraints, lending credence to the accuracy of our model.
-
-% Whilst there is much to be done in the future, and many more systems to be simulated (in particular the recently discovered WR+WR CWB systems WR48a and WR70-16) we find that this model is a good first step towards shedding light on these elusive and dust shrouded systems\ldots
-	
 \end{abstracts}
 %\end{abstractlongs}
 

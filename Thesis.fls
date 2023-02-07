@@ -1900,9 +1900,6 @@ INPUT Abstract/abstract.tex
 INPUT ./Abstract/abstract.tex
 INPUT Abstract/abstract.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbxi10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmcsc10.tfm
 INPUT ./Thesis.toc
 INPUT Thesis.toc
@@ -1933,6 +1930,7 @@ INPUT ./Abbreviations/Abbreviations.tex
 INPUT Abbreviations/Abbreviations.tex
 INPUT ./Abbreviations/Abbreviations.tex
 INPUT Abbreviations/Abbreviations.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtt8.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm5.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/euler/eusm10.tfm
@@ -1983,9 +1981,6 @@ INPUT Chapters/Chapter_2_Background/Background.tex
 INPUT ./Chapters/Chapter_2_Background/Background.tex
 INPUT Chapters/Chapter_2_Background/Background.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx12.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmri8.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbxi10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtko10.tfm
 INPUT ./Chapters/Chapter_2_Background/assets/reaction-rate/reaction-solar.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/reaction-rate/reaction-solar.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/reaction-rate/reaction-solar.pdf
@@ -2034,7 +2029,6 @@ INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
 INPUT ./Chapters/Chapter_2_Background/assets/tielens-sputtering/sputter.pdf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/ts1-lmr5.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
 INPUT ./Chapters/Chapter_2_Background/assets/cwb-diagrams/eichler.png
@@ -2109,6 +2103,7 @@ INPUT ./Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
 INPUT Chapters/Chapter_3_Numerical_Simulation/Numerical_Simulation.tex
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx6.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib10.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/lmmib7.tfm
@@ -2124,6 +2119,7 @@ INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/riemann-interface/riemann.pdf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx9.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmtk10.tfm
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mergecellc.pdf
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mergecellc.pdf
@@ -2244,7 +2240,6 @@ INPUT Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex
 INPUT ./Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex
 INPUT Chapters/Chapter_4_Parameter_Space_Paper/Parameter_Space.tex
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmr10.tfm
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mesh/gridxy.pdf
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mesh/gridxy.pdf
 INPUT ./Chapters/Chapter_3_Numerical_Simulation/assets/mesh/gridxy.pdf
@@ -2485,11 +2480,11 @@ INPUT ./Thesis.out
 INPUT ./Thesis.out
 INPUT Thesis.run.xml
 OUTPUT Thesis.run.xml
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -2509,7 +2504,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eusm1
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb
@@ -2532,7 +2526,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy6.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy9.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
-INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtko10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt9.pfb

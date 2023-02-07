@@ -103,7 +103,7 @@ This project relied on a number of resources available from the University of Le
 Not to opine on the importance of open source projects for too long; but we as researchers should be aware of the time, effort and labour of programmers who develop open source projects.
 Learning that perhaps the bulk of the infrastructure we use rests almost entirely on a series of freely-developed projects came as a shock to me many years ago, and in lieu of payment, this section will acknowledge these projects.
 
-This simulations in this thesis were performed on the ARC3 and ARC4 computers, part of the High Performance Computing facilities at the University of Leeds, UK.
+The simulations in this thesis were performed on the ARC3 and ARC4 computers, part of the High Performance Computing facilities at the University of Leeds, UK.
 According to the SGE log file I had used approximately \SI{8e+09}{s} of cumulative CPU time on ARC3 and ARC4 (Fig. \ref{fig:cpugraph}) over the course of this PhD, which is over \num{250} core-years!
 Much of the earlier development and testing work was undertaken on workstations provided by the department.
 In particular was the 44 core workstation my supervisor used, whose computing brunt was used \note{heavily} throughout the project.
@@ -146,7 +146,7 @@ One of the more prominent mistaken expectations of computing in the last few dec
 Early in the lifecycle of the NetBurst architecture, Intel predicted the Pentium 4 and the subsequent generations of their flagship processors would scale up to \SI{10}{\giga\hertz} -- or even beyond!
 This of course, never panned out, only a handful of processors can reliably scale to \SI{5}{\giga\hertz} -- albeit with an enormous thermal penalty -- with contemporary high-end desktop processors drawing as much as twice the power of the hottest running NetBurst designs.
 Instead, processors, while significantly faster in single threaded applications due to improvements to branch prediction, and cache speed, now have more than one processing core.
-In most cases in scientific computing, single-threaded performance has been entirely supplanted by multi-threaded performance and parallel programming.
+In most cases in scientific computing, single-threaded performance has been entirely supplanted by multithreaded performance and parallel programming.
 % Role of parallelism
 If a large problem can be divided into a series of smaller problems, with little to or no dependence between the smaller problems, it is ripe for parallelisation.
 A good example of this would be performing the dot product of two matrices together, each element of the resultant matrix can be calculated individually.
@@ -230,12 +230,12 @@ As such we find that more powerful computers with many thousands of cores still 
 
 % Issues with parallelism at high amounts
 Beyond these theoretical laws, there are practical limitations to parallel processing.
-The first of which is die size and cost: a single large, multi-core processor would be extremely expensive to manufacture, while also reducing yield significantly due to manufacturing defects.
+The first of which is die size and cost: a single large, multicore processor would be extremely expensive to manufacture, while also reducing yield significantly due to manufacturing defects.
 This was the basis of supercomputing, such as the vector processors manufactured by Cray, prior to the advent of Beowulf-based HPC clusters.
 Intel attempted to solve this problem with KNL, implementing dozens of simple, slow cores and fast matrix math throughput, but these were impractical for a variety of reasons.
 GPUs could also be considered an alternative implementation of this concept, and have seen much more success, chiplet-based designs such as AMDs Infinity Fabric or the Apple M1 Ultra.
 Another issue is memory and communication bandwidth, as the problem scales to dozens of cores a single processing node would see reduced throughput due to memory bandwidth issues.
-Furthermore as the problem scales beyond a single processor, we see a reduced level of performance as the programme has to leverage motherboard processor interconnects, or the much slower interconnects between nodes in an HPC cluster.
+Furthermore, as the problem scales beyond a single processor, we see a reduced level of performance as the programme has to leverage motherboard processor interconnects, or the much slower interconnects between nodes in an HPC cluster.
 
 In testing \athena{} we found that the communication overhead became significant above 200 cores, with the current network topology and node availability of \texttt{ARC4}.
 There was also an observed increase in communication overhead with \mg{} as well, as the programme handles parallelism by slicing the problem along the $y$ axis, resulting in a very large number of ``ghost'' cells that require communication.
@@ -268,7 +268,7 @@ In this case, \texttt{Numba} was used to restructure numerical array data into a
 While this is less straightforward to implement, as many of \texttt{Pythons} data-types cannot be used, this offered a 2 order of magnitude processing speed increase in the case of an 8-core workstation.
 
 For 3D visualisation the \texttt{VisIt} application is used \parencite{HPV:VisIt}.
-However for print 2D slices generated using \texttt{Matplotlib} were used. 
+However, for print 2D slices generated using \texttt{Matplotlib} were used. 
 The \texttt{Gnuplot} utility \parencite{gnuplot} was used for generating line and scatter plots throughout this thesis, in particular history outputs from \athena{}.
 Occasionally, rendering video of the batch processes 2D exports was performed in order to better understand how the systems propagated over time, in order to do this \texttt{ffmpeg} library \parencite{tomar2006converting} was used to render the videos.
 For this, the following command was used:

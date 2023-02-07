@@ -1,12 +1,5 @@
 \chapter{Introduction \& Motivation}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=5in]{assets/wolf-rayets/wolf-rayets.png}
-  \caption[\emph{NASA APOD images of Wolf-Rayet and CWB systems}]{NASA Astronomy Picture of the Day (APOD) images of Wolf-Rayet and CWB systems. (a) The LBV+O system $\eta$ Carinae (\link{https://apod.nasa.gov/apod/ap190220.html}). (b) The persistent dust forming colliding wind binary (WCd) system WR 104 (\link{https://apod.nasa.gov/apod/ap140603.html}). (c) The WR134 ring nebula (\link{https://apod.nasa.gov/apod/ap120621.html}). (d) The Wolf-Rayet nebula surrounding WR23 (\link{https://apod.nasa.gov/apod/ap210208.html}). Wolf-Rayet and CWB systems are, without a doubt, some of the most striking systems in the galaxy.}
-  \label{fig:cwbexamples}
-\end{figure}
-
 Colliding Wind Binary (CWB) systems are perhaps one of the most striking types of stellar system.
 % Notes on beauty
 Beauty, as they say, is in the eye of the beholder -- and nearly every astrophysicist believes that parts of their specialist subjects hold tremendous aesthetic qualities.
@@ -26,17 +19,24 @@ If these stars form a close binary with colliding winds we observe powerful shoc
 This heats this wind collision region (WCR) to temperatures in excess of $10^8 \, \si{K}$ as these winds crash headlong into each other.
 These systems are among the brightest continuous x-ray sources in the night sky (Fig. \ref{fig:intro-xray}), and provoked much scientific debate before the discovery of their true nature. 
 
-\begin{figure}[ht]
+However, a most puzzling question is how dust forms in certain CWB systems (which we refer to as WCd systems throughout this thesis).
+These systems have violent shocks, high temperatures, and produce copious amounts of ionising radiation.
+So how can it be that something as tenuous as interstellar dust can form?
+The mechanisms behind formation and growth are extremely poorly understood, and as such we intend to glean some information on the mechanisms and yields of dust production processes in these systems.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5in]{assets/wolf-rayets/wolf-rayets.png}
+  \caption[\emph{NASA APOD images of Wolf-Rayet and CWB systems}]{NASA Astronomy Picture of the Day (APOD) images of Wolf-Rayet and CWB systems. (a) The LBV+O system $\eta$ Carinae (\link{https://apod.nasa.gov/apod/ap190220.html}). (b) The persistent dust forming colliding wind binary (WCd) system WR 104 (\link{https://apod.nasa.gov/apod/ap140603.html}). (c) The WR134 ring nebula (\link{https://apod.nasa.gov/apod/ap120621.html}). (d) The Wolf-Rayet nebula surrounding WR23 (\link{https://apod.nasa.gov/apod/ap210208.html}). Wolf-Rayet and CWB systems are, without a doubt, some of the most striking systems in the galaxy.}
+  \label{fig:cwbexamples}
+\end{figure}
+
+\begin{figure}[h]
   \centering
   \includegraphics[width=4in]{assets/wolf-rayets/x-ray.png}
   \caption[\emph{Chandra \& NuSTAR imagery of $\eta$ Carinae \parencite{hamaguchiNonthermalXraysColliding2018}}]{Chandra x-ray imagery of $\eta$ Carinae at the soft x-ray minimum of 2009, with contours from the NuSTAR $5-10 \, \si{\kilo\electronvolt}$ x-ray band. CWB systems are extremely bright in x-ray bands due to the powerful shock heating driving thermal x-ray processes. Image sourced from \textcite{hamaguchiNonthermalXraysColliding2018}.}
   \label{fig:intro-xray}
 \end{figure}
-
-However, a most puzzling question is how dust forms in certain CWB systems (which we refer to as WCd systems throughout this thesis).
-These systems have violent shocks, high temperatures, and produce copious amounts of ionising radiation.
-So how can it be that something as tenuous as interstellar dust can form?
-The mechanisms behind formation and growth are extremely poorly understood, and as such we intend to glean some information on the mechanisms and yields of dust production processes in these systems.
 
 \section{Motivation \& Goals}
 \label{sec:projectgoals}
@@ -110,11 +110,11 @@ Furthermore, simulation of other systems, such as the WR+WR systems WR70-16 ``Ap
 Throughout the \nth{2} and \nth{3} years of this PhD, there were many issues with getting this project to even progress at all.
 This was mostly due to being unable to get the original hydrodynamical code used in this experiment to work with our dust model (Section \ref{sec:mgcode}).
 This code was ultimately abandoned by the \nth{3} year and replaced with a more modern and easier to develop code, \athena{} (Section \ref{sec:athenapp}).
-Additionally the outbreak of a global pandemic resulted in a stalling of some aspects of the work in the thesis.
+Additionally, the outbreak of a global pandemic resulted in a stalling of some aspects of the work in the thesis.
 This meant that there was a lot of time to develop the codebase and theorise on the nature of these systems, but much of the actual data collection was performed in the last few months of the project.
 As such, there is a great deal of discussion of the background and methodology, and an enormous amount of discussion on the future of this particular field.
 \note{While the primary objectives of this PhD were achieved, many aspects of this thesis that were planned at the start of the project were unfortunately truncated or removed.}
-\note{This was extremely disappointing of course}, but I hope to continue work on this field outside of this PhD, and develop a more advanced dust model for numerical simulation.
+\note{This was extremely disappointing of course}, but I hope to continue work on this field outside this PhD, and develop a more advanced dust model for numerical simulation.
 
 % Two introductory sections
 Astrophysical fluid dynamics straddles two particularly complex fields: physics and computer science.

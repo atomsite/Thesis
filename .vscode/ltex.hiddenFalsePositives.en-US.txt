@@ -1,0 +1,2 @@
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QC\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QO\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q\\E(?:Dummy|Ina|Jimmy-)[0-9]+\\QRadiative effects in WCRs.\\E$"}
+{"rule":"COMMA_PARENTHESIS_WHITESPACE","sentence":"^\\QChristened , or binary interaction dust model with accretion and sputtering.\\E$"}

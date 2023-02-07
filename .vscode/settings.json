@@ -1,7 +1,8 @@
 {
   "latex-workshop.latex.recipe.default": "latexmk 🔃",
   "cSpell.words": [
-    "metallicity"
+    "metallicity",
+    "pinwheel"
   ],
   "files.associations": {
     "iostream": "cpp"
